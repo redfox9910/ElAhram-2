@@ -1,0 +1,97 @@
+﻿<Window x:Name="phome" x:Class="ElAhram.Home"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ElAhram"
+        mc:Ignorable="d"
+        Title="Home" Height="767" Width="1024" MinHeight="767" MaxHeight="767" MinWidth="1024" MaxWidth="1024" ResizeMode="NoResize">
+    <Grid>
+        <Button   Margin="385,48,519,542" Background="{x:Null}" BorderBrush="{x:Null}" Cursor="Hand" Height="auto" Width="auto" Click="Button_Click"  x:Name="b0">
+            <StackPanel Orientation="Horizontal" Height="auto" Width="auto">
+                <Image  Height="100"  VerticalAlignment="Top" Width="100" Source="/pic/deposit.png"/>
+                <Label Content="الخزنة" Height="auto"  Margin="-95,100,0,0" Width="auto" FontWeight="Bold" FontSize="18" HorizontalContentAlignment="Center"/>
+                <DataGrid Width="100"/>
+            </StackPanel>
+        </Button>
+
+
+        <Button   Margin="673,129,221,462" Background="{x:Null}" BorderBrush="{x:Null}" Cursor="Hand" Height="auto" Width="auto" Click="Button_Click"  x:Name="b4">
+            <StackPanel Orientation="Horizontal" Height="auto" Width="auto">
+                <Image  Height="100"  VerticalAlignment="Top" Width="100" Source="pic/invoice.png"/>
+                <Label Content="امر شراء" Height="auto"  Margin="-95,100,0,0" Width="auto" FontWeight="Bold" FontSize="18" HorizontalContentAlignment="Center"/>
+            </StackPanel>
+        </Button>
+
+        <Button   Margin="539,48,365,542 " Background="{x:Null}" BorderBrush="{x:Null}" Cursor="Hand" Height="auto" Width="auto"  Click="Button_Click" x:Name="b1">
+            <StackPanel Orientation="Horizontal" Height="auto" Width="auto" HorizontalAlignment="Center">
+                <Image  Height="100"  VerticalAlignment="Top" Width="auto" Source="/pic/warehouse.png" HorizontalAlignment="Center"/>
+                <Label Content="المخزن" Height="auto"  Margin="-95,100,0,0" Width="auto" FontWeight="Bold" FontSize="18" HorizontalContentAlignment="Center"/>
+            </StackPanel>
+        </Button>
+
+
+        <Button   Margin="243,129,644,462" Background="{x:Null}" BorderBrush="{x:Null}" Cursor="Hand" Height="auto"  Click="Button_Click"  x:Name="b9">
+            <StackPanel Orientation="Horizontal" Height="auto" Width="auto">
+                <Image  Height="100"  VerticalAlignment="Top" Width="100" Source="/pic/microsoft-excel.png"/>
+                <Label Content="اليوميات" Height="auto"  Margin="-95,100,0,0" Width="auto" FontWeight="Bold" FontSize="18" HorizontalContentAlignment="Center"/>
+            </StackPanel>
+        </Button>
+
+        <Button   Margin="99,238,786,336" Background="{x:Null}" BorderBrush="{x:Null}" Cursor="Hand" Height="auto"  Click="Button_Click"  x:Name="b8">
+            <StackPanel Orientation="Horizontal" Height="auto" Width="auto">
+                <Image  Height="100"  VerticalAlignment="Top" Width="100" Source="/pic/company.png"/>
+                <Label Content="الموردين" Height="auto"  Margin="-95,100,0,0" Width="auto" FontWeight="Bold" FontSize="18" HorizontalContentAlignment="Center"/>
+            </StackPanel>
+        </Button>
+
+
+
+        <Button   Margin="243,376,644,206" Background="{x:Null}" BorderBrush="{x:Null}" Cursor="Hand" Height="auto" Width="auto"  Click="Button_Click"  x:Name="b7">
+            <StackPanel Orientation="Horizontal" Height="auto" Width="auto">
+                <Image  Height="100"  VerticalAlignment="Top" Width="100" Source="/pic/waste.png"/>
+                <Label Content="هالك" Height="auto"  Margin="-95,100,0,0" Width="auto" FontWeight="Bold" FontSize="18" HorizontalContentAlignment="Center"/>
+            </StackPanel>
+        </Button>
+
+
+
+
+        <Button   Margin="803,241,87,336" Background="{x:Null}" BorderBrush="{x:Null}" Cursor="Hand" Height="auto" Width="auto"  Click="Button_Click"  x:Name="b2">
+            <StackPanel Orientation="Horizontal" Height="auto" Width="auto">
+                <Image  Height="100"  VerticalAlignment="Top" Width="100" Source="/pic/order1.png"/>
+                <Label Content="امر تشغيل" Height="auto"  Margin="-95,100,0,0" Width="auto" FontWeight="Bold" FontSize="18" HorizontalContentAlignment="Center"/>
+            </StackPanel>
+        </Button>
+
+
+
+
+
+        <Button   Margin="673,376,221,206" Background="{x:Null}" BorderBrush="{x:Null}" Cursor="Hand" Height="auto" Width="auto"  Click="Button_Click"  x:Name="b3">
+            <StackPanel Orientation="Horizontal" Height="auto" Width="auto">
+                <Image  Height="100"  VerticalAlignment="Top" Width="100" Source="/pic/bill.png"/>
+                <Label Content="فواتير" Height="auto"  Margin="-95,100,0,0" Width="auto" FontWeight="Bold" FontSize="18" HorizontalContentAlignment="Center"/>
+            </StackPanel>
+        </Button>
+
+
+
+        <Button   Margin="530,520,356,51" Background="{x:Null}" BorderBrush="{x:Null}" Cursor="Hand" Height="auto"  Width="auto"  Click="Button_Click"  x:Name="b5">
+            <StackPanel Orientation="Horizontal" Height="auto" Width="auto">
+                <Image  Height="108"  VerticalAlignment="Top" Width="100" Source="/pic/technician.png"/>
+                <Label Content="الموظفين" Height="auto"  Margin="-90,100,0,0" Width="auto" FontWeight="Bold" FontSize="18" HorizontalContentAlignment="Center"/>
+            </StackPanel>
+        </Button>
+
+        <Button   Margin="385,520,512,51" Background="{x:Null}" BorderBrush="{x:Null}" Cursor="Hand" Height="auto"  Width="auto"  Click="Button_Click"  x:Name="b6">
+            <StackPanel Orientation="Horizontal" Height="auto" Width="auto">
+                <Image  Height="100"  VerticalAlignment="Top" Width="100" Source="/pic/people.png"/>
+                <Label Content="العملاء" Height="auto"  Margin="-95,100,0,0" Width="auto" FontWeight="Bold" FontSize="18" HorizontalContentAlignment="Center"/>
+            </StackPanel>
+        </Button>
+        <Image Height="auto" Margin="478,272,446,379" Width="auto" Source="pic/logo.png"/>
+
+
+    </Grid>
+</Window>

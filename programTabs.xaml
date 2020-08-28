@@ -1,0 +1,228 @@
+﻿<Window x:Class="ElAhram.programTabs" 
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ElAhram"
+        mc:Ignorable="d"
+        Title="الأهرام" Height="768" Width="1024" UseLayoutRounding="False">
+    <Grid>
+        <TabControl HorizontalContentAlignment="Right" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FlowDirection="RightToLeft" Name="ptabs" Loaded="ptabs_Loaded">
+            <TabItem Header="الخزنة" Foreground="Red" FontWeight="Heavy" Padding="10,10,10,10" Background="{x:Null}" >
+                <Grid>
+                    <Image  Height="100" Margin="441,31,477,0" VerticalAlignment="Top" Width="100" Source="/pic/deposit.png"/>
+                    <Label Content="دائن :" HorizontalAlignment="Left" Margin="783,0,0,0" VerticalAlignment="Center" HorizontalContentAlignment="Right"/>
+                    <Label Content="مدين : " HorizontalAlignment="Left" Margin="121,0,0,0" VerticalAlignment="Center" Width="48" HorizontalContentAlignment="Right"/>
+                    <Label Content="" HorizontalAlignment="Left" Margin="161,0,0,0" VerticalAlignment="Center" Name="mden"/>
+                    <Label Content="" HorizontalAlignment="Left" Margin="823,0,0,0" VerticalAlignment="Center" Name="d2n"/>
+                    <Label Content="كاش: " HorizontalAlignment="Left" Margin="71,68,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right"/>
+                    <Label Content="" HorizontalAlignment="Left" Margin="104,68,0,0" VerticalAlignment="Top" Name="cash"/>
+                    <Label Content="صافى :" HorizontalAlignment="Left" Margin="444,526,0,0" VerticalAlignment="Top"/>
+                    <Label Content="" HorizontalAlignment="Center" Margin="0,526,0,0" VerticalAlignment="Top" Name="total"/>
+
+                </Grid>
+            </TabItem>
+
+
+
+
+
+
+
+
+            <TabItem x:Name="m5znTab" Header="المخزن" Foreground="Red" FontWeight="Heavy" Padding="10,10,10,10" Background="{x:Null}">
+                <Grid Background="#FFE5E5E5">
+
+                    <Button Name="EditM5znBtn" Content="EDIT" HorizontalAlignment="Left" Margin="150,25,0,0" VerticalAlignment="Top" Click="EditM5znBtn_Click"/>
+                    <Button x:Name="addM5znBtn" Content="ADD" HorizontalAlignment="Left" Margin="50,25,0,0" VerticalAlignment="Top" Click="addM5znBtn_Click"/>
+                    <Button x:Name="DeleteM5znBtn" Content="DELETE" HorizontalAlignment="Left" Margin="250,25,0,0" VerticalAlignment="Top" Click="DeleteM5znBtn_Click"/>
+                    <DataGrid Margin="0,76,0,0" x:Name="m5znDataGrid" IsReadOnly="True">
+                        <!--<DataGrid.Columns>
+                            <DataGridCheckBoxColumn Header="كود الخامة "  Binding="{Binding كودالخامة }"/>
+                            <DataGridCheckBoxColumn Header="الخامة" Binding="{Binding الخامة }" />
+                            <DataGridCheckBoxColumn Header="الكمية" Binding="{Binding الكمية }"/>
+                        </DataGrid.Columns>-->
+                    </DataGrid>
+                    <Image Height="63" Margin="820,6,98,0" VerticalAlignment="Top" Width="100" Source="/pic/warehouse.png"/>
+
+
+
+                </Grid>
+            </TabItem>
+
+
+
+
+
+
+            <TabItem Header="امر تشغيل " Foreground="Red" FontWeight="Heavy" Padding="10,10,10,10" Background="{x:Null}" Height="36" VerticalAlignment="Top">
+                <Grid Background="#FFE5E5E5">
+                    <Image Height="100" Margin="820,17,98,0" VerticalAlignment="Top" Width="100" Source="/pic/order1.png"/>
+                    <Label Content="التاريخ" HorizontalAlignment="Left" Margin="33,17,0,0" VerticalAlignment="Top"/>
+                    <Label Content="." HorizontalAlignment="Left" Margin="75,17,0,0" VerticalAlignment="Top"/>
+                    <Label Content="كود :" HorizontalAlignment="Left" Margin="370,17,0,0" VerticalAlignment="Top"/>
+                    <TextBox HorizontalAlignment="Left" Margin="412,25,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch"/>
+                    <Label Content="عميل :" HorizontalAlignment="Left" Margin="33,97,0,0" VerticalAlignment="Top"/>
+
+                    <Button  HorizontalAlignment="Left" Margin="73,101,0,0" VerticalAlignment="Top">
+                        <TextBox HorizontalAlignment="Left"  Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch"/>
+                    </Button>
+                    <DataGrid Margin="0,146,0,0"/>
+
+
+
+
+
+                </Grid>
+            </TabItem>
+
+
+
+
+
+
+
+            <TabItem Header="فواتير" Foreground="Red" FontWeight="Heavy" Padding="10,10,10,10" Background="{x:Null}">
+                <Grid Background="#FFE5E5E5">
+                    <Image Height="100" Margin="820,17,98,0" VerticalAlignment="Top" Width="100" Source="/pic/bill.png"/>
+                    <Label Content="التاريخ الاستلام" HorizontalAlignment="Left" Margin="33,17,0,0" VerticalAlignment="Top"/>
+                    <DatePicker HorizontalAlignment="Left" Margin="120,18,0,0" VerticalAlignment="Top"/>
+                    <Label Content=" التاريخ التسليم" HorizontalAlignment="Left" Margin="33,45,0,0" VerticalAlignment="Top"/>
+                    <DatePicker HorizontalAlignment="Left" Margin="120,45,0,0" VerticalAlignment="Top"/>
+                   
+                    <Label Content="كود :" HorizontalAlignment="Left" Margin="370,17,0,0" VerticalAlignment="Top"/>
+                    <Button  HorizontalAlignment="Left" Margin="412,25,0,0" VerticalAlignment="Top">
+                        <TextBox HorizontalAlignment="Left"  Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch"/>
+                    </Button>
+                    <Label Content="عميل :" HorizontalAlignment="Left" Margin="33,97,0,0" VerticalAlignment="Top"/>
+
+                    <Button  HorizontalAlignment="Left" Margin="73,101,0,0" VerticalAlignment="Top">
+                        <TextBox HorizontalAlignment="Left"  Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch"/>
+                    </Button>
+
+
+
+
+
+                    <DataGrid Margin="0,146,0,123"/>
+                    <Label Content="الوزن الكلى :" HorizontalAlignment="Left" Margin="486,642,0,0" VerticalAlignment="Top"/>
+                    <Label Content="." HorizontalAlignment="Left" Margin="561,642,0,0" VerticalAlignment="Top"/>
+                    <Label Content="الإجمالى الفاتورة  :" HorizontalAlignment="Left" Margin="636,642,0,0" VerticalAlignment="Top"/>
+                    <Label Content="." HorizontalAlignment="Left" Margin="740,642,0,0" VerticalAlignment="Top"/>
+                    <Label Content="اجمالى الحساب" HorizontalAlignment="Left" Margin="50,642,0,0" VerticalAlignment="Top"/>
+                    <Label Content="." HorizontalAlignment="Left" Margin="156,642,0,0" VerticalAlignment="Top"/>
+
+
+                </Grid>
+            </TabItem>
+
+
+
+
+            <TabItem Header="امر شراء" Foreground="Red" FontWeight="Heavy" Padding="10,10,10,10" Background="{x:Null}">
+                <Grid Background="#FFE5E5E5">
+                    <Image Height="100" Margin="820,17,98,0" VerticalAlignment="Top" Width="100" Source="/pic/invoice.png"/>
+
+                    <Label Content=" التاريخ " HorizontalAlignment="Left" Margin="33,20,0,0" VerticalAlignment="Top"/>
+                    <Label Content="." HorizontalAlignment="Left" Margin="93,20,0,0" VerticalAlignment="Top"/>
+                    <Label Content="كود :" HorizontalAlignment="Left" Margin="370,17,0,0" VerticalAlignment="Top"/>
+                    <Button  HorizontalAlignment="Left" Margin="412,25,0,0" VerticalAlignment="Top">
+                        <TextBox HorizontalAlignment="Left"  Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch"/>
+                    </Button>
+                    <Label Content="مورد :" HorizontalAlignment="Left" Margin="33,97,0,0" VerticalAlignment="Top"/>
+
+                    <Button  HorizontalAlignment="Left" Margin="73,101,0,0" VerticalAlignment="Top">
+                        <TextBox HorizontalAlignment="Left"  Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch"/>
+                    </Button>
+
+
+
+
+
+                    <DataGrid Margin="0,146,0,123"/>
+                    <Label Content="الوزن الكلى :" HorizontalAlignment="Left" Margin="486,642,0,0" VerticalAlignment="Top"/>
+                    <Label Content="." HorizontalAlignment="Left" Margin="561,642,0,0" VerticalAlignment="Top"/>
+                    <Label Content="الإجمالى الفاتورة  :" HorizontalAlignment="Left" Margin="636,642,0,0" VerticalAlignment="Top"/>
+                    <Label Content="." HorizontalAlignment="Left" Margin="740,642,0,0" VerticalAlignment="Top"/>
+                    <Label Content="اجمالى الحساب" HorizontalAlignment="Left" Margin="50,642,0,0" VerticalAlignment="Top"/>
+                    <Label Content="." HorizontalAlignment="Left" Margin="156,642,0,0" VerticalAlignment="Top"/>
+
+
+                </Grid>
+            </TabItem>
+
+
+
+
+
+            <TabItem Header="الموظفين" Foreground="Red" FontWeight="Heavy" Padding="10,10,10,10" Background="{x:Null}">
+                <Grid Background="#FFE5E5E5" Margin="0,122,0,0">
+                    <Button Content="ADD" HorizontalAlignment="Left" Margin="78,-78,0,0" VerticalAlignment="Top"></Button>
+                    <Image Height="100" Margin="820,-113,98,0" VerticalAlignment="Top" Width="100" Source="/pic/technician.png"/>
+                    <DataGrid/>
+
+
+
+                </Grid>
+            </TabItem>
+
+
+            <TabItem Header="العملاء" Foreground="Red" FontWeight="Heavy" Padding="10,10,10,10" Background="{x:Null}">
+                <Grid Background="#FFE5E5E5">
+                    <Button Content="ADD" HorizontalAlignment="Left" Margin="76,40,0,0" VerticalAlignment="Top"></Button>
+                    <Image Height="100" Margin="820,10,98,0" VerticalAlignment="Top" Width="100" Source="/pic/people.png"/>
+                    <DataGrid Margin="0,123,0,0"/>
+
+
+                </Grid>
+            </TabItem>
+
+
+
+
+
+            <TabItem Header="الهالك" Foreground="Red" FontWeight="Heavy" Padding="10,10,10,10" Background="{x:Null}">
+                <Grid Background="#FFE5E5E5">
+                    <Image  Height="100" Margin="820,10,98,0" VerticalAlignment="Top" Width="100" Source="/pic/waste.png"/>
+                    <Button Content="ADD" HorizontalAlignment="Left" Margin="364,40,0,0" VerticalAlignment="Top"/>
+                    <Button Content="DELETE" HorizontalAlignment="Left" Margin="458,40,0,0" VerticalAlignment="Top"/>
+
+                    <Label Content=" التاريخ " HorizontalAlignment="Left" Margin="27,36,0,0" VerticalAlignment="Top"/>
+                    <Label Content="." HorizontalAlignment="Left" Margin="87,36,0,0" VerticalAlignment="Top"/>
+                    <DataGrid Margin="0,123,0,0"/>
+                </Grid>
+            </TabItem>
+
+
+
+            <TabItem Header="الموردين" Foreground="Red" FontWeight="Heavy" Padding="10,10,10,10" Background="{x:Null}">
+                <Grid Background="#FFE5E5E5">
+                    <Button Content="ADD" HorizontalAlignment="Left" Margin="76,40,0,0" VerticalAlignment="Top"></Button>
+                    <Image Height="100" Margin="820,10,98,0" VerticalAlignment="Top" Width="100" Source="/pic/company.png"/>
+                    <DataGrid Margin="0,123,0,0"/>
+
+
+                </Grid>
+            </TabItem>
+
+
+
+            <TabItem Header="اليوميات" Foreground="Red" FontWeight="Heavy" Padding="10,10,10,10" Background="{x:Null}">
+                <Grid Background="#FFE5E5E5">
+                    <Button Content="ADD" HorizontalAlignment="Left" Margin="76,40,0,0" VerticalAlignment="Top"></Button>
+                    <Image Height="100" Margin="820,10,98,0" VerticalAlignment="Top" Width="100" Source="/pic/microsoft-excel.png"/>
+                    <DataGrid Margin="0,123,0,0"/>
+
+
+                </Grid>
+            </TabItem>
+
+
+        </TabControl>
+        <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" Margin="2,5" VerticalAlignment="Bottom">
+           
+            <Button Name="btnSelectedTab" Click="btnSelectedTab_Click" Cursor="Hand">Selected</Button>
+            <Button Name="btnSelectedhome" Click="btnSelectedTab_home" Cursor="Hand">home</Button>
+        </StackPanel>
+    </Grid>
+</Window>
