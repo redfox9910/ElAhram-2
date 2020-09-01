@@ -91,5 +91,20 @@ namespace ElAhram
             M5znDeletePage m5ZneditPage = new M5znDeletePage();
             m5ZneditPage.ShowDialog();
         }
+
+        private void _2mrt48el_Loaded(object sender, RoutedEventArgs e)
+        {
+            //this.amrt48elDate.Content = DateTime.Today.ToString("dd/MM/yyyy");
+        }
+
+        private void amrt48elDate_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.amrt48elDate.Content = DateTime.Now.ToString("dd/MM/yyyy");
+        }
+
+        private void amrsr2Date_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.amr4r2Date.Content = DateTime.Now.ToString("dd/MM/yyyy");
+        }
     }
 }                   

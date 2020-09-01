@@ -55,19 +55,28 @@
 
 
 
-            <TabItem Header="امر تشغيل " Foreground="Red" FontWeight="Heavy" Padding="10,10,10,10" Background="{x:Null}" Height="36" VerticalAlignment="Top">
+            <TabItem x:Name="_2mrt48el" Header="امر تشغيل " Foreground="Red" FontWeight="Heavy" Padding="10,10,10,10" Background="{x:Null}" Height="36" VerticalAlignment="Top" Loaded="_2mrt48el_Loaded">
                 <Grid Background="#FFE5E5E5">
-                    <Image Height="100" Margin="820,17,98,0" VerticalAlignment="Top" Width="100" Source="/pic/order1.png"/>
-                    <Label Content="التاريخ" HorizontalAlignment="Left" Margin="33,17,0,0" VerticalAlignment="Top"/>
-                    <Label Content="." HorizontalAlignment="Left" Margin="75,17,0,0" VerticalAlignment="Top"/>
-                    <Label Content="كود :" HorizontalAlignment="Left" Margin="370,17,0,0" VerticalAlignment="Top"/>
-                    <TextBox HorizontalAlignment="Left" Margin="412,25,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch"/>
-                    <Label Content="عميل :" HorizontalAlignment="Left" Margin="33,97,0,0" VerticalAlignment="Top"/>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="19*"/>
+                        <ColumnDefinition Width="104*"/>
+                        <ColumnDefinition Width="20*"/>
+                        <ColumnDefinition Width="56*"/>
+                        <ColumnDefinition Width="819*"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Height="100" Margin="621,17,98,0" VerticalAlignment="Top" Width="100" Source="/pic/order1.png" Grid.Column="4"/>
+                    <Label Content="التاريخ" HorizontalAlignment="Left" Margin="14,17,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <Label x:Name="amrt48elDate"  HorizontalAlignment="Left" Margin="60,25,0,0" VerticalAlignment="Top" Loaded="amrt48elDate_Loaded" Width="120" MinWidth="120" MaxWidth="120" Grid.Column="1" Grid.ColumnSpan="3"/>
+                    <Label Content="كود :" HorizontalAlignment="Left" Margin="171,17,0,0" VerticalAlignment="Top" Grid.Column="4"/>
+                    <TextBox HorizontalAlignment="Left" Margin="213,25,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch" Grid.Column="4"/>
+                    <Label Content="عميل :" HorizontalAlignment="Left" Margin="14,97,0,0" VerticalAlignment="Top" Grid.Column="1"/>
 
-                    <Button  HorizontalAlignment="Left" Margin="73,101,0,0" VerticalAlignment="Top">
-                        <TextBox HorizontalAlignment="Left"  Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch"/>
+                    <Button x:Name="amrt48elCustText"  HorizontalAlignment="Left" Margin="57,98,0,0" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="3" Grid.Column="1" Cursor="Hand" Background="White" Height="25">
+
                     </Button>
-                    <DataGrid Margin="0,146,0,0"/>
+                    <DataGrid Margin="0,146,0,0" Grid.ColumnSpan="5"/>
+                    <Button Content="اضافه" Grid.Column="4" HorizontalAlignment="Left" Margin="256,103,0,0" VerticalAlignment="Top"/>
+                    <Button Content="اوامر الشراء" Grid.Column="4" HorizontalAlignment="Left" Margin="546,103,0,0" VerticalAlignment="Top"/>
 
 
 
@@ -89,15 +98,15 @@
                     <DatePicker HorizontalAlignment="Left" Margin="120,18,0,0" VerticalAlignment="Top"/>
                     <Label Content=" التاريخ التسليم" HorizontalAlignment="Left" Margin="33,45,0,0" VerticalAlignment="Top"/>
                     <DatePicker HorizontalAlignment="Left" Margin="120,45,0,0" VerticalAlignment="Top"/>
-                   
+
                     <Label Content="كود :" HorizontalAlignment="Left" Margin="370,17,0,0" VerticalAlignment="Top"/>
-                    <Button  HorizontalAlignment="Left" Margin="412,25,0,0" VerticalAlignment="Top">
-                        <TextBox HorizontalAlignment="Left"  Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch"/>
+                    <Button  HorizontalAlignment="Left" Margin="412,21,0,0" VerticalAlignment="Top" Width="120" Cursor="Hand" Background="White" Height="25">
+
                     </Button>
                     <Label Content="عميل :" HorizontalAlignment="Left" Margin="33,97,0,0" VerticalAlignment="Top"/>
 
-                    <Button  HorizontalAlignment="Left" Margin="73,101,0,0" VerticalAlignment="Top">
-                        <TextBox HorizontalAlignment="Left"  Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch"/>
+                    <Button  HorizontalAlignment="Left" Margin="73,101,0,0" VerticalAlignment="Top" Width="120" Cursor="Hand" Background="White" Height="25">
+
                     </Button>
 
 
@@ -111,6 +120,9 @@
                     <Label Content="." HorizontalAlignment="Left" Margin="740,642,0,0" VerticalAlignment="Top"/>
                     <Label Content="اجمالى الحساب" HorizontalAlignment="Left" Margin="50,642,0,0" VerticalAlignment="Top"/>
                     <Label Content="." HorizontalAlignment="Left" Margin="156,642,0,0" VerticalAlignment="Top"/>
+
+                    <Button Content="اضافه" HorizontalAlignment="Left" Margin="455,103,0,0" VerticalAlignment="Top"/>
+                    <Button Content="الفواتير" HorizontalAlignment="Left" Margin="756,103,0,0" VerticalAlignment="Top"/>
 
 
                 </Grid>
@@ -124,15 +136,15 @@
                     <Image Height="100" Margin="820,17,98,0" VerticalAlignment="Top" Width="100" Source="/pic/invoice.png"/>
 
                     <Label Content=" التاريخ " HorizontalAlignment="Left" Margin="33,20,0,0" VerticalAlignment="Top"/>
-                    <Label Content="." HorizontalAlignment="Left" Margin="93,20,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="amr4r2Date"  HorizontalAlignment="Left" Margin="93,20,0,0" VerticalAlignment="Top" Width="120" MinWidth="120" MaxWidth="120" Loaded="amrsr2Date_Loaded"/>
                     <Label Content="كود :" HorizontalAlignment="Left" Margin="370,17,0,0" VerticalAlignment="Top"/>
-                    <Button  HorizontalAlignment="Left" Margin="412,25,0,0" VerticalAlignment="Top">
-                        <TextBox HorizontalAlignment="Left"  Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch"/>
+                    <Button  HorizontalAlignment="Left" Margin="412,25,0,0" VerticalAlignment="Top" Width="120" Cursor="Hand" Background="White" Height="25">
+                       
                     </Button>
                     <Label Content="مورد :" HorizontalAlignment="Left" Margin="33,97,0,0" VerticalAlignment="Top"/>
 
-                    <Button  HorizontalAlignment="Left" Margin="73,101,0,0" VerticalAlignment="Top">
-                        <TextBox HorizontalAlignment="Left"  Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch"/>
+                    <Button  HorizontalAlignment="Left" Margin="73,101,0,0" VerticalAlignment="Top" Width="120" Cursor="Hand" Background="White" Height="25">
+                        
                     </Button>
 
 
@@ -146,6 +158,10 @@
                     <Label Content="." HorizontalAlignment="Left" Margin="740,642,0,0" VerticalAlignment="Top"/>
                     <Label Content="اجمالى الحساب" HorizontalAlignment="Left" Margin="50,642,0,0" VerticalAlignment="Top"/>
                     <Label Content="." HorizontalAlignment="Left" Margin="156,642,0,0" VerticalAlignment="Top"/>
+
+
+                    <Button Content="اضافه" HorizontalAlignment="Left" Margin="455,103,0,0" VerticalAlignment="Top"/>
+                    <Button Content="اوامر الشراء" HorizontalAlignment="Left" Margin="756,103,0,0" VerticalAlignment="Top"/>
 
 
                 </Grid>
@@ -220,7 +236,7 @@
 
         </TabControl>
         <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" Margin="2,5" VerticalAlignment="Bottom">
-           
+
             <Button Name="btnSelectedTab" Click="btnSelectedTab_Click" Cursor="Hand">Selected</Button>
             <Button Name="btnSelectedhome" Click="btnSelectedTab_home" Cursor="Hand">home</Button>
         </StackPanel>
