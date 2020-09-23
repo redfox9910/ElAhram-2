@@ -39,6 +39,7 @@ namespace ElAhram.pages.m5zn
             المنتجات mntg = dataContext.منتجات.Where(x => x.الخامة == M5zndeleteCombobox.SelectedItem.ToString()).FirstOrDefault();
                   dataContext.Entry(mntg).State = EntityState.Deleted;
             dataContext.SaveChanges();
+            DialogResult = true;
             this.Close();
             programTabs programTabs = new programTabs(dataContext);
             List<M5znDGrid> m5zndata = new List<M5znDGrid>();

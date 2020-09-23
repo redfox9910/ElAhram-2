@@ -16,6 +16,20 @@
     <Compile Remove="Migrations\20200820071929_Second.Designer.cs" />
     <Compile Remove="Migrations\20200820073031_Second.cs" />
     <Compile Remove="Migrations\20200820073031_Second.Designer.cs" />
+    <Compile Remove="Migrations\20200907014603_third.cs" />
+    <Compile Remove="Migrations\20200907014603_third.Designer.cs" />
+    <Compile Remove="Migrations\20200913014342_sixth.cs" />
+    <Compile Remove="Migrations\20200913014342_sixth.Designer.cs" />
+    <Compile Remove="Migrations\20200919014727_seventh.cs" />
+    <Compile Remove="Migrations\20200919014727_seventh.Designer.cs" />
+    <Compile Remove="Migrations\20200919015104_seventh.cs" />
+    <Compile Remove="Migrations\20200919015104_seventh.Designer.cs" />
+    <Compile Remove="Migrations\20200919020337_seventh.cs" />
+    <Compile Remove="Migrations\20200919020337_seventh.Designer.cs" />
+    <Compile Remove="Migrations\20200919154152_eighth.cs" />
+    <Compile Remove="Migrations\20200919154152_eighth.Designer.cs" />
+    <Compile Remove="Migrations\20200920033907_ninth.cs" />
+    <Compile Remove="Migrations\20200920033907_ninth.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -35,6 +49,7 @@
 
   <ItemGroup>
     <PackageReference Include="EntityFramework" Version="6.4.4" />
+    <PackageReference Include="Extended.Wpf.Toolkit" Version="4.0.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="3.1.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.6" />
@@ -45,6 +60,7 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="3.1.6" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.6" />
     <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="3.1.6" />
+    <PackageReference Include="WPFCustomMessageBox" Version="1.0.7" />
   </ItemGroup>
 
   <ItemGroup>

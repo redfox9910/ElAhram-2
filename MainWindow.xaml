@@ -18,7 +18,7 @@
         <Button Content="تسجيل الدخول" HorizontalAlignment="Left" Margin="366,320,0,0" VerticalAlignment="Top" Width="132" Background="Black" Click="Button_Click" FontWeight="Bold" Foreground="#FFF58322" Cursor="Hand">
           
         </Button>
-        <PasswordBox Name="passbox" HorizontalAlignment="Left" Margin="304,257,0,0" VerticalAlignment="Top" Width="120" HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch" Height="26"/>
+        <PasswordBox Name="passbox" HorizontalAlignment="Left" Margin="304,257,0,0" VerticalAlignment="Top" Width="120" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Height="26"/>
 
 
     </Grid>

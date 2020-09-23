@@ -17,11 +17,17 @@ namespace ElAhram.Models
         public int ساعةانصراف{ get; set; }
         public int دقيقةانصراف{ get; set; }
         public decimal سلف{ get; set; }
-        public bool غياب{ get; set; }
+        
         public string ملاحظات{ get; set; }
+
+     
         [Key]
         [Column(Order = 1)]
         public int كودموظف { get; set; }
+
+
+
+        public bool غياب { get; set; }
         [ForeignKey(nameof(كودموظف))]
         public موظف موظف { get; set; }
     }

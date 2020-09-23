@@ -14,13 +14,16 @@ namespace ElAhram.Models
         [Key]
         [Column(Order = 1)]
         public int رقم { get; set; }
+        [Key]
+        [Column(Order = 2)]
+        public char نوع_فاتورة { get; set; }
         public double كمية { get; set; }
 
 
         [ForeignKey(nameof(كودالخامة))]
         public المنتجات منتج { get; set; }
 
-        [ForeignKey(nameof(رقم))]
+        [ForeignKey("رقم,نوع_فاتورة ")]
         public فواتير فاتورة { get; set; }
     }
 }

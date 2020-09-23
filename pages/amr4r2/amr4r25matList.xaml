@@ -1,0 +1,29 @@
+﻿<Window x:Name="a5tyr5amaPage" x:Class="ElAhram.pages.amr4r2.amr4r25matList"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ElAhram.pages.amr4r2"
+        mc:Ignorable="d"
+        Title="amr4r25matList" Height="250" Width="300" ResizeMode="NoResize"  Loaded="a5tyr5amaPage_Loaded" WindowStartupLocation="CenterScreen" WindowStyle="None" BorderBrush="#FFB69D9D" BorderThickness="1,0,1,1">
+
+    <Grid Background="White" Margin="0,23,0,10">
+        
+        <StackPanel Margin="0,-23,0,218" HorizontalAlignment="Right" Grid.ColumnSpan="2">
+            <Button x:Name="a5tyr5amaPageClosingBtn" Content="X" Background="{x:Null}" Width="19" Click="a5tyr5amaPageClosingBtn_Click"/>
+
+        </StackPanel>
+        
+        <Label Content="اختيار خامة" HorizontalAlignment="Left" Margin="96,22,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="22" Foreground="#FFF58322"/>
+
+        <StackPanel MinWidth="200" MaxWidth="200" MinHeight="25" MaxHeight="25" Margin="50,126,30,31">
+
+            <Button x:Name="a5tyr5amaBtn" Content="تاكيد" Click="a5tyr5amaBtn_Click" />
+
+
+        </StackPanel>
+        <ComboBox Name="a5tyr5amaCombobox" HorizontalAlignment="Left" Margin="97,76,0,0" VerticalAlignment="Top" Width="120" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" PreviewTextInput="a5tyr5amaCombobox_PreviewTextInput" />
+
+
+    </Grid>
+</Window>

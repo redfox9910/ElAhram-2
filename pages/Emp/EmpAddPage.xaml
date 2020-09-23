@@ -1,0 +1,44 @@
+﻿<Window x:Class="ElAhram.pages.Emp.EmpAddPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ElAhram.pages.Emp"
+        mc:Ignorable="d"
+        Title="EmpAddPage" Height="400" Width="300" ResizeMode="NoResize">
+    <Grid>
+        <Label Content="اضافة موظف" HorizontalAlignment="Center" Margin="0,22,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="22" Foreground="#FFF58322"/>
+
+
+        <StackPanel  Margin="0,86,5,53">
+            <StackPanel Height="30">
+                <Label Content="الاسم " HorizontalAlignment="Right" FontWeight="Bold" FontSize="14"/>
+                <TextBox x:Name="emp2smText" Text="" TextWrapping="Wrap" Width="120" VerticalContentAlignment="Top" Margin="0,-20,0,0" BorderBrush="#FFF58322"/>
+            </StackPanel>
+            <StackPanel>
+                <Label Content="الهاتف " HorizontalAlignment="Right" FontSize="14" FontWeight="Bold"/>
+                <TextBox x:Name="empMobText"  Text="" TextWrapping="Wrap" Width="120" VerticalContentAlignment="Top" Margin="0,-25,0,0" BorderBrush="#FFF58322"/>
+
+            </StackPanel>
+            <StackPanel>
+                <Label Content="رقم البطاقة" HorizontalAlignment="Right" FontSize="14" FontWeight="Bold"/>
+                <TextBox x:Name="empBtakaText"  Text="" TextWrapping="Wrap" Width="120" VerticalContentAlignment="Top" Margin="0,-25,0,0" BorderBrush="#FFF58322"/>
+
+            </StackPanel>
+            <StackPanel>
+                <Label Content="العنوان" HorizontalAlignment="Right" FontSize="14" FontWeight="Bold"/>
+                <TextBox x:Name="emp3nwanText"  Text="" TextWrapping="Wrap" Width="120" VerticalContentAlignment="Top" Margin="0,-25,0,0" BorderBrush="#FFF58322"/>
+
+            </StackPanel>
+            <StackPanel>
+                <Label Content="الرقم القومى " HorizontalAlignment="Right" FontSize="14" FontWeight="Bold"/>
+                <TextBox x:Name="empRkmkwmyText"  Text="" TextWrapping="Wrap" Width="120" VerticalContentAlignment="Top" Margin="0,-25,0,0" BorderBrush="#FFF58322"/>
+
+            </StackPanel>
+            <Button x:Name="EmpAddBtn" Content="اضافة" Margin="0,25,0,0" Click="EmpAddMntag_Click" Width="200" />
+
+
+        </StackPanel>
+
+    </Grid>
+</Window>

@@ -1,0 +1,15 @@
+﻿<Window x:Name="AmrT48elListWindow" x:Class="ElAhram.pages.fwater.fwaterListPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ElAhram.pages.fwater"
+        mc:Ignorable="d"
+        Title="fwaterListPage" Height="350" Width="800"  Loaded="AmrT48elListWindow_Loaded" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Label Content="اوامر التشغيل" HorizontalAlignment="Center" Margin="0,21,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
+        <DataGrid x:Name="amrT48elListDataG" Margin="0,63,0,0" BeginningEdit="amrT48elListDataG_BeginningEdit"  />
+
+
+    </Grid>
+</Window>

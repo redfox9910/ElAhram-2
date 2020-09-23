@@ -15,6 +15,9 @@ namespace ElAhram.Models
         public string الخامة { get; set; }
 
         public double الكمية { get; set; }
+        public char وحدة { get; set; }
+        [Key]
+        [Column(Order = 1)]
         public char type { get; set; }
     }
 }

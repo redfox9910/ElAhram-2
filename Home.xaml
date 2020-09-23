@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ElAhram"
         mc:Ignorable="d"
-        Title="Home" Height="767" Width="1024" MinHeight="767" MaxHeight="767" MinWidth="1024" MaxWidth="1024" ResizeMode="NoResize">
+        Title="Home" Height="767" Width="1024" MinHeight="767" MaxHeight="767" MinWidth="1024" MaxWidth="1024" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
         <Button   Margin="385,48,519,542" Background="{x:Null}" BorderBrush="{x:Null}" Cursor="Hand" Height="auto" Width="auto" Click="Button_Click"  x:Name="b0">
             <StackPanel Orientation="Horizontal" Height="auto" Width="auto">
@@ -38,7 +38,7 @@
             </StackPanel>
         </Button>
 
-        <Button   Margin="99,238,786,336" Background="{x:Null}" BorderBrush="{x:Null}" Cursor="Hand" Height="auto"  Click="Button_Click"  x:Name="b8">
+        <Button   Margin="99,238,786,336" Background="{x:Null}" BorderBrush="{x:Null}" Cursor="Hand" Height="auto"  Click="Button_Click"  x:Name="b7">
             <StackPanel Orientation="Horizontal" Height="auto" Width="auto">
                 <Image  Height="100"  VerticalAlignment="Top" Width="100" Source="/pic/company.png"/>
                 <Label Content="الموردين" Height="auto"  Margin="-95,100,0,0" Width="auto" FontWeight="Bold" FontSize="18" HorizontalContentAlignment="Center"/>
@@ -47,7 +47,7 @@
 
 
 
-        <Button   Margin="243,376,644,206" Background="{x:Null}" BorderBrush="{x:Null}" Cursor="Hand" Height="auto" Width="auto"  Click="Button_Click"  x:Name="b7">
+        <Button   Margin="243,376,644,206" Background="{x:Null}" BorderBrush="{x:Null}" Cursor="Hand" Height="auto" Width="auto"  Click="Button_Click"  x:Name="b8">
             <StackPanel Orientation="Horizontal" Height="auto" Width="auto">
                 <Image  Height="100"  VerticalAlignment="Top" Width="100" Source="/pic/waste.png"/>
                 <Label Content="هالك" Height="auto"  Margin="-95,100,0,0" Width="auto" FontWeight="Bold" FontSize="18" HorizontalContentAlignment="Center"/>

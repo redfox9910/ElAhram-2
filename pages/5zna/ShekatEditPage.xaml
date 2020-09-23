@@ -1,0 +1,50 @@
+﻿<Window x:Class="ElAhram.pages._5zna.ShekatEditPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ElAhram.pages._5zna"
+        mc:Ignorable="d"
+        Title="ShekatEditPage" Height="400" Width="300" ResizeMode="NoResize" Loaded="Window_Loaded">
+    <Grid>
+        <Label Content="اضافة شيك" HorizontalAlignment="Center" Margin="0,22,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="22" Foreground="#FFF58322"/>
+
+
+        <StackPanel  Margin="0,86,7,0">
+            <StackPanel Height="30">
+                <Label Content="رقم الشيك" HorizontalAlignment="Right" FontWeight="Bold" FontSize="14"/>
+                <TextBox x:Name="rkm4ekText" Text="" TextWrapping="Wrap" Width="120" VerticalContentAlignment="Top" Margin="0,-20,0,0" BorderBrush="#FFF58322"/>
+            </StackPanel>
+            <StackPanel>
+                <Label Content="صاحب الشيك" HorizontalAlignment="Right" FontSize="14" FontWeight="Bold"/>
+                <ComboBox x:Name="s7bel4ekcombo"  Text=""  Width="120"  Margin="0,-25,0,0" BorderBrush="#FFF58322" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" PreviewTextInput="s7bel4ekcombo_PreviewTextInput"/>
+
+            </StackPanel>
+            <StackPanel>
+                <Label Content="قيمة الشيك" HorizontalAlignment="Right" FontSize="14" FontWeight="Bold"/>
+                <TextBox x:Name="nkdyel4ekText"  Text="" TextWrapping="Wrap" Width="120" VerticalContentAlignment="Top" Margin="0,-25,0,0" BorderBrush="#FFF58322" PreviewTextInput="nkdyel4ekText_PreviewTextInput"/>
+
+            </StackPanel>
+            <StackPanel>
+                <Label Content="البنك" HorizontalAlignment="Right" FontSize="14" FontWeight="Bold"/>
+                <TextBox x:Name="bankText"  Text="" TextWrapping="Wrap" Width="120" VerticalContentAlignment="Top" Margin="0,-25,0,0" BorderBrush="#FFF58322" />
+
+            </StackPanel>
+            <StackPanel>
+                <Label Content="تاريخ الصرف" HorizontalAlignment="Right" FontSize="14" FontWeight="Bold"/>
+                <DatePicker x:Name="srfDateText"    Width="120" VerticalContentAlignment="Top" Margin="0,-25,0,0" BorderBrush="#FFF58322"/>
+
+            </StackPanel>
+            <StackPanel>
+                <Label Content="ملاحظات" HorizontalAlignment="Right" FontSize="14" FontWeight="Bold"/>
+                <TextBox x:Name="note4ekText"    Width="217" VerticalContentAlignment="Top" Margin="0,-25,50,0" BorderBrush="#FFF58322" Height="26"/>
+
+            </StackPanel>
+
+            <Button x:Name="shekAddBtn" Content=" التعديل " Margin="0,25,0,0" Click="shekAddBtn_Click" Width="200" />
+
+
+        </StackPanel>
+
+    </Grid>
+</Window>

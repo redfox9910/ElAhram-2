@@ -50,18 +50,19 @@ namespace ElAhram.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<المنتجات>().HasKey(c => new { c.كودالخامة });
-            modelBuilder.Entity<امرتشغيل>().HasKey(c => new { c.كودالخامة, c.رقم });
+            modelBuilder.Entity<المنتجات>().HasKey(c => new { c.كودالخامة ,c.type});
+            modelBuilder.Entity<امرتشغيل>().HasKey(c => new { c.كودالخامة, c.رقم,c.نوع_فاتورة });
             modelBuilder.Entity<بنود_الفاتورة>().HasKey(c => new { c.كودالمنتج, c.رقم });
             modelBuilder.Entity<حالات_اليوميات>().HasKey(c => new { c.كودحالة });
             modelBuilder.Entity<حسابات_موظف>().HasKey(c => new { c.تاريخ, c.كودموظف });
             modelBuilder.Entity<عميل>().HasKey(c => new { c.كودعميل });
-            modelBuilder.Entity<فواتير>().HasKey(c => new { c.رقم });
+            modelBuilder.Entity<فواتير>().HasKey(c => new { c.رقم , c.نوع_فاتورة });
             modelBuilder.Entity<موظف>().HasKey(c => new { c.كودموظف});
             modelBuilder.Entity<هالك>().HasKey(c => new { c.سنة, c.شهر });
             modelBuilder.Entity<يوميات>().HasKey(c => new { c.كود });
+            modelBuilder.Entity<شيكات>().HasKey(c => new { c.رقم , c.كودعميل});
 
-            modelBuilder.Entity<الخزنة>().HasNoKey();
+            modelBuilder.Entity<الخزنة>().HasKey(c => new { c.رقم });
             //modelBuilder.Entity<المنتجات>().HasNoKey();
             //modelBuilder.Entity<امرتشغيل>().HasNoKey();
             //modelBuilder.Entity<امرشراء>().HasNoKey();
@@ -98,6 +99,7 @@ namespace ElAhram.Models
         public DbSet<موظف> موظف{ get; set; }
         public DbSet<هالك> هالك{ get; set; }
         public DbSet<يوميات> يوميات{ get; set; }
+        public DbSet<شيكات> شيكات{ get; set; }
     }
 
 }

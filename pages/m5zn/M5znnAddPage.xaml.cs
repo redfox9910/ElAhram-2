@@ -28,42 +28,43 @@ namespace ElAhram.pages.m5zn
 
         private void m5znAddMntag_Click(object sender, RoutedEventArgs e)
         {
-            int id = dataContext.منتجات.Max(x => x.كودالخامة)+1;
+            int id;
+            
+            
             char typex;
             ComboBoxItem typeItem = (ComboBoxItem)m5znNo3elmntg.SelectedItem;
             string value = typeItem.Content.ToString();
             if (value == "خامة")
             {
                 typex = 'خ';
+                if (dataContext.منتجات.Any())
+                {
+                    id = dataContext.منتجات.Where(x => x.type == 'خ').Max(x => x.كودالخامة) + 1;
+                }
+                else
+                {
+                    id = 1;
+                }
             }
             else
             {
                 typex = 'م';
+                if (dataContext.منتجات.Any())
+                {
+                    id = dataContext.منتجات.Where(x => x.type == 'م').Max(x => x.كودالخامة) + 1;
+                }
+                else
+                {
+                    id = 1;
+                }
             }
             dataContext.منتجات.Add(new المنتجات { كودالخامة = id,الخامة=m5zn2smmntg.Text, الكمية=0,type=typex});
             dataContext.SaveChanges();
-            programTabs programTabs = new programTabs(dataContext);
+          
+            DialogResult = true;
             this.Close();
-           // programTabs.;
-            //programTabs.ptabs.SelectedIndex = 1;
+          
 
-
-            List<M5znDGrid> m5zndata = new List<M5znDGrid>();
-            foreach (var item in dataContext.منتجات)
-            {
-                m5zndata.Add(new M5znDGrid { كودالخامة = item.كودالخامة, الخامة = item.الخامة, الكمية = item.الكمية });
-
-            }
-            // m5zndata = dataContext.منتجات.ToList();
-            programTabs.m5znDataGrid.ItemsSource = null;
-            programTabs.m5znDataGrid.Items.Clear();
-            programTabs.m5znDataGrid.ItemsSource = m5zndata;
-            programTabs.m5znDataGrid.Items.Refresh();
-            programTabs.ptabs.SelectedIndex = 1;
-            programTabs.ptabs.Items.Refresh();
-            programTabs.ptabs.UpdateLayout();
-            
-            // programTabs.m5znDataGrid.
 
         }
     }

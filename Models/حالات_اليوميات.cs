@@ -13,6 +13,6 @@ namespace ElAhram.Models
 
         public string حالة { get; set; }
 
-        public char type{ get; set; }
+        
     }
 }

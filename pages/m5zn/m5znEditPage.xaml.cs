@@ -77,7 +77,9 @@ namespace ElAhram.pages.m5zn
             mntg.الكمية= Convert.ToDouble(m5zn3ddmntgedit.Text) ;
 
             dataContext.SaveChanges();
-           
+            m5zn2smmntgEdit.Clear();
+            m5zn3ddmntgedit.Clear();
+            DialogResult = true;
             this.Close();
             
 

@@ -7,8 +7,7 @@ namespace ElAhram.Models
 {
   public   class عميل
     {
-        [Key]
-        
+        [Key]  
         public int كودعميل { get; set; }
         public string اسم{ get; set; }
         public string رقم { get; set; }
