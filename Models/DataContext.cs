@@ -50,7 +50,7 @@ namespace ElAhram.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<المنتجات>().HasKey(c => new { c.كودالخامة ,c.type});
+            modelBuilder.Entity<المنتجات>().HasKey(c => new { c.كودالخامة ,c.كودالمخزن,c.type});
             modelBuilder.Entity<امرتشغيل>().HasKey(c => new { c.كودالخامة, c.رقم,c.نوع_فاتورة });
             modelBuilder.Entity<بنود_الفاتورة>().HasKey(c => new { c.كودالمنتج, c.رقم });
             modelBuilder.Entity<حالات_اليوميات>().HasKey(c => new { c.كودحالة });
@@ -63,21 +63,11 @@ namespace ElAhram.Models
             modelBuilder.Entity<شيكات>().HasKey(c => new { c.رقم , c.كودعميل});
 
             modelBuilder.Entity<الخزنة>().HasKey(c => new { c.رقم });
-            //modelBuilder.Entity<المنتجات>().HasNoKey();
-            //modelBuilder.Entity<امرتشغيل>().HasNoKey();
-            //modelBuilder.Entity<امرشراء>().HasNoKey();
-            //modelBuilder.Entity<ايام>().HasNoKey();
-            //modelBuilder.Entity<حسابات_موظف>().HasNoKey();
-            //modelBuilder.Entity<عميل>().HasNoKey();
-            //modelBuilder.Entity<فاتورةبيع>().HasNoKey();
-            //modelBuilder.Entity<فواتير>().HasNoKey();
-            //modelBuilder.Entity<مخزن>().HasNoKey();
-            //modelBuilder.Entity<موظف>().HasNoKey();
-            //modelBuilder.Entity<هالك>().HasNoKey();
-            //modelBuilder.Entity<يوميات>().HasNoKey();
+            modelBuilder.Entity<انواع_الخامات>().HasKey(c => new { c.كودالنوع });
+            modelBuilder.Entity<مخازن>().HasKey(c => new { c.كودالمخزن });
+            
 
-            //modelBuilder.Ignore<المنتجات>();
-            //modelBuilder.Ignore<مخزن>();
+          
             base.OnModelCreating(modelBuilder);
 
 
@@ -87,6 +77,7 @@ namespace ElAhram.Models
         public DbSet<الخزنة> خزنة { get; set; }
         public DbSet<المنتجات> منتجات { get; set; }
         public DbSet<امرتشغيل> امرتشغيل { get; set; }
+        public DbSet<انواع_الخامات> انواع_خامات { get; set; }
         // public DbSet<امرشراء> امرشراء { get; set; }
         //public DbSet<ايام> ايام { get; set; }
         public DbSet<بنود_الفاتورة> بنودفاتورة{ get; set; }
@@ -95,11 +86,12 @@ namespace ElAhram.Models
         public DbSet<عميل> عملاء { get; set; }
       //  public DbSet<فاتورةبيع> فاتورةبيع { get; set; }
         public DbSet<فواتير> فواتير { get; set; }
-       // public DbSet<مخزن> مخزن { get; set; }
+        public DbSet<مخازن> مخزن { get; set; }
         public DbSet<موظف> موظف{ get; set; }
         public DbSet<هالك> هالك{ get; set; }
         public DbSet<يوميات> يوميات{ get; set; }
         public DbSet<شيكات> شيكات{ get; set; }
+      
     }
 
 }

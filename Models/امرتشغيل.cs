@@ -23,6 +23,7 @@ namespace ElAhram.Models
         public string سمك { get; set; }
         public string مقاس_طباعة{ get; set; }
         public string مقاس_تقطيع { get; set; }
+        public string كميةخامة { get; set; }
 
         public int بيور { get; set; }
         public int اوميا { get; set; }

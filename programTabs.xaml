@@ -212,7 +212,7 @@
                 <Grid Background="#FFE5E5E5" Margin="0,122,0,0">
                     <Button x:Name="empAddBtn" Content="ADD" HorizontalAlignment="Left" Margin="78,-78,0,0" VerticalAlignment="Top" Click="empAddBtn_Click"></Button>
                     <Image Height="100" Margin="820,-113,98,0" VerticalAlignment="Top" Width="100" Source="/pic/technician.png"/>
-                    <DataGrid x:Name="Empdatagrid"  IsReadOnly="True" Loaded="Empdatagrid_Loaded" />
+                    <DataGrid x:Name="Empdatagrid"  IsReadOnly="True" Loaded="Empdatagrid_Loaded" MouseDoubleClick="Empdatagrid_MouseDoubleClick" />
                     <Button x:Name="mwzfen8yabBtn" Content="الغياب و الحضور " HorizontalAlignment="Left" Margin="698,-78,0,0" VerticalAlignment="Top" Click="mwzfen8yabBtn_Click"/>
 
 
@@ -282,9 +282,10 @@
                     <Label Content="اليوميات"   VerticalAlignment="Center" HorizontalAlignment="Center" Height="36" Padding="0,0,0,0" Width="75" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  />
                 </TabItem.Header>
                 <Grid Background="#FFE5E5E5">
-                    <Button Content="ADD" HorizontalAlignment="Left" Margin="76,40,0,0" VerticalAlignment="Top"></Button>
+                    <Button x:Name="AddywmyaBTN" Content="اضافة يومية" HorizontalAlignment="Left" Margin="76,40,0,0" VerticalAlignment="Top" Click="AddywmyaBTN_Click"></Button>
                     <Image Height="100" Margin="820,10,98,0" VerticalAlignment="Top" Width="100" Source="/pic/microsoft-excel.png"/>
                     <DataGrid Margin="0,123,0,0"/>
+                    <Button Content="اضافة حالة يومية" HorizontalAlignment="Left" Margin="696,40,0,0" VerticalAlignment="Top"/>
 
 
                 </Grid>

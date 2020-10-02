@@ -1,0 +1,47 @@
+﻿<Window x:Class="ElAhram.pages.ywmyat.addywmya"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ElAhram.pages.ywmyat"
+        mc:Ignorable="d"
+        Title="addywmya" Height="400" Width="300" ResizeMode="NoResize" Loaded="Window_Loaded">
+    <Grid>
+        <Label Content="اضافة يومية" HorizontalAlignment="Center" Margin="0,22,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="22" Foreground="#FFF58322"/>
+
+
+        <StackPanel  Margin="0,86,7,0">
+            <StackPanel Height="30">
+                <Label Content="رقم اليومية" HorizontalAlignment="Right" FontWeight="Bold" FontSize="14"/>
+                <TextBox x:Name="rkmywmyaText" Text="" TextWrapping="Wrap" Width="120" VerticalContentAlignment="Center" Margin="0,-20,0,0" BorderBrush="#FFF58322" HorizontalContentAlignment="Center" IsReadOnly="True"/>
+            </StackPanel>
+            <StackPanel>
+                <Label Content="حالة اليومية" HorizontalAlignment="Right" FontSize="14" FontWeight="Bold"/>
+                <ComboBox x:Name="ywmyacombo"  Text=""  Width="120"  Margin="0,-25,0,0" BorderBrush="#FFF58322" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+
+            </StackPanel>
+            <StackPanel>
+                <Label Content="صاحب اليومية" HorizontalAlignment="Right" FontSize="14" FontWeight="Bold"/>
+                <ComboBox x:Name="s7bywmyacombox"  Text=""  Width="120"  Margin="0,-25,0,0" BorderBrush="#FFF58322" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" PreviewTextInput="s7bywmyacombox_PreviewTextInput"/>
+
+            </StackPanel>
+            <StackPanel>
+                <Label Content="قيمة اليومية" HorizontalAlignment="Right" FontSize="14" FontWeight="Bold"/>
+                <TextBox x:Name="nkdyelywmyaText"  Text="" TextWrapping="Wrap" Width="120" VerticalContentAlignment="Top" Margin="0,-25,0,0" BorderBrush="#FFF58322" PreviewTextInput="nkdyelywmyaText_PreviewTextInput"/>
+
+            </StackPanel>
+            
+           
+            <StackPanel>
+                <Label Content="ملاحظات" HorizontalAlignment="Right" FontSize="14" FontWeight="Bold"/>
+                <TextBox x:Name="noteywmyaText"    Width="217" VerticalContentAlignment="Top" Margin="0,-25,50,0" BorderBrush="#FFF58322" Height="26"/>
+
+            </StackPanel>
+
+            <Button x:Name="ywmyaAddBtn" Content="اضافة" Margin="0,25,0,0"  Width="200" />
+
+
+        </StackPanel>
+
+    </Grid>
+</Window>

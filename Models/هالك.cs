@@ -14,6 +14,8 @@ namespace ElAhram.Models
         [Key]
         [Column(Order = 1)]
         public int سنة { get; set; }
+
+        public decimal اجمالى { get; set; }
         public decimal مطبوع { get; set; }
         public decimal سادة { get; set; }
     }

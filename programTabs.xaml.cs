@@ -9,6 +9,7 @@ using ElAhram.pages.halk;
 using ElAhram.pages.m5zn;
 using ElAhram.pages.mwrden;
 using ElAhram.pages.mwzfen;
+using ElAhram.pages.ywmyat;
 using ElAhram.ViewmModels;
 using ElAhram.ViewmModels._3ml2Tab;
 using ElAhram.ViewmModels.Amr4r2;
@@ -995,6 +996,20 @@ namespace ElAhram
             mwzfen8Yab.ShowDialog();
         }
 
+        private void Empdatagrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var rows = this.Empdatagrid.SelectedItem as EmpDataGVM;
+            data.kodemwzf = rows.كودموظف;
+            EmpDetilsPage page = new EmpDetilsPage();
+            page.ShowDialog();
+        }
+
+        private void AddywmyaBTN_Click(object sender, RoutedEventArgs e)
+        {
+            addywmya page = new addywmya();
+            page.ShowDialog();
+        }
+
 
 
 
@@ -1030,6 +1045,7 @@ var y = item;
         public static List<amr4r2DataGVM> amr4r2Datas = new List<amr4r2DataGVM>();
         public static shekatDataGVM shekelement = new shekatDataGVM();
         public static int rkmftora { get; set; }
+        public static int kodemwzf { get; set; }
         public static string asm3mel { get; set; }
         public static string asmmwzf { get; set; }
 

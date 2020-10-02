@@ -15,10 +15,10 @@ namespace ElAhram.ViewmModels.mwzfen
         public int دقيقةحضور { get; set; }
         public int ساعةانصراف { get; set; }
         public int دقيقةانصراف { get; set; }
-        
 
+        public int عمل { get; set; }
         public string ملاحظات { get; set; }
 
-        public bool غياب { get; set; }
+        public bool حضور { get; set; }
     }
 }

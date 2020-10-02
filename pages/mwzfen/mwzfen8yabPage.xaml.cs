@@ -26,14 +26,40 @@ namespace ElAhram.pages.mwzfen
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            mwzfen8yabdateLabel.Content = DateTime.Now.ToString("dd/MM/yyyy");
+            mwzfen8yabDayLabel.Content = DateTime.Now.ToString("dddd", new System.Globalization.CultureInfo("ar-AE"));
+            //var a = DateTime.Now.AddDays(1).Date;
             using (var db = new Models.DataContext())
             {
+                if (db.حسابات_الموظف.Where(x=>x.تاريخ >= DateTime.Now.Date && x.تاريخ <=DateTime.Now.AddDays(1).Date).Any())
+                {
+                    foreach (var item in db.موظف.ToList())
+                    {
+                        if (db.حسابات_الموظف.Where(y=>y.كودموظف == item.كودموظف && y.تاريخ >= DateTime.Now.Date && y.تاريخ <= DateTime.Now.AddDays(1).Date).Any())
+                        {
 
-                var datas = db.حسابات_الموظف.ToList();
+                        }
+                        else
+                        {
+                            db.حسابات_الموظف.Add(new Models.حسابات_موظف { كودموظف = item.كودموظف, تاريخ = DateTime.Now.Date, دقيقةانصراف = 0, ساعةانصراف = 0, دقيقةحضور = 0, ساعةحضور = 0, سلف = 0, غياب = false, ملاحظات = "" });
+                        }
+
+                    }
+                }
+                else
+                {
+                    foreach (var item in db.موظف.ToList())
+                    {
+                        db.حسابات_الموظف.Add(new Models.حسابات_موظف { كودموظف = item.كودموظف, تاريخ = DateTime.Now.Date, دقيقةانصراف = 0, ساعةانصراف = 0, دقيقةحضور = 0, ساعةحضور = 0, سلف = 0, غياب = false, ملاحظات = "" });
+                        db.SaveChanges();
+                    }
+                    
+                }
+                var datas = db.حسابات_الموظف.Where(x=>x.تاريخ >= DateTime.Now.Date && x.تاريخ <= DateTime.Now.AddDays(1).Date).ToList();
                 List<mwzfen8yabDataGVM> mwzfen8YabDatas = new List<mwzfen8yabDataGVM>();
                 foreach (var item in datas)
                 {
-                    mwzfen8YabDatas.Add(new mwzfen8yabDataGVM {موظف= db.موظف.Where(x=>x.كودموظف== item.كودموظف).Select(y=>y.اسم).FirstOrDefault(),تاريخ= item.تاريخ ,ساعةحضور= item.ساعةحضور ,دقيقةحضور =item.دقيقةحضور,ساعةانصراف = item.ساعةانصراف , دقيقةانصراف = item.دقيقةانصراف ,ملاحظات = item.ملاحظات ,غياب= item.غياب });
+                    mwzfen8YabDatas.Add(new mwzfen8yabDataGVM {موظف= db.موظف.Where(x=>x.كودموظف== item.كودموظف).Select(y=>y.اسم).FirstOrDefault(),تاريخ= item.تاريخ ,ساعةحضور= item.ساعةحضور ,دقيقةحضور =item.دقيقةحضور,ساعةانصراف = item.ساعةانصراف , دقيقةانصراف = item.دقيقةانصراف ,ملاحظات = item.ملاحظات ,حضور= item.غياب });
                 }
                 mwzfen8yabDataG.ItemsSource = mwzfen8YabDatas;
             }   
@@ -78,35 +104,36 @@ namespace ElAhram.pages.mwzfen
             {
                 rows.تاريخ = tre5;
             }
-            if (rows.ساعةحضور != sa3t7dor)
-            {
-                rows.ساعةحضور = sa3t7dor;
-            }
-            if (rows.دقيقةحضور != min7dor)
-            {
-                
-                rows.دقيقةحضور= min7dor;
-            }
-            if (rows.ساعةانصراف != sa3t2nsrf)
-            {
-                rows.ساعةحضور = sa3t2nsrf;
-            }
-            if (rows.دقيقةانصراف != min2nsrf)
-            {
-
-                rows.دقيقةحضور = min2nsrf;
-            }
+           
 
            
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-           
-            foreach (var item in mwzfen8yabDataG.ItemsSource )
+            using (var db = new Models.DataContext())
             {
-                var x = item as mwzfen8yabDataGVM;
+
+                foreach (var item in mwzfen8yabDataG.ItemsSource)
+                {
+                    var x = item as mwzfen8yabDataGVM;
+                    var data = db.حسابات_الموظف.Where(y => y.تاريخ == x.تاريخ && y.كودموظف == db.موظف.Where(c => c.اسم == x.موظف).Select(c => c.كودموظف).FirstOrDefault()).FirstOrDefault();
+                    data.ساعةحضور = x.ساعةحضور;
+                    data.دقيقةحضور = x.دقيقةحضور;
+                    data.ساعةانصراف = x.ساعةانصراف;
+                    data.دقيقةانصراف = x.دقيقةانصراف;
+                    data.غياب = x.حضور;
+                    data.ملاحظات = x.ملاحظات;
+
+                    db.SaveChanges();
+                }
             }
+
+        }
+
+        private void mwzfen8yabBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Xceed.Wpf.Toolkit.MessageBox.Show("تم بنجاح حفظ سجل الغياب", "حفظ الغياب", MessageBoxButton.OK, MessageBoxImage.Information);
 
         }
     }
