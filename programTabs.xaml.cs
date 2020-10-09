@@ -83,6 +83,7 @@ namespace ElAhram
 
         }
 
+        // مخزن
         private void addM5znBtn_Click(object sender, RoutedEventArgs e)
         {
             M5znnAddPage m5ZnaddPage = new M5znnAddPage();
@@ -91,12 +92,14 @@ namespace ElAhram
             if (result == true)
             {
                 List<M5znDGrid> m5zndata = new List<M5znDGrid>();
-                foreach (var item in dataContext.منتجات)
+                foreach (var item in dataContext.منتجات.Where(y=> y.type == 'م' && y.كودالمخزن == dataContext.مخزن.Where(x=>x.المخزن == m5znlocationCombo.Text).Select(x=>x.كودالمخزن).FirstOrDefault()))
                 {
                     m5zndata.Add(new M5znDGrid { كودالخامة = item.كودالخامة, الخامة = item.الخامة, الكمية = item.الكمية });
 
                 }
                 // m5zndata = dataContext.منتجات.ToList();
+                m5znlocationCombo.Visibility = Visibility.Visible;
+                m5znlLocationLabel.Visibility = Visibility.Visible;
                 this.m5znDataGrid.ItemsSource = null;
                 this.m5znDataGrid.Items.Clear();
                 this.m5znDataGrid.ItemsSource = m5zndata;
@@ -104,9 +107,41 @@ namespace ElAhram
             }
         }
 
+        private void addNewM5znBtn_Click(object sender, RoutedEventArgs e)
+        {
+            M5znAddM5znPage m5ZnaddPage = new M5znAddM5znPage();
+            m5ZnaddPage.Owner = this;
+            bool? result = m5ZnaddPage.ShowDialog();
+            if (result == true)
+            {
+                List<string> m5zndata = new List<string>();
+                foreach (var item in dataContext.مخزن)
+                {
+                    m5zndata.Add(item.المخزن);
+
+                }
+                // m5zndata = dataContext.منتجات.ToList();
+                this.m5znlocationCombo.ItemsSource = null;
+                this.m5znlocationCombo.Items.Clear();
+                this.m5znlocationCombo.ItemsSource = m5zndata;
+                this.m5znlocationCombo.Items.Refresh();
+                m5znlocationCombo.SelectedIndex = 0;
+            }
+        }
+
         private void EditM5znBtn_Click(object sender, RoutedEventArgs e)
         {
             m5znEditPage m5ZneditPage = new m5znEditPage();
+            bool? result = m5ZneditPage.ShowDialog();
+            if (result == true)
+            {
+                refm5zndataG();
+            }
+        }
+
+        private void EditNewM5znBtn_Click(object sender, RoutedEventArgs e)
+        {
+            M5znEditM5znPage m5ZneditPage = new M5znEditM5znPage();
             bool? result = m5ZneditPage.ShowDialog();
             if (result == true)
             {
@@ -123,7 +158,108 @@ namespace ElAhram
                 refm5zndataG();
             }
         }
+        private void DeletNeweM5znBtn_Click(object sender, RoutedEventArgs e)
+        {
+            M5znDeleteM5znPage m5ZneditPage = new M5znDeleteM5znPage();
+            bool? result = m5ZneditPage.ShowDialog();
+            if (result == true)
+            {
+                refm5zndataG();
+            }
+        }
 
+        private void refm5zndataG()
+        {
+            List<M5znDGrid> m5zndata = new List<M5znDGrid>();
+            using (var db = new Models.DataContext())
+            {
+                foreach (var item in db.منتجات.Where(x => x.type == 'خ' && x.كودالمخزن == db.مخزن.Min(x => x.كودالمخزن)))
+                {
+                    m5zndata.Add(new M5znDGrid { كودالخامة = item.كودالخامة, الخامة = item.الخامة, الكمية = item.الكمية });
+
+                }
+                m5znlocationCombo.Visibility = Visibility.Visible;
+                m5znlLocationLabel.Visibility = Visibility.Visible;
+                m5znlocationCombo.ItemsSource = db.مخزن.Select(x => x.المخزن).ToList();
+                m5znlocationCombo.Text = db.مخزن.Where(y => y.كودالمخزن == db.مخزن.Min(x => x.كودالمخزن)).Select(y => y.المخزن).ToString();
+                this.m5znDataGrid.ItemsSource = null;
+                this.m5znDataGrid.Items.Clear();
+                this.m5znDataGrid.ItemsSource = m5zndata;
+                this.m5znDataGrid.Items.Refresh();
+
+            }
+        }
+       
+        private void m5znHeader_Clicked(object sender, MouseButtonEventArgs e)
+        {
+            using (var db = new Models.DataContext())
+            {
+                var data = db.خزنة.FirstOrDefault();
+
+
+                cash.Content = data.نقدى;
+                mden.Content = data.مدين;
+                d2n.Content = data.دائن;
+                total.Content = data.اجمالى;
+                cash4ekat.Content = data.شيكات;
+                cash7sab.Content = data.حساب;
+
+            }
+        }
+
+        private void m5znDataGrid_Loaded(object sender, RoutedEventArgs e)
+        {
+
+            refm5zndataG();
+        }
+
+        private void m5zn5amatBtn_Click(object sender, RoutedEventArgs e)
+        {
+            refm5zndataG();
+
+        }
+
+        private void m5znmntgatBtn_Click(object sender, RoutedEventArgs e)
+        {
+            List<M5znDGrid> m5zndata = new List<M5znDGrid>();
+            using (var db = new Models.DataContext())
+            {
+                foreach (var item in db.منتجات.Where(x => x.type == 'م' && x.كودالمخزن == db.مخزن.Min(x => x.كودالمخزن)))
+                {
+                    m5zndata.Add(new M5znDGrid { كودالخامة = item.كودالخامة, الخامة = item.الخامة, الكمية = item.الكمية });
+
+                }
+                m5znlocationCombo.Visibility = Visibility.Hidden;
+                m5znlLocationLabel.Visibility = Visibility.Hidden;
+                this.m5znDataGrid.ItemsSource = null;
+                this.m5znDataGrid.Items.Clear();
+                this.m5znDataGrid.ItemsSource = m5zndata;
+                this.m5znDataGrid.Items.Refresh();
+
+            }
+
+        }
+
+        private void m5znlocationCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+            List<M5znDGrid> m5zndata = new List<M5znDGrid>();
+            using (var db = new Models.DataContext())
+            {
+                foreach (var item in db.منتجات.Where(x => x.type == 'خ' && x.كودالمخزن == db.مخزن.Where(y=>y.المخزن == m5znlocationCombo.SelectedItem.ToString()).Select(y=>y.كودالمخزن).FirstOrDefault()))
+                {
+                    m5zndata.Add(new M5znDGrid { كودالخامة = item.كودالخامة, الخامة = item.الخامة, الكمية = item.الكمية });
+
+                }
+               
+                
+                this.m5znDataGrid.ItemsSource = null;
+                this.m5znDataGrid.Items.Clear();
+                this.m5znDataGrid.ItemsSource = m5zndata;
+                this.m5znDataGrid.Items.Refresh();
+
+            }
+        }
 
 
         private void aml2combobox_OnPreviewTextInput(object sender, TextCompositionEventArgs e)
@@ -164,11 +300,7 @@ namespace ElAhram
 
         }
 
-        private void m5znDataGrid_Loaded(object sender, RoutedEventArgs e)
-        {
-
-            refm5zndataG();
-        }
+       
 
 
         private void Empdatagrid_Loaded(object sender, RoutedEventArgs e)
@@ -481,25 +613,7 @@ namespace ElAhram
                 this.Empdatagrid.Items.Refresh();
             }
         }
-        private void refm5zndataG()
-        {
-            List<M5znDGrid> m5zndata = new List<M5znDGrid>();
-            using (var db = new Models.DataContext())
-            {
-
-                //  List <المنتجات> mntg = dataContext.منتجات.ToList();
-                foreach (var item in db.منتجات)
-                {
-                    m5zndata.Add(new M5znDGrid { كودالخامة = item.كودالخامة, الخامة = item.الخامة, الكمية = item.الكمية });
-
-                }
-
-                this.m5znDataGrid.ItemsSource = null;
-                this.m5znDataGrid.Items.Clear();
-                this.m5znDataGrid.ItemsSource = m5zndata;
-                this.m5znDataGrid.Items.Refresh();
-            }
-        }
+      
 
         private void fwterHeader_Clicked(object sender, MouseButtonEventArgs e)
         {
@@ -972,23 +1086,7 @@ namespace ElAhram
         }
 
 
-        // مخزن
-        private void m5znHeader_Clicked(object sender, MouseButtonEventArgs e)
-        {
-            using (var db = new Models.DataContext())
-            {
-                var data = db.خزنة.FirstOrDefault();
-
-
-                cash.Content = data.نقدى;
-                mden.Content = data.مدين;
-                d2n.Content = data.دائن;
-                total.Content = data.اجمالى;
-                cash4ekat.Content = data.شيكات;
-                cash7sab.Content = data.حساب;
-
-            }
-        }
+        
 
         private void mwzfen8yabBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -1009,6 +1107,10 @@ namespace ElAhram
             addywmya page = new addywmya();
             page.ShowDialog();
         }
+
+        
+
+
 
 
 

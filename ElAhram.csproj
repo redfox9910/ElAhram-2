@@ -8,33 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\20200804151611_MyFirstMigration.cs" />
-    <Compile Remove="Migrations\20200804151611_MyFirstMigration.Designer.cs" />
-    <Compile Remove="Migrations\20200820065403_initial.cs" />
-    <Compile Remove="Migrations\20200820065403_initial.Designer.cs" />
-    <Compile Remove="Migrations\20200820071929_Second.cs" />
-    <Compile Remove="Migrations\20200820071929_Second.Designer.cs" />
-    <Compile Remove="Migrations\20200820073031_Second.cs" />
-    <Compile Remove="Migrations\20200820073031_Second.Designer.cs" />
-    <Compile Remove="Migrations\20200907014603_third.cs" />
-    <Compile Remove="Migrations\20200907014603_third.Designer.cs" />
-    <Compile Remove="Migrations\20200913014342_sixth.cs" />
-    <Compile Remove="Migrations\20200913014342_sixth.Designer.cs" />
-    <Compile Remove="Migrations\20200919014727_seventh.cs" />
-    <Compile Remove="Migrations\20200919014727_seventh.Designer.cs" />
-    <Compile Remove="Migrations\20200919015104_seventh.cs" />
-    <Compile Remove="Migrations\20200919015104_seventh.Designer.cs" />
-    <Compile Remove="Migrations\20200919020337_seventh.cs" />
-    <Compile Remove="Migrations\20200919020337_seventh.Designer.cs" />
-    <Compile Remove="Migrations\20200919154152_eighth.cs" />
-    <Compile Remove="Migrations\20200919154152_eighth.Designer.cs" />
-    <Compile Remove="Migrations\20200920033907_ninth.cs" />
-    <Compile Remove="Migrations\20200920033907_ninth.Designer.cs" />
-    <Compile Remove="Migrations\20200930092321_Tenth.cs" />
-    <Compile Remove="Migrations\20200930092321_Tenth.Designer.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Remove="bill.png" />
     <None Remove="company.png" />
     <None Remove="deposit.png" />

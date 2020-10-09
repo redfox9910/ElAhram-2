@@ -13,7 +13,7 @@ namespace ElAhram.ViewmModels.amrT48el
         public string مقاس_طباعة { get; set; }
         public string مقاس_تقطيع { get; set; }
 
-        public int بيور { get; set; }
-        public int اوميا { get; set; }
+        public bool بيور { get; set; }
+        public bool اوميا { get; set; }
     }
 }

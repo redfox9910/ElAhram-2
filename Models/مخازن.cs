@@ -10,6 +10,7 @@ namespace ElAhram.Models
         [Key]
          public int كودالمخزن { get; set; }
         public string المخزن { get; set; }
+        public ICollection<المنتجات> منتجات { get; set; }
     }
 }
 

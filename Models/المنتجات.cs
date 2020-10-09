@@ -13,7 +13,8 @@ namespace ElAhram.Models
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int كودالخامة { get; set; }
         [Key]
-        [Column(Order = 1)]
+        [Column(Order = 1,TypeName = "int")]
+       
         public int كودالمخزن { get; set; }
         public int كودالنوع { get; set; }
         public string الخامة { get; set; }

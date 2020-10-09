@@ -17,7 +17,14 @@
             </StackPanel>
             <StackPanel>
                 <Label Content="حالة اليومية" HorizontalAlignment="Right" FontSize="14" FontWeight="Bold"/>
-                <ComboBox x:Name="ywmyacombo"  Text=""  Width="120"  Margin="0,-25,0,0" BorderBrush="#FFF58322" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+                <ComboBox x:Name="ywmyacombo"  Text=""  Width="120"  Margin="0,-25,0,0" BorderBrush="#FFF58322" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" SelectionChanged="ywmyacombo_SelectionChanged">
+                    <ComboBoxItem Name="cbi1">وارد</ComboBoxItem>
+                    <ComboBoxItem Name="cbi2">مصاريف</ComboBoxItem>
+                    <ComboBoxItem Name="cbi3">سلف</ComboBoxItem>
+                    <ComboBoxItem Name="cbi5">مرتبات</ComboBoxItem>
+                    <ComboBoxItem Name="cbi4">تحويلات</ComboBoxItem>
+
+                </ComboBox>
 
             </StackPanel>
             <StackPanel>
@@ -38,7 +45,7 @@
 
             </StackPanel>
 
-            <Button x:Name="ywmyaAddBtn" Content="اضافة" Margin="0,25,0,0"  Width="200" />
+            <Button x:Name="ywmyaAddBtn" Content="اضافة" Margin="0,25,0,0"  Width="200" Click="ywmyaAddBtn_Click" />
 
 
         </StackPanel>

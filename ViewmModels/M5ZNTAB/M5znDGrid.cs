@@ -11,5 +11,6 @@ namespace ElAhram.ViewmModels.M5ZNTAB
         public string الخامة { get; set; }
 
         public double الكمية   {   get; set;}
+        
     }
 }

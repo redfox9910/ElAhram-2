@@ -50,24 +50,44 @@ namespace ElAhram.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<المنتجات>().HasKey(c => new { c.كودالخامة ,c.كودالمخزن,c.type});
-            modelBuilder.Entity<امرتشغيل>().HasKey(c => new { c.كودالخامة, c.رقم,c.نوع_فاتورة });
-            modelBuilder.Entity<بنود_الفاتورة>().HasKey(c => new { c.كودالمنتج, c.رقم });
+            modelBuilder.Entity<المنتجات>().HasKey(c => new { c.كودالخامة, c.كودالمخزن, c.type });
+            modelBuilder.Entity<امرتشغيل>().HasKey(c => new { c.كودالخامة, c.رقم, c.نوع_فاتورة });
+            modelBuilder.Entity<بنود_الفاتورة>().HasKey(c => new { c.number, c.رقم });
             modelBuilder.Entity<حالات_اليوميات>().HasKey(c => new { c.كودحالة });
             modelBuilder.Entity<حسابات_موظف>().HasKey(c => new { c.تاريخ, c.كودموظف });
             modelBuilder.Entity<عميل>().HasKey(c => new { c.كودعميل });
-            modelBuilder.Entity<فواتير>().HasKey(c => new { c.رقم , c.نوع_فاتورة });
-            modelBuilder.Entity<موظف>().HasKey(c => new { c.كودموظف});
+            modelBuilder.Entity<فواتير>().HasKey(c => new { c.رقم, c.نوع_فاتورة });
+            modelBuilder.Entity<موظف>().HasKey(c => new { c.كودموظف });
             modelBuilder.Entity<هالك>().HasKey(c => new { c.سنة, c.شهر });
-            modelBuilder.Entity<يوميات>().HasKey(c => new { c.كود });
-            modelBuilder.Entity<شيكات>().HasKey(c => new { c.رقم , c.كودعميل});
-
+            modelBuilder.Entity<يوميات>().HasKey(c => new { c.كود, c.تاريخ });
+            modelBuilder.Entity<شيكات>().HasKey(c => new { c.رقم, c.كودعميل });
+                                                                                                    
             modelBuilder.Entity<الخزنة>().HasKey(c => new { c.رقم });
             modelBuilder.Entity<انواع_الخامات>().HasKey(c => new { c.كودالنوع });
             modelBuilder.Entity<مخازن>().HasKey(c => new { c.كودالمخزن });
-            
+            modelBuilder.Entity<اذن_صرف>().HasKey(c => new { c.كود });
 
-          
+
+            modelBuilder.Entity<مخازن>()   .HasMany(i => i.منتجات).WithOne(c=>c.مخزن).HasForeignKey(f=>f.كودالمخزن).IsRequired(true).OnDelete(DeleteBehavior.Cascade);
+            //modelBuilder.Entity<المنتجات>().HasNoKey();
+            //modelBuilder.Entity<امرتشغيل>().HasNoKey();
+
+            //modelBuilder.Entity<بنود_الفاتورة>().HasNoKey();
+            //modelBuilder.Entity<حالات_اليوميات>().HasNoKey();
+            //modelBuilder.Entity<حسابات_موظف>().HasNoKey();
+            //modelBuilder.Entity<عميل>().HasNoKey();
+
+            //modelBuilder.Entity<فواتير>().HasNoKey();
+
+            //modelBuilder.Entity<موظف>().HasNoKey();
+            //modelBuilder.Entity<هالك>().HasNoKey();
+            //modelBuilder.Entity<يوميات>().HasNoKey();
+            //modelBuilder.Entity<شيكات>().HasNoKey();
+            //modelBuilder.Entity<الخزنة>().HasNoKey();
+            //modelBuilder.Entity<انواع_الخامات>().HasNoKey();
+            //modelBuilder.Entity<مخازن>().HasNoKey();
+            //modelBuilder.Entity<اذن_صرف>().HasNoKey();
+
             base.OnModelCreating(modelBuilder);
 
 

@@ -10,21 +10,21 @@ namespace ElAhram.Models
     {
         [Key]
         [Column(Order = 0)]
+        public int number { get; set; }
         public int كودالمنتج { get; set; }
         [Key]
         [Column(Order = 1)]
         public int رقم { get; set; }
-        [Key]
-        [Column(Order = 2)]
+        
         public char نوع_فاتورة { get; set; }
         public double كمية{ get; set; }
-
+        [Column(TypeName = "int")]
+        public int كودالمخزن { get; set; }
         public double سعر_الوحدة { get; set; }
         public double الاجمالى { get; set; }
-        [Key]
-        [Column(Order = 3)]
+        
         public char type { get; set; }
-        [ForeignKey("كودالمنتج ,type")]
+        [ForeignKey("كودالخامة ,   كود المخزن, type ")]
         public المنتجات منتج { get; set; }
 
         [ForeignKey("رقم, نوع_فاتورة")]

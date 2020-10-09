@@ -41,16 +41,7 @@ namespace ElAhram.pages.m5zn
             dataContext.SaveChanges();
             DialogResult = true;
             this.Close();
-            programTabs programTabs = new programTabs(dataContext);
-            List<M5znDGrid> m5zndata = new List<M5znDGrid>();
-            foreach (var item in dataContext.منتجات)
-            {
-                m5zndata.Add(new M5znDGrid { كودالخامة = item.كودالخامة, الخامة = item.الخامة, الكمية = item.الكمية });
-
-            }
-            programTabs.m5znDataGrid.ItemsSource = null;
-            programTabs.m5znDataGrid.ItemsSource = m5zndata;
-            CollectionViewSource.GetDefaultView(programTabs.m5znDataGrid.ItemsSource).Refresh();
+            
         }
     }
 }
