@@ -15,5 +15,6 @@ namespace ElAhram.Models
         public string بطاقة{ get; set; }
         public string عنوان{ get; set; }
         public string رقم_قومى{ get; set; }
-    }
+        public char حالةالعمل { get; set; }
+   }
 }

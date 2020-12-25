@@ -9,14 +9,13 @@ namespace ElAhram.ViewmModels.fwter
     {
         public string المنتج { get; set; }
        
-     
-       
-      
         public double كمية { get; set; }
 
         public double سعر_الوحدة { get; set; }
         public double الاجمالى { get; set; }
 
-      
+        public string كميةخامةالمستهلكة { get; set; }
+
+
     }
 }

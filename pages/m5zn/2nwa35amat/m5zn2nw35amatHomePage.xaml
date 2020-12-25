@@ -1,0 +1,17 @@
+﻿<Window x:Class="ElAhram.pages.m5zn._2nwa35amat.m5zn2nw35amatHomePage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ElAhram.pages.m5zn._2nwa35amat"
+        mc:Ignorable="d"
+        Title="m5zn2nw35amatHomePage" Height="450" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
+    <Grid>
+        <Label Content="انواع الخامات" HorizontalAlignment="Center" Margin="0,34,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="22" Foreground="#FFF58322"/>
+        <Button x:Name="AddNo3Btn" Content="اضافة" HorizontalAlignment="Left" Margin="638,110,0,0" VerticalAlignment="Top" Click="AddNo3Btn_Click"/>
+        <Button x:Name="EditNo3Btn" Content="تعديل" HorizontalAlignment="Center" Margin="0,110,0,0" VerticalAlignment="Top" Click="EditNo3Btn_Click"/>
+        <Button x:Name="DeleteNo3Btn" Content="حذف" HorizontalAlignment="Left" Margin="102,110,0,0" VerticalAlignment="Top" Click="DeleteNo3Btn_Click"/>
+        <DataGrid x:Name="tpye5matDataG" Margin="0,165,0,0"/>
+
+    </Grid>
+</Window>

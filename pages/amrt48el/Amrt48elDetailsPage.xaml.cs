@@ -34,7 +34,7 @@ namespace ElAhram.pages.amrt48el
 
                 foreach (var item in items)
                 {
-                    amrt48eldata.Add( new amrt48elDataGVM { رقم = this.amrT48elDetailsDG.Items.Count+1 , اسم = db.منتجات.Where(x=>x.كودالخامة == item.كودالخامة && x.type == 'م').Select(y=>y.الخامة).FirstOrDefault(),اوميا=item.اوميا,بيور = item.بيور ,سمك = item.سمك , كمية = item.كمية , مقاس_تقطيع = item.مقاس_تقطيع , مقاس_طباعة = item.مقاس_طباعة });
+                    amrt48eldata.Add( new amrt48elDataGVM { رقم = this.amrT48elDetailsDG.Items.Count+1 , اسم = db.منتجات.Where(x=>x.كودالخامة == item.كودالخامة && x.type == 'م').Select(y=>y.الخامة).FirstOrDefault(),اوميا=item.اوميا,بيور = item.بيور ,سمك = item.سمك , كميةمنتج = item.كمية , مقاس_تقطيع = item.مقاس_تقطيع , مقاس_طباعة = item.مقاس_طباعة , كميةخامة =double.Parse (item.كميةخامة )});
 
                 }
                 this.amrT48elDetailsDG.ItemsSource = null;

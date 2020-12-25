@@ -19,6 +19,7 @@ namespace ElAhram.Models
         public decimal نقدى{ get; set; }
         public decimal شيكات { get; set; }
         public decimal حساب { get; set; }
+        public string password { get; set; }
 
     }
 }

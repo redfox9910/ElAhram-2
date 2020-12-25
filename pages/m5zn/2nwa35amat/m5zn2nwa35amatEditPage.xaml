@@ -1,0 +1,25 @@
+﻿<Window x:Class="ElAhram.pages.m5zn._2nwa35amat.m5zn2nwa35amatEditPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ElAhram.pages.m5zn._2nwa35amat"
+        mc:Ignorable="d"
+        Title="m5zn2nwa35amatEditPage" Height="250" Width="300" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
+    <Grid Background="White">
+        <Label Content="تعديل نوع خامة" HorizontalAlignment="Center" Margin="0,22,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="22" Foreground="#FFF58322"/>
+
+        <StackPanel MinWidth="200" MaxWidth="200" MinHeight="125" MaxHeight="125" Margin="50,90,36,30">
+            <ComboBox x:Name="No3EditCombobox" Width="120" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" SelectionChanged="No3EditCombobox_SelectionChanged"/>
+            <StackPanel Height="39">
+                <Label Content="الاسم " HorizontalAlignment="Right" FontWeight="Bold" FontSize="14"/>
+                <TextBox x:Name="m5zn2smmno3" Text="" TextWrapping="Wrap" Width="120" VerticalContentAlignment="Top" Margin="0,-20,60,0" BorderBrush="#FFF58322"/>
+            </StackPanel>
+            <Button x:Name="m5znAddno3Btn" Content="تعديل" Click="m5znAddno3Btn_Click" />
+
+
+        </StackPanel>
+
+
+    </Grid>
+</Window>

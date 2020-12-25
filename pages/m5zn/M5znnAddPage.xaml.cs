@@ -28,7 +28,7 @@ namespace ElAhram.pages.m5zn
 
         private void m5znAddMntag_Click(object sender, RoutedEventArgs e)
         {
-            int id,m5znID,no3Id;
+            int id,no3Id;
             using (var db = new Models.DataContext())
             {
            
@@ -40,12 +40,12 @@ namespace ElAhram.pages.m5zn
             string value = typeItem.Content.ToString();
             if (value == "خامة")
             {
-                    m5znID = db.مخزن.Where(x => x.المخزن == m5znlocationCombo.Text.ToString()).Select(x => x.كودالمخزن).FirstOrDefault();
+                   
                     no3Id = db.انواع_خامات.Where(x => x.النوع == m5znsnfCombo.Text).Select(x => x.كودالنوع).FirstOrDefault();
                     typex = 'خ';
-                if (db.منتجات.Where(x => x.type == 'خ' && x.كودالمخزن == m5znID).Any())
+                if (db.منتجات.Where(x => x.type == 'خ' ).Any())
                 {
-                    id = db.منتجات.Where(x => x.type == 'خ' &&x.كودالمخزن == m5znID).Max(x => x.كودالخامة) + 1;
+                    id = db.منتجات.Where(x => x.type == 'خ' ).Max(x => x.كودالخامة) + 1;
                 }
                 else
                 {
@@ -56,12 +56,13 @@ namespace ElAhram.pages.m5zn
             {
 
 
-                    m5znID = db.مخزن.Min(x => x.كودالمخزن);
+                  
                     no3Id = db.انواع_خامات.Min(x => x.كودالنوع);
                 typex = 'م';
-                if (db.منتجات.Any())
+                if (db.منتجات.Where(x => x.type == 'م').Any())
                 {
-                    id = db.منتجات.Where(x => x.type == 'م').Max(x => x.كودالخامة) + 1;
+                    id = db.منتجات.Where(x => x.type == 'م').Max(x => x.كودالخامة) ;
+                        id++;
                 }
                 else
                 {
@@ -76,8 +77,8 @@ namespace ElAhram.pages.m5zn
                 {
                     w7da = 'ع';
                 }
-
-                db.منتجات.Add(new المنتجات { كودالخامة = id,الخامة=m5zn2smmntg.Text, الكمية=0,type=typex,كودالمخزن = m5znID ,كودالنوع =no3Id,وحدة = w7da});
+                data.no3MntgMdaf = typex;
+                db.منتجات.Add(new المنتجات { كودالخامة = id,الخامة=m5zn2smmntg.Text, الكمية=0,type=typex ,كودالنوع =no3Id,وحدة = w7da});
                 db.SaveChanges();
           
             DialogResult = true;
@@ -95,16 +96,15 @@ namespace ElAhram.pages.m5zn
             {
                 m5znsnfCombo.Visibility = Visibility.Visible;
                 snfLabel.Visibility = Visibility.Visible;
-                m5znlocationCombo.Visibility = Visibility.Visible;
-                locationLabel.Visibility = Visibility.Visible;
+               
+              
             }
 
             else
             {
                 m5znsnfCombo.Visibility = Visibility.Collapsed;
                 snfLabel.Visibility = Visibility.Collapsed;
-                m5znlocationCombo.Visibility = Visibility.Collapsed;
-                locationLabel.Visibility = Visibility.Collapsed;
+              
 
 
             }
@@ -115,7 +115,7 @@ namespace ElAhram.pages.m5zn
             using (var db = new Models.DataContext())
             {
                 m5znsnfCombo.ItemsSource = db.انواع_خامات.Select(x => x.النوع).ToList();
-                m5znlocationCombo.ItemsSource = db.مخزن.Select(y => y.المخزن).ToList();
+               
 
             }
         }

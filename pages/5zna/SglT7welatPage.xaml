@@ -1,0 +1,19 @@
+﻿<Window x:Class="ElAhram.pages._5zna.SglT7welatPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ElAhram.pages._5zna"
+        mc:Ignorable="d"
+        Title="SglT7welatPage" Height="350" Width="600" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Loaded="Window_Loaded">
+    <Grid>
+
+        <Label Content=" سجل التحويلات الداخلية" HorizontalAlignment="Center" Margin="0,24,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
+        <DataGrid x:Name="sglatT7welatDataG" Margin="0,117,0,0" IsReadOnly="True"  />
+        <Label Content=" : من" HorizontalAlignment="Left" Margin="506,86,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
+        <DatePicker x:Name="datefromDateP" HorizontalAlignment="Left" Margin="376,91,0,0" VerticalAlignment="Top" SelectedDateChanged="datefromDateP_SelectedDateChanged"/>
+        <Label Content=" : الى" HorizontalAlignment="Left" Margin="239,86,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
+        <DatePicker x:Name="dateToDateP" HorizontalAlignment="Left" Margin="111,91,0,0" VerticalAlignment="Top" SelectedDateChanged="datefromDateP_SelectedDateChanged"/>
+
+    </Grid>
+</Window>

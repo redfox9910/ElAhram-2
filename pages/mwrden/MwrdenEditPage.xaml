@@ -1,0 +1,40 @@
+﻿<Window x:Class="ElAhram.pages.mwrden.MwrdenEditPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ElAhram.pages.mwrden"
+        mc:Ignorable="d"
+        Title="MwrdenEditPage" Height="400" Width="300" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Loaded="Window_Loaded">
+    <Grid>
+        <Label Content="تعديل بيانات مورد" HorizontalAlignment="Center" Margin="0,22,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="22" Foreground="#FFF58322"/>
+
+
+        <StackPanel  Margin="0,86,5,40">
+            <StackPanel Height="30">
+                <Label Content="الاسم " HorizontalAlignment="Right" FontWeight="Bold" FontSize="14"/>
+                <TextBox x:Name="Mwrd2smText" Text="" TextWrapping="Wrap" Width="120" VerticalContentAlignment="Top" Margin="0,-20,25,0" BorderBrush="#FFF58322"/>
+            </StackPanel>
+            <StackPanel>
+                <Label Content="الهاتف " HorizontalAlignment="Right" FontSize="14" FontWeight="Bold"/>
+                <TextBox x:Name="MwrdMobText"  Text="" TextWrapping="Wrap" Width="120" VerticalContentAlignment="Top" Margin="0,-25,25,0" BorderBrush="#FFF58322"/>
+
+            </StackPanel>
+            <StackPanel>
+                <Label Content="ايمال" HorizontalAlignment="Right" FontSize="14" FontWeight="Bold"/>
+                <TextBox x:Name="MwrdEmailText"  Text="" TextWrapping="Wrap" Width="120" VerticalContentAlignment="Top" Margin="0,-25,25,0" BorderBrush="#FFF58322"/>
+
+            </StackPanel>
+            <StackPanel>
+                <Label Content="العنوان" HorizontalAlignment="Right" FontSize="14" FontWeight="Bold"/>
+                <TextBox x:Name="Mwrd3nwanText"  Text="" TextWrapping="Wrap" Width="120" VerticalContentAlignment="Top" Margin="0,-25,25,0" BorderBrush="#FFF58322"/>
+
+            </StackPanel>
+
+            <Button x:Name="MwrdEditBtn" Content="اضافة" Margin="0,25,0,0"  Width="200" Click="MwrdEditBtn_Click" />
+
+
+        </StackPanel>
+
+    </Grid>
+</Window>

@@ -20,9 +20,11 @@
         <Label Content=": السلف الشهرية" HorizontalAlignment="Left" Margin="205,86,0,0" VerticalAlignment="Top"/>
         <Label x:Name="TotalmoneyLabel" Content="" HorizontalAlignment="Left" Margin="62,86,0,0" VerticalAlignment="Top" Width="129" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
         <DataGrid x:Name="Emp8yabDataGrid" Margin="0,148,0,0" IsReadOnly="True" MouseDoubleClick="Emp8yabDataGrid_MouseDoubleClick" />
-        <Button Content="سجل اليوميات" HorizontalAlignment="Left" Margin="212,123,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="sglYwmyatBtn" Content="سجل اليوميات" HorizontalAlignment="Left" Margin="212,123,0,0" VerticalAlignment="Top" Click="sglYwmyatBtn_Click"/>
         <Label Content=": رقم قومى " HorizontalAlignment="Left" Margin="286,46,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
         <Label x:Name="EmpRkmkwmyLabel" Content="" HorizontalAlignment="Left" Margin="166,46,0,0" VerticalAlignment="Top" Width="116" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="14"/>
+        <Button Content="ايقاف العمل" HorizontalAlignment="Left" Margin="87,123,0,0" VerticalAlignment="Top" Height="20"/>
+        <Button x:Name="sgel7dorBtn" Content="سجل الحضور و الانصراف" HorizontalAlignment="Left" Margin="320,123,0,0" VerticalAlignment="Top" Click="sgel7dorBtn_Click"/>
 
     </Grid>
 </Window>

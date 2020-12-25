@@ -18,13 +18,12 @@ namespace ElAhram.Models
         
         public char نوع_فاتورة { get; set; }
         public double كمية{ get; set; }
-        [Column(TypeName = "int")]
-        public int كودالمخزن { get; set; }
+        
         public double سعر_الوحدة { get; set; }
         public double الاجمالى { get; set; }
         
         public char type { get; set; }
-        [ForeignKey("كودالخامة ,   كود المخزن, type ")]
+        [ForeignKey("كودالمنتج , type ")]
         public المنتجات منتج { get; set; }
 
         [ForeignKey("رقم, نوع_فاتورة")]

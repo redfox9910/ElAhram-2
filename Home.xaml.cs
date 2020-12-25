@@ -1,4 +1,5 @@
 ﻿using ElAhram.Models;
+using ElAhram.pages.password;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -27,11 +28,16 @@ namespace ElAhram
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             programTabs tab = new programTabs(dataContext);
-            tab.Show();
+            
             var x = (sender as Button).Name.ToString();
             switch ((sender as Button).Name.ToString())
             {
-                case "b0": tab.ptabs.SelectedIndex = 0 ; break;
+                case "b0":
+                    password Page = new password(); 
+                    bool? result = Page.ShowDialog();
+                    if (result == true)   {    tab.ptabs.SelectedIndex = 0;   }
+                    else {  Xceed.Wpf.Toolkit.MessageBox.Show("الرجاء ادخال كلمة المرور لتتمكن من الوصول الى هذه النافذة ", "كلمة مرور", MessageBoxButton.OK, MessageBoxImage.Error);
+                        Home page = new Home();  page.Show();            this.Close();   }              break;
                 case "b1": tab.ptabs.SelectedIndex = 1 ; break;
                 case "b2": tab.ptabs.SelectedIndex = 2 ; break;
                 case "b3": tab.ptabs.SelectedIndex = 3 ; break;
@@ -45,7 +51,7 @@ namespace ElAhram
                 default:
                     break;
             }
-           
+            tab.Show();
             this.Close();
         }
     }

@@ -55,9 +55,7 @@ namespace ElAhram.pages._5zna
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
 
-            List<String> names = new List<string>();
-
-
+         
             using (var db = new Models.DataContext())
             {
                 foreach (var item in db.عملاء.Where(x => x.نوع == 'ع'))

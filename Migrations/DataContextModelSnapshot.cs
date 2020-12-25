@@ -35,21 +35,43 @@ namespace ElAhram.Migrations
                     b.Property<int>("كودالخامة")
                         .HasColumnType("int");
 
-                    b.Property<int>("كودالمخزن")
-                        .HasColumnType("int");
-
                     b.Property<string>("ملاحظات")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("كود");
 
-                    b.ToTable("اذن_صرف");
+                    b.ToTable("اذون_صرف");
+                });
+
+            modelBuilder.Entity("ElAhram.Models.التحويلات_الداخلية", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("تاريخ")
+                        .HasColumnType("datetime2");
+
+                    b.Property<decimal>("قيمة")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("نوع")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(1)");
+
+                    b.HasKey("id");
+
+                    b.ToTable("تحويلات");
                 });
 
             modelBuilder.Entity("ElAhram.Models.الخزنة", b =>
                 {
                     b.Property<string>("رقم")
                         .HasColumnType("nvarchar(1)");
+
+                    b.Property<string>("password")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("اجمالى")
                         .HasColumnType("decimal(18,2)");
@@ -79,9 +101,6 @@ namespace ElAhram.Migrations
                     b.Property<int>("كودالخامة")
                         .HasColumnType("int");
 
-                    b.Property<int>("كودالمخزن")
-                        .HasColumnType("int");
-
                     b.Property<string>("type")
                         .HasColumnType("nvarchar(1)");
 
@@ -91,16 +110,15 @@ namespace ElAhram.Migrations
                     b.Property<double>("الكمية")
                         .HasColumnType("float");
 
-                    b.Property<int>("كودالنوع")
+                    b.Property<int?>("كودالنوع")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<string>("وحدة")
                         .IsRequired()
                         .HasColumnType("nvarchar(1)");
 
-                    b.HasKey("كودالخامة", "كودالمخزن", "type");
-
-                    b.HasIndex("كودالمخزن");
+                    b.HasKey("كودالخامة", "type");
 
                     b.HasIndex("كودالنوع");
 
@@ -137,12 +155,6 @@ namespace ElAhram.Migrations
                     b.Property<string>("كميةخامة")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("كود المخزن")
-                        .HasColumnType("int");
-
-                    b.Property<int>("كودالمخزن")
-                        .HasColumnType("int");
-
                     b.Property<string>("مقاس_تقطيع")
                         .HasColumnType("nvarchar(max)");
 
@@ -153,7 +165,7 @@ namespace ElAhram.Migrations
 
                     b.HasIndex("رقم", "نوع_فاتورة");
 
-                    b.HasIndex("كودالخامة", "كود المخزن", "type");
+                    b.HasIndex("كودالخامة", "type");
 
                     b.ToTable("امرتشغيل");
                 });
@@ -194,15 +206,6 @@ namespace ElAhram.Migrations
                     b.Property<double>("كمية")
                         .HasColumnType("float");
 
-                    b.Property<int?>("كود المخزن")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("كودالخامة")
-                        .HasColumnType("int");
-
-                    b.Property<int>("كودالمخزن")
-                        .HasColumnType("int");
-
                     b.Property<int>("كودالمنتج")
                         .HasColumnType("int");
 
@@ -214,7 +217,7 @@ namespace ElAhram.Migrations
 
                     b.HasIndex("رقم", "نوع_فاتورة");
 
-                    b.HasIndex("كودالخامة", "كود المخزن", "type");
+                    b.HasIndex("كودالمنتج", "type");
 
                     b.ToTable("بنودفاتورة");
                 });
@@ -365,21 +368,6 @@ namespace ElAhram.Migrations
                     b.ToTable("فواتير");
                 });
 
-            modelBuilder.Entity("ElAhram.Models.مخازن", b =>
-                {
-                    b.Property<int>("كودالمخزن")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("المخزن")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("كودالمخزن");
-
-                    b.ToTable("مخزن");
-                });
-
             modelBuilder.Entity("ElAhram.Models.موظف", b =>
                 {
                     b.Property<int>("كودموظف")
@@ -392,6 +380,10 @@ namespace ElAhram.Migrations
 
                     b.Property<string>("بطاقة")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("حالةالعمل")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(1)");
 
                     b.Property<string>("رقم")
                         .HasColumnType("nvarchar(max)");
@@ -462,12 +454,6 @@ namespace ElAhram.Migrations
 
             modelBuilder.Entity("ElAhram.Models.المنتجات", b =>
                 {
-                    b.HasOne("ElAhram.Models.مخازن", "مخزن")
-                        .WithMany("منتجات")
-                        .HasForeignKey("كودالمخزن")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("ElAhram.Models.انواع_الخامات", "انواع")
                         .WithMany()
                         .HasForeignKey("كودالنوع")
@@ -485,7 +471,9 @@ namespace ElAhram.Migrations
 
                     b.HasOne("ElAhram.Models.المنتجات", "منتج")
                         .WithMany()
-                        .HasForeignKey("كودالخامة", "كود المخزن", "type");
+                        .HasForeignKey("كودالخامة", "type")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("ElAhram.Models.بنود_الفاتورة", b =>
@@ -498,7 +486,9 @@ namespace ElAhram.Migrations
 
                     b.HasOne("ElAhram.Models.المنتجات", "منتج")
                         .WithMany()
-                        .HasForeignKey("كودالخامة", "كود المخزن", "type");
+                        .HasForeignKey("كودالمنتج", "type")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("ElAhram.Models.حسابات_موظف", b =>

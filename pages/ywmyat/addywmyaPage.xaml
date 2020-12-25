@@ -34,14 +34,14 @@
             </StackPanel>
             <StackPanel>
                 <Label Content="قيمة اليومية" HorizontalAlignment="Right" FontSize="14" FontWeight="Bold"/>
-                <TextBox x:Name="nkdyelywmyaText"  Text="" TextWrapping="Wrap" Width="120" VerticalContentAlignment="Top" Margin="0,-25,0,0" BorderBrush="#FFF58322" PreviewTextInput="nkdyelywmyaText_PreviewTextInput"/>
+                <TextBox x:Name="nkdyelywmyaText"  Text="" TextWrapping="Wrap" Width="120" VerticalContentAlignment="Center" Margin="0,-25,0,0" BorderBrush="#FFF58322" PreviewTextInput="nkdyelywmyaText_PreviewTextInput" HorizontalContentAlignment="Center"/>
 
             </StackPanel>
             
            
             <StackPanel>
                 <Label Content="ملاحظات" HorizontalAlignment="Right" FontSize="14" FontWeight="Bold"/>
-                <TextBox x:Name="noteywmyaText"    Width="217" VerticalContentAlignment="Top" Margin="0,-25,50,0" BorderBrush="#FFF58322" Height="26"/>
+                <TextBox x:Name="noteywmyaText"    Width="217" VerticalContentAlignment="Center" Margin="0,-25,50,0" BorderBrush="#FFF58322" Height="26" HorizontalContentAlignment="Center"/>
 
             </StackPanel>
 

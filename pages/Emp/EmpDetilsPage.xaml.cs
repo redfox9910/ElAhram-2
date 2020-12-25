@@ -1,4 +1,5 @@
 ﻿using ElAhram.Models;
+using ElAhram.pages.mwzfen;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -54,6 +55,20 @@ namespace ElAhram.pages.Emp
         private void Emp8yabDataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
 
+        }
+
+        private void sglYwmyatBtn_Click(object sender, RoutedEventArgs e)
+        {
+            data.randomVal= int.Parse(kodEMPLabel.Content.ToString());
+            EmpK4f7sab page = new EmpK4f7sab();
+            page.ShowDialog();
+        }
+
+        private void sgel7dorBtn_Click(object sender, RoutedEventArgs e)
+        {
+            data.randomVal = int.Parse(kodEMPLabel.Content.ToString());
+            mwzfenkf48yabPage page = new mwzfenkf48yabPage();
+            page.ShowDialog();
         }
     }
 }

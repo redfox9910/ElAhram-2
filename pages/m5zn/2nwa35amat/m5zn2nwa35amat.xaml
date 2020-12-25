@@ -1,24 +1,24 @@
-﻿<Window x:Class="ElAhram.pages.m5zn.M5znAddM5znPage"
+﻿<Window x:Class="ElAhram.pages.m5zn.m5zn2nwa35amat"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ElAhram.pages.m5zn"
         mc:Ignorable="d"
-        Title="M5znAddM5znPage" Height="250" Width="300" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="m5zn2nwa35amat" Height="250" Width="300" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid Background="White">
-        <Label Content="اضافة مخزن" HorizontalAlignment="Center" Margin="0,22,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="22" Foreground="#FFF58322"/>
+        <Label Content="اضافة نوع خامة" HorizontalAlignment="Center" Margin="0,22,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="22" Foreground="#FFF58322"/>
 
         <StackPanel MinWidth="200" MaxWidth="200" MinHeight="125" MaxHeight="125" Margin="50,90,36,30">
             <StackPanel Height="39">
                 <Label Content="الاسم " HorizontalAlignment="Right" FontWeight="Bold" FontSize="14"/>
-                <TextBox x:Name="m5zn2smm5zn" Text="" TextWrapping="Wrap" Width="120" VerticalContentAlignment="Top" Margin="0,-20,60,0" BorderBrush="#FFF58322"/>
+                <TextBox x:Name="m5zn2smmno3" Text="" TextWrapping="Wrap" Width="120" VerticalContentAlignment="Top" Margin="0,-20,60,0" BorderBrush="#FFF58322"/>
             </StackPanel>
-            <Button x:Name="m5znAddM5znBtn" Content="تعديل" Click="m5znAddM5znBtn_Click" Margin="0,40,0,0" />
+            <Button x:Name="m5znAddno3Btn" Content="تعديل" Margin="0,40,0,0" Click="m5znAddno3Btn_Click" />
 
 
         </StackPanel>
-       
+
 
     </Grid>
 </Window>

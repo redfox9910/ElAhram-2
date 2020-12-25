@@ -1,0 +1,37 @@
+﻿<Window x:Class="ElAhram.pages._5zna.t7welNkdyPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ElAhram.pages._5zna"
+        mc:Ignorable="d"
+        Title="t7welNkdyPage" Height="300" Width="300" ResizeMode="NoResize">
+    <Grid>
+        <Label Content="تحويلات داخليه" HorizontalAlignment="Center" Margin="0,22,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="22" Foreground="#FFF58322"/>
+
+
+        <StackPanel  Margin="0,86,7,0">
+           
+            <StackPanel>
+                <Label Content=" : نوع التحويل " HorizontalAlignment="Right" FontSize="14" FontWeight="Bold"/>
+                <ComboBox x:Name="no3Elt7welcombo"  Text=""  Width="120"  Margin="0,-25,10,0" BorderBrush="#FFF58322" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" >
+                    <ComboBoxItem >تحويل الى الحساب البنكى</ComboBoxItem>
+                    <ComboBoxItem >تحويل الى الخزنة</ComboBoxItem>
+                 
+                </ComboBox>
+
+            </StackPanel>
+            <StackPanel>
+                <Label Content=" : قيمة التحويل" HorizontalAlignment="Right" FontSize="14" FontWeight="Bold"/>
+                <TextBox x:Name="nkdyElt7welText"  Text="" TextWrapping="Wrap" Width="120" VerticalContentAlignment="Top" Margin="0,-25,10,0" BorderBrush="#FFF58322" PreviewTextInput="nkdyel4ekText_PreviewTextInput"/>
+
+            </StackPanel>
+           
+
+            <Button x:Name="t7welAddBtn" Content=" تحويل " Margin="0,25,0,0"  Width="200" Click="t7welAddBtn_Click" />
+
+
+        </StackPanel>
+
+    </Grid>
+</Window>

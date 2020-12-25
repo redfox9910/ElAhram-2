@@ -50,7 +50,7 @@ namespace ElAhram.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<المنتجات>().HasKey(c => new { c.كودالخامة, c.كودالمخزن, c.type });
+            modelBuilder.Entity<المنتجات>().HasKey(c => new { c.كودالخامة, c.type });
             modelBuilder.Entity<امرتشغيل>().HasKey(c => new { c.كودالخامة, c.رقم, c.نوع_فاتورة });
             modelBuilder.Entity<بنود_الفاتورة>().HasKey(c => new { c.number, c.رقم });
             modelBuilder.Entity<حالات_اليوميات>().HasKey(c => new { c.كودحالة });
@@ -64,11 +64,11 @@ namespace ElAhram.Models
                                                                                                     
             modelBuilder.Entity<الخزنة>().HasKey(c => new { c.رقم });
             modelBuilder.Entity<انواع_الخامات>().HasKey(c => new { c.كودالنوع });
-            modelBuilder.Entity<مخازن>().HasKey(c => new { c.كودالمخزن });
+           // modelBuilder.Entity<مخازن>().HasKey(c => new { c.كودالمخزن });
             modelBuilder.Entity<اذن_صرف>().HasKey(c => new { c.كود });
+            modelBuilder.Entity<التحويلات_الداخلية>().HasKey(c => new { c.id });
 
-
-            modelBuilder.Entity<مخازن>()   .HasMany(i => i.منتجات).WithOne(c=>c.مخزن).HasForeignKey(f=>f.كودالمخزن).IsRequired(true).OnDelete(DeleteBehavior.Cascade);
+            //modelBuilder.Entity<مخازن>()   .HasMany(i => i.منتجات).WithOne(c=>c.مخزن).HasForeignKey(f=>f.كودالمخزن).IsRequired(true).OnDelete(DeleteBehavior.Cascade);
             //modelBuilder.Entity<المنتجات>().HasNoKey();
             //modelBuilder.Entity<امرتشغيل>().HasNoKey();
 
@@ -98,15 +98,16 @@ namespace ElAhram.Models
         public DbSet<المنتجات> منتجات { get; set; }
         public DbSet<امرتشغيل> امرتشغيل { get; set; }
         public DbSet<انواع_الخامات> انواع_خامات { get; set; }
+        public DbSet<اذن_صرف> اذون_صرف { get; set; }
         // public DbSet<امرشراء> امرشراء { get; set; }
         //public DbSet<ايام> ايام { get; set; }
         public DbSet<بنود_الفاتورة> بنودفاتورة{ get; set; }
         public DbSet<حالات_اليوميات> حالات_يوميات{ get; set; }
         public DbSet<حسابات_موظف> حسابات_الموظف { get; set; }
         public DbSet<عميل> عملاء { get; set; }
-      //  public DbSet<فاتورةبيع> فاتورةبيع { get; set; }
+        public DbSet<التحويلات_الداخلية>  تحويلات { get; set; }
         public DbSet<فواتير> فواتير { get; set; }
-        public DbSet<مخازن> مخزن { get; set; }
+        
         public DbSet<موظف> موظف{ get; set; }
         public DbSet<هالك> هالك{ get; set; }
         public DbSet<يوميات> يوميات{ get; set; }

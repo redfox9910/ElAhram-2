@@ -57,9 +57,11 @@ namespace ElAhram.pages.mwzfen
                 }
                 var datas = db.حسابات_الموظف.Where(x=>x.تاريخ >= DateTime.Now.Date && x.تاريخ <= DateTime.Now.AddDays(1).Date).ToList();
                 List<mwzfen8yabDataGVM> mwzfen8YabDatas = new List<mwzfen8yabDataGVM>();
+                int count = 1;
                 foreach (var item in datas)
                 {
-                    mwzfen8YabDatas.Add(new mwzfen8yabDataGVM {موظف= db.موظف.Where(x=>x.كودموظف== item.كودموظف).Select(y=>y.اسم).FirstOrDefault(),تاريخ= item.تاريخ ,ساعةحضور= item.ساعةحضور ,دقيقةحضور =item.دقيقةحضور,ساعةانصراف = item.ساعةانصراف , دقيقةانصراف = item.دقيقةانصراف ,ملاحظات = item.ملاحظات ,حضور= item.غياب });
+                    mwzfen8YabDatas.Add(new mwzfen8yabDataGVM { رقم = count,موظف= db.موظف.Where(x=>x.كودموظف== item.كودموظف).Select(y=>y.اسم).FirstOrDefault(),تاريخ= item.تاريخ ,ساعةحضور= item.ساعةحضور ,دقيقةحضور =item.دقيقةحضور,ساعةانصراف = item.ساعةانصراف , دقيقةانصراف = item.دقيقةانصراف ,ملاحظات = item.ملاحظات ,حضور= item.غياب });
+                    count++;
                 }
                 mwzfen8yabDataG.ItemsSource = mwzfen8YabDatas;
             }   

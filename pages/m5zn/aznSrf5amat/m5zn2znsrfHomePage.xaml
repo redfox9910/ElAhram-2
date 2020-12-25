@@ -1,0 +1,32 @@
+﻿<Window x:Class="ElAhram.pages.m5zn.aznSrf5amat.m5zn2znsrfHomePage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ElAhram.pages.m5zn.aznSrf5amat"
+        mc:Ignorable="d"
+        Title="m5zn2znsrfHomePage" Height="450" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
+    <Grid>
+        <Label Content="أذونات الصرف" HorizontalAlignment="Center" Margin="0,34,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="22" Foreground="#FFF58322"/>
+        <Button x:Name="Add2znBtn" Content="اضافة" HorizontalAlignment="Left" Margin="638,110,0,0" VerticalAlignment="Top" Click="Add2znBtn_Click"/>
+        <DataGrid x:Name="m5zn2zonDataG" Margin="0,165,0,0">
+
+            <DataGrid.Columns>
+
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button  x:Name="Edit" Click="Edit2znBtn_Click">تعديل</Button>
+                                <Button  x:Name="delete" Click="Delete2znBtn_Click">مسح</Button>
+                            </StackPanel>
+                        </DataTemplate>
+
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Window>

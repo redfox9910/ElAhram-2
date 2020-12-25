@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ElAhram.pages.fwater"
         mc:Ignorable="d"
-        Title="FWaterListP" Height="450" Width="800">
+        Title="FWaterListP" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid>
         <Label Content="الفواتير" HorizontalAlignment="Center" Margin="0,21,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
         <DataGrid x:Name="fwterListDataG" Margin="0,110,0,0" BeginningEdit="fwterListDataG_BeginningEdit"  />
-        <ComboBox HorizontalAlignment="Left" Margin="604,75,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="name3elCombo" HorizontalAlignment="Left" Margin="604,75,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="name3elCombo_SelectionChanged"/>
         <Label Content=" : العميل " HorizontalAlignment="Left" Margin="738,73,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

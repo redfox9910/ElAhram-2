@@ -7,8 +7,11 @@ using ElAhram.pages.Emp;
 using ElAhram.pages.fwater;
 using ElAhram.pages.halk;
 using ElAhram.pages.m5zn;
+using ElAhram.pages.m5zn._2nwa35amat;
+using ElAhram.pages.m5zn.aznSrf5amat;
 using ElAhram.pages.mwrden;
 using ElAhram.pages.mwzfen;
+using ElAhram.pages.password;
 using ElAhram.pages.ywmyat;
 using ElAhram.ViewmModels;
 using ElAhram.ViewmModels._3ml2Tab;
@@ -28,8 +31,10 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Windows;
+using System.Windows.Automation;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
@@ -48,9 +53,18 @@ namespace ElAhram
         private readonly DataContext dataContext = new Models.DataContext();
         public ObservableCollection<string> ItemList { get; set; }
         public event PropertyChangedEventHandler PropertyChanged;
+        private static char m5znNo3DataG;
         public programTabs(DataContext Db)
         {
             InitializeComponent();
+            if (dataContext.حالات_يوميات.Count() !=5)
+            {
+                dataContext.حالات_يوميات.Add(new حالات_اليوميات { حالة = "وارد" });
+                dataContext.حالات_يوميات.Add(new حالات_اليوميات { حالة = "مصاريف" });
+                dataContext.حالات_يوميات.Add(new حالات_اليوميات { حالة = "سلف " });
+                dataContext.حالات_يوميات.Add(new حالات_اليوميات { حالة = "مرتبات " });
+                dataContext.حالات_يوميات.Add(new حالات_اليوميات { حالة = "تحويلات" });
+            }
             ref5zna();
         }
         /* public programTabs()
@@ -92,42 +106,21 @@ namespace ElAhram
             if (result == true)
             {
                 List<M5znDGrid> m5zndata = new List<M5znDGrid>();
-                foreach (var item in dataContext.منتجات.Where(y=> y.type == 'م' && y.كودالمخزن == dataContext.مخزن.Where(x=>x.المخزن == m5znlocationCombo.Text).Select(x=>x.كودالمخزن).FirstOrDefault()))
+                foreach (var item in dataContext.منتجات.Where(y=> y.type == data.no3MntgMdaf))
                 {
                     m5zndata.Add(new M5znDGrid { كودالخامة = item.كودالخامة, الخامة = item.الخامة, الكمية = item.الكمية });
 
                 }
                 // m5zndata = dataContext.منتجات.ToList();
-                m5znlocationCombo.Visibility = Visibility.Visible;
-                m5znlLocationLabel.Visibility = Visibility.Visible;
+               
                 this.m5znDataGrid.ItemsSource = null;
                 this.m5znDataGrid.Items.Clear();
                 this.m5znDataGrid.ItemsSource = m5zndata;
                 this.m5znDataGrid.Items.Refresh();
+               
             }
         }
 
-        private void addNewM5znBtn_Click(object sender, RoutedEventArgs e)
-        {
-            M5znAddM5znPage m5ZnaddPage = new M5znAddM5znPage();
-            m5ZnaddPage.Owner = this;
-            bool? result = m5ZnaddPage.ShowDialog();
-            if (result == true)
-            {
-                List<string> m5zndata = new List<string>();
-                foreach (var item in dataContext.مخزن)
-                {
-                    m5zndata.Add(item.المخزن);
-
-                }
-                // m5zndata = dataContext.منتجات.ToList();
-                this.m5znlocationCombo.ItemsSource = null;
-                this.m5znlocationCombo.Items.Clear();
-                this.m5znlocationCombo.ItemsSource = m5zndata;
-                this.m5znlocationCombo.Items.Refresh();
-                m5znlocationCombo.SelectedIndex = 0;
-            }
-        }
 
         private void EditM5znBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -139,15 +132,6 @@ namespace ElAhram
             }
         }
 
-        private void EditNewM5znBtn_Click(object sender, RoutedEventArgs e)
-        {
-            M5znEditM5znPage m5ZneditPage = new M5znEditM5znPage();
-            bool? result = m5ZneditPage.ShowDialog();
-            if (result == true)
-            {
-                refm5zndataG();
-            }
-        }
 
         private void DeleteM5znBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -158,52 +142,55 @@ namespace ElAhram
                 refm5zndataG();
             }
         }
-        private void DeletNeweM5znBtn_Click(object sender, RoutedEventArgs e)
-        {
-            M5znDeleteM5znPage m5ZneditPage = new M5znDeleteM5znPage();
-            bool? result = m5ZneditPage.ShowDialog();
-            if (result == true)
-            {
-                refm5zndataG();
-            }
-        }
-
         private void refm5zndataG()
         {
             List<M5znDGrid> m5zndata = new List<M5znDGrid>();
             using (var db = new Models.DataContext())
             {
-                foreach (var item in db.منتجات.Where(x => x.type == 'خ' && x.كودالمخزن == db.مخزن.Min(x => x.كودالمخزن)))
+                foreach (var item in db.منتجات.Where(x => x.type == 'خ' ))
                 {
                     m5zndata.Add(new M5znDGrid { كودالخامة = item.كودالخامة, الخامة = item.الخامة, الكمية = item.الكمية });
 
                 }
-                m5znlocationCombo.Visibility = Visibility.Visible;
-                m5znlLocationLabel.Visibility = Visibility.Visible;
-                m5znlocationCombo.ItemsSource = db.مخزن.Select(x => x.المخزن).ToList();
-                m5znlocationCombo.Text = db.مخزن.Where(y => y.كودالمخزن == db.مخزن.Min(x => x.كودالمخزن)).Select(y => y.المخزن).ToString();
+               
+                m5zn2znsrfBtn.Visibility = Visibility.Visible;
+                m5zn2nwa35amatBtn.Visibility = Visibility.Visible;
+               
                 this.m5znDataGrid.ItemsSource = null;
                 this.m5znDataGrid.Items.Clear();
                 this.m5znDataGrid.ItemsSource = m5zndata;
                 this.m5znDataGrid.Items.Refresh();
+                m5znNo3DataG = '5';
 
             }
         }
        
         private void m5znHeader_Clicked(object sender, MouseButtonEventArgs e)
         {
-            using (var db = new Models.DataContext())
+            password Page = new password();
+            bool? result = Page.ShowDialog();
+            if (result == true)
             {
-                var data = db.خزنة.FirstOrDefault();
+                using (var db = new Models.DataContext())
+                {
+                    var data = db.خزنة.FirstOrDefault();
 
 
-                cash.Content = data.نقدى;
-                mden.Content = data.مدين;
-                d2n.Content = data.دائن;
-                total.Content = data.اجمالى;
-                cash4ekat.Content = data.شيكات;
-                cash7sab.Content = data.حساب;
+                    cash.Content = data.نقدى;
+                    mden.Content = data.مدين;
+                    d2n.Content = data.دائن;
+                    total.Content = data.اجمالى;
+                    cash4ekat.Content = data.شيكات;
+                    cash7sab.Content = data.حساب;
 
+                }
+            }
+            else
+            {
+                Xceed.Wpf.Toolkit.MessageBox.Show("الرجاء ادخال كلمة المرور لتتمكن من الوصول الى هذه النافذة ", "كلمة مرور", MessageBoxButton.OK, MessageBoxImage.Error);
+               Home page = new Home();
+                page.Show();
+                this.Close();
             }
         }
 
@@ -215,49 +202,38 @@ namespace ElAhram
 
         private void m5zn5amatBtn_Click(object sender, RoutedEventArgs e)
         {
-            refm5zndataG();
+            if (m5znNo3DataG != '5')
+            {
+                refm5zndataG();
+            }
+            
 
         }
 
         private void m5znmntgatBtn_Click(object sender, RoutedEventArgs e)
         {
+            if (m5znNo3DataG != 'm')
+            {
+
+            
             List<M5znDGrid> m5zndata = new List<M5znDGrid>();
             using (var db = new Models.DataContext())
             {
-                foreach (var item in db.منتجات.Where(x => x.type == 'م' && x.كودالمخزن == db.مخزن.Min(x => x.كودالمخزن)))
+                foreach (var item in db.منتجات.Where(x => x.type == 'م' ))
                 {
                     m5zndata.Add(new M5znDGrid { كودالخامة = item.كودالخامة, الخامة = item.الخامة, الكمية = item.الكمية });
 
                 }
-                m5znlocationCombo.Visibility = Visibility.Hidden;
-                m5znlLocationLabel.Visibility = Visibility.Hidden;
+                
+                m5zn2znsrfBtn.Visibility = Visibility.Hidden;
+                m5zn2nwa35amatBtn.Visibility = Visibility.Hidden;
                 this.m5znDataGrid.ItemsSource = null;
                 this.m5znDataGrid.Items.Clear();
                 this.m5znDataGrid.ItemsSource = m5zndata;
                 this.m5znDataGrid.Items.Refresh();
+                m5znNo3DataG = 'm';
 
             }
-
-        }
-
-        private void m5znlocationCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-            List<M5znDGrid> m5zndata = new List<M5znDGrid>();
-            using (var db = new Models.DataContext())
-            {
-                foreach (var item in db.منتجات.Where(x => x.type == 'خ' && x.كودالمخزن == db.مخزن.Where(y=>y.المخزن == m5znlocationCombo.SelectedItem.ToString()).Select(y=>y.كودالمخزن).FirstOrDefault()))
-                {
-                    m5zndata.Add(new M5znDGrid { كودالخامة = item.كودالخامة, الخامة = item.الخامة, الكمية = item.الكمية });
-
-                }
-               
-                
-                this.m5znDataGrid.ItemsSource = null;
-                this.m5znDataGrid.Items.Clear();
-                this.m5znDataGrid.ItemsSource = m5zndata;
-                this.m5znDataGrid.Items.Refresh();
-
             }
         }
 
@@ -402,7 +378,7 @@ namespace ElAhram
 
             this.amrt48elDataGrid.ItemsSource = null;
             this.amrt48elDataGrid.Items.Clear();
-
+                                                   
             this.amrt48elDataGrid.ItemsSource = amrt48eldata;
 
         }
@@ -412,7 +388,7 @@ namespace ElAhram
             amrt48el3ml2Page mwrdenAddPage = new amrt48el3ml2Page();
             var list = (IList)this.amrt48elDataGrid.ItemsSource;
             mwrdenAddPage.ShowDialog();
-            var mntg = new amrt48elDataGVM { رقم = amrt48elDataGrid.Items.Count + 1, اسم = data.mntg2mrt48el, كمية = 0 };
+            var mntg = new amrt48elDataGVM { رقم = amrt48elDataGrid.Items.Count + 1, اسم = data.mntg2mrt48el, كميةمنتج = 0 };
             list.Add(mntg);
         }
 
@@ -427,11 +403,14 @@ namespace ElAhram
             //this.amrt48elDataGrid.ItemsSource = mntg;
             if (result == true)
             {
-                data.amrt48ElDatas.Add(new amrt48elDataGVM { رقم = amrt48elDataGrid.Items.Count + 1, اسم = data.mntg2mrt48el, كمية = 0 });
+                data.amrt48ElDatas.Add(new amrt48elDataGVM { رقم = amrt48elDataGrid.Items.Count + 1, اسم = data.mntg2mrt48el, كميةمنتج = 0,كميةخامة=0 });
+
                 //data.amrt48ElDatas.Add(mntg);
                 this.amrt48elDataGrid.ItemsSource = null;
                 this.amrt48elDataGrid.Items.Clear();
                 this.amrt48elDataGrid.ItemsSource = data.amrt48ElDatas;
+               // this.amrt48elDataGrid.amrt48elDG  m5aznDGcombo.ItemsSource = dataContext.مخزن.Select(s => s.المخزن).ToList();
+                amrt48elDataGrid.Items.Refresh();
             }
 
             else
@@ -442,7 +421,7 @@ namespace ElAhram
             }
         }
 
-
+        
 
         private void amrt48el2dafa_Click(object sender, RoutedEventArgs e)
         {
@@ -452,6 +431,17 @@ namespace ElAhram
             //{
             //    var x = item;
             //}
+            var s = amrt48elDataGrid.Items[1];
+            foreach (var item in amrt48elDataGrid.Items)
+            {
+                var z = item;
+
+            }
+            foreach (var item in amrt48elDataGrid.Columns)
+            {
+                var z = item;
+
+            }
             using (var db = new Models.DataContext())
             {
                 فواتير element = new فواتير();
@@ -473,17 +463,19 @@ namespace ElAhram
                     element.فاتورة = 'n';
                     db.فواتير.Add(element);
                     db.SaveChanges();
+                  
                     foreach (var item in data.amrt48ElDatas)
                     {
                         dataX.رقم = element.رقم;
                         dataX.كودالخامة = db.منتجات.Where(x => x.الخامة == item.اسم).Select(y => y.كودالخامة).FirstOrDefault();
-                        dataX.كمية = item.كمية;
+                        dataX.كمية = item.كميةمنتج;
                         dataX.اوميا = item.اوميا;
                         dataX.بيور = item.بيور;
                         dataX.سمك = item.سمك;
                         dataX.مقاس_تقطيع = item.مقاس_تقطيع;
                         dataX.مقاس_طباعة = item.مقاس_طباعة;
                         dataX.نوع_فاتورة = 'ب';
+                        dataX.كميةخامة = item.كميةخامة.ToString();
                         dataX.type = 'م';
                         db.امرتشغيل.Add(dataX);
 
@@ -560,7 +552,10 @@ namespace ElAhram
 
                 foreach (var item in db.هالك)
                 {
-                    aml2data.Add(new HalkDataGVM { شهر = item.شهر, سنة = item.سنة, سادة = item.سادة, مطبوع = item.مطبوع });
+
+                    bool blance=(item.اجمالى == (item.سادة + item.مطبوع)) ?  true: false;
+                    decimal def = (item.اجمالى != (item.سادة + item.مطبوع)) ? (item.اجمالى - (item.سادة + item.مطبوع)) : 0;
+                    aml2data.Add(new HalkDataGVM { شهر = item.شهر, سنة = item.سنة, اجمالى = item.اجمالى,سادة = item.سادة, مطبوع = item.مطبوع ,غيرمصنف = def , متوازن = blance});
 
                 }
 
@@ -640,13 +635,44 @@ namespace ElAhram
         private void fwterRkmFtoraBtn_Click(object sender, RoutedEventArgs e)
         {
             
+            // fwterDataGrid.ItemsSource = data.bnodDatas;
             using (var db = new Models.DataContext())
             {
                 data.asm3mel = fwteraml2combobox.Text;
                 fwaterListPage page = new fwaterListPage();
 
                 double wzn = 0.0;
-                page.ShowDialog();
+              bool? result =  page.ShowDialog();
+
+                if (result == true)
+                {
+                    try
+                    {
+
+
+                        data.bnodDatas.Clear();
+                        data.amrt48ElDatas.Clear();
+                        fwterDate.Content = "";
+                        fwterTslemDate.SelectedDate = null;
+                        fwterRkmFtoraBtn.Content = "";
+                        fwteraml2combobox.Text = "";
+                        Total7sab.Content = null;
+                        TotalWzn.Content = null;
+                        totalFatoraLabel.Content = "0";
+                        data.totalftora = 0;
+                        fwterDataGrid.Items.Clear();
+                        fwterDataGrid.Items.Refresh();
+
+
+
+                    }
+                    catch (Exception)
+                    {
+
+
+                    }
+               
+
                 fwterRkmFtoraBtn.Content = data.rkmftora;
                 fwteraml2combobox.SelectedValue = db.عملاء.Where(x => x.كودعميل == db.فواتير.Where(y => y.رقم == data.rkmftora).Select(y => y.كودعميل).FirstOrDefault()).Select(x => x.اسم).FirstOrDefault();
                 fwterDate.Content = db.فواتير.Where(x => x.رقم == data.rkmftora).Select(y => y.تاريخ_تشغيل).FirstOrDefault().ToString("dd/MM/yyyy");
@@ -657,10 +683,11 @@ namespace ElAhram
                     wzn += item.كمية;
                 }
                 fwterDataGrid.ItemsSource = data.bnodDatas;
+                fwterDataGrid.Items.Refresh();
                 Total7sab.Content = db.عملاء.Where(x => x.كودعميل == db.فواتير.Where(y => y.رقم == data.rkmftora).Select(y => y.كودعميل).FirstOrDefault()).Select(x => x.حساب).FirstOrDefault();
                 TotalWzn.Content = wzn;
-               
 
+                }
 
             }
 
@@ -717,40 +744,43 @@ namespace ElAhram
             double wzn = row1.كمية;
             double total = row1.الاجمالى;
             data.totalftora -= row1.الاجمالى;
-            var y = e.Row.DataContext;
-            var sd = e.Row;
+          //  var y = e.Row.DataContext;
+          //  var sd = e.Row;
             (sender as DataGrid).RowEditEnding -= fwterDataGrid_RowEditEnding;
             (sender as DataGrid).CommitEdit();
             (sender as DataGrid).Items.Refresh();
             (sender as DataGrid).RowEditEnding += fwterDataGrid_RowEditEnding;
             // rowBeingEdited.EndEdit();
-           // DataRowView rowView = e.Row.Item as DataRowView;
+            // DataRowView rowView = e.Row.Item as DataRowView;
             //foreach (var item in fwterDataGrid.Items)
             //{
             //    var y = item;
 
             //}
-            var rows = this.fwterDataGrid.SelectedItem as bnodFatora;
-            if (rows.المنتج!= name)
+            row1 = null;
+            row1 = this.fwterDataGrid.SelectedItem as bnodFatora;
+            if (row1.المنتج!= name)
             {
-                rows.المنتج = name;
+                row1.المنتج = name;
             }
-            if (rows.الاجمالى != total)
+            if (row1.الاجمالى != total)
             {
-                rows.الاجمالى = total;
+                row1.الاجمالى = total;
             }
-            if (rows.سعر_الوحدة != s3r)
+            if (row1.سعر_الوحدة != s3r)
             {
-                rows.الاجمالى = rows.سعر_الوحدة * rows.كمية;
+                row1.الاجمالى = row1.سعر_الوحدة * row1.كمية;
             }
-            if (rows.كمية != wzn)
+            if (row1.كمية != wzn)
             {
-                TotalWzn.Content = double.Parse(TotalWzn.Content.ToString()) + rows.كمية - wzn;
-                rows.الاجمالى = rows.سعر_الوحدة * rows.كمية;
+                TotalWzn.Content = double.Parse(TotalWzn.Content.ToString()) + row1.كمية - wzn;
+                row1.الاجمالى = row1.سعر_الوحدة * row1.كمية;
             }
-           
-            data.totalftora += rows.الاجمالى;
+          
+            data.totalftora += row1.الاجمالى;
+            row1 = null;
             totalFatoraLabel.Content = data.totalftora;
+            TotalNew7sab.Content = (data.totalftora + double.Parse(Total7sab.Content.ToString())).ToString();
         }
 
         private void addFwterBtn_Click(object sender, RoutedEventArgs e)
@@ -759,15 +789,28 @@ namespace ElAhram
             using (var db = new Models.DataContext())
             {
                 فواتير element = db.فواتير.Where(z => z.رقم == int.Parse(fwterRkmFtoraBtn.Content.ToString()) && z.نوع_فاتورة == 'ب').FirstOrDefault();
-               
+                امرتشغيل amr = new امرتشغيل();
+                هالك hlk = new هالك();
+                if (db.هالك.Where(z => z.شهر == element.تاريخ_تشغيل.Month && z.سنة == element.تاريخ_تشغيل.Year).Any())
+                {
+                    hlk = db.هالك.Where(z => z.شهر == element.تاريخ_تشغيل.Month && z.سنة == element.تاريخ_تشغيل.Year).FirstOrDefault();
+                }
+                else
+                {
+                    db.هالك.Add(new هالك {شهر = element.تاريخ_تشغيل.Month , سنة = element.تاريخ_تشغيل.Year ,اجمالى = 0 ,سادة = 0 , مطبوع =0});
+                    db.SaveChanges();
+                    hlk = db.هالك.Where(z => z.شهر == element.تاريخ_تشغيل.Month && z.سنة == element.تاريخ_تشغيل.Year).FirstOrDefault();
+                }
+                
                 try
                 {
                     element.تاريخ_تسليم = (DateTime)fwterTslemDate.SelectedDate;
                 }
                 catch (Exception)
                 {
+                    element.تاريخ_تسليم = DateTime.Now;
 
-                   
+
                 }
                 element.اجمالى_نقدى = decimal.Parse(totalFatoraLabel.Content.ToString());
                 element.اجمالى_حساب = decimal.Parse(Total7sab.Content.ToString()) + element.اجمالى_نقدى;
@@ -775,8 +818,10 @@ namespace ElAhram
                 element.فاتورة = 'y';
                 عميل emp = db.عملاء.Where(x => x.كودعميل == element.كودعميل).FirstOrDefault();
                 emp.حساب += element.اجمالى_نقدى;
+                int k = 1;
                 foreach (var item in data.bnodDatas)
                 {
+                    bnd.number = k;
                     bnd.كودالمنتج = db.منتجات.Where(x => x.الخامة == item.المنتج && x.type == 'م').Select(y => y.كودالخامة).FirstOrDefault();
                     bnd.رقم = element.رقم;
                     bnd.كمية = item.كمية;
@@ -784,20 +829,51 @@ namespace ElAhram
                     bnd.سعر_الوحدة = item.سعر_الوحدة;
                     bnd.الاجمالى = item.الاجمالى;
                     bnd.type = 'م';
+                    amr = db.امرتشغيل.Where(z => z.كودالخامة == bnd.كودالمنتج && z.رقم == bnd.رقم && z.نوع_فاتورة == 'ب').FirstOrDefault();
+                    amr.كميةخامة = item.كميةخامةالمستهلكة;
+                    amr.كمية = item.كمية;
+                    hlk.اجمالى += decimal.Parse(amr.كميةخامة )- decimal.Parse( amr.كمية.ToString())   ;
                     db.بنودفاتورة.Add(bnd);
                     db.SaveChanges();
+                    k++;
                 }
-               
-              
+                var dates = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
+                var datesf = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day );
+                try
+                {
+                     datesf = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day + 1);
+                }
+                catch (Exception)
+                {
 
+                     datesf = new DateTime(DateTime.Now.Year, DateTime.Now.Month+1, 1);
+                }
+                
+                if (db.يوميات.Where(x => x.تاريخ >= dates && x.تاريخ < datesf).Any())
+                {
+
+                    db.يوميات.Add(new يوميات { كود = (db.يوميات.Where(x => x.تاريخ >= dates && x.تاريخ < datesf).Max(x => x.كود) + 1), تاريخ = DateTime.Today, مبلغ = 0, ملاحظات = "فاتورة رقم  : " +element.رقم  + "\t\t/\t\t" + "اجمالى الفاتورة  : " + element.اجمالى_نقدى, كودصاحب = element.كودعميل, كودحالة = db.حالات_يوميات.Where(y => y.حالة == "وارد").Select(y => y.كودحالة).FirstOrDefault(), flag = 'ع' });
+                    
+                }
+                else
+                {
+                    db.يوميات.Add(new يوميات { كود = 1, تاريخ = DateTime.Today, مبلغ = 0, ملاحظات = "اجمالى الفاتورة : " + element.اجمالى_نقدى, كودصاحب = element.كودعميل, كودحالة = db.حالات_يوميات.Where(y => y.حالة == "وارد").Select(y => y.كودحالة).FirstOrDefault(), flag = 'ع' });
+                   
+                }
+
+                
+                db.SaveChanges();
             }
+            
             data.bnodDatas.Clear();
+            data.amrt48ElDatas.Clear();
             fwterDate.Content = "";
             fwterTslemDate.SelectedDate = null;
             fwterRkmFtoraBtn.Content = "";
             fwteraml2combobox.Text = "";
             fwterDataGrid.ItemsSource = null;
             Total7sab.Content = null;
+            TotalNew7sab.Content = null;
             TotalWzn.Content = null;
             totalFatoraLabel.Content = null;
             data.totalftora = 0;
@@ -952,6 +1028,7 @@ namespace ElAhram
             Totalftora.Text = null;
             amr4r2Totalwzn.Content = null;
             amr4r2Total7sab.Content = null;
+            
             data.amr4r2Datas.Clear();
             this.amrt48elDataGrid.ItemsSource = data.amr4r2Datas;
 
@@ -1036,7 +1113,10 @@ namespace ElAhram
             var rows = this._3ml2Datagrid.SelectedItem as aml2DataGVM;
             data.asmmwzf = rows.اسم;
             aml2DetailsPage page = new aml2DetailsPage();
-            page.ShowDialog();
+             page.ShowDialog();
+           
+                ref3ml2dataG();
+           
 
         }
 
@@ -1063,13 +1143,14 @@ namespace ElAhram
         private void ref5zna()
         {
 
+
             using (var db = new Models.DataContext())
             {
                 الخزنة data = db.خزنة.FirstOrDefault();
                 if (data == null)
                 {
 
-                    db.خزنة.Add(new الخزنة { اجمالى = 0, حساب = 0, دائن = 0, شيكات = 0, مدين = 0, نقدى = 0, رقم = '1' });
+                    db.خزنة.Add(new الخزنة { اجمالى = 0, حساب = 0, دائن = 0, شيكات = 0, مدين = 0, نقدى = 0, رقم = '1',password="123" });
                     db.SaveChanges();
 
                 }
@@ -1085,14 +1166,34 @@ namespace ElAhram
             }
         }
 
+        private void t7welatDa5lya_Click(object sender, RoutedEventArgs e)
+        {
+            t7welNkdyPage page = new t7welNkdyPage();
+            bool? x = page.ShowDialog();
+            if (x == true)
+            {
+                ref5zna();
+            }
 
-        
+        }
+
+
 
         private void mwzfen8yabBtn_Click(object sender, RoutedEventArgs e)
         {
-            mwzfen8yabPage mwzfen8Yab = new mwzfen8yabPage();
+            password Page = new password();
+            bool? result = Page.ShowDialog();
+            if (result == true) {
+                mwzfen8yabPage mwzfen8Yab = new mwzfen8yabPage();
             mwzfen8Yab.ShowDialog();
+        }  else { 
+                Xceed.Wpf.Toolkit.MessageBox.Show("الرجاء ادخال كلمة المرور لتتمكن من الوصول الى هذه النافذة ", "كلمة مرور", MessageBoxButton.OK, MessageBoxImage.Error);
+              //    Home page = new Home();
+              //  page.Show();         
+                this.Close();
         }
+
+}
 
         private void Empdatagrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
@@ -1104,11 +1205,63 @@ namespace ElAhram
 
         private void AddywmyaBTN_Click(object sender, RoutedEventArgs e)
         {
-            addywmya page = new addywmya();
+            password Page = new password();
+            bool? result = Page.ShowDialog();
+            if (result == true)
+            {
+                addywmya page = new addywmya();
+                page.ShowDialog();
+            }
+            else
+            {
+                Xceed.Wpf.Toolkit.MessageBox.Show("الرجاء ادخال كلمة المرور لتتمكن من الوصول الى هذه النافذة ", "كلمة مرور", MessageBoxButton.OK, MessageBoxImage.Error);
+              //  Home page = new Home();
+              //  page.Show();
+                this.Close();
+            }
+        }
+
+        private void sglYwmyatBtn_Click(object sender, RoutedEventArgs e)
+        {
+            sglywmyat page = new sglywmyat();
             page.ShowDialog();
         }
 
-        
+        private void t7welatDa5lyaSglBtn_Click(object sender, RoutedEventArgs e)
+        {
+            SglT7welatPage page = new SglT7welatPage();
+            page.ShowDialog();
+        }
+
+        private void halkDeleteBtn_Click(object sender, RoutedEventArgs e)
+        {
+            halkDeletePage page = new halkDeletePage();
+            page.ShowDialog();
+        }
+
+        private void m5zn2nwa35amatBtn_Click(object sender, RoutedEventArgs e)
+        {
+            m5zn2nw35amatHomePage page = new m5zn2nw35amatHomePage();
+            page.ShowDialog();
+        }
+
+        private void m5zn2znsrfBtn_Click(object sender, RoutedEventArgs e)
+        {
+            m5zn2znsrfHomePage page = new m5zn2znsrfHomePage();
+            page.ShowDialog();
+        }
+
+        private void fwterListPageBtn_Click(object sender, RoutedEventArgs e)
+        {
+            FWaterListP fwater48elListPage = new FWaterListP();
+            fwater48elListPage.ShowDialog();
+        }
+
+
+
+
+
+
 
 
 
@@ -1148,6 +1301,9 @@ var y = item;
         public static shekatDataGVM shekelement = new shekatDataGVM();
         public static int rkmftora { get; set; }
         public static int kodemwzf { get; set; }
+        public static int k4f7sabId { get; set; }
+        public static char no3MntgMdaf { get; set; }
+        public static int randomVal { get; set; }
         public static string asm3mel { get; set; }
         public static string asmmwzf { get; set; }
 

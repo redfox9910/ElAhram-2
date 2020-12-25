@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ElAhram.pages.halk"
         mc:Ignorable="d"
-        Title="HalkAddPage" Width="300" MinWidth="300" MaxWidth="300" Height="300" MinHeight="300" MaxHeight="300" Loaded="halkaddPage1_Loaded">
-    <Grid Background="White">
+        Title="HalkAddPage" Width="300" MinWidth="300" MaxWidth="300" Height="350" MinHeight="350" MaxHeight="350" Loaded="halkaddPage1_Loaded" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid Background="White" Margin="0,0,0,-6">
         <Label Content="اضافه هالك" HorizontalAlignment="Center" Margin="0,22,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="22" Foreground="#FFF58322"/>
-        <StackPanel MinWidth="200" MaxWidth="200" MinHeight="150" MaxHeight="150" Margin="50,82,36,28">
+        <StackPanel MinWidth="200" MaxWidth="200" MinHeight="250" MaxHeight="250" Margin="43,91,43,41">
             
             <StackPanel>
                 <Label Content="الشهر " HorizontalAlignment="Right" FontSize="14" FontWeight="Bold"/>
-                <ComboBox x:Name="halkAddMoncombo" Width="120" Margin="0,-24,60,0" BorderBrush="#FFF58322" Background="#FFF58322">
+                <ComboBox x:Name="halkAddMoncombo" Width="120" Margin="0,-24,60,0" BorderBrush="#FFF58322" Background="#FFF58322" SelectionChanged="halkAddMoncombo_SelectionChanged">
                     <ComboBoxItem Content="1"/>
                     <ComboBoxItem Content="2"/>
                     <ComboBoxItem Content="3"/>
@@ -30,7 +30,7 @@
             </StackPanel>
             <StackPanel>
                 <Label Content="السنة " HorizontalAlignment="Right" FontSize="14" FontWeight="Bold"/>
-                <ComboBox x:Name="halkAddYearcombo" Width="120" Margin="0,-24,60,0" BorderBrush="#FFF58322" Background="#FFF58322">
+                <ComboBox x:Name="halkAddYearcombo" Width="120" Margin="0,-24,60,0" BorderBrush="#FFF58322" Background="#FFF58322" SelectionChanged="halkAddMoncombo_SelectionChanged">
                     <ComboBoxItem Content="2020"/>
                     <ComboBoxItem Content="2021"/>
                     <ComboBoxItem Content="2022"/>
@@ -44,6 +44,10 @@
                     <ComboBoxItem Content="2030"/>
                 </ComboBox>
 
+            </StackPanel>
+            <StackPanel Height="35">
+                <Label Content="الاجمالى" HorizontalAlignment="Right" FontWeight="Bold" FontSize="14"/>
+                <TextBox x:Name="halktotalText" Text="" TextWrapping="Wrap" Width="120" VerticalContentAlignment="Top" Margin="0,-20,60,0" BorderBrush="#FFF58322" IsReadOnly="True"/>
             </StackPanel>
 
             <StackPanel Height="35">

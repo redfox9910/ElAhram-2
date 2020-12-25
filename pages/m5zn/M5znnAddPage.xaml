@@ -37,13 +37,7 @@
                 </ComboBox>
 
             </StackPanel>
-            <StackPanel Height="30">
-                <Label x:Name="locationLabel" Content="المخزن" HorizontalAlignment="Right" FontSize="14" FontWeight="Bold"/>
-                <ComboBox x:Name="m5znlocationCombo" Width="120" Margin="0,-24,60,0" BorderBrush="#FFF58322" Background="#FFF58322">
-
-                </ComboBox>
-
-            </StackPanel>
+           
             
             <Button x:Name="m5znAddMntag" Content="اضافة" Margin="0,25,0,0" Click="m5znAddMntag_Click"/>
 

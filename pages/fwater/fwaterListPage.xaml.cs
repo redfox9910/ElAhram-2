@@ -63,6 +63,7 @@ namespace ElAhram.pages.fwater
             var rows = this.amrT48elListDataG.SelectedItem as fwterDataGVM;
             //      DataRowView row = dg.SelectedItems as DataRowView;
             data.rkmftora = rows.رقم;
+            DialogResult = true;
             this.Close();
         }
 

@@ -30,6 +30,10 @@ namespace ElAhram.pages._5zna
         private void Add_Click(object sender, RoutedEventArgs e)
         {
             var rows = this.shekatDataGrid.SelectedItem as shekatDataGVM;
+            if (rows != null)
+            {
+
+           
             using (var db = new Models.DataContext())
             {
 
@@ -53,6 +57,11 @@ namespace ElAhram.pages._5zna
                 db.SaveChanges();
                 refreshDG();
                 total4ekatLb.Content = khzna.شيكات;
+                }
+            }
+            else
+            {
+                Xceed.Wpf.Toolkit.MessageBox.Show("لا يوجد شيك ل اتمام عمية الصرف ", "صرف شيك ", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
         }
@@ -60,10 +69,14 @@ namespace ElAhram.pages._5zna
         private void Edit_Click(object sender, RoutedEventArgs e)
         {
             var rows = this.shekatDataGrid.SelectedItem as shekatDataGVM;
+            if (rows != null)
+            {
+
+          
             data.shekelement = rows;
             ShekatEditPage page = new ShekatEditPage();
             bool? y = page.ShowDialog();
-            if (y==true)
+            if (y == true)
             {
                 refreshDG();
             }
@@ -71,25 +84,36 @@ namespace ElAhram.pages._5zna
             {
                 var khzna = db.خزنة.FirstOrDefault();
                 total4ekatLb.Content = khzna.شيكات;
+            } 
             }
 
+            else
+            {
+                Xceed.Wpf.Toolkit.MessageBox.Show("لا يوجد شيك ل اتمام عمية التعديل ", "صرف شيك ", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void delete_Click(object sender, RoutedEventArgs e)
         {
+            var rows = this.shekatDataGrid.SelectedItem as shekatDataGVM;
+            if (rows != null)
+            {
 
-            MessageBoxResult result = MessageBox.Show("هل تريد مسح الشيك ؟", "مسح شيك", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No);
+          
+            MessageBoxResult result = Xceed.Wpf.Toolkit.MessageBox.Show("هل تريد مسح الشيك ؟", "مسح شيك", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No);
             switch (result)
             {
                 case MessageBoxResult.Yes:
-                    var rows = this.shekatDataGrid.SelectedItem as shekatDataGVM;
+                   
                     using (var db = new Models.DataContext())
                     {
 
                         var element = db.شيكات.Where(x => x.رقم == rows.رقم && x.كودعميل == db.عملاء.Where(y => y.اسم == rows.عميل).Select(x => x.كودعميل).FirstOrDefault()).FirstOrDefault();
-                        db.Entry(element).State = EntityState.Deleted;
-
-                        db.SaveChanges();
+                            var khzna = db.خزنة.FirstOrDefault();
+                            khzna.شيكات  -= element.قيمة;
+                            db.Entry(element).State = EntityState.Deleted;
+                            
+                            db.SaveChanges();
                         refreshDG();
 
                     }
@@ -104,6 +128,11 @@ namespace ElAhram.pages._5zna
                 var khzna = db.خزنة.FirstOrDefault();
                 total4ekatLb.Content = khzna.شيكات;
             }
+            }
+            else
+            {
+                Xceed.Wpf.Toolkit.MessageBox.Show("لا يوجد شيك ل اتمام عميةالحذف ", "صرف شيك ", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
 
         }
 
@@ -115,19 +144,21 @@ namespace ElAhram.pages._5zna
             {
                 shekatDataGrid.ItemsSource = null;
                 shekatDataGrid.Items.Clear();
-                using (var db = new Models.DataContext())
-                {
-                    var x = db.شيكات.ToList();
-                    List<shekatDataGVM> shekatData = new List<shekatDataGVM>();
-                    foreach (var item in x)
-                    {
-                        shekatData.Add(new shekatDataGVM { رقم = item.رقم, عميل = db.عملاء.Where(y => y.رقم == item.رقم && y.نوع == 'ع').Select(x => x.اسم).FirstOrDefault(), تاريخ = item.تاريخ, قيمة = item.قيمة, ملاحظات = item.ملاحظات , بنك = item.بنك});
-                    }
-                    shekatDataGrid.ItemsSource = shekatData;
-                    shekatDataGrid.Items.Refresh();
-                    var khzna = db.خزنة.FirstOrDefault();
-                    total4ekatLb.Content = khzna.شيكات;
-                }
+                //using (var db = new Models.DataContext())
+                //{
+                //    var x = db.شيكات.ToList();
+                //    List<shekatDataGVM> shekatData = new List<shekatDataGVM>();
+                //    foreach (var item in x)
+                //    {
+                //        shekatData.Add(new shekatDataGVM { رقم = item.رقم, عميل = db.عملاء.Where(y => y.رقم == item.رقم && y.نوع == 'ع').Select(x => x.اسم).FirstOrDefault(), تاريخ = item.تاريخ, قيمة = item.قيمة, ملاحظات = item.ملاحظات , بنك = item.بنك});
+                //    }
+                //    shekatDataGrid.ItemsSource = shekatData;
+                //    shekatDataGrid.Items.Refresh();
+                //    var khzna = db.خزنة.FirstOrDefault();
+                //    total4ekatLb.Content = khzna.شيكات;
+                //}
+                refreshDG();
+
             }
         }
 
@@ -148,6 +179,7 @@ namespace ElAhram.pages._5zna
                     shekatData.Add(new shekatDataGVM { رقم = item.رقم, عميل = db.عملاء.Where(y => y.كودعميل == item.كودعميل && y.نوع == 'ع').Select(x => x.اسم).FirstOrDefault(), تاريخ = item.تاريخ, قيمة = item.قيمة, ملاحظات = item.ملاحظات,بنك= item.بنك });
                 }
                 shekatDataGrid.ItemsSource = shekatData;
+                shekatDataGrid.Items.Refresh();
                 var khzna = db.خزنة.FirstOrDefault();
                 total4ekatLb.Content = khzna.شيكات;
             }

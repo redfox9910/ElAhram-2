@@ -1,0 +1,22 @@
+﻿<Window x:Class="ElAhram.pages.m5zn._2nwa35amat.m5zn2nwa35amatDeletePage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ElAhram.pages.m5zn._2nwa35amat"
+        mc:Ignorable="d"
+        Title="m5zn2nwa35amatDeletePage" Height="250" Width="300" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" >
+    <Grid Background="White" Margin="0,0,0,33">
+        <Label Content="مسح نوع خامة" HorizontalAlignment="Center" Margin="0,22,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="22" Foreground="#FFF58322"/>
+
+        <StackPanel MinWidth="200" MaxWidth="200" MinHeight="50" MaxHeight="50" Margin="50,126,36,0">
+
+            <Button x:Name="No3DeleteBtn" Content="مسح" Click="No3DeleteBtn_Click"/>
+
+
+        </StackPanel>
+        <ComboBox Name="No3deleteCombobox" HorizontalAlignment="Left" Margin="97,76,0,0" VerticalAlignment="Top" Width="120" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" />
+
+
+    </Grid>
+</Window>
