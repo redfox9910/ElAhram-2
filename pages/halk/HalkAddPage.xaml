@@ -5,10 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ElAhram.pages.halk"
         mc:Ignorable="d"
-        Title="HalkAddPage" Width="300" MinWidth="300" MaxWidth="300" Height="300" MinHeight="300" MaxHeight="300" Loaded="halkaddPage1_Loaded">
-    <Grid Background="White">
+        Title="HalkAddPage" Width="300" MinWidth="300" MaxWidth="300" Height="300" MinHeight="300" MaxHeight="300" Loaded="halkaddPage1_Loaded" Icon="/pic/trash1.png" > 
+    <Grid >
+        <Grid.Background>
+
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFFFDD8C"/>
+                <GradientStop Color="#FFC4C4C4" Offset="1"/>
+                <GradientStop Color="#FFAA9C87" Offset="0.5"/>
+            </LinearGradientBrush>
+        </Grid.Background>
         <Label Content="اضافه هالك" HorizontalAlignment="Center" Margin="0,22,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="22" Foreground="#FFF58322"/>
-        <StackPanel MinWidth="200" MaxWidth="200" MinHeight="150" MaxHeight="150" Margin="50,82,36,28">
+        <StackPanel MinWidth="200" MaxWidth="200" MinHeight="150" MaxHeight="160" Margin="50,75,36,28">
             
             <StackPanel>
                 <Label Content="الشهر " HorizontalAlignment="Right" FontSize="14" FontWeight="Bold"/>
@@ -54,7 +62,7 @@
                 <Label Content="سادة " HorizontalAlignment="Right" FontWeight="Bold" FontSize="14"/>
                 <TextBox x:Name="halksadaText" Text="" TextWrapping="Wrap" Width="120" VerticalContentAlignment="Top" Margin="0,-20,60,0" BorderBrush="#FFF58322"/>
             </StackPanel>
-            <Button x:Name="halkAddBtn" Content="اضافة" Margin="0,0,0,0" Click="halkAddBtn_Click" />
+            <Button x:Name="halkAddBtn" Content="اضافة" Margin="0,0,0,0" Click="halkAddBtn_Click" Background="#FF706B6B" Foreground="#FFF58322" FontWeight="Bold" Style="{StaticResource  RoundButtonTemplate}" Width="140" Height="30"/>
 
 
         </StackPanel>

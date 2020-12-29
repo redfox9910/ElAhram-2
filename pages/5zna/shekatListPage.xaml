@@ -5,10 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ElAhram.pages._5zna"
         mc:Ignorable="d"
-        Title="shekatListPage" Height="450" Width="600" ResizeMode="NoResize" Loaded="Window_Loaded">
+        Title="shekatListPage" Height="450" Width="600" ResizeMode="NoResize" Loaded="Window_Loaded" Icon="/pic/deposit1.png">
     <Grid>
-        <Label Content="الشيكات" HorizontalAlignment="Center" Margin="0,28,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18"/>
-        <DataGrid x:Name="shekatDataGrid" Margin="0,81,0,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="13*"/>
+            <ColumnDefinition Width="187*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.Background>
+
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="White"/>
+                <GradientStop Color="#FFAA9C87" Offset="1"/>
+                <GradientStop Color="#ed9c1f" Offset="0.5"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Label Content="الشيكات" HorizontalAlignment="Left" Margin="225,28,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" Foreground="#FFF58322" Grid.Column="1"/>
+        <DataGrid x:Name="shekatDataGrid" Margin="0,81,0,0" Grid.ColumnSpan="2">
             <DataGrid.Columns>
 
                 <DataGridTemplateColumn>
@@ -26,9 +38,9 @@
 
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="add4ekBtn" Content="Add" HorizontalAlignment="Left" Margin="525,47,0,0" VerticalAlignment="Top" Click="add4ekBtn_Click"/>
-        <Label Content=": الاجمالى" HorizontalAlignment="Left" Margin="170,47,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="total4ekatLb" Content="" HorizontalAlignment="Left" Margin="91,47,0,0" VerticalAlignment="Top" Width="71" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Button x:Name="add4ekBtn" Content="Add" HorizontalAlignment="Left" Margin="437,33,0,0" VerticalAlignment="Top" Click="add4ekBtn_Click"  FontWeight="Bold" Grid.Column="1" Style="{StaticResource  RoundButtonTemplate}" Width="100" Height="40"/>
+        <Label Content=": الاجمالى" HorizontalAlignment="Left" Margin="131,47,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.Column="1"/>
+        <Label x:Name="total4ekatLb" Content="" HorizontalAlignment="Left" Margin="52,47,0,0" VerticalAlignment="Top" Width="71" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Column="1"/>
 
     </Grid>
 </Window>

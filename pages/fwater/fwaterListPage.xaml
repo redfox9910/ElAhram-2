@@ -5,9 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ElAhram.pages.fwater"
         mc:Ignorable="d"
-        Title="fwaterListPage" Height="350" Width="800"  Loaded="AmrT48elListWindow_Loaded" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="fwaterListPage" Height="350" Width="800"  Loaded="AmrT48elListWindow_Loaded" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="/pic/invoice1.png">
     <Grid>
-        <Label Content="اوامر التشغيل" HorizontalAlignment="Center" Margin="0,21,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
+        <Grid.Background>
+
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFFFDD8C"/>
+                <GradientStop Color="#FFC4C4C4" Offset="1"/>
+                <GradientStop Color="#FFAA9C87" Offset="0.5"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Label Content="اوامر التشغيل" HorizontalAlignment="Center" Margin="0,21,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Foreground="#FFF58322"/>
         <DataGrid x:Name="amrT48elListDataG" Margin="0,63,0,0" BeginningEdit="amrT48elListDataG_BeginningEdit"  />
 
 

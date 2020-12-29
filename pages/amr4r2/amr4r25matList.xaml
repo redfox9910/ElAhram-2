@@ -5,20 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ElAhram.pages.amr4r2"
         mc:Ignorable="d"
-        Title="amr4r25matList" Height="250" Width="300" ResizeMode="NoResize"  Loaded="a5tyr5amaPage_Loaded" WindowStartupLocation="CenterScreen" WindowStyle="None" BorderBrush="#FFB69D9D" BorderThickness="1,0,1,1">
+        Title="amr4r25matList" Height="250" Width="300" ResizeMode="NoResize"  Loaded="a5tyr5amaPage_Loaded" WindowStartupLocation="CenterScreen" WindowStyle="None" BorderBrush="#FFB69D9D" BorderThickness="1,0,1,1" Icon="/pic/order.png">
 
-    <Grid Background="White" Margin="0,23,0,10">
-        
+    <Grid  Margin="0,23,0,10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="291*"/>
+            <ColumnDefinition Width="7*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.Background>
+
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFFFDD8C"/>
+                <GradientStop Color="#FFC4C4C4" Offset="1"/>
+                <GradientStop Color="#FFAA9C87" Offset="0.5"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
         <StackPanel Margin="0,-23,0,218" HorizontalAlignment="Right" Grid.ColumnSpan="2">
-            <Button x:Name="a5tyr5amaPageClosingBtn" Content="X" Background="{x:Null}" Width="19" Click="a5tyr5amaPageClosingBtn_Click"/>
+            <Button x:Name="a5tyr5amaPageClosingBtn" Content="X" Background="#FFF58322" Width="19" Click="a5tyr5amaPageClosingBtn_Click" BorderBrush="#FFF58322"/>
 
         </StackPanel>
-        
+
         <Label Content="اختيار خامة" HorizontalAlignment="Left" Margin="96,22,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="22" Foreground="#FFF58322"/>
 
-        <StackPanel MinWidth="200" MaxWidth="200" MinHeight="25" MaxHeight="25" Margin="50,126,30,31">
+        <StackPanel MinWidth="200" MaxWidth="200" MinHeight="45" MaxHeight="25" Margin="50,126,50,21">
 
-            <Button x:Name="a5tyr5amaBtn" Content="تاكيد" Click="a5tyr5amaBtn_Click" />
+            <Button x:Name="a5tyr5amaBtn" Content="تاكيد" Click="a5tyr5amaBtn_Click" Background="#FF706B6B" Foreground="#FFF58322" FontWeight="Bold" Style="{StaticResource  RoundButtonTemplate}" Width="120" Height="40" />
 
 
         </StackPanel>

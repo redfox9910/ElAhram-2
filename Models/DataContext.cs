@@ -39,7 +39,7 @@ namespace ElAhram.Models
             SqlConnectionStringBuilder ConnString = new SqlConnectionStringBuilder()
             {
 
-                DataSource = @"REDFOX\FOXEXPRESS",
+                DataSource = @"3ZMY",
                 InitialCatalog = "alahram",
                 IntegratedSecurity = true,
 

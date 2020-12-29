@@ -5,10 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ElAhram"
         mc:Ignorable="d"
-        Title="Login" Height="500" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" WindowStyle="ThreeDBorderWindow" MinWidth="800" MaxWidth="800">
+        Title="Login" Height="500" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" WindowStyle="ThreeDBorderWindow" MinWidth="800" MaxWidth="800" Icon="/pic/login (1).png">
     <Grid>
-      
 
+        <Rectangle  Height="280" VerticalAlignment="Top" Grid.ColumnSpan="4">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFAA9C87"/>
+                    <GradientStop Color="#FFAA9C87" Offset="1"/>
+                    <GradientStop Color="#ed9c1f" Offset="0.5"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+
+        <Rectangle  Height="280" VerticalAlignment="Bottom" Grid.ColumnSpan="4">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,0" StartPoint="1,1">
+                    <GradientStop Color="#FFC4C4C4"/>
+                    <GradientStop Color="#FFAA9C87" Offset="1"/>
+                    <GradientStop Color="#FFAA9C87" Offset="0.5"/>
+                    <GradientStop Color="#ed9c1f" Offset="0.5"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
 
         <Label Content="اسم المستخدم" HorizontalAlignment="Left" Margin="440,191,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Grid.ColumnSpan="2"/>
         <Label Content="كلمة المرور" HorizontalAlignment="Left" Margin="456,257,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Grid.ColumnSpan="2"/>

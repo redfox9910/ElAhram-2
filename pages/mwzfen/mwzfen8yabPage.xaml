@@ -5,11 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ElAhram.pages.mwzfen"
         mc:Ignorable="d"
-        Title="mwzfen8yabPage" Height="450" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterOwner" Closing="Window_Closing" Loaded="Window_Loaded">
+        Title="mwzfen8yabPage" Height="450" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterOwner" Closing="Window_Closing" Loaded="Window_Loaded" Icon="/pic/logo.png">
     <Grid>
-        <Label Content="غياب الموظفين" HorizontalAlignment="Center" Margin="0,19,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18"/>
+        <Grid.Background>
+
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="White"/>
+                <GradientStop Color="#FFAA9C87" Offset="1"/>
+                <GradientStop Color="#ed9c1f" Offset="0.5"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        
+        <Label Content="غياب الموظفين" HorizontalAlignment="Center" Margin="0,19,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" Foreground="#FFF58322"/>
         <DataGrid x:Name="mwzfen8yabDataG" Margin="0,86,0,0" CellEditEnding="mwzfen8yabDataGrid_CellEditEnding" RowEditEnding="mwzfen8yabDataGrid_RowEditEnding"/>
-        <Button x:Name="mwzfen8yabBtn" Content="حفظ الغياب " HorizontalAlignment="Left" Margin="641,42,0,0" VerticalAlignment="Top" Click="mwzfen8yabBtn_Click" Height="36" Width="85" />
+        <Button x:Name="mwzfen8yabBtn" Content="حفظ الغياب " HorizontalAlignment="Left" Margin="641,42,0,0" VerticalAlignment="Top" Click="mwzfen8yabBtn_Click"  Background="#FF706B6B" Foreground="#FFF58322" FontWeight="Bold" Style="{StaticResource  RoundButtonTemplate}" Width="160" Height="40"/>
         <Label x:Name="mwzfen8yabdateLabel" Content="" HorizontalAlignment="Left" Margin="38,14,0,0" VerticalAlignment="Top" Width="58"/>
         <Label x:Name="mwzfen8yabDayLabel" Content="" HorizontalAlignment="Left" Margin="200,14,0,0" VerticalAlignment="Top" Width="84"/>
 
