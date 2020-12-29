@@ -1,15 +1,18 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
-
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
     <UseWindowsForms>true</UseWindowsForms>
     <LangVersion>preview</LangVersion>
     <NoWin32Manifest>true</NoWin32Manifest>
   </PropertyGroup>
-
   <ItemGroup>
+    <None Remove="Alahram Plast.png" />
+    <None Remove="Alahramlogo.png" />
+    <None Remove="AlahramPlast.png" />
+    <None Remove="Artboardlo.png" />
     <None Remove="bill.png" />
     <None Remove="company.png" />
     <None Remove="deposit.png" />
@@ -23,7 +26,6 @@
     <None Remove="warehouse.png" />
     <None Remove="waste.png" />
   </ItemGroup>
-
   <ItemGroup>
     <PackageReference Include="DevExpress.Win.Printing" Version="20.1.3" />
     <PackageReference Include="DevExpress.Win.Reporting" Version="20.1.3" />
@@ -39,12 +41,15 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="3.1.6" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.6" />
     <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="3.1.6" />
+    <PackageReference Include="Syncfusion.ReportDesigner.WPF" Version="18.4.0.30" />
+    <PackageReference Include="Syncfusion.ReportViewer.WPF" Version="18.4.0.30" />
     <PackageReference Include="WPFCustomMessageBox" Version="1.0.7" />
   </ItemGroup>
-
   <ItemGroup>
-    <Resource Include="pic\invoice.png" />
+    <Resource Include="pic\AlahramPl.png" />
     <Resource Include="pic\logo.png" />
+    <Resource Include="pic\Alahramlogo.png" />
+    <Resource Include="pic\invoice.png" />
     <Resource Include="pic\bill.png" />
     <Resource Include="pic\company.png" />
     <Resource Include="pic\deposit.png" />
@@ -56,5 +61,72 @@
     <Resource Include="pic\warehouse.png" />
     <Resource Include="pic\waste.png" />
   </ItemGroup>
-
+  <ItemGroup>
+    <Reference Include="Syncfusion.Compression.Base">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\WPF\18.4.0.30\precompiledassemblies\netcoreapp3.1\Syncfusion.Compression.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Data.WPF">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\WPF\18.4.0.30\precompiledassemblies\netcoreapp3.1\Syncfusion.Data.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.DocIO.Base">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\WPF\18.4.0.30\precompiledassemblies\netcoreapp3.1\Syncfusion.DocIO.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Edit.Wpf">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\WPF\18.4.0.30\precompiledassemblies\netcoreapp3.1\Syncfusion.Edit.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Grid.Wpf">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\WPF\18.4.0.30\precompiledassemblies\netcoreapp3.1\Syncfusion.Grid.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.GridCommon.WPF">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\WPF\18.4.0.30\precompiledassemblies\netcoreapp3.1\Syncfusion.GridCommon.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Linq.Base">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\WPF\18.4.0.30\precompiledassemblies\netcoreapp3.1\Syncfusion.Linq.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.OfficeChart.Base">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\WPF\18.4.0.30\precompiledassemblies\netcoreapp3.1\Syncfusion.OfficeChart.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Pdf.Base">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\WPF\18.4.0.30\precompiledassemblies\netcoreapp3.1\Syncfusion.Pdf.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.PdfViewer.WPF">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\WPF\18.4.0.30\precompiledassemblies\netcoreapp3.1\Syncfusion.PdfViewer.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Presentation.Base">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\WPF\18.4.0.30\precompiledassemblies\netcoreapp3.1\Syncfusion.Presentation.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfCellGrid.WPF">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\WPF\18.4.0.30\precompiledassemblies\netcoreapp3.1\Syncfusion.SfCellGrid.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfGauge.WPF">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\WPF\18.4.0.30\precompiledassemblies\netcoreapp3.1\Syncfusion.SfGauge.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfGrid.WPF">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\WPF\18.4.0.30\precompiledassemblies\netcoreapp3.1\Syncfusion.SfGrid.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfGridCommon.WPF">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\WPF\18.4.0.30\precompiledassemblies\netcoreapp3.1\Syncfusion.SfGridCommon.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfSkinManager.WPF">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\WPF\18.4.0.30\precompiledassemblies\netcoreapp3.1\Syncfusion.SfSkinManager.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfSpreadsheet.WPF">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\WPF\18.4.0.30\precompiledassemblies\netcoreapp3.1\Syncfusion.SfSpreadsheet.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Shared.WPF">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\WPF\18.4.0.30\precompiledassemblies\netcoreapp3.1\Syncfusion.Shared.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Themes.Office2016Colorful.WPF">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Syncfusion\Essential Studio\WPF\18.4.0.30\precompiledassemblies\netcoreapp3.1\Syncfusion.Themes.Office2016Colorful.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Themes.Office2019Black.WPF">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Syncfusion\Essential Studio\WPF\18.4.0.30\precompiledassemblies\netcoreapp3.1\Syncfusion.Themes.Office2019Black.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Tools.Wpf">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\WPF\18.4.0.30\precompiledassemblies\netcoreapp3.1\Syncfusion.Tools.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.XlsIO.Base">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\WPF\18.4.0.30\precompiledassemblies\netcoreapp3.1\Syncfusion.XlsIO.Base.dll</HintPath>
+    </Reference>
+  </ItemGroup>
 </Project>

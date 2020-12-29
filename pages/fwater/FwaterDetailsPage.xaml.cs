@@ -1,4 +1,5 @@
-﻿using ElAhram.ViewmModels.fwter;
+﻿using CustomDocumentPaginator;
+using ElAhram.ViewmModels.fwter;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,10 +23,12 @@ namespace ElAhram.pages.fwater
         public FwaterDetailsPage()
         {
             InitializeComponent();
+            
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            fwterDataGVM fwterData;
             List<bnodFatoraDataGVM> bnodftoradata = new List<bnodFatoraDataGVM>();
             using (var db = new Models.DataContext())
             {
@@ -54,7 +57,9 @@ namespace ElAhram.pages.fwater
 
                 this.fatoraDetailsDG.ItemsSource = bnodftoradata;
                 this.fatoraDetailsDG.Items.Refresh();
+                 fwterData = new fwterDataGVM {اسم_عميل = this.fatora2sm3melLabel.Content.ToString(),تاريخ_تشغيل= itemx.تاريخ_تسليم ,اجمالى_وزن= Convert.ToDouble(itemx.اجمالى_وزن ),اجمالى_نقدى = itemx.اجمالى_نقدى,اجمالى_حساب = itemx.اجمالى_حساب};
             }
+            this.DataContext = new MainWindowViewModel("فاتورة\nرقم/"+data.rkmftora, fwterData);
         }
     }
 }

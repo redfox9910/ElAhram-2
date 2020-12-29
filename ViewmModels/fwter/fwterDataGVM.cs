@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ElAhram.ViewmModels.fwter
 {
-    class fwterDataGVM
+     public class fwterDataGVM
     {
 
         public int رقم { get; set; }

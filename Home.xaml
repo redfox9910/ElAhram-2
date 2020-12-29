@@ -90,7 +90,7 @@
                 <Label Content="العملاء" Height="auto"  Margin="-95,100,0,0" Width="auto" FontWeight="Bold" FontSize="18" HorizontalContentAlignment="Center"/>
             </StackPanel>
         </Button>
-        <Image Height="auto" Margin="478,272,446,379" Width="auto" Source="pic/logo.png"/>
+        <Image Height="auto" Margin="478,268,425,379" Width="auto" Source="pic/logo.png"/>
 
 
     </Grid>

@@ -26,7 +26,13 @@
         <Label x:Name="Total7sab" Content="" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="Auto" Margin="67,252,0,0"/>
         <Label Content=": اجمالى الحساب الجديد" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="15,288,0,0"/>
         <Label x:Name="TotalNew7sab" Content="" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="72,329,0,0"/>
-
+        <Button
+                    Command="{Binding PrintCommand}"
+                    CommandParameter="{Binding ElementName=fatoraDetailsDG}"
+                    Margin="0,17,703,367"
+                    Width="50"
+                    Content="Print"
+                    HorizontalAlignment="Right" />
 
     </Grid>
 </Window>

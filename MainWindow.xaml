@@ -15,7 +15,7 @@
         <Label Content="كلمة المرور" HorizontalAlignment="Left" Margin="456,257,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Grid.ColumnSpan="2"/>
         <TextBox Name="userbox" TextAlignment="Right" HorizontalAlignment="Left" Margin="304,195,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="26" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
 
-        <Image HorizontalAlignment="Left" Height="100" Margin="382,96,0,0" VerticalAlignment="Top" Width="100" Source="pic/logo.png" Stretch="Uniform" StretchDirection="Both"/>
+        <Image HorizontalAlignment="Left" Height="100" Margin="382,96,0,0" VerticalAlignment="Top" Width="100"  Stretch="Uniform" StretchDirection="Both" Source="pic/logo.png"/>
         <Button Content="تسجيل الدخول" HorizontalAlignment="Left" Margin="366,320,0,0" VerticalAlignment="Top" Width="132" Background="Black" Click="Button_Click" FontWeight="Bold" Foreground="#FFF58322" Cursor="Hand">
           
         </Button>
