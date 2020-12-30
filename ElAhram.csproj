@@ -15,6 +15,7 @@
     <None Remove="Artboardlo.png" />
     <None Remove="bill.png" />
     <None Remove="company.png" />
+    <None Remove="deposit 1.png" />
     <None Remove="deposit.png" />
     <None Remove="invoice.png" />
     <None Remove="login %281%29.png" />
@@ -43,6 +44,7 @@
     <PackageReference Include="WPFCustomMessageBox" Version="1.0.7" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="pic\deposit1.png" />
     <Resource Include="pic\printer.png" />
     <Resource Include="pic\AlahramPl.png" />
     <Resource Include="pic\logo.png" />

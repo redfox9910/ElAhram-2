@@ -110,8 +110,8 @@
 
 
 
-                    <DataGrid x:Name="amrt48elDataGrid" Margin="0,146,0,0" Grid.ColumnSpan="6"  IsReadOnly="False"  AddingNewItem="amrt48elDataGrid_AddingNewItem" Loaded="amrt48elDataGrid_Loaded" ItemsSource="{Binding amrt48elDataGVM}"
-                        HorizontalContentAlignment="Center" VerticalContentAlignment="Center" CanUserResizeColumns="False" CanUserResizeRows="False" FlowDirection="LeftToRight">
+                    <DataGrid x:Name="amrt48elDataGrid" Margin="0,146,0,0" Grid.ColumnSpan="6"  IsReadOnly="False"   Loaded="amrt48elDataGrid_Loaded" ItemsSource="{Binding amrt48elDataGVM}"
+                        HorizontalContentAlignment="Center" VerticalContentAlignment="Center" CanUserResizeColumns="False" CanUserResizeRows="False" FlowDirection="LeftToRight" CanUserAddRows="False">
 
 
                         <DataGrid.Columns>
@@ -266,11 +266,11 @@
                     </ComboBox>
 
 
+                    <Button x:Name="add5amaBtn" Content="+" Grid.Column="5" HorizontalAlignment="Left" Margin="0,118,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Background="{x:Null}" BorderBrush="Black" Height="27" VerticalContentAlignment="Top" Cursor="" Click="add5amaBtn_Click"  />
 
 
-
-                    <DataGrid  x:Name="amr4r2DataGrid"  Margin="0,146,379,10"  AddingNewItem="amr4r2DataGrid_AddingNewItem" Loaded="amr4r2DataGrid_Loaded" IsSynchronizedWithCurrentItem="True"  RowEditEnding="amr4r2DataGrid_RowEditEnding"   CellEditEnding="amr4r2DataGrid_CellEditEnding" Grid.ColumnSpan="2" ItemsSource="{Binding amr4r2DataGVM}"
-                      AutoGenerateColumns="False"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" CanUserResizeColumns="False" CanUserResizeRows="False" FlowDirection="LeftToRight">
+                    <DataGrid  x:Name="amr4r2DataGrid"  Margin="0,146,379,10"   Loaded="amr4r2DataGrid_Loaded" IsSynchronizedWithCurrentItem="True"  RowEditEnding="amr4r2DataGrid_RowEditEnding"   CellEditEnding="amr4r2DataGrid_CellEditEnding" Grid.ColumnSpan="2" ItemsSource="{Binding amr4r2DataGVM}"
+                      AutoGenerateColumns="False"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" CanUserResizeColumns="False" CanUserResizeRows="False" FlowDirection="LeftToRight" CanUserAddRows="False">
 
                         <DataGrid.Columns>
 

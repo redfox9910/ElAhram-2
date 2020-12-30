@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Home" Height="767" Width="1024" MinHeight="767" MaxHeight="767" MinWidth="1024" MaxWidth="1024" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Window.Resources>
-        <ImageBrush x:Key="deposit" ImageSource="pic/deposit 1.png" Stretch="Fill"/>
+        <ImageBrush x:Key="deposit" ImageSource="pic/deposit1.png" Stretch="Fill"/>
         <ImageBrush x:Key="warehouse" ImageSource="pic/warehouse1.png" Stretch="Fill"/>
         <ImageBrush x:Key="invoice" ImageSource="pic/invoice1.png" Stretch="Fill"/>
         <ImageBrush x:Key="order1" ImageSource="pic/order.png" Stretch="Fill"/>
@@ -445,7 +445,7 @@
         <!--Create 10 buttons-->
         <Button Height="100" Width="133" Grid.Row="1" Grid.Column="3" BorderThickness="0" Style="{DynamicResource depositStyle}" >
             <Button.Background>
-                <ImageBrush ImageSource="pic/deposit.png" Stretch="Fill"></ImageBrush>
+                <ImageBrush ImageSource="/pic/deposit.png" Stretch="Fill"></ImageBrush>
 
             </Button.Background>
 

@@ -19,6 +19,8 @@ namespace ElAhram.Models
         public DateTime تاريخ { get; set; }
         public string ملاحظات { get; set; }
         public string بنك{ get; set; }
+        public string الحالة{ get; set; }
+        public char flag { get; set; }
 
         [ForeignKey(nameof(كودعميل))]
         public عميل عميل { get; set; }

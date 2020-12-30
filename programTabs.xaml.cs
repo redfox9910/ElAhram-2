@@ -374,42 +374,35 @@ namespace ElAhram
         }
         private void amrt48elDataGrid_Loaded(object sender, RoutedEventArgs e)
         {
-           /* List<amrt48elDataGVM> amrt48eldata = new List<amrt48elDataGVM>();
+           // List<amrt48elDataGVM> amrt48eldata = new List<amrt48elDataGVM>();
 
             this.amrt48elDataGrid.ItemsSource = null;
             this.amrt48elDataGrid.Items.Clear();
                                                    
-            this.amrt48elDataGrid.ItemsSource = amrt48eldata;   */
+            //this.amrt48elDataGrid.ItemsSource = amrt48eldata;   
 
         }
 
         private void addmntgatBtn_Click(object sender, RoutedEventArgs e)
         {
-            /* amrt48el3ml2Page mwrdenAddPage = new amrt48el3ml2Page();
-             var list = (IList)this.amrt48elDataGrid.ItemsSource;
-             mwrdenAddPage.ShowDialog();
-             var mntg = new amrt48elDataGVM { رقم = amrt48elDataGrid.Items.Count + 1, اسم = data.mntg2mrt48el, كميةمنتج = 0 };
-             list.Add(mntg);      */
+            
 
 
             amrt48el3ml2Page amrt48El3Ml2 = new amrt48el3ml2Page();
-            //data.amrt48ElDatas = (IList)this.amrt48elDataGrid.ItemsSource;
+            
             bool? result = amrt48El3Ml2.ShowDialog();
-            //List<amrt48elDataGVM> mntg = new List<amrt48elDataGVM>();
-
-            //  mntg.Add(  new amrt48elDataGVM { رقم = amrt48elDataGrid.Items.Count + 1, اسم = data.mntg2mrt48el, كمية = 0 });
-            //this.amrt48elDataGrid.ItemsSource = mntg;
+            
             if (result == true)
             {
-                data.amrt48ElDatas.Add(new amrt48elDataGVM { رقم = amrt48elDataGrid.Items.Count + 1, اسم = data.mntg2mrt48el, كميةمنتج = 0, كميةخامة = 0 });
+                
+                data.amrt48ElDatas.Add(new amrt48elDataGVM { رقم = data.amrt48ElDatas.Count + 1, اسم = data.mntg2mrt48el, كميةمنتج = 0, كميةخامة = 0 });
 
-                //data.amrt48ElDatas.Add(mntg);
+                
                 this.amrt48elDataGrid.ItemsSource = null;
                 this.amrt48elDataGrid.Items.Clear();
                 amrt48elDataGrid.Items.Refresh();
                 this.amrt48elDataGrid.ItemsSource = data.amrt48ElDatas;
-                // this.amrt48elDataGrid.amrt48elDG  m5aznDGcombo.ItemsSource = dataContext.مخزن.Select(s => s.المخزن).ToList();
-                amrt48elDataGrid.Items.Refresh();
+               amrt48elDataGrid.Items.Refresh();
             }
 
             else
@@ -421,36 +414,7 @@ namespace ElAhram
 
         }
 
-        private void amrt48elDataGrid_AddingNewItem(object sender, AddingNewItemEventArgs e)
-        {
-            amrt48el3ml2Page amrt48El3Ml2 = new amrt48el3ml2Page();
-            //data.amrt48ElDatas = (IList)this.amrt48elDataGrid.ItemsSource;
-            bool? result = amrt48El3Ml2.ShowDialog();
-            //List<amrt48elDataGVM> mntg = new List<amrt48elDataGVM>();
-
-            //  mntg.Add(  new amrt48elDataGVM { رقم = amrt48elDataGrid.Items.Count + 1, اسم = data.mntg2mrt48el, كمية = 0 });
-            //this.amrt48elDataGrid.ItemsSource = mntg;
-            if (result == true)
-            {
-                data.amrt48ElDatas.Add(new amrt48elDataGVM { رقم = amrt48elDataGrid.Items.Count + 1, اسم = data.mntg2mrt48el, كميةمنتج = 0,كميةخامة=0 });
-
-                //data.amrt48ElDatas.Add(mntg);
-                this.amrt48elDataGrid.ItemsSource = null;
-                this.amrt48elDataGrid.Items.Clear();
-                amrt48elDataGrid.Items.Refresh();
-                this.amrt48elDataGrid.ItemsSource = data.amrt48ElDatas;
-               // this.amrt48elDataGrid.amrt48elDG  m5aznDGcombo.ItemsSource = dataContext.مخزن.Select(s => s.المخزن).ToList();
-                amrt48elDataGrid.Items.Refresh();
-            }
-
-            else
-            {
-                this.amrt48elDataGrid.ItemsSource = null;
-                this.amrt48elDataGrid.Items.Clear();
-                this.amrt48elDataGrid.ItemsSource = data.amrt48ElDatas;
-            }      
-        }
-
+        
         
 
         private void amrt48el2dafa_Click(object sender, RoutedEventArgs e)
@@ -942,7 +906,7 @@ namespace ElAhram
         }
 
 
-        private void amr4r2DataGrid_AddingNewItem(object sender, AddingNewItemEventArgs e)
+        private void add5amaBtn_Click(object sender, RoutedEventArgs e)
         {
             amr4r25matList amrt48El3Ml2 = new amr4r25matList();
 
@@ -961,16 +925,16 @@ namespace ElAhram
                     MessageBox.Show("الرجاء ادخال اسم العميل", "خطاء فى اسم العميل ", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
-               
-                
+
+
             }
 
             bool? result = amrt48El3Ml2.ShowDialog();
-           
+
             if (result == true)
             {
-                data.amr4r2Datas.Add(new amr4r2DataGVM { رقم = amr4r2DataGrid.Items.Count + 1, الخامة = data.amr4r25ama, الكمية = 0 });
-                
+                data.amr4r2Datas.Add(new amr4r2DataGVM { رقم = data.amr4r2Datas.Count + 1, الخامة = data.amr4r25ama, الكمية = 0 });
+
                 this.amr4r2DataGrid.ItemsSource = null;
                 this.amr4r2DataGrid.Items.Clear();
                 this.amr4r2DataGrid.ItemsSource = data.amr4r2Datas;
@@ -978,9 +942,13 @@ namespace ElAhram
 
             else
             {
-                
+                this.amr4r2DataGrid.ItemsSource = null;
+                this.amr4r2DataGrid.Items.Clear();
+                this.amr4r2DataGrid.ItemsSource = data.amr4r2Datas;
             }
         }
+
+       
         private void amr4r2DataGrid_Loaded(object sender, RoutedEventArgs e)
         {
             List<amr4r2DataGVM> amrt48eldata = new List<amr4r2DataGVM>();
@@ -1334,6 +1302,8 @@ namespace ElAhram
             FWaterListP fwater48elListPage = new FWaterListP();
             fwater48elListPage.ShowDialog();
         }
+
+       
 
 
 
