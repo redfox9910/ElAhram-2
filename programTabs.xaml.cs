@@ -374,22 +374,51 @@ namespace ElAhram
         }
         private void amrt48elDataGrid_Loaded(object sender, RoutedEventArgs e)
         {
-            List<amrt48elDataGVM> amrt48eldata = new List<amrt48elDataGVM>();
+           /* List<amrt48elDataGVM> amrt48eldata = new List<amrt48elDataGVM>();
 
             this.amrt48elDataGrid.ItemsSource = null;
             this.amrt48elDataGrid.Items.Clear();
                                                    
-            this.amrt48elDataGrid.ItemsSource = amrt48eldata;
+            this.amrt48elDataGrid.ItemsSource = amrt48eldata;   */
 
         }
 
         private void addmntgatBtn_Click(object sender, RoutedEventArgs e)
         {
-            amrt48el3ml2Page mwrdenAddPage = new amrt48el3ml2Page();
-            var list = (IList)this.amrt48elDataGrid.ItemsSource;
-            mwrdenAddPage.ShowDialog();
-            var mntg = new amrt48elDataGVM { رقم = amrt48elDataGrid.Items.Count + 1, اسم = data.mntg2mrt48el, كميةمنتج = 0 };
-            list.Add(mntg);
+            /* amrt48el3ml2Page mwrdenAddPage = new amrt48el3ml2Page();
+             var list = (IList)this.amrt48elDataGrid.ItemsSource;
+             mwrdenAddPage.ShowDialog();
+             var mntg = new amrt48elDataGVM { رقم = amrt48elDataGrid.Items.Count + 1, اسم = data.mntg2mrt48el, كميةمنتج = 0 };
+             list.Add(mntg);      */
+
+
+            amrt48el3ml2Page amrt48El3Ml2 = new amrt48el3ml2Page();
+            //data.amrt48ElDatas = (IList)this.amrt48elDataGrid.ItemsSource;
+            bool? result = amrt48El3Ml2.ShowDialog();
+            //List<amrt48elDataGVM> mntg = new List<amrt48elDataGVM>();
+
+            //  mntg.Add(  new amrt48elDataGVM { رقم = amrt48elDataGrid.Items.Count + 1, اسم = data.mntg2mrt48el, كمية = 0 });
+            //this.amrt48elDataGrid.ItemsSource = mntg;
+            if (result == true)
+            {
+                data.amrt48ElDatas.Add(new amrt48elDataGVM { رقم = amrt48elDataGrid.Items.Count + 1, اسم = data.mntg2mrt48el, كميةمنتج = 0, كميةخامة = 0 });
+
+                //data.amrt48ElDatas.Add(mntg);
+                this.amrt48elDataGrid.ItemsSource = null;
+                this.amrt48elDataGrid.Items.Clear();
+                amrt48elDataGrid.Items.Refresh();
+                this.amrt48elDataGrid.ItemsSource = data.amrt48ElDatas;
+                // this.amrt48elDataGrid.amrt48elDG  m5aznDGcombo.ItemsSource = dataContext.مخزن.Select(s => s.المخزن).ToList();
+                amrt48elDataGrid.Items.Refresh();
+            }
+
+            else
+            {
+                this.amrt48elDataGrid.ItemsSource = null;
+                this.amrt48elDataGrid.Items.Clear();
+                this.amrt48elDataGrid.ItemsSource = data.amrt48ElDatas;
+            }
+
         }
 
         private void amrt48elDataGrid_AddingNewItem(object sender, AddingNewItemEventArgs e)
@@ -408,6 +437,7 @@ namespace ElAhram
                 //data.amrt48ElDatas.Add(mntg);
                 this.amrt48elDataGrid.ItemsSource = null;
                 this.amrt48elDataGrid.Items.Clear();
+                amrt48elDataGrid.Items.Refresh();
                 this.amrt48elDataGrid.ItemsSource = data.amrt48ElDatas;
                // this.amrt48elDataGrid.amrt48elDG  m5aznDGcombo.ItemsSource = dataContext.مخزن.Select(s => s.المخزن).ToList();
                 amrt48elDataGrid.Items.Refresh();
@@ -418,7 +448,7 @@ namespace ElAhram
                 this.amrt48elDataGrid.ItemsSource = null;
                 this.amrt48elDataGrid.Items.Clear();
                 this.amrt48elDataGrid.ItemsSource = data.amrt48ElDatas;
-            }
+            }      
         }
 
         
