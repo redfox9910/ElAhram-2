@@ -5,16 +5,53 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ElAhram.pages.ywmyat"
         mc:Ignorable="d"
-        Title="sglywmyat" Height="450" Width="600" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
+        Title="sglywmyat" Height="450" Width="850" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
     <Grid>
-        <Label Content=": من التاريخ" HorizontalAlignment="Left" Margin="518,65,0,0" VerticalAlignment="Top"/>
-        <DatePicker x:Name="datefromDateP" HorizontalAlignment="Left" Margin="392,70,0,0" VerticalAlignment="Top" SelectedDateChanged="datefromDateP_SelectedDateChanged"/>
-        <Label Content=": الى التاريخ" HorizontalAlignment="Left" Margin="230,69,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
-        <DatePicker x:Name="dateToDateP" HorizontalAlignment="Left" Margin="110,70,0,0" VerticalAlignment="Top" SelectedDateChanged="datefromDateP_SelectedDateChanged"/>
+        <Label Content=": من التاريخ" HorizontalAlignment="Left" Margin="610,65,0,0" VerticalAlignment="Top"/>
+        <DatePicker x:Name="datefromDateP" HorizontalAlignment="Left" Margin="484,70,0,0" VerticalAlignment="Top" SelectedDateChanged="datefromDateP_SelectedDateChanged"/>
+        <Label Content=": الى التاريخ" HorizontalAlignment="Left" Margin="322,69,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
+        <DatePicker x:Name="dateToDateP" HorizontalAlignment="Left" Margin="202,70,0,0" VerticalAlignment="Top" SelectedDateChanged="datefromDateP_SelectedDateChanged"/>
 
-        <DataGrid x:Name="sglywmyaDG" Margin="0,99,0,0" IsReadOnly="True"/>
-        <Label Content="سجل اليوميات" HorizontalAlignment="Center" Margin="0,16,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="22" Foreground="#FFF58322"/>
+        <DataGrid x:Name="sglywmyaDG" Margin="0,99,0,0" IsReadOnly="True"  ItemsSource="{Binding ywmyatDataGVM}"
+                      AutoGenerateColumns="False"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" CanUserResizeColumns="False" CanUserResizeRows="False">
+            <DataGrid.Columns>
 
 
+
+
+
+                <DataGridTextColumn Header="الملاحظات"    Width="370" 
+                                        Binding="{Binding ملاحظات}" CanUserResize="False" />
+
+
+                <DataGridTextColumn Header=" المبلغ المدفوع "    Width="110" 
+                                        Binding="{Binding  مبلغ}" CanUserResize="False" />
+
+                <DataGridTextColumn Header=" التاريخ "           Width="100" 
+                                        Binding="{Binding تاريخ}" CanUserResize="False" />
+
+                <DataGridTextColumn Header="الحالة"          Width="60" 
+                                        Binding="{Binding ألحالة}" CanUserResize="False" />
+
+                <DataGridTextColumn Header="صاحب اليومية"           Width="110" 
+                                        Binding="{Binding صاحب}" CanUserResize="False" />
+                <DataGridTextColumn Header="كود اليومية"           Width="70" 
+                                        Binding="{Binding كود}" CanUserResize="False" />
+
+            </DataGrid.Columns>
+
+
+        </DataGrid>
+        <Label Content="سجل اليوميات" HorizontalAlignment="Center" Margin="0,17,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="22" Foreground="#FFF58322"/>
+
+        <Button
+                    Command="{Binding PrintCommand}"
+                    CommandParameter="{Binding ElementName=sglywmyaDG}"
+                    Width="65"
+                    HorizontalAlignment="Left" BorderBrush="{x:Null}" Cursor="Hand" Height="65" VerticalAlignment="Top" Foreground="{x:Null}" Margin="26,17,0,0" Visibility="Visible" InputScope="PhraseList" >
+            <Button.Background>
+                <ImageBrush Stretch="Uniform" ImageSource="/pic/printer.png"/>
+            </Button.Background>
+        </Button>
     </Grid>
 </Window>

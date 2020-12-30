@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ElAhram.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -116,39 +117,59 @@ namespace ElAhram.pages.ywmyat
             using (var db = new Models.DataContext())
             {
                 var x = db.خزنة.FirstOrDefault();
+                string _7sab="";
+                عميل emp = new عميل();
                 switch (ywmya.Content.ToString())
                 {
 
                     case "وارد":
+                       emp = db.عملاء.Where(x => x.اسم == s7bywmyacombox.Text && x.نوع == 'ع').FirstOrDefault();
                         if (noteywmyaText.Text == "")
                         {
-
-                         db.يوميات.Add(new Models.يوميات { كود = int.Parse(rkmywmyaText.Text), تاريخ = DateTime.Now, مبلغ = decimal.Parse(nkdyelywmyaText.Text), كودحالة = db.حالات_يوميات.Where(y => y.حالة == "وارد").Select(y => y.كودحالة).FirstOrDefault(), ملاحظات = "دفعة", كودصاحب = db.عملاء.Where(x => x.اسم == s7bywmyacombox.Text && x.نوع == 'ع').Select(x => x.كودعميل).FirstOrDefault(), flag = 'ع' });
+                            _7sab = emp.حساب.ToString();
+                         db.يوميات.Add(new Models.يوميات { كود = int.Parse(rkmywmyaText.Text), تاريخ = DateTime.Now, مبلغ = decimal.Parse(nkdyelywmyaText.Text), كودحالة = db.حالات_يوميات.Where(y => y.حالة == "وارد").Select(y => y.كودحالة).FirstOrDefault(), ملاحظات = "دفعة"+"\t\t اجمالى الحساب :- "+ _7sab, كودصاحب = emp.كودعميل, flag = 'ع' });
                         }
                         else
                         {
-                            db.يوميات.Add(new Models.يوميات { كود = int.Parse(rkmywmyaText.Text), تاريخ = DateTime.Now, مبلغ = decimal.Parse(nkdyelywmyaText.Text), كودحالة = db.حالات_يوميات.Where(y => y.حالة == "وارد").Select(y => y.كودحالة).FirstOrDefault(), ملاحظات = noteywmyaText.Text, كودصاحب = db.عملاء.Where(x => x.اسم == s7bywmyacombox.Text && x.نوع == 'ع').Select(x => x.كودعميل).FirstOrDefault(), flag = 'ع' });
+                            db.يوميات.Add(new Models.يوميات { كود = int.Parse(rkmywmyaText.Text), تاريخ = DateTime.Now, مبلغ = decimal.Parse(nkdyelywmyaText.Text), كودحالة = db.حالات_يوميات.Where(y => y.حالة == "وارد").Select(y => y.كودحالة).FirstOrDefault(), ملاحظات = noteywmyaText.Text+ "\t\t دفعة\t\tاجمالى الحساب :- " + _7sab, كودصاحب = db.عملاء.Where(x => x.اسم == s7bywmyacombox.Text && x.نوع == 'ع').Select(x => x.كودعميل).FirstOrDefault(), flag = 'ع' });
                          }
                         x.نقدى += decimal.Parse(nkdyelywmyaText.Text);
                         db.SaveChanges();
                         Xceed.Wpf.Toolkit.MessageBox.Show("تمت  عملية اضافة الوارد  بنجاح", "اضافة وارد", MessageBoxButton.OK, MessageBoxImage.Information);
                         break;
                     case "مصاريف":
-
-                         if (x.نقدى > decimal.Parse(nkdyelywmyaText.Text))
+                        emp = db.عملاء.Where(x => x.اسم == s7bywmyacombox.Text && x.نوع == 'م').FirstOrDefault();
+                        if (x.نقدى > decimal.Parse(nkdyelywmyaText.Text))
                         {
-                            db.يوميات.Add(new Models.يوميات { كود = int.Parse(rkmywmyaText.Text), تاريخ = DateTime.Now, مبلغ = decimal.Parse(nkdyelywmyaText.Text), كودحالة = db.حالات_يوميات.Where(y => y.حالة == "مصاريف").Select(y => y.كودحالة).FirstOrDefault(), ملاحظات = noteywmyaText.Text, كودصاحب = db.عملاء.Where(x => x.اسم == s7bywmyacombox.Text && x.نوع == 'م').Select(x => x.كودعميل).FirstOrDefault(), flag = 'م' });
+                            _7sab = emp.حساب.ToString();
+                            if (noteywmyaText.Text == "")
+                            {
+                                db.يوميات.Add(new Models.يوميات { كود = int.Parse(rkmywmyaText.Text), تاريخ = DateTime.Now, مبلغ = decimal.Parse(nkdyelywmyaText.Text), كودحالة = db.حالات_يوميات.Where(y => y.حالة == "مصاريف").Select(y => y.كودحالة).FirstOrDefault(), ملاحظات = "\t\t دفعة \t\t اجمالى الحساب :- " + _7sab, كودصاحب = emp.كودعميل, flag = 'م' });
+                            }
+                            else
+                            {
+                                db.يوميات.Add(new Models.يوميات { كود = int.Parse(rkmywmyaText.Text), تاريخ = DateTime.Now, مبلغ = decimal.Parse(nkdyelywmyaText.Text), كودحالة = db.حالات_يوميات.Where(y => y.حالة == "مصاريف").Select(y => y.كودحالة).FirstOrDefault(), ملاحظات = noteywmyaText.Text+ "\t\t دفعة \t\t اجمالى الحساب  :- " + _7sab, كودصاحب = emp.كودعميل, flag = 'م' });
+                            }
                             x.نقدى -= decimal.Parse(nkdyelywmyaText.Text);
                             db.SaveChanges();
                             Xceed.Wpf.Toolkit.MessageBox.Show("تمت عملية خصم المصاريف بنجاح", "خصم مصاريف", MessageBoxButton.OK, MessageBoxImage.Information);
-                            
+                             
                         }
                         else
                         {
                          MessageBoxResult boxResult =   Xceed.Wpf.Toolkit.MessageBox.Show("لا يوجد مال كافى لاجراء العملية \n هل تريد اضافة بالسالب فى الخزنة", "خصم مصاريف", MessageBoxButton.OKCancel, MessageBoxImage.Error);
                             if (boxResult == MessageBoxResult.OK)
                             {
-                                db.يوميات.Add(new Models.يوميات { كود = int.Parse(rkmywmyaText.Text), تاريخ = DateTime.Now, مبلغ = decimal.Parse(nkdyelywmyaText.Text), كودحالة = db.حالات_يوميات.Where(y => y.حالة == "مصاريف").Select(y => y.كودحالة).FirstOrDefault(), ملاحظات = noteywmyaText.Text, كودصاحب = db.عملاء.Where(x => x.اسم == s7bywmyacombox.Text && x.نوع == 'م').Select(x => x.كودعميل).FirstOrDefault(), flag = 'م' });
+
+                                _7sab = emp.حساب.ToString();
+                                if (noteywmyaText.Text == "")
+                                {
+                                    db.يوميات.Add(new Models.يوميات { كود = int.Parse(rkmywmyaText.Text), تاريخ = DateTime.Now, مبلغ = decimal.Parse(nkdyelywmyaText.Text), كودحالة = db.حالات_يوميات.Where(y => y.حالة == "مصاريف").Select(y => y.كودحالة).FirstOrDefault(), ملاحظات = "\t\t اجمالى الحساب :- " + _7sab, كودصاحب = emp.كودعميل, flag = 'م' });
+                                }
+                                else
+                                {
+                                    db.يوميات.Add(new Models.يوميات { كود = int.Parse(rkmywmyaText.Text), تاريخ = DateTime.Now, مبلغ = decimal.Parse(nkdyelywmyaText.Text), كودحالة = db.حالات_يوميات.Where(y => y.حالة == "مصاريف").Select(y => y.كودحالة).FirstOrDefault(), ملاحظات = noteywmyaText.Text + "\t\t اجمالى الحساب :- " + _7sab, كودصاحب = emp.كودعميل, flag = 'م' });
+                                }
                                 x.نقدى -= decimal.Parse(nkdyelywmyaText.Text);
                                 db.SaveChanges();
                                 Xceed.Wpf.Toolkit.MessageBox.Show("تمت عملية خصم المصاريف بنجاح", "خصم مصاريف", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -163,8 +184,8 @@ namespace ElAhram.pages.ywmyat
                             x.نقدى -= decimal.Parse(nkdyelywmyaText.Text);
                             if (db.حسابات_الموظف.Where(y => y.كودموظف == db.موظف.Where(x => x.اسم == s7bywmyacombox.Text).Select(x => x.كودموظف).FirstOrDefault() && y.تاريخ >= DateTime.Now.Date && y.تاريخ <= DateTime.Now.AddDays(1).Date).Any())
                             {
-                                var emp = db.حسابات_الموظف.Where(y => y.كودموظف == db.موظف.Where(x => x.اسم == s7bywmyacombox.Text).Select(x => x.كودموظف).FirstOrDefault() && y.تاريخ >= DateTime.Now.Date && y.تاريخ <= DateTime.Now.AddDays(1).Date).FirstOrDefault();
-                                emp.سلف += decimal.Parse(nkdyelywmyaText.Text);
+                                var empx = db.حسابات_الموظف.Where(y => y.كودموظف == db.موظف.Where(x => x.اسم == s7bywmyacombox.Text).Select(x => x.كودموظف).FirstOrDefault() && y.تاريخ >= DateTime.Now.Date && y.تاريخ <= DateTime.Now.AddDays(1).Date).FirstOrDefault();
+                                empx.سلف += decimal.Parse(nkdyelywmyaText.Text);
                             }
                             else
                             {

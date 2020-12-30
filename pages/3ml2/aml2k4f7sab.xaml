@@ -9,12 +9,50 @@
     <Grid>
 
         <Label Content=" : كشف حساب" HorizontalAlignment="Left" Margin="376,15,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
-        <DataGrid x:Name="k4f7sabDataG" Margin="0,117,0,0" IsReadOnly="True"  />
+        <DataGrid x:Name="k4f7sabDataG" Margin="0,117,0,0" IsReadOnly="True"  ItemsSource="{Binding k4f7sab3melDataGVM}"
+                      AutoGenerateColumns="False"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" CanUserResizeColumns="False" CanUserResizeRows="False" >
+
+
+            <DataGrid.Columns>
+                
+
+               
+               
+                
+                <DataGridTextColumn Header="الملاحظات"    Width="220" 
+                                        Binding="{Binding ملاحظات}" CanUserResize="False" />
+
+
+                <DataGridTextColumn Header=" المبلغ المدفوع "    Width="140" 
+                                        Binding="{Binding  مبلغ}" CanUserResize="False" />
+                
+                <DataGridTextColumn Header=" التاريخ "           Width="100" 
+                                        Binding="{Binding تاريخ}" CanUserResize="False" />
+                
+                <DataGridTextColumn Header="كود اليومية"          Width="80" 
+                                        Binding="{Binding كوداليومية}" CanUserResize="False" />
+
+                <DataGridTextColumn Header="#"           Width="50" 
+                                        Binding="{Binding رقم}" CanUserResize="False" />
+
+            </DataGrid.Columns>
+
+
+        </DataGrid>
         <Label x:Name="_2sm3melLabel" Content="" HorizontalAlignment="Left" Margin="302,17,0,0" VerticalAlignment="Top"   FontWeight="Bold" FontSize="20" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
         <Label Content=" : من" HorizontalAlignment="Left" Margin="506,86,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
         <DatePicker x:Name="datefromDateP" HorizontalAlignment="Left" Margin="376,91,0,0" VerticalAlignment="Top" SelectedDateChanged="datefromDateP_SelectedDateChanged"/>
         <Label Content=" : الى" HorizontalAlignment="Left" Margin="239,86,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
         <DatePicker x:Name="dateToDateP" HorizontalAlignment="Left" Margin="111,91,0,0" VerticalAlignment="Top" SelectedDateChanged="datefromDateP_SelectedDateChanged"/>
 
+        <Button
+                    Command="{Binding PrintCommand}"
+                    CommandParameter="{Binding ElementName=k4f7sabDataG}"
+                    Width="65"
+                    HorizontalAlignment="Left" BorderBrush="{x:Null}" Cursor="Hand" Height="65" VerticalAlignment="Top" Foreground="{x:Null}" Margin="26,17,0,0" Visibility="Visible" InputScope="PhraseList" >
+            <Button.Background>
+                <ImageBrush Stretch="Uniform" ImageSource="/pic/printer.png"/>
+            </Button.Background>
+        </Button>
     </Grid>
 </Window>

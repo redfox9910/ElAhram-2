@@ -25,10 +25,11 @@ namespace ElAhram.pages.ywmyat
         }
 
         static List<ywmyatDataGVM> ywmyatDatas = new List<ywmyatDataGVM>();
+        ViewmModels.fwter.fwterDataGVM fwterData;
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-
-             using (var db = new Models.DataContext())
+            
+            using (var db = new Models.DataContext())
             {
                 var elements = db.يوميات.ToList();
                 List<ywmyatDataGVM> k4f7sabData = new List<ywmyatDataGVM>();
@@ -44,11 +45,25 @@ namespace ElAhram.pages.ywmyat
                     }
                     
                 }
-                sglywmyaDG.ItemsSource = k4f7sabData.Where(x=>x.تاريخ == DateTime.Today).ToList();
+                sglywmyaDG.ItemsSource = k4f7sabData.Where(x=>x.تاريخ == DateTime.Today).ToList().OrderBy(x=>x.تاريخ);
                 ywmyatDatas = k4f7sabData.ToList();
-              // _2sm3melLabel.Content = db.عملاء.Where(z => z.كودعميل == data.k4f7sabId && z.نوع == 'ع').Select(z => z.اسم).FirstOrDefault();
-              }
+                decimal income=0,outm = 0;
+                foreach (var item in k4f7sabData.Where(x => x.تاريخ == DateTime.Today).ToList())
+                {
+                    if (item.ألحالة == "مصاريف" || item.ألحالة == "سلف " || item.ألحالة == "مرتبات ")
+                    {
+                        outm += item.مبلغ;
+                    }
+                    else
+                    {
+                        income += item.مبلغ;
+                    }
+                }
+                // _2sm3melLabel.Content = db.عملاء.Where(z => z.كودعميل == data.k4f7sabId && z.نوع == 'ع').Select(z => z.اسم).FirstOrDefault();
+                fwterData = new ViewmModels.fwter.fwterDataGVM {  اجمالى_حساب = income , اجمالى_نقدى = outm };
 
+            }
+            this.DataContext = new CustomDocumentPaginator.MainWindowViewModel("كشف يوميات", fwterData);
         }
 
        /* private void dateOfYwmya_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
@@ -87,16 +102,19 @@ namespace ElAhram.pages.ywmyat
              */
         private void datefromDateP_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
+            List<ywmyatDataGVM> k4f7sabData = new List<ywmyatDataGVM>();
 
             if (datefromDateP.SelectedDate == null)
             {
                 sglywmyaDG.ItemsSource = null;
-                sglywmyaDG.ItemsSource = ywmyatDatas.Where(x => x.تاريخ < dateToDateP.SelectedDate.Value.AddDays(1)).ToList();
+                sglywmyaDG.ItemsSource = ywmyatDatas.Where(x => x.تاريخ < dateToDateP.SelectedDate.Value.AddDays(1)).ToList().OrderBy(x => x.تاريخ);
+                k4f7sabData = ywmyatDatas.Where(x => x.تاريخ < dateToDateP.SelectedDate.Value.AddDays(1)).ToList();
             }
             else if (dateToDateP.SelectedDate == null)
             {
                 sglywmyaDG.ItemsSource = null;
-                sglywmyaDG.ItemsSource = ywmyatDatas.Where(x => x.تاريخ >= datefromDateP.SelectedDate).ToList();
+                sglywmyaDG.ItemsSource = ywmyatDatas.Where(x => x.تاريخ >= datefromDateP.SelectedDate).ToList().OrderBy(x => x.تاريخ);
+                k4f7sabData = ywmyatDatas.Where(x => x.تاريخ >= datefromDateP.SelectedDate).ToList();
             }
             else
             {
@@ -109,10 +127,31 @@ namespace ElAhram.pages.ywmyat
                 {
 
                     sglywmyaDG.ItemsSource = null;
-                    sglywmyaDG.ItemsSource = ywmyatDatas.Where(x => x.تاريخ >= datefromDateP.SelectedDate && x.تاريخ < dateToDateP.SelectedDate.Value.AddDays(1)).ToList();
+                    sglywmyaDG.ItemsSource = ywmyatDatas.Where(x => x.تاريخ >= datefromDateP.SelectedDate && x.تاريخ < dateToDateP.SelectedDate.Value.AddDays(1)).ToList().OrderBy(x => x.تاريخ);
+                    k4f7sabData = ywmyatDatas.Where(x => x.تاريخ >= datefromDateP.SelectedDate && x.تاريخ < dateToDateP.SelectedDate.Value.AddDays(1)).ToList();
                 }
             }
             sglywmyaDG.Items.Refresh();
+
+
+
+            decimal income = 0, outm = 0;
+            foreach (var item in k4f7sabData)
+            {
+                if (item.ألحالة == "مصاريف" || item.ألحالة == "سلف " || item.ألحالة == "مرتبات ")
+                {
+                    outm += item.مبلغ;
+                }
+                else
+                {
+                    income += item.مبلغ;
+                }
+            }
+            // _2sm3melLabel.Content = db.عملاء.Where(z => z.كودعميل == data.k4f7sabId && z.نوع == 'ع').Select(z => z.اسم).FirstOrDefault();
+            fwterData = new ViewmModels.fwter.fwterDataGVM { اجمالى_حساب = income, اجمالى_نقدى = outm };
+
+            this.DataContext = new CustomDocumentPaginator.MainWindowViewModel("كشف يوميات", fwterData);
+
 
         }
     }

@@ -276,10 +276,7 @@ namespace CustomDocumentPaginator
             //deatials row
            // AddGridRow(pageGrid, GridLength.Auto);
 
-            //Footer row
-           // Grid pageGrid1 = new Grid();
-           // pageGrid1.VerticalAlignment = VerticalAlignment.Bottom;
-           // Canvas.SetBottom(pageGrid1, 1);
+            
             AddGridRow(pageGrid, GridLength.Auto);
 
             ContentControl pageHeader = new ContentControl();
@@ -293,16 +290,6 @@ namespace CustomDocumentPaginator
 
 
 
-            // 
-            //  pagedeatials.Content = this.CreateDocumentHeader();
-
-            // titleText.VerticalAlignment = VerticalAlignment.Bottom;
-
-
-            //  pagedeatials.Children.Add(titleText);
-
-            // pagedeatials.VerticalAlignment = VerticalAlignment.Bottom;
-            //  Canvas.SetBottom(pagedeatials, 1);
 
 
 
@@ -322,7 +309,20 @@ namespace CustomDocumentPaginator
             TextBlock titleText = new TextBlock();
             titleText.Style = this.DocumentHeaderTextStyle;
             titleText.TextTrimming = TextTrimming.CharacterEllipsis;
-            titleText.Text = "the end";
+            if (this.DocumentTitle[4]=='ح')
+            {
+                titleText.Text = fwterData.اجمالى_حساب + "  : اجمالى الحساب الحالى" ;
+            }
+            else if (this.DocumentTitle[0] == 'ف')
+           
+            {
+                titleText.Text =  " ك "+ fwterData.اجمالى_وزن + "-: " +"اجمالى وزن الفاتورة"  +"\t\t" +fwterData.اجمالى_نقدى+" -: اجمالى الفاتورة"+"\t\t"+(fwterData.اجمالى_حساب-fwterData.اجمالى_نقدى )+" -: حساب سابق" + "\t\t" +fwterData.اجمالى_حساب+" -: حساب جديد";
+            }
+            else
+            {
+                titleText.Text = fwterData.اجمالى_حساب + " : "+" اجمالى الداخل "+ "\t\t"  + " اجمالى الخارج  : " + fwterData.اجمالى_نقدى + "\t\t"  + " صافى الربح  : " + (fwterData.اجمالى_حساب - fwterData.اجمالى_نقدى);
+            }
+           
             titleText.HorizontalAlignment = HorizontalAlignment.Center;
 
             pagedeatials.SetValue(Grid.RowProperty, 2);
@@ -334,6 +334,7 @@ namespace CustomDocumentPaginator
             ContentControl pageFooter = new ContentControl();
             pageFooter.Content = CreateDocumentFooter(pageNumber + 1);
             pageFooter.SetValue(Grid.RowProperty, 3);
+            pageFooter.Margin = new Thickness(0,5,0,0);
             Canvas.SetBottom(pageFooter,1);
             pageGrid.Children.Add(pageFooter);
 
@@ -383,16 +384,28 @@ namespace CustomDocumentPaginator
 
             TextBlock dateTimeText = new TextBlock();
             dateTimeText.Style = this.DocumentFooterTextStyle;
-            dateTimeText.Text = DateTime.Now.ToString("dd-MMM-yyy");
-           // dateTimeText.HorizontalAlignment = HorizontalAlignment.Left;
-
-            TextBlock textB = new TextBlock()
+            if (fwterData.تاريخ_تشغيل == new DateTime(0001,01,01))
             {
-                Text = "\n\n" + fwterData.اسم_عميل+" /عميل"
-            };
+                dateTimeText.Text = DateTime.Now.ToString("dd-MM-yyyy");
+            }
+            else
+            {
+                dateTimeText.Text = fwterData.تاريخ_تشغيل.ToString("dd-MM-yyyy");
+            }
             StackPanel content = new StackPanel();
             content.Children.Add(dateTimeText);
-            content.Children.Add(textB);
+            // dateTimeText.HorizontalAlignment = HorizontalAlignment.Left;
+            if (fwterData.اسم_عميل != null)
+            {
+                TextBlock textB = new TextBlock()
+                {
+                    Text = "\n\n" + fwterData.اسم_عميل + " -: عميل"
+                };
+                content.Children.Add(textB);
+            }
+           
+           
+            
             content.HorizontalAlignment = HorizontalAlignment.Right;
 
             headerBorder.Children.Add(content);
@@ -431,17 +444,19 @@ namespace CustomDocumentPaginator
             ColumnDefinition colDefinition = new ColumnDefinition();
             colDefinition.Width = new GridLength(0.5d, GridUnitType.Star);
 
-            TextBlock dateTimeText = new TextBlock();
-            dateTimeText.Style = this.DocumentFooterTextStyle;
-            dateTimeText.Text = "الادارة \n ت/ 2269743425 \n mail\\Alahramplast2019@gmail.com";
-
-            footerGrid.Children.Add(dateTimeText);
+            TextBlock dataText = new TextBlock();
+            dataText.Style = this.DocumentFooterTextStyle;
+            dataText.Text = "الادارة  \n ت/ 02 269743425 \n E-mail/ Alahramplast2019@gmail.com";
+            dataText.HorizontalAlignment = HorizontalAlignment.Right;
+            dataText.VerticalAlignment = VerticalAlignment.Bottom;
+            dataText.TextAlignment = TextAlignment.Center;
+            footerGrid.Children.Add(dataText);
 
             TextBlock pageNumberText = new TextBlock();
             pageNumberText.Style = this.DocumentFooterTextStyle;
             pageNumberText.Text = "Page " + pageNumber.ToString() + " of " + this.PageCount.ToString();
             pageNumberText.SetValue(Grid.ColumnProperty, 1);
-            pageNumberText.HorizontalAlignment = HorizontalAlignment.Right;
+            pageNumberText.HorizontalAlignment = HorizontalAlignment.Left;
 
             footerGrid.Children.Add(pageNumberText);
            // footerGrid.VerticalAlignment = VerticalAlignment.Bottom;
@@ -483,10 +498,14 @@ namespace CustomDocumentPaginator
                     tableRow.ColumnDefinitions.Add(copy);
                 }
 
+               
+                     
 
 
+                                                       
                 foreach (object item in _documentSource.ItemsSource)
                 {
+                  
                     int columnIndex = 0;
                     if (_documentSource.Columns != null)
                     {
@@ -636,11 +655,12 @@ namespace CustomDocumentPaginator
             {
                 DataGridTemplateColumn templateColumn = column as DataGridTemplateColumn;
                 ContentControl contentControl = new ContentControl();
-
+                                  
                 contentControl.Focusable = true;
                 contentControl.ContentTemplate = templateColumn.CellTemplate;
+                
                 contentControl.Content = item;
-
+                   
                 contentControl.SetValue(Grid.ColumnProperty, columnIndex);
                 contentControl.SetValue(Grid.RowProperty, rowIndex);
 
@@ -683,7 +703,7 @@ namespace CustomDocumentPaginator
 
 
                 };
-                bor.Padding = new Thickness(5, 5, 5, 5);
+                bor.Padding = new Thickness(5, 5, 5, 12);
                // brdr.SetValue(Grid.RowProperty, rowIndex);
                 //brdr.SetValue(Grid.ColumnProperty, columnIndex);
                 Border.Children.Add(text);

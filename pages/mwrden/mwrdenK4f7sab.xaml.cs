@@ -1,4 +1,5 @@
 ﻿using ElAhram.ViewmModels.Aml2Tab;
+using ElAhram.ViewmModels.fwter;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,6 +29,7 @@ namespace ElAhram.pages.mwrden
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            fwterDataGVM fwterData;
             int count = 1;
             using (var db = new Models.DataContext())
             {
@@ -35,13 +37,15 @@ namespace ElAhram.pages.mwrden
                 List<k4f7sab3melDataGVM> k4f7sabData = new List<k4f7sab3melDataGVM>();
                 foreach (var item in elements)
                 {
-                    k4f7sabData.Add(new k4f7sab3melDataGVM { رقم = count, كود = item.كود, تاريخ = item.تاريخ, ألحالة = db.حالات_يوميات.Where(z => z.كودحالة == item.كودحالة).Select(z => z.حالة).FirstOrDefault(), مبلغ = item.مبلغ, ملاحظات = item.ملاحظات });
+                    k4f7sabData.Add(new k4f7sab3melDataGVM { رقم = count, كوداليومية = item.كود, تاريخ = item.تاريخ, مبلغ = item.مبلغ, ملاحظات = item.ملاحظات });
                     count++;
                 }
                 k4f7sabDataG.ItemsSource = k4f7sabData;
                 k4F7Sab3MelDatas = k4f7sabData.ToList();
                 _2sm3melLabel.Content = db.عملاء.Where(z => z.كودعميل == data.k4f7sabId && z.نوع == 'م').Select(z => z.اسم).FirstOrDefault();
+                fwterData = new fwterDataGVM { اسم_عميل = _2sm3melLabel.Content.ToString(), اجمالى_حساب = db.عملاء.Where(z => z.كودعميل == data.k4f7sabId && z.نوع == 'م').Select(z => z.حساب).FirstOrDefault() };
             }
+            this.DataContext = new CustomDocumentPaginator.MainWindowViewModel("كشف حساب موردين", fwterData);
         }
 
         private void datefromDateP_SelectedDateChanged(object sender, SelectionChangedEventArgs e)

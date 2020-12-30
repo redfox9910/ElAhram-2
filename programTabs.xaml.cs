@@ -679,7 +679,7 @@ namespace ElAhram
                 var items = db.امرتشغيل.Where(x => x.رقم == data.rkmftora).ToList();
                 foreach (var item in items)
                 {
-                    data.bnodDatas.Add(new bnodFatora { المنتج = db.منتجات.Where(y => y.كودالخامة == item.كودالخامة && y.type == 'م').Select(y => y.الخامة).FirstOrDefault(), كمية = item.كمية, سعر_الوحدة = 0, الاجمالى = 0 });
+                    data.bnodDatas.Add(new bnodFatora { المنتج = db.منتجات.Where(y => y.كودالخامة == item.كودالخامة && y.type == 'م').Select(y => y.الخامة).FirstOrDefault(), كمية = item.كمية, سعر_الوحدة = 0, الاجمالى = 0,كميةخامةالمستهلكة = item.كميةخامة });
                     wzn += item.كمية;
                 }
                 fwterDataGrid.ItemsSource = data.bnodDatas;
@@ -734,7 +734,7 @@ namespace ElAhram
   
 
         }
-        
+     
         private void fwterDataGrid_RowEditEnding(object sender, DataGridRowEditEndingEventArgs e)
         {
 
@@ -743,6 +743,7 @@ namespace ElAhram
             double s3r = row1.سعر_الوحدة;
             double wzn = row1.كمية;
             double total = row1.الاجمالى;
+         
             data.totalftora -= row1.الاجمالى;
           //  var y = e.Row.DataContext;
           //  var sd = e.Row;
@@ -776,6 +777,7 @@ namespace ElAhram
                 TotalWzn.Content = double.Parse(TotalWzn.Content.ToString()) + row1.كمية - wzn;
                 row1.الاجمالى = row1.سعر_الوحدة * row1.كمية;
             }
+           
           
             data.totalftora += row1.الاجمالى;
             row1 = null;
@@ -852,12 +854,12 @@ namespace ElAhram
                 if (db.يوميات.Where(x => x.تاريخ >= dates && x.تاريخ < datesf).Any())
                 {
 
-                    db.يوميات.Add(new يوميات { كود = (db.يوميات.Where(x => x.تاريخ >= dates && x.تاريخ < datesf).Max(x => x.كود) + 1), تاريخ = DateTime.Today, مبلغ = 0, ملاحظات = "فاتورة رقم  : " +element.رقم  + "\t\t/\t\t" + "اجمالى الفاتورة  : " + element.اجمالى_نقدى, كودصاحب = element.كودعميل, كودحالة = db.حالات_يوميات.Where(y => y.حالة == "وارد").Select(y => y.كودحالة).FirstOrDefault(), flag = 'ع' });
+                    db.يوميات.Add(new يوميات { كود = (db.يوميات.Where(x => x.تاريخ >= dates && x.تاريخ < datesf).Max(x => x.كود) + 1), تاريخ = DateTime.Today, مبلغ = 0, ملاحظات = "  فاتورة رقم  : " +element.رقم  + "  /  " + "اجمالى الفاتورة  : " + element.اجمالى_نقدى + "  /  " + "اجمالى الحساب : " + element.اجمالى_حساب, كودصاحب = element.كودعميل, كودحالة = db.حالات_يوميات.Where(y => y.حالة == "وارد").Select(y => y.كودحالة).FirstOrDefault(), flag = 'ع' });
                     
                 }
                 else
                 {
-                    db.يوميات.Add(new يوميات { كود = 1, تاريخ = DateTime.Today, مبلغ = 0, ملاحظات = "اجمالى الفاتورة : " + element.اجمالى_نقدى, كودصاحب = element.كودعميل, كودحالة = db.حالات_يوميات.Where(y => y.حالة == "وارد").Select(y => y.كودحالة).FirstOrDefault(), flag = 'ع' });
+                    db.يوميات.Add(new يوميات { كود = 1, تاريخ = DateTime.Today, مبلغ = 0, ملاحظات = "  فاتورة رقم  : " + element.رقم + "  /  " + "اجمالى الفاتورة  : " + element.اجمالى_نقدى + "  /  " + "اجمالى الحساب : " + element.اجمالى_حساب, كودصاحب = element.كودعميل, كودحالة = db.حالات_يوميات.Where(y => y.حالة == "وارد").Select(y => y.كودحالة).FirstOrDefault(), flag = 'ع' });
                    
                 }
 
@@ -968,7 +970,7 @@ namespace ElAhram
                 فواتير element = new فواتير();
                 بنود_الفاتورة bnd = new بنود_الفاتورة();
                 //ComboBoxItem typeItem = (ComboBoxItem)AmrT48elaml2combobox.SelectedItem;
-                //  try
+                  try
                 {
 
 
@@ -1007,15 +1009,35 @@ namespace ElAhram
 
 
                     
-                    
-                   
-                   
-                    
                 }
-                //        catch (Exception)
+                        catch (Exception)
                 {
 
-                    //         MessageBox.Show("املاء الفراغات","خطاء فى عمليه الادخال ",MessageBoxButton.OK,MessageBoxImage.Error);
+                            MessageBox.Show("املاء الفراغات","خطاء فى عمليه الادخال ",MessageBoxButton.OK,MessageBoxImage.Error);
+                }
+
+
+                var dates = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
+                var datesf = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
+                try
+                {
+                    datesf = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day + 1);
+                }
+                catch (Exception)
+                {
+
+                    datesf = new DateTime(DateTime.Now.Year, DateTime.Now.Month + 1, 1);
+                }
+                if (db.يوميات.Where(x => x.تاريخ >= dates && x.تاريخ < datesf).Any())
+                {
+
+                    db.يوميات.Add(new يوميات { كود = (db.يوميات.Where(x => x.تاريخ >= dates && x.تاريخ < datesf).Max(x => x.كود) + 1), تاريخ = DateTime.Today, مبلغ = 0, ملاحظات = "  امر شراء رقم  : " + element.رقم + "  /  " + "اجمالى الفاتورة  : " + element.اجمالى_نقدى + "  /  " + "اجمالى الحساب : " + element.اجمالى_حساب, كودصاحب = element.كودعميل, كودحالة = db.حالات_يوميات.Where(y => y.حالة == "مصاريف").Select(y => y.كودحالة).FirstOrDefault(), flag = 'م' });
+
+                }
+                else
+                {
+                    db.يوميات.Add(new يوميات { كود = 1, تاريخ = DateTime.Today, مبلغ = 0, ملاحظات = " امر شراء رقم  : " + element.رقم + "  /  " + "اجمالى الفاتورة  : " + element.اجمالى_نقدى + "  /  " + "اجمالى الحساب : " + element.اجمالى_حساب, كودصاحب = element.كودعميل, كودحالة = db.حالات_يوميات.Where(y => y.حالة == "مصاريف").Select(y => y.كودحالة).FirstOrDefault(), flag = 'م' });
+
                 }
 
 
@@ -1031,6 +1053,7 @@ namespace ElAhram
             
             data.amr4r2Datas.Clear();
             this.amrt48elDataGrid.ItemsSource = data.amr4r2Datas;
+
 
         }
 
@@ -1110,7 +1133,13 @@ namespace ElAhram
 
         private void _3ml2Datagrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+           
+
             var rows = this._3ml2Datagrid.SelectedItem as aml2DataGVM;
+                if (rows == null)
+                {
+                    return;
+                }
             data.asmmwzf = rows.اسم;
             aml2DetailsPage page = new aml2DetailsPage();
              page.ShowDialog();
@@ -1125,6 +1154,11 @@ namespace ElAhram
         private void mwrdenDatagrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             var rows = this.mwrdenDatagrid.SelectedItem as mwrdenDataGVM;
+
+            if (rows == null)
+            {
+                return;
+            }
             data.asmmwzf = rows.اسم;
             mwrdenDetailsPage page = new mwrdenDetailsPage();
             page.ShowDialog();
@@ -1198,6 +1232,10 @@ namespace ElAhram
         private void Empdatagrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             var rows = this.Empdatagrid.SelectedItem as EmpDataGVM;
+            if (rows == null)
+            {
+                return;
+            }
             data.kodemwzf = rows.كودموظف;
             EmpDetilsPage page = new EmpDetilsPage();
             page.ShowDialog();
@@ -1223,8 +1261,18 @@ namespace ElAhram
 
         private void sglYwmyatBtn_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+
+            
             sglywmyat page = new sglywmyat();
             page.ShowDialog();
+            }
+            catch (Exception)
+            {
+
+                
+            }
         }
 
         private void t7welatDa5lyaSglBtn_Click(object sender, RoutedEventArgs e)

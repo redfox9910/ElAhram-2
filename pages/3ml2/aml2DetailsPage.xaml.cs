@@ -54,7 +54,12 @@ namespace ElAhram.pages.Emp
         private void EmpfwterDataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             var rows = this.EmpfwterDataGrid.SelectedItem as fwterDataGVM;
-            data.rkmftora = rows.رقم;
+
+            if (rows == null)
+            {
+                return;
+            }
+                data.rkmftora = rows.رقم;
             
             aml2detailsFtoraPage page = new aml2detailsFtoraPage();
             page.ShowDialog();

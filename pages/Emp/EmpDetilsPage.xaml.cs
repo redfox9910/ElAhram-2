@@ -38,7 +38,17 @@ namespace ElAhram.pages.Emp
                 EmpRbtakaLabel.Content = customer.بطاقة;
                 EmpAddressLabel.Content = customer.عنوان;
                 EmpRkmkwmyLabel.Content = customer.رقم_قومى;
-                var dates = new DateTime(DateTime.Now.Year, DateTime.Now.Month +1, 1);
+                var dates = new DateTime(DateTime.Now.Year, DateTime.Now.Month , 1);
+                try
+                {
+                     dates = new DateTime(DateTime.Now.Year, DateTime.Now.Month + 1, 1);
+                }
+                catch (Exception)
+                {
+
+                     dates = new DateTime(DateTime.Now.Year+1, DateTime.Now.Month , 1);
+                }
+               
                 var datesf = new DateTime(DateTime.Now.Year, DateTime.Now.Month , 1);
                List <حسابات_موظف>   ds = db.حسابات_الموظف.Where(x => x.كودموظف == data.kodemwzf && x.تاريخ < dates && x.تاريخ >=datesf).ToList();
                // List<فواتير> element = db.فواتير.Where(y => y.كودعميل == customer.كودعميل).ToList();

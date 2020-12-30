@@ -59,7 +59,7 @@ namespace ElAhram.pages.fwater
                 this.fatoraDetailsDG.Items.Refresh();
                  fwterData = new fwterDataGVM {اسم_عميل = this.fatora2sm3melLabel.Content.ToString(),تاريخ_تشغيل= itemx.تاريخ_تسليم ,اجمالى_وزن= Convert.ToDouble(itemx.اجمالى_وزن ),اجمالى_نقدى = itemx.اجمالى_نقدى,اجمالى_حساب = itemx.اجمالى_حساب};
             }
-            this.DataContext = new MainWindowViewModel("فاتورة\nرقم/"+data.rkmftora, fwterData);
+            this.DataContext = new MainWindowViewModel("فاتورة\n\nرقم : " + data.rkmftora, fwterData);
         }
     }
 }
