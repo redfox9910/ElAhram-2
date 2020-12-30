@@ -5,11 +5,36 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ElAhram.pages._5zna"
         mc:Ignorable="d"
-        Title="shekatListPage" Height="450" Width="600" ResizeMode="NoResize" Loaded="Window_Loaded">
+        Title="shekatListPage" Height="450" Width="850" ResizeMode="NoResize" Loaded="Window_Loaded">
     <Grid>
         <Label Content="الشيكات" HorizontalAlignment="Center" Margin="0,28,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18"/>
-        <DataGrid x:Name="shekatDataGrid" Margin="0,81,0,0">
+        <DataGrid x:Name="shekatDataGrid" Margin="0,81,0,0" ItemsSource="{Binding shekatDataGVM}"
+                        HorizontalContentAlignment="Center" VerticalContentAlignment="Center" CanUserResizeColumns="False" CanUserResizeRows="False"  CanUserAddRows="False">
             <DataGrid.Columns>
+                <DataGridTextColumn Header="رقم الشيك"          Width="120" 
+                                        Binding="{Binding رقم}" CanUserResize="False" />
+
+                <DataGridTextColumn Header="اسم صاحب الشيك"          Width="150" 
+                                        Binding="{Binding عميل}" CanUserResize="False" />
+
+
+
+                <DataGridTextColumn Header=" قيمة الشيك "           Width="80" 
+                                        Binding="{Binding قيمة}" CanUserResize="False" />
+
+                <DataGridCheckBoxColumn Header="البنك"    Width="100" 
+                                        Binding="{Binding بنك }" CanUserResize="False" />
+
+
+                <DataGridCheckBoxColumn Header=" التاريخ"    Width="70" 
+                                        Binding="{Binding  تاريخ}" CanUserResize="False" />
+
+                <DataGridTextColumn Header="ملاحظات"          Width="200" 
+                                        Binding="{Binding ملاحظات}" CanUserResize="False" />
+
+
+
+
 
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
@@ -26,9 +51,11 @@
 
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="add4ekBtn" Content="Add" HorizontalAlignment="Left" Margin="525,47,0,0" VerticalAlignment="Top" Click="add4ekBtn_Click"/>
+        <Button x:Name="add4ekBtn" Content="Add" HorizontalAlignment="Left" Margin="499,47,0,0" VerticalAlignment="Top" Click="add4ekBtn_Click"/>
         <Label Content=": الاجمالى" HorizontalAlignment="Left" Margin="170,47,0,0" VerticalAlignment="Top"/>
         <Label x:Name="total4ekatLb" Content="" HorizontalAlignment="Left" Margin="91,47,0,0" VerticalAlignment="Top" Width="71" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Button x:Name="sglShekatBTN" Content="سجل الشيكات" HorizontalAlignment="Left" Margin="548,47,0,0" VerticalAlignment="Top" Click="sglShekatBTN_Click"/>
+        <Button x:Name="sgldeletedShekatBtn" Content="سجل الشيكات المحذوفة" HorizontalAlignment="Left" Margin="672,47,0,0" VerticalAlignment="Top" Click="sgldeletedShekatBtn_Click"/>
 
     </Grid>
 </Window>

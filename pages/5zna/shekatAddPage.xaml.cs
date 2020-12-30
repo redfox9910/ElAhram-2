@@ -31,7 +31,7 @@ namespace ElAhram.pages._5zna
         {
             using (var db = new Models.DataContext())
             {
-                شيكات شيك = new شيكات { رقم = rkm4ekText.Text, كودعميل = db.عملاء.Where(x=>x.اسم == s7bel4ekcombo.Text).Select(x=>x.كودعميل).FirstOrDefault(),تاريخ = (DateTime)srfDateText.SelectedDate ,قيمة = decimal.Parse(nkdyel4ekText.Text),ملاحظات = note4ekText.Text,بنك = bankText.Text};
+                شيكات شيك = new شيكات { رقم = rkm4ekText.Text, كودعميل = db.عملاء.Where(x=>x.اسم == s7bel4ekcombo.Text).Select(x=>x.كودعميل).FirstOrDefault(),تاريخ = (DateTime)srfDateText.SelectedDate ,قيمة = decimal.Parse(nkdyel4ekText.Text),ملاحظات = note4ekText.Text,بنك = bankText.Text,flag = 'ا',الحالة = "انتظار الصرف"};
                 db.شيكات.Add(شيك);
 
                 var khzna = db.خزنة.FirstOrDefault();
@@ -68,7 +68,7 @@ namespace ElAhram.pages._5zna
 
         private void nkdyel4ekText_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            Regex regex = new Regex("[^0-9]+");
+            Regex regex = new Regex("[^0-9]+[.]");
             e.Handled = regex.IsMatch(e.Text);
         }
     }

@@ -51,8 +51,9 @@ namespace ElAhram.pages._5zna
                 {
                     khzna.نقدى += element.قيمة;
                 }
-               
-                db.Entry(element).State = EntityState.Deleted;
+                    element.flag = 'ت';
+                    element.الحالة = "تم الصرف";
+              //  db.Entry(element).State = EntityState.Deleted;
 
                 db.SaveChanges();
                 refreshDG();
@@ -111,8 +112,9 @@ namespace ElAhram.pages._5zna
                         var element = db.شيكات.Where(x => x.رقم == rows.رقم && x.كودعميل == db.عملاء.Where(y => y.اسم == rows.عميل).Select(x => x.كودعميل).FirstOrDefault()).FirstOrDefault();
                             var khzna = db.خزنة.FirstOrDefault();
                             khzna.شيكات  -= element.قيمة;
-                            db.Entry(element).State = EntityState.Deleted;
-                            
+                            //  db.Entry(element).State = EntityState.Deleted;
+                            element.flag = 'ح';
+                            element.الحالة = "محذوف";
                             db.SaveChanges();
                         refreshDG();
 
@@ -144,19 +146,7 @@ namespace ElAhram.pages._5zna
             {
                 shekatDataGrid.ItemsSource = null;
                 shekatDataGrid.Items.Clear();
-                //using (var db = new Models.DataContext())
-                //{
-                //    var x = db.شيكات.ToList();
-                //    List<shekatDataGVM> shekatData = new List<shekatDataGVM>();
-                //    foreach (var item in x)
-                //    {
-                //        shekatData.Add(new shekatDataGVM { رقم = item.رقم, عميل = db.عملاء.Where(y => y.رقم == item.رقم && y.نوع == 'ع').Select(x => x.اسم).FirstOrDefault(), تاريخ = item.تاريخ, قيمة = item.قيمة, ملاحظات = item.ملاحظات , بنك = item.بنك});
-                //    }
-                //    shekatDataGrid.ItemsSource = shekatData;
-                //    shekatDataGrid.Items.Refresh();
-                //    var khzna = db.خزنة.FirstOrDefault();
-                //    total4ekatLb.Content = khzna.شيكات;
-                //}
+               
                 refreshDG();
 
             }
@@ -173,7 +163,7 @@ namespace ElAhram.pages._5zna
                 var x = db.شيكات.ToList();
 
                 List<shekatDataGVM> shekatData = new List<shekatDataGVM>();
-                foreach (var item in x)
+                foreach (var item in x.Where(x=>x.flag =='ا').ToList())
                 {
 
                     shekatData.Add(new shekatDataGVM { رقم = item.رقم, عميل = db.عملاء.Where(y => y.كودعميل == item.كودعميل && y.نوع == 'ع').Select(x => x.اسم).FirstOrDefault(), تاريخ = item.تاريخ, قيمة = item.قيمة, ملاحظات = item.ملاحظات,بنك= item.بنك });
@@ -186,5 +176,16 @@ namespace ElAhram.pages._5zna
 
         }
 
+        private void sglShekatBTN_Click(object sender, RoutedEventArgs e)
+        {
+            sgl4ekatPage page = new sgl4ekatPage();
+            page.ShowDialog();
+           
+        }
+
+        private void sgldeletedShekatBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
