@@ -64,15 +64,17 @@
                     <Label Content="صافى :" HorizontalAlignment="Left" Margin="257,526,0,0" VerticalAlignment="Top" Grid.Column="3" Foreground="Black" FontWeight="Bold" FontSize="16"/>
                     <Label Content="" HorizontalAlignment="Left" Margin="317,526,0,0" VerticalAlignment="Top" Name="total" Grid.Column="3"/>
                     <Label Content="كاش شيكات :" HorizontalAlignment="Left" Margin="409,68,0,0" VerticalAlignment="Top" Grid.Column="3" FontSize="16" FontWeight="Bold" Foreground="Black"/>
-                    <Label x:Name="cash4ekat" Content="" HorizontalAlignment="Left" Margin="484,70,0,0" VerticalAlignment="Top" Grid.Column="3"/>
+                    <Label x:Name="cash4ekat" Content="" HorizontalAlignment="Left" Margin="506,70,0,0" VerticalAlignment="Top" Grid.Column="3"/>
                     <Button x:Name="shekatTabListBtn" Content="سجل الشيكات" HorizontalAlignment="Left" Margin="643,71,0,0" VerticalAlignment="Top" Click="shekatTabListBtn_Click" Grid.Column="3" FontWeight="Bold"
                              Style="{StaticResource  RoundButtonTemplate}" Width="120" Height="50"/>
                     <Label Content="حساب بنك  :" HorizontalAlignment="Left" Margin="409,113,0,0" VerticalAlignment="Top" Grid.Column="3" FontSize="16" FontWeight="Bold" Foreground="Black" />
-                    <Label x:Name="cash7sab" Content="" HorizontalAlignment="Left" Margin="484,113,0,0" VerticalAlignment="Top" Grid.Column="3"/>
-                    <Button x:Name="t7welatDa5lya" Content="تحويلات داخلية " HorizontalAlignment="Left" Margin="830,124,0,0" VerticalAlignment="Top"  Click="t7welatDa5lya_Click" FontWeight="Bold"
-                             Style="{StaticResource  RoundButtonTemplate}" Width="120" Height="50"/>
-                    <Button x:Name="t7welatDa5lyaSglBtn" Content="سجل التحويلات " HorizontalAlignment="Left" Margin="830,182,0,0" VerticalAlignment="Top"  Click="t7welatDa5lyaSglBtn_Click"  FontWeight="Bold"
-                             Style="{StaticResource  RoundButtonTemplate}" Width="120" Height="50"/>
+                    <Label x:Name="cash7sab" Content="" HorizontalAlignment="Left" Margin="506,115,0,0" VerticalAlignment="Top" Grid.Column="3"/>
+
+
+
+                    <Button x:Name="t7welatDa5lya" Click="t7welatDa5lya_Click" Content="تحويلات داخلية " Grid.Column="3"  HorizontalAlignment="Left" Margin="643,161,0,0" VerticalAlignment="Top" FontWeight="Bold" Style="{StaticResource  RoundButtonTemplate}" Width="120" Height="50"/>
+                    <Button x:Name="t7welatDa5lyaSglBtn" Content="سجل التحويلات " Click="t7welatDa5lyaSglBtn_Click"  Grid.Column="3"   Margin="643,243,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Style="{StaticResource RoundButtonTemplate}" Width="120" Height="50"/>
+
 
                 </Grid>
 
