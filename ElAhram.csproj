@@ -40,6 +40,7 @@
   <ItemGroup>
     <PackageReference Include="EntityFramework" Version="6.4.4" />
     <PackageReference Include="Extended.Wpf.Toolkit" Version="4.0.1" />
+    <PackageReference Include="MahApps.Metro.Resources" Version="0.6.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="3.1.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.6" />
@@ -53,6 +54,7 @@
     <PackageReference Include="WPFCustomMessageBox" Version="1.0.7" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="pic\deposit.png" />
     <Resource Include="pic\invoice1.png" />
     <Resource Include="pic\bill1.png" />
     <Resource Include="pic\order.png" />
@@ -68,7 +70,6 @@
     <Resource Include="pic\invoice.png" />
     <Resource Include="pic\bill.png" />
     <Resource Include="pic\company.png" />
-    <Resource Include="pic\deposit.png" />
     <Resource Include="pic\login %281%29.png" />
     <Resource Include="pic\microsoft-excel.png" />
     <Resource Include="pic\order1.png" />
