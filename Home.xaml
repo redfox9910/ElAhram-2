@@ -8,15 +8,15 @@
         Title="Home" Height="767" Width="1024" MinHeight="767" MaxHeight="767" MinWidth="1024" MaxWidth="1024" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <ImageBrush x:Key="deposit" ImageSource="pic/deposit1.png" Stretch="Fill"/>
-        <ImageBrush x:Key="warehouse" ImageSource="pic/warehouse1.png" Stretch="Fill"/>
-        <ImageBrush x:Key="invoice" ImageSource="pic/invoice1.png" Stretch="Fill"/>
-        <ImageBrush x:Key="order1" ImageSource="pic/order.png" Stretch="Fill"/>
-        <ImageBrush x:Key="bill" ImageSource="pic/bill 1.png" Stretch="Fill"/>
-        <ImageBrush x:Key="technician" ImageSource="pic/engineer.png" Stretch="Fill"/>
-        <ImageBrush x:Key="people" ImageSource="pic/people1.png" Stretch="Fill"/>
-        <ImageBrush x:Key="waste" ImageSource="pic/trash1.png" Stretch="Fill"/>
-        <ImageBrush x:Key="company" ImageSource="pic/factory1.png" Stretch="Fill"/>
-        <ImageBrush x:Key="microsoft-excel" ImageSource="pic/data-table1.png" Stretch="Fill"/>
+        <ImageBrush x:Key="warehouse" ImageSource="/pic/warehouse1.png" Stretch="Fill"/>
+        <ImageBrush x:Key="invoice" ImageSource="/pic/invoice1.png" Stretch="Fill"/>
+        <ImageBrush x:Key="order1" ImageSource="/pic/order.png" Stretch="Fill"/>
+        <ImageBrush x:Key="bill" ImageSource="/pic/bill1.png" Stretch="Fill"/>
+        <ImageBrush x:Key="technician" ImageSource="/pic/engineer.png" Stretch="Fill"/>
+        <ImageBrush x:Key="people" ImageSource="/pic/people1.png" Stretch="Fill"/>
+        <ImageBrush x:Key="waste" ImageSource="/pic/trash1.png" Stretch="Fill"/>
+        <ImageBrush x:Key="company" ImageSource="/pic/factory1.png" Stretch="Fill"/>
+        <ImageBrush x:Key="microsoft-excel" ImageSource="/pic/data-table1.png" Stretch="Fill"/>
         <Style x:Key="FocusVisual">
             <Setter Property="Control.Template">
                 <Setter.Value>

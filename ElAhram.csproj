@@ -14,18 +14,27 @@
     <None Remove="AlahramPlast.png" />
     <None Remove="Artboardlo.png" />
     <None Remove="bill.png" />
+    <None Remove="bill1.png" />
     <None Remove="company.png" />
+    <None Remove="data-table1.png" />
     <None Remove="deposit 1.png" />
     <None Remove="deposit.png" />
+    <None Remove="engineer.png" />
+    <None Remove="factory1.png" />
     <None Remove="invoice.png" />
+    <None Remove="invoice1.png" />
     <None Remove="login %281%29.png" />
     <None Remove="logo.png" />
     <None Remove="microsoft-excel.png" />
+    <None Remove="order.png" />
     <None Remove="order1.png" />
     <None Remove="pages\fwater\printer.png" />
     <None Remove="people.png" />
+    <None Remove="people1.png" />
     <None Remove="technician.png" />
+    <None Remove="trash1.png" />
     <None Remove="warehouse.png" />
+    <None Remove="warehouse1.png" />
     <None Remove="waste.png" />
   </ItemGroup>
   <ItemGroup>
@@ -44,6 +53,13 @@
     <PackageReference Include="WPFCustomMessageBox" Version="1.0.7" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="pic\invoice1.png" />
+    <Resource Include="pic\bill1.png" />
+    <Resource Include="pic\order.png" />
+    <Resource Include="pic\engineer.png" />
+    <Resource Include="pic\people1.png" />
+    <Resource Include="pic\factory1.png" />
+    <Resource Include="pic\data-table1.png" />
     <Resource Include="pic\deposit1.png" />
     <Resource Include="pic\printer.png" />
     <Resource Include="pic\AlahramPl.png" />
@@ -60,6 +76,8 @@
     <Resource Include="pic\technician.png" />
     <Resource Include="pic\warehouse.png" />
     <Resource Include="pic\waste.png" />
+    <Resource Include="pic\warehouse1.png" />
+    <Resource Include="pic\trash1.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="pages\report\" />
