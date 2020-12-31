@@ -34,9 +34,9 @@
                     </Label>
 
                 </TabItem.Header>
-                
-                   
-                   
+
+
+
                 <Grid >
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="97*"/>
@@ -69,13 +69,13 @@
                              Style="{StaticResource  RoundButtonTemplate}" Width="120" Height="50"/>
                     <Label Content="حساب بنك  :" HorizontalAlignment="Left" Margin="409,113,0,0" VerticalAlignment="Top" Grid.Column="3" FontSize="16" FontWeight="Bold" Foreground="Black" />
                     <Label x:Name="cash7sab" Content="" HorizontalAlignment="Left" Margin="484,113,0,0" VerticalAlignment="Top" Grid.Column="3"/>
-                        <Button x:Name="t7welatDa5lya" Content="تحويلات داخلية " HorizontalAlignment="Left" Margin="830,124,0,0" VerticalAlignment="Top"  Click="t7welatDa5lya_Click" FontWeight="Bold"
+                    <Button x:Name="t7welatDa5lya" Content="تحويلات داخلية " HorizontalAlignment="Left" Margin="830,124,0,0" VerticalAlignment="Top"  Click="t7welatDa5lya_Click" FontWeight="Bold"
                              Style="{StaticResource  RoundButtonTemplate}" Width="120" Height="50"/>
-                        <Button x:Name="t7welatDa5lyaSglBtn" Content="سجل التحويلات " HorizontalAlignment="Left" Margin="830,182,0,0" VerticalAlignment="Top"  Click="t7welatDa5lyaSglBtn_Click"  FontWeight="Bold"
+                    <Button x:Name="t7welatDa5lyaSglBtn" Content="سجل التحويلات " HorizontalAlignment="Left" Margin="830,182,0,0" VerticalAlignment="Top"  Click="t7welatDa5lyaSglBtn_Click"  FontWeight="Bold"
                              Style="{StaticResource  RoundButtonTemplate}" Width="120" Height="50"/>
 
-                    </Grid>
-              
+                </Grid>
+
             </TabItem>
 
 
@@ -113,9 +113,9 @@
                         <StackPanel>
                             <Button Name="EditM5znBtn" Content="EDIT" HorizontalAlignment="Left" Margin="123,19,0,0" VerticalAlignment="Top" Click="EditM5znBtn_Click" Grid.Column="1" Grid.ColumnSpan="2" Background="#FF706B6B" Foreground="#FFFB9B06"
                              Style="{StaticResource  RoundButtonTemplate}" Width="120" Height="50"/>
-                    <Button x:Name="addM5znBtn" Content="ADD" HorizontalAlignment="Left" Margin="22,19,0,0" VerticalAlignment="Top" Click="addM5znBtn_Click" Background="#FF706B6B" Foreground="#FFE99007"
+                            <Button x:Name="addM5znBtn" Content="ADD" HorizontalAlignment="Left" Margin="22,19,0,0" VerticalAlignment="Top" Click="addM5znBtn_Click" Background="#FF706B6B" Foreground="#FFE99007"
                              Style="{StaticResource  RoundButtonTemplate}" Width="120" Height="50" Grid.ColumnSpan="2"/>
-                    <Button x:Name="DeleteM5znBtn" Content="DELETE" HorizontalAlignment="Left" Margin="136,19,0,0" VerticalAlignment="Top" Click="DeleteM5znBtn_Click" Grid.Column="2" Background="#FF706B6B" Foreground="#FFF67F1A" FontWeight="Bold"
+                            <Button x:Name="DeleteM5znBtn" Content="DELETE" HorizontalAlignment="Left" Margin="136,19,0,0" VerticalAlignment="Top" Click="DeleteM5znBtn_Click" Grid.Column="2" Background="#FF706B6B" Foreground="#FFF67F1A" FontWeight="Bold"
                              Style="{StaticResource  RoundButtonTemplate}" Width="120" Height="50"/>
 
                         </StackPanel>
@@ -130,7 +130,7 @@
                     <Image Height="63" Margin="641,6,98,0" VerticalAlignment="Top" Width="100" Source="/pic/warehouse1.png" Grid.Column="2"/>
                     <Button x:Name="m5zn5amatBtn" Content="الخامات" HorizontalAlignment="Left" Margin="96,25,0,0" VerticalAlignment="Top" Height="56" Width="121" MinHeight="56" MaxHeight="56" MinWidth="121" MaxWidth="121" Click="m5zn5amatBtn_Click" />
                     <Button x:Name="m5znmntgatBtn" Content="المنتجات" HorizontalAlignment="Center" Margin="0,25,0,0" VerticalAlignment="Top" Height="56" Width="121" MinWidth="121" MaxWidth="121" MinHeight="56" MaxHeight="56" Click="m5znmntgatBtn_Click"/>
-                     <Button x:Name="m5zn2znsrfBtn" Content="اذن صرف" HorizontalAlignment="Left" Margin="478,156,0,0" VerticalAlignment="Top" Click="m5zn2znsrfBtn_Click"/>
+                    <Button x:Name="m5zn2znsrfBtn" Content="اذن صرف" HorizontalAlignment="Left" Margin="478,156,0,0" VerticalAlignment="Top" Click="m5zn2znsrfBtn_Click"/>
                     <Button x:Name="m5zn2nwa35amatBtn" Content="انواع خامات" HorizontalAlignment="Left" Margin="624,156,0,0" VerticalAlignment="Top" Click="m5zn2nwa35amatBtn_Click"/>
 
 
@@ -228,7 +228,7 @@
                              Style="{StaticResource  RoundButtonTemplate}" Width="120" Height="50"/>
                     <Button x:Name="amrT48elListBtn" Content="اوامر التشغيل" Grid.Column="5" HorizontalAlignment="Center" Margin="0,61,0,0" VerticalAlignment="Top" Click="amrT48elListBtn_Click" Background="#FF4B4646" Foreground="#FFCF8514"
                              Style="{StaticResource  RoundButtonTemplate}" Width="120" Height="50"/>
-                    <Button x:Name="addmntgatBtn" Content="+" Grid.Column="5" HorizontalAlignment="Left" Margin="0,146,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Background="{x:Null}" BorderBrush="Black" Height="27" VerticalContentAlignment="Top" Cursor="" Click="addmntgatBtn_Click" />
+                    <Button x:Name="addmntgatBtn" Content="+" HorizontalAlignment="Left" Margin="6,117,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Background="Black" BorderBrush="#FFEB7D16" Foreground="#FFEB7D16" Height="27" VerticalContentAlignment="Top" Cursor="" Click="addmntgatBtn_Click" Grid.ColumnSpan="2" Panel.ZIndex="2"  />
 
 
 
@@ -307,19 +307,19 @@
                         </DataGrid.Columns>
 
                     </DataGrid>
-                    <Label Content="الوزن الكلى :" HorizontalAlignment="Left" Margin="411,642,0,0" VerticalAlignment="Top" Grid.Column="3"/>
-                    <Label x:Name="TotalWzn" Content="" HorizontalAlignment="Left" Margin="488,642,0,0" VerticalAlignment="Top" Grid.Column="3"/>
-                    <Label Content="إجمالى الفاتورة  :" HorizontalAlignment="Left" Margin="562,642,0,0" VerticalAlignment="Top" Grid.Column="3"/>
-                    <Label x:Name="totalFatoraLabel" Content="" HorizontalAlignment="Left" Margin="666,642,0,0" VerticalAlignment="Top" Grid.Column="3"/>
-                    <Label Content="اجمالى الحساب" HorizontalAlignment="Left" Margin="12,642,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Grid.Column="1"/>
-                    <Label x:Name="Total7sab" Content="" HorizontalAlignment="Left" Margin="25,642,0,0" VerticalAlignment="Top" Grid.Column="2" Width="101" FlowDirection="LeftToRight" Grid.ColumnSpan="2"/>
+                    <Label Content="الوزن الكلى :" HorizontalAlignment="Left" Margin="528,597,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="TotalWzn" Content="" HorizontalAlignment="Left" Margin="604,597,0,0" VerticalAlignment="Top"/>
+                    <Label Content="إجمالى الفاتورة  :" HorizontalAlignment="Left" Margin="732,597,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="totalFatoraLabel" Content="" HorizontalAlignment="Left" Margin="836,597,0,0" VerticalAlignment="Top"/>
+                    <Label Content="اجمالى الحساب" HorizontalAlignment="Left" Margin="31,597,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="Total7sab" Content="" HorizontalAlignment="Left" Margin="120,597,0,0" VerticalAlignment="Top" Width="101" FlowDirection="LeftToRight"/>
 
-                    <Button x:Name="addFwterBtn" Content="اضافه" HorizontalAlignment="Left" Margin="270,103,0,0" VerticalAlignment="Top" Click="addFwterBtn_Click" Background="#FF343434" Foreground="#FFED9C1F" FontWeight="Bold"
+                    <Button x:Name="addFwterBtn" Content="اضافه" HorizontalAlignment="Left" Margin="412,67,0,0" VerticalAlignment="Top" Click="addFwterBtn_Click" Background="#FF343434" Foreground="#FFED9C1F" FontWeight="Bold"
                              Style="{StaticResource  RoundButtonTemplate}" Width="120" Height="50"/>
-                    <Button x:Name="fwterListPageBtn" Content="الفواتير" HorizontalAlignment="Left" Margin="570,103,0,0" VerticalAlignment="Top" Grid.Column="3" Click="fwterListPageBtn_Click"  Background="#FF373636" Foreground="#FFEE9205" FontWeight="Bold"
+                    <Button x:Name="fwterListPageBtn" Content="الفواتير" HorizontalAlignment="Left" Margin="671,64,0,0" VerticalAlignment="Top" Click="fwterListPageBtn_Click"  Background="#FF373636" Foreground="#FFEE9205" FontWeight="Bold"
                             Style="{StaticResource  RoundButtonTemplate}" Width="120" Height="50"/>
-                    <Label Content="اجمالى الحساب الجديد : " HorizontalAlignment="Left" Margin="65,642,0,0" VerticalAlignment="Top" Grid.Column="3"/>
-                    <Label x:Name="TotalNew7sab" Content="" HorizontalAlignment="Left" Margin="206,642,0,0" VerticalAlignment="Top" Grid.Column="3"/>
+                    <Label Content="اجمالى الحساب الجديد : " HorizontalAlignment="Left" Margin="256,597,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="TotalNew7sab" Content="" HorizontalAlignment="Left" Margin="397,597,0,0" VerticalAlignment="Top"/>
 
 
                 </Grid>
@@ -347,12 +347,10 @@
                     </Grid.Background>
                     <Image Height="100" Margin="820,17,98,0" VerticalAlignment="Top" Width="100" Source="/pic/invoice1.png"/>
 
-                    <Label Content=" التاريخ " HorizontalAlignment="Left" Margin="33,20,0,0" VerticalAlignment="Top"/>
-                    <Label x:Name="amr4r2Date"  HorizontalAlignment="Left" Margin="93,20,0,0" VerticalAlignment="Top" Width="120" MinWidth="120" MaxWidth="120" Loaded="amrsr2Date_Loaded"/>
-                    <Label Content="رقم الفاتورة :" HorizontalAlignment="Left" Margin="60,22,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-                    <TextBox x:Name="amr4r2kodLb"  HorizontalAlignment="Left" Margin="139,25,0,0" VerticalAlignment="Top" Width="120" Cursor="Pen" Background="White" Height="25" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Column="1">
-
-                    </TextBox>
+                    <Label Content=" التاريخ " HorizontalAlignment="Left" Margin="33,12,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="amr4r2Date"  HorizontalAlignment="Left" Margin="106,28,0,0" VerticalAlignment="Top" Width="120" MinWidth="120" MaxWidth="120" Loaded="amrsr2Date_Loaded"/>
+                    <Label Content="رقم الفاتورة :" HorizontalAlignment="Left" Margin="430,18,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="amr4r2kodLb"  HorizontalAlignment="Left" Margin="509,21,0,0" VerticalAlignment="Top" Width="120" Cursor="Pen" Background="White" Height="25" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                     <Label Content="مورد :" HorizontalAlignment="Left" Margin="33,97,0,0" VerticalAlignment="Top"/>
 
                     <ComboBox  HorizontalAlignment="Left" x:Name="Amr4e2aml2combobox" Margin="73,101,0,0" VerticalAlignment="Top" Width="186" Cursor="Hand" Background="White" Height="25"   >
@@ -360,7 +358,7 @@
                     </ComboBox>
 
 
-                    <Button x:Name="add5amaBtn" Content="+" Grid.Column="5" HorizontalAlignment="Left" Margin="0,118,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Background="{x:Null}" BorderBrush="Black" Height="27" VerticalContentAlignment="Top" Cursor="" Click="add5amaBtn_Click"  />
+                    <Button x:Name="add5amaBtn" Content="+" HorizontalAlignment="Left" Margin="4,118,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Height="27" VerticalContentAlignment="Top" Cursor="" Click="add5amaBtn_Click" Panel.ZIndex="2"  Background="Black" BorderBrush="#FFEB7D16" Foreground="#FFEB7D16" />
 
 
                     <DataGrid  x:Name="amr4r2DataGrid"  Margin="0,146,379,10"   Loaded="amr4r2DataGrid_Loaded" IsSynchronizedWithCurrentItem="True"  RowEditEnding="amr4r2DataGrid_RowEditEnding"   CellEditEnding="amr4r2DataGrid_CellEditEnding" Grid.ColumnSpan="2" ItemsSource="{Binding amr4r2DataGVM}"
@@ -387,17 +385,17 @@
                         </DataGrid.Columns>
 
                     </DataGrid>
-                    <Label Content="الوزن الكلى :" HorizontalAlignment="Left" Margin="373,266,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-                    <Label x:Name="amr4r2Totalwzn" Content="0" HorizontalAlignment="Left" Margin="454,266,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-                    <Label Content="إجمالى الفاتورة  :" HorizontalAlignment="Left" Margin="373,347,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-                    <TextBox x:Name="Totalftora" HorizontalAlignment="Left" Margin="477,352,0,0" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
-                    <Label Content="اجمالى الحساب :" HorizontalAlignment="Left" Margin="373,191,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-                    <Label x:Name="amr4r2Total7sab" Content="" HorizontalAlignment="Left" Margin="479,191,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <Label Content="الوزن الكلى :" HorizontalAlignment="Left" Margin="682,0,0,0" VerticalAlignment="Center"/>
+                    <Label x:Name="amr4r2Totalwzn" Content="0" HorizontalAlignment="Left" Margin="763,0,0,0" VerticalAlignment="Center"/>
+                    <Label Content="إجمالى الفاتورة  :" HorizontalAlignment="Left" Margin="682,420,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="Totalftora" HorizontalAlignment="Left" Margin="786,425,0,0" VerticalAlignment="Top" Width="120"/>
+                    <Label Content="اجمالى الحساب :" HorizontalAlignment="Left" Margin="682,264,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="amr4r2Total7sab" Content="" HorizontalAlignment="Left" Margin="788,264,0,0" VerticalAlignment="Top"/>
 
 
-                    <Button x:Name="amr4r2dafaBtn" Content="اضافه" HorizontalAlignment="Left" Margin="182,103,0,0" VerticalAlignment="Top" Click="amr4r2dafaBtn_Click" Grid.Column="1" Background="#FF343333" Foreground="#FFED9C1F"
+                    <Button x:Name="amr4r2dafaBtn" Content="اضافه" HorizontalAlignment="Left" Margin="352,71,0,0" VerticalAlignment="Top" Click="amr4r2dafaBtn_Click" Background="#FF343333" Foreground="#FFED9C1F"
                             Style="{StaticResource  RoundButtonTemplate}" Width="120" Height="50"/>
-                    <Button x:Name="amr4r2ListBTN" Content="اوامر الشراء" HorizontalAlignment="Left" Margin="483,103,0,0" VerticalAlignment="Top" Click="amr4r2ListBTN_Click" Grid.Column="1" Background="#FF312C2C" Foreground="#FFED9C1F"
+                    <Button x:Name="amr4r2ListBTN" Content="اوامر الشراء" HorizontalAlignment="Left" Margin="669,71,0,0" VerticalAlignment="Top" Click="amr4r2ListBTN_Click" Background="#FF312C2C" Foreground="#FFED9C1F"
                             Style="{StaticResource  RoundButtonTemplate}" Width="120" Height="50"/>
 
 

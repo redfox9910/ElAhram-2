@@ -443,54 +443,54 @@
         </Grid.ColumnDefinitions>
 
         <!--Create 10 buttons-->
-        <Button Height="100" Width="133" Grid.Row="1" Grid.Column="3" BorderThickness="0" Style="{DynamicResource depositStyle}" >
+        <Button Height="100" Width="133" Grid.Row="1" Grid.Column="3" BorderThickness="0" Style="{DynamicResource depositStyle}" Click="Button_Click"  x:Name="b0" >
             <Button.Background>
                 <ImageBrush ImageSource="/pic/deposit.png" Stretch="Fill"></ImageBrush>
 
             </Button.Background>
 
         </Button>
-        <Button Height="100" Width="133" Grid.Row="1" Grid.Column="5" BorderThickness="0" Style="{DynamicResource warehouseStyle}" >
+        <Button Height="100" Width="133" Grid.Row="1" Grid.Column="5" BorderThickness="0" Style="{DynamicResource warehouseStyle}"  Click="Button_Click" x:Name="b1">
             <Button.Background>
                 <ImageBrush ImageSource="pic/warehouse.png" Stretch="Fill"></ImageBrush>
             </Button.Background>
         </Button>
-        <Button Height="100" Width="133" Grid.Row="2" Grid.Column="2" BorderThickness="0" Style="{DynamicResource microsoft-excelStyle}" >
+        <Button Height="100" Width="133" Grid.Row="2" Grid.Column="2" BorderThickness="0" Style="{DynamicResource microsoft-excelStyle}"  Click="Button_Click"  x:Name="b9" >
             <Button.Background>
                 <ImageBrush ImageSource="pic/microsoft-excel.png" Stretch="Fill"></ImageBrush>
             </Button.Background>
         </Button>
-        <Button Height="100" Width="133" Grid.Row="3" Grid.Column="1" BorderThickness="0" Style="{DynamicResource companyStyle}" Margin="0,20,0,80" Grid.RowSpan="2" >
+        <Button Height="100" Width="133" Grid.Row="3" Grid.Column="1" BorderThickness="0" Style="{DynamicResource companyStyle}" Margin="0,20,0,80" Grid.RowSpan="2"  Click="Button_Click"  x:Name="b7">
             <Button.Background>
                 <ImageBrush ImageSource="pic/company.png" Stretch="Fill"></ImageBrush>
             </Button.Background>
         </Button>
-        <Button Height="100" Width="133" Grid.Row="4" Grid.Column="2" BorderThickness="0" Style="{DynamicResource wasteStyle}" Margin="0,30,0,70" Grid.RowSpan="2" >
+        <Button Height="100" Width="133" Grid.Row="4" Grid.Column="2" BorderThickness="0" Style="{DynamicResource wasteStyle}" Margin="0,30,0,70" Grid.RowSpan="2" Click="Button_Click"  x:Name="b8" >
             <Button.Background>
                 <ImageBrush ImageSource="pic/waste.png" Stretch="Fill"></ImageBrush>
             </Button.Background>
         </Button>
-        <Button Width="133" Grid.Row="5" Grid.Column="2" BorderThickness="0" Style="{DynamicResource peopleStyle}" Margin="123,62,10,14" Grid.RowSpan="2" Grid.ColumnSpan="2" >
+        <Button Width="133" Grid.Row="5" Grid.Column="2" BorderThickness="0" Style="{DynamicResource peopleStyle}" Margin="123,62,10,14" Grid.RowSpan="2" Grid.ColumnSpan="2" Click="Button_Click"  x:Name="b6" >
             <Button.Background>
                 <ImageBrush ImageSource="pic/people.png" Stretch="Fill"></ImageBrush>
             </Button.Background>
         </Button>
-        <Button Width="133" Grid.Row="5" Grid.Column="4" BorderThickness="0" Style="{DynamicResource technicianStyle}" Margin="45,62,10,14" Grid.RowSpan="2" Grid.ColumnSpan="2" >
+        <Button Width="133" Grid.Row="5" Grid.Column="4" BorderThickness="0" Style="{DynamicResource technicianStyle}" Margin="45,62,10,14" Grid.RowSpan="2" Grid.ColumnSpan="2" Click="Button_Click"  x:Name="b5" >
             <Button.Background>
                 <ImageBrush ImageSource="pic/technician.png" Stretch="Fill"></ImageBrush>
             </Button.Background>
         </Button>
-        <Button Height="100" Width="133" Grid.Row="4" Grid.Column="6" BorderThickness="0" Style="{DynamicResource billStyle}" Margin="0,30,0,70" Grid.RowSpan="2" >
+        <Button Height="100" Width="133" Grid.Row="4" Grid.Column="6" BorderThickness="0" Style="{DynamicResource billStyle}" Margin="0,30,0,70" Grid.RowSpan="2" Click="Button_Click"  x:Name="b3" >
             <Button.Background>
                 <ImageBrush ImageSource="pic/bill.png" Stretch="Fill"></ImageBrush>
             </Button.Background>
         </Button>
-        <Button Height="100" Width="133" Grid.Row="3" Grid.Column="7" BorderThickness="0" Style="{DynamicResource order1Style}" Grid.ColumnSpan="2" Margin="10,26,67,74" Grid.RowSpan="2" >
+        <Button Height="100" Width="133" Grid.Row="3" Grid.Column="7" BorderThickness="0" Style="{DynamicResource order1Style}" Grid.ColumnSpan="2" Margin="10,26,67,74" Grid.RowSpan="2" Click="Button_Click"  x:Name="b2">
             <Button.Background>
                 <ImageBrush ImageSource="pic/order1.png" Stretch="Fill"></ImageBrush>
             </Button.Background>
         </Button>
-        <Button Height="100" Width="133" Grid.Row="2" Grid.Column="6" BorderThickness="0" Style="{DynamicResource invoiceStyle}" >
+        <Button Height="100" Width="133" Grid.Row="2" Grid.Column="6" BorderThickness="0" Style="{DynamicResource invoiceStyle}"  Click="Button_Click"  x:Name="b4">
             <Button.Background>
                 <ImageBrush ImageSource="pic/invoice.png" Stretch="Fill"></ImageBrush>
             </Button.Background>
