@@ -676,7 +676,7 @@
                       AutoGenerateColumns="False"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  FlowDirection="LeftToRight" CanUserAddRows="False" Loaded="ywmyatDataG_Loaded"   >
 
                         <DataGrid.Columns>
-                            <DataGridCheckBoxColumn Header="تاريخ اليومية"    Width="180" 
+                            <DataGridTextColumn Header="تاريخ اليومية"    Width="180" 
                                         Binding="{Binding تاريخ}"  />
 
 
