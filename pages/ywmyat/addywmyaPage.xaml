@@ -5,8 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ElAhram.pages.ywmyat"
         mc:Ignorable="d"
-        Title="addywmya" Height="400" Width="300" ResizeMode="NoResize" Loaded="Window_Loaded">
+        Title="addywmya" Height="400" Width="300" ResizeMode="NoResize" Loaded="Window_Loaded" Icon="/pic/logo.png">
     <Grid>
+        <Grid.Background>
+
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFFFDD8C"/>
+                <GradientStop Color="#FFC4C4C4" Offset="1"/>
+                <GradientStop Color="#FFAA9C87" Offset="0.5"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        
         <Label Content="اضافة يومية" HorizontalAlignment="Center" Margin="0,22,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="22" Foreground="#FFF58322"/>
 
 
@@ -41,11 +50,11 @@
            
             <StackPanel>
                 <Label Content="ملاحظات" HorizontalAlignment="Right" FontSize="14" FontWeight="Bold"/>
-                <TextBox x:Name="noteywmyaText"    Width="217" VerticalContentAlignment="Center" Margin="0,-25,50,0" BorderBrush="#FFF58322" Height="26" HorizontalContentAlignment="Center"/>
+                <TextBox x:Name="noteywmyaText"    Width="217" VerticalContentAlignment="Top" Margin="0,-25,50,0" BorderBrush="#FFF58322" Height="42" HorizontalContentAlignment="Center"/>
 
             </StackPanel>
 
-            <Button x:Name="ywmyaAddBtn" Content="اضافة" Margin="0,25,0,0"  Width="200" Click="ywmyaAddBtn_Click" />
+            <Button x:Name="ywmyaAddBtn"  Click="ywmyaAddBtn_Click" Content="اضافة" Margin="0,25,0,0"  Background="#FF706B6B" Foreground="#FFF58322" FontWeight="Bold" Style="{StaticResource  RoundButtonTemplate}" Width="160" Height="40"/>
 
 
         </StackPanel>

@@ -5,10 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ElAhram.pages._3ml2"
         mc:Ignorable="d"
-        Title="Aml2AddPage" Height="400" Width="300" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="Aml2AddPage" Height="400" Width="300" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Icon="/pic/people1.png">
+       
     <Grid>
+        <Grid.Background>
+
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFFFDD8C"/>
+                <GradientStop Color="#FFC4C4C4" Offset="1"/>
+                <GradientStop Color="#FFAA9C87" Offset="0.5"/>
+            </LinearGradientBrush>
+        </Grid.Background>
         <Label Content="اضافة عميل" HorizontalAlignment="Center" Margin="0,22,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="22" Foreground="#FFF58322"/>
-        
+
 
         <StackPanel  Margin="0,86,5,53">
             <StackPanel Height="30">
@@ -21,7 +30,7 @@
 
             </StackPanel>
             <StackPanel>
-                <Label Content="ايمال" HorizontalAlignment="Right" FontSize="14" FontWeight="Bold"/>
+                <Label Content="email" HorizontalAlignment="Right" FontSize="14" FontWeight="Bold"/>
                 <TextBox x:Name="amelEmailText"  Text="" TextWrapping="Wrap" Width="120" VerticalContentAlignment="Top" Margin="0,-25,25,0" BorderBrush="#FFF58322"/>
 
             </StackPanel>
@@ -35,7 +44,7 @@
                 <TextBox x:Name="amel2ftt7yText"  Text="" TextWrapping="Wrap" Width="120" VerticalContentAlignment="Top" Margin="0,-25,25,0" BorderBrush="#FFF58322"/>
 
             </StackPanel>
-            <Button x:Name="AmelAddBtn" Content="اضافة" Margin="0,25,0,0"  Width="200" Click="AmelAddBtn_Click" />
+            <Button x:Name="AmelAddBtn" Content="اضافة" Margin="0,25,0,0"   Click="AmelAddBtn_Click" Background="#FF706B6B" Foreground="#FFF58322" Style="{StaticResource  RoundButtonTemplate}" Width="160" Height="40"/>
 
 
         </StackPanel>

@@ -2,12 +2,12 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"  
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ElAhram"
         mc:Ignorable="d"
-        Title="Login" Height="500" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" WindowStyle="ThreeDBorderWindow" MinWidth="800" MaxWidth="800">
+        Title="Login" Height="500" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" WindowStyle="ThreeDBorderWindow" MinWidth="800" MaxWidth="800" Icon="/pic/login (1).png">
     <Grid>
+
         <Rectangle  Height="280" VerticalAlignment="Top" Grid.ColumnSpan="4">
             <Rectangle.Fill>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -29,12 +29,11 @@
             </Rectangle.Fill>
         </Rectangle>
 
-
         <Label Content="اسم المستخدم" HorizontalAlignment="Left" Margin="440,191,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Grid.ColumnSpan="2"/>
         <Label Content="كلمة المرور" HorizontalAlignment="Left" Margin="456,257,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Grid.ColumnSpan="2"/>
         <TextBox Name="userbox" TextAlignment="Right" HorizontalAlignment="Left" Margin="304,195,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="26" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
 
-        <Image HorizontalAlignment="Left" Height="100" Margin="382,96,0,0" VerticalAlignment="Top" Width="100"  Stretch="Uniform" StretchDirection="Both" Source="pic/logo.png"/>
+        <Image HorizontalAlignment="Left" Height="100" Margin="382,96,0,0" VerticalAlignment="Top" Width="100" Source="pic/logo.png" Stretch="Uniform" StretchDirection="Both"/>
         <Button Content="تسجيل الدخول" HorizontalAlignment="Left" Margin="366,320,0,0" VerticalAlignment="Top" Width="132" Background="Black" Click="Button_Click" FontWeight="Bold" Foreground="#FFF58322" Cursor="Hand">
           
         </Button>

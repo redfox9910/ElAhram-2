@@ -5,11 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ElAhram.pages.fwater"
         mc:Ignorable="d"
-        Title="FWaterListP" Height="450" Width="800" Loaded="Window_Loaded">
+        Title="FWaterListP" Height="450" Width="800" Icon="/pic/invoice1.png" ResizeMode="NoResize"  Loaded="Window_Loaded">
     <Grid>
-        <Label Content="الفواتير" HorizontalAlignment="Center" Margin="0,21,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
+        <Grid.Background>
+
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="White"/>
+                <GradientStop Color="#FFAA9C87" Offset="1"/>
+                <GradientStop Color="#ed9c1f" Offset="0.5"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Label Content="الفواتير" HorizontalAlignment="Center" Margin="0,21,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Foreground="#FFF58322"/>
         <DataGrid x:Name="fwterListDataG" Margin="0,110,0,0" BeginningEdit="fwterListDataG_BeginningEdit"  />
-        <ComboBox x:Name="name3elCombo" HorizontalAlignment="Left" Margin="604,75,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="name3elCombo_SelectionChanged"/>
-        <Label Content=" : العميل " HorizontalAlignment="Left" Margin="738,73,0,0" VerticalAlignment="Top"/>
+        <ComboBox   x:Name="name3elCombo" HorizontalAlignment="Left" Margin="604,75,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="name3elCombo_SelectionChanged"/>
+        <Label Content=" : العميل " HorizontalAlignment="Left" Margin="738,73,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
     </Grid>
 </Window>

@@ -5,8 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ElAhram.pages.mwrden"
         mc:Ignorable="d"
-        Title="mwrdenAddPage" Height="400" Width="300" MinHeight="400" MaxHeight="400" MinWidth="300" MaxWidth="300">
+        Title="mwrdenAddPage" Height="400" Width="300" MinHeight="400" MaxHeight="400" MinWidth="300" MaxWidth="300" Icon="/pic/logo.png">
     <Grid>
+        <Grid.Background>
+
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFFFDD8C"/>
+                <GradientStop Color="#FFC4C4C4" Offset="1"/>
+                <GradientStop Color="#FFAA9C87" Offset="0.5"/>
+            </LinearGradientBrush>
+        </Grid.Background>
         <Label Content="اضافة مورد" HorizontalAlignment="Center" Margin="0,22,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="22" Foreground="#FFF58322"/>
 
 
@@ -35,7 +43,7 @@
                 <TextBox x:Name="mwrd2ftt7yText"  Text="" TextWrapping="Wrap" Width="120" VerticalContentAlignment="Top" Margin="0,-25,25,0" BorderBrush="#FFF58322"/>
 
             </StackPanel>
-            <Button x:Name="mwrdAddBtn" Content="اضافة" Margin="0,25,0,0"  Width="200" Click="mwrdAddBtn_Click"  />
+            <Button x:Name="mwrdAddBtn" Content="اضافة" Margin="0,25,0,0"   Click="mwrdAddBtn_Click"  Background="#FF706B6B" Foreground="#FFF58322" FontWeight="Bold" Style="{StaticResource  RoundButtonTemplate}" Width="160" Height="40"/>
 
 
         </StackPanel>

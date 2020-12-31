@@ -5,25 +5,33 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ElAhram.pages._3ml2"
         mc:Ignorable="d"
-        Title="aml2detailsFtoraPage" Height="450" Width="800" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="aml2detailsFtoraPage" Height="450" Width="800" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" ResizeMode="NoResize"  Icon="/pic/logo.png">
     <Grid>
-        <Image Height="100" Margin="50,17,650,0" VerticalAlignment="Top" Width="100" Source="/pic/bill.png"/>
-        <Label Content=": التاريخ الاستلام " HorizontalAlignment="Right" Margin="0,68,285,0" VerticalAlignment="Top"/>
+        <Grid.Background>
+
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="White"/>
+                <GradientStop Color="#FFAA9C87" Offset="1"/>
+                <GradientStop Color="#ed9c1f" Offset="0.5"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Image Height="100" Margin="50,17,650,0" VerticalAlignment="Top" Width="100" Source="/pic/bill1.png"/>
+        <Label Content=": التاريخ الاستلام " HorizontalAlignment="Right" Margin="0,68,285,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <Label x:Name="aml2ftora2stlmDate"  HorizontalAlignment="Right" Margin="0,68,388,0" VerticalAlignment="Top"  Width="120" MinWidth="120" MaxWidth="120" Height="26" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <Label Content=": رقم الفاتورة " HorizontalAlignment="Right" Margin="0,17,11,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+        <Label Content=": رقم الفاتورة " HorizontalAlignment="Right" Margin="0,17,11,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontWeight="Bold"/>
         <Label x:Name="aml2ftorakodTextBox" HorizontalAlignment="Left" Margin="590,21,0,0" Content=""  VerticalAlignment="Top" Width="103" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Height="22" Padding="0,0,0,0"/>
-        <Label Content=": اسم عميل" HorizontalAlignment="Left" Margin="724,68,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+        <Label Content=": اسم عميل" HorizontalAlignment="Left" Margin="724,68,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontWeight="Bold"/>
         <Label x:Name="aml2ftora2sm3melLabel" Content="" HorizontalAlignment="Left" Margin="546,68,0,0" VerticalAlignment="Top" Width="147" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Height="26"/>
         <DataGrid x:Name="amrT48elDetailsDG" Margin="199,122,0,0"  HorizontalContentAlignment="Right" IsReadOnly="True"/>
-        <Label Content=": التاريخ التشغيل  " HorizontalAlignment="Right" Margin="0,17,285,0" VerticalAlignment="Top"/>
+        <Label Content=": التاريخ التشغيل  " HorizontalAlignment="Right" Margin="0,17,285,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <Label x:Name="aml2ftoraT49elDate"  HorizontalAlignment="Right" Margin="0,17,388,0" VerticalAlignment="Top"  Width="120" MinWidth="120" MaxWidth="120" Height="26" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <Label Content=": اجمالى الحساب" HorizontalAlignment="Left" Margin="105,142,0,0" VerticalAlignment="Top" Width="91" HorizontalContentAlignment="Right"/>
+        <Label Content=": اجمالى الحساب" HorizontalAlignment="Left" Margin="105,142,0,0" VerticalAlignment="Top" Width="91" HorizontalContentAlignment="Right" FontWeight="Bold"/>
         <Label x:Name="total7sabLabel" Content="" HorizontalAlignment="Left" Margin="15,142,0,0" VerticalAlignment="Top" Width="84" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <Label Content=": نقدى الفاتورة" HorizontalAlignment="Left" Margin="110,177,0,0" VerticalAlignment="Top" Width="86" HorizontalContentAlignment="Right"/>
+        <Label Content=": نقدى الفاتورة" HorizontalAlignment="Left" Margin="110,177,0,0" VerticalAlignment="Top" Width="86" HorizontalContentAlignment="Right" FontWeight="Bold"/>
         <Label x:Name="nkdyFatoraLabel" Content="" HorizontalAlignment="Left" Margin="20,177,0,0" VerticalAlignment="Top" Width="84" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-        <Label Content=": اجمالى وزن" HorizontalAlignment="Left" Margin="110,214,0,0" VerticalAlignment="Top" Width="86" HorizontalContentAlignment="Right"/>
+        <Label Content=": اجمالى وزن" HorizontalAlignment="Left" Margin="110,214,0,0" VerticalAlignment="Top" Width="86" HorizontalContentAlignment="Right" FontWeight="Bold"/>
         <Label x:Name="TotalWznLabel" Content="" HorizontalAlignment="Left" Margin="20,214,0,0" VerticalAlignment="Top" Width="84" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-        <Button Content="طباعة" HorizontalAlignment="Left" Margin="167,57,0,0" VerticalAlignment="Top"/>
+        <Button Content="طباعة" HorizontalAlignment="Left" Margin="167,57,0,0" VerticalAlignment="Top" Background="#FF706B6B" Foreground="#FFF58322" FontWeight="Bold" Style="{StaticResource  RoundButtonTemplate}" Width="100" Height="40"/>
 
     </Grid>
 </Window>
