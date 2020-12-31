@@ -5,8 +5,43 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ElAhram.pages._5zna"
         mc:Ignorable="d"
-        Title="deleted4ekatPage" Height="450" Width="800">
+        Title="deleted4ekatPage" Height="350" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Loaded="Window_Loaded">
     <Grid>
-        
+        <Label Content="سجل الشيكات المحذوفة" HorizontalAlignment="Center" Margin="0,24,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
+        <DataGrid x:Name="sglatT4ekatDataG" Margin="0,117,0,0" IsReadOnly="True" ItemsSource="{Binding shekatSgalDataGVM}"
+                      AutoGenerateColumns="False"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" CanUserResizeColumns="False" CanUserResizeRows="False" FlowDirection="LeftToRight" >
+
+            <DataGrid.Columns>
+
+
+                <DataGridTextColumn Header="ملاحظات"    Width="200" 
+                                        Binding="{Binding ملاحظات}" CanUserResize="False" />
+
+
+                <DataGridTextColumn Header=" حالة الشيك "    Width="200" 
+                                        Binding="{Binding  حالة}" CanUserResize="False" />
+
+                <DataGridTextColumn Header=" تاريخ  "           Width="200" 
+                                        Binding="{Binding تاريخ}" CanUserResize="False" />
+
+                <DataGridTextColumn Header="البنك"          Width="200" 
+                                        Binding="{Binding بنك}" CanUserResize="False" />
+
+                <DataGridTextColumn Header="قيمة الشيك "           Width="250" 
+                                        Binding="{Binding قيمة}" CanUserResize="False" />
+                <DataGridTextColumn Header="صاحب الشيك "           Width="250" 
+                                        Binding="{Binding عميل }" CanUserResize="False" />
+                <DataGridTextColumn Header="رقم الشيك "           Width="250" 
+                                        Binding="{Binding رقم}" CanUserResize="False" />
+
+
+            </DataGrid.Columns>
+
+        </DataGrid>
+        <Label Content=" : من" HorizontalAlignment="Left" Margin="574,86,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
+        <DatePicker x:Name="datefromDateP" HorizontalAlignment="Left" Margin="444,91,0,0" VerticalAlignment="Top" SelectedDateChanged="datefromDateP_SelectedDateChanged"/>
+        <Label Content=" : الى" HorizontalAlignment="Left" Margin="307,86,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
+        <DatePicker x:Name="dateToDateP" HorizontalAlignment="Left" Margin="179,91,0,0" VerticalAlignment="Top" SelectedDateChanged="datefromDateP_SelectedDateChanged"/>
+
     </Grid>
 </Window>

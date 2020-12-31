@@ -130,10 +130,14 @@
                         </DataGrid.Columns>-->
                     </DataGrid>
                     <Image Height="100" Margin="641,17,98,0" VerticalAlignment="Top" Width="100" Source="/pic/warehouse1.png" Grid.Column="2"/>
-                    <Button x:Name="m5zn5amatBtn" Content="الخامات" HorizontalAlignment="Left" Margin="96,25,0,0" VerticalAlignment="Top" Height="56" Width="121" MinHeight="56" MaxHeight="56" MinWidth="121" MaxWidth="121" Click="m5zn5amatBtn_Click" />
-                    <Button x:Name="m5znmntgatBtn" Content="المنتجات" HorizontalAlignment="Left" Margin="42,6,0,0" VerticalAlignment="Top" Height="56" Width="121" MinWidth="121" MaxWidth="121" MinHeight="56" MaxHeight="56" Click="m5znmntgatBtn_Click" Grid.ColumnSpan="2"/>
-                    <Button x:Name="m5zn2znsrfBtn" Content="اذن صرف" HorizontalAlignment="Left" Margin="478,156,0,0" VerticalAlignment="Top" Click="m5zn2znsrfBtn_Click"/>
-                    <Button x:Name="m5zn2nwa35amatBtn" Content="انواع خامات" HorizontalAlignment="Left" Margin="624,156,0,0" VerticalAlignment="Top" Click="m5zn2nwa35amatBtn_Click"/>
+                    <Button x:Name="m5zn5amatBtn" Content="الخامات" HorizontalAlignment="Left" Margin="0,17,0,0" VerticalAlignment="Top" Height="56" Width="121" MinHeight="56" MaxHeight="56" MinWidth="121" MaxWidth="121" Click="m5zn5amatBtn_Click" Grid.Column="1" Background="#FF040000" Foreground="#FFEB7D16"
+                             Style="{StaticResource RoundButtonTemplate}" />
+                    <Button x:Name="m5znmntgatBtn" Content="المنتجات" HorizontalAlignment="Left" Margin="37,17,0,0" VerticalAlignment="Top" Height="56" Width="121" MinWidth="121" MaxWidth="121" MinHeight="56" MaxHeight="56" Click="m5znmntgatBtn_Click" Grid.Column="2" Background="Black" Foreground="#FFEB7D16"
+                             Style="{StaticResource RoundButtonTemplate}"/>
+                    <Button x:Name="m5zn2znsrfBtn" Content="اذن صرف" HorizontalAlignment="Left" Margin="107,133,0,0" VerticalAlignment="Top" Click="m5zn2znsrfBtn_Click" Grid.Column="2" Background="#FF706B6B" Foreground="#FFEB7D16"
+                             Style="{StaticResource RoundButtonTemplate}" Width="80" Height="30" />
+                    <Button x:Name="m5zn2nwa35amatBtn" Content="انواع خامات" HorizontalAlignment="Left" Margin="205,133,0,0" VerticalAlignment="Top" Click="m5zn2nwa35amatBtn_Click" Grid.Column="2"  Background="#FF706B6B" Foreground="#FFEB7D16"
+                             Style="{StaticResource RoundButtonTemplate}" Width="80" Height="30" />
 
 
 
@@ -423,7 +427,31 @@
                     <Button x:Name="empAddBtn" Content="ADD" HorizontalAlignment="Left" Margin="78,-78,0,0" VerticalAlignment="Top" Click="empAddBtn_Click" Background="Black" Foreground="#FFED9C1F"
                             Style="{StaticResource  RoundButtonTemplate}" Width="120" Height="50"></Button>
                     <Image Height="100" Margin="820,-113,98,0" VerticalAlignment="Top" Width="100" Source="/pic/engineer.png"/>
-                    <DataGrid x:Name="Empdatagrid"  IsReadOnly="True" Loaded="Empdatagrid_Loaded" MouseDoubleClick="Empdatagrid_MouseDoubleClick" />
+                    <DataGrid x:Name="Empdatagrid"  IsReadOnly="True" Loaded="Empdatagrid_Loaded" MouseDoubleClick="Empdatagrid_MouseDoubleClick" ItemsSource="{Binding EmpDataGVM}"
+                      AutoGenerateColumns="False"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" CanUserResizeColumns="False" CanUserResizeRows="False" FlowDirection="LeftToRight" CanUserAddRows="False" >
+                        <DataGrid.Columns>
+                             <DataGridTextColumn Header="الرقم القومى "    Width="180" 
+                                        Binding="{Binding قومى}" CanUserResize="False" />
+
+
+                            <DataGridTextColumn Header=" العنوان "    Width="200" 
+                                        Binding="{Binding  عنوان}" CanUserResize="False" />
+
+                            <DataGridTextColumn Header=" رقم البطاقة "           Width="120" 
+                                        Binding="{Binding بطاقة}" CanUserResize="False" />
+                            <DataGridTextColumn Header=" رقم الهاتف "           Width="150" 
+                                        Binding="{Binding رقم}" CanUserResize="False" />
+                            <DataGridTextColumn Header=" اسم الموظف "           Width="200" 
+                                        Binding="{Binding اسم}" CanUserResize="False" />
+
+                            <DataGridTextColumn Header=" # "           Width="130" 
+                                        Binding="{Binding كودموظف}" CanUserResize="False" />
+
+
+
+                        </DataGrid.Columns>
+
+                    </DataGrid>
                     <Button x:Name="mwzfen8yabBtn" Content="الغياب و الحضور " HorizontalAlignment="Left" Margin="698,-78,0,0" VerticalAlignment="Top" Click="mwzfen8yabBtn_Click" Foreground="#FFED9C1F" Background="#FF312C2C"
                             Style="{StaticResource  RoundButtonTemplate}" Width="120" Height="50"/>
 
@@ -458,7 +486,32 @@
                     <Button x:Name="aml2AddBtn" Content="ADD" HorizontalAlignment="Left" Margin="76,40,0,0" VerticalAlignment="Top" Click="aml2AddBtn_Click" Background="Black" Foreground="#FFED9C1F"
                             Style="{StaticResource  RoundButtonTemplate}" Width="120" Height="50"></Button>
                     <Image Height="100" Margin="245,10,98,0" VerticalAlignment="Top" Width="100" Source="/pic/people1.png" Grid.Column="2"/>
-                    <DataGrid x:Name="_3ml2Datagrid" Margin="0,123,0,0" MouseDoubleClick="_3ml2Datagrid_MouseDoubleClick"  Loaded="_3ml2Datagrid_Loaded"  IsReadOnly="True" Grid.ColumnSpan="3"   />
+                    <DataGrid x:Name="_3ml2Datagrid" Margin="0,123,0,0" MouseDoubleClick="_3ml2Datagrid_MouseDoubleClick"  Loaded="_3ml2Datagrid_Loaded"  IsReadOnly="True" Grid.ColumnSpan="3"   ItemsSource="{Binding aml2DataGVM}"
+                      AutoGenerateColumns="False"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" CanUserResizeColumns="False" CanUserResizeRows="False" FlowDirection="LeftToRight" CanUserAddRows="False"   >
+                        
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="حساب العميل  "    Width="180" 
+                                        Binding="{Binding حساب}" CanUserResize="False" />
+
+
+                            <DataGridTextColumn Header=" العنوان "    Width="200" 
+                                        Binding="{Binding  عنوان}" CanUserResize="False" />
+
+                            <DataGridTextColumn Header=" e-mail "           Width="120" 
+                                        Binding="{Binding ايمال}" CanUserResize="False" />
+                            <DataGridTextColumn Header=" رقم الهاتف "           Width="150" 
+                                        Binding="{Binding رقم}" CanUserResize="False" />
+                            <DataGridTextColumn Header=" اسم العملاء "           Width="200" 
+                                        Binding="{Binding اسم}" CanUserResize="False" />
+
+                            <DataGridTextColumn Header=" # "           Width="130" 
+                                        Binding="{Binding كودعميل}" CanUserResize="False" />
+
+
+
+                        </DataGrid.Columns>
+
+                    </DataGrid>
 
 
                 </Grid>
@@ -494,7 +547,32 @@
                     <Button x:Name="mwrdenAddBtn" Content="ADD" HorizontalAlignment="Left" Margin="5,40,0,0" VerticalAlignment="Top" Click="mwrdenAddBtn_Click" Grid.Column="2" Background="Black" Foreground="#FFED9C1F"
                             Style="{StaticResource  RoundButtonTemplate}" Width="120" Height="50"></Button>
                     <Image Height="100" Margin="161,10,98,0" VerticalAlignment="Top" Width="100" Source="/pic/factory1.png" Grid.Column="5"/>
-                    <DataGrid x:Name="mwrdenDatagrid" Margin="0,123,0,0"  Loaded="mwrdenDatagrid_Loaded" Grid.ColumnSpan="6" MouseDoubleClick="mwrdenDatagrid_MouseDoubleClick"    IsReadOnly="True" />
+                    <DataGrid x:Name="mwrdenDatagrid" Margin="0,123,0,0"  Loaded="mwrdenDatagrid_Loaded" Grid.ColumnSpan="6" MouseDoubleClick="mwrdenDatagrid_MouseDoubleClick"    IsReadOnly="True" ItemsSource="{Binding mwrdenDataGVM}"
+                      AutoGenerateColumns="False"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" CanUserResizeColumns="False" CanUserResizeRows="False" FlowDirection="LeftToRight" CanUserAddRows="False"   >
+
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="حساب الموارد  "    Width="180" 
+                                        Binding="{Binding حساب}" CanUserResize="False" />
+
+
+                            <DataGridTextColumn Header=" العنوان "    Width="200" 
+                                        Binding="{Binding  عنوان}" CanUserResize="False" />
+
+                            <DataGridTextColumn Header=" e-mail "           Width="120" 
+                                        Binding="{Binding ايمال}" CanUserResize="False" />
+                            <DataGridTextColumn Header=" رقم الهاتف "           Width="150" 
+                                        Binding="{Binding رقم}" CanUserResize="False" />
+                            <DataGridTextColumn Header=" اسم الموارد "           Width="200" 
+                                        Binding="{Binding اسم}" CanUserResize="False" />
+
+                            <DataGridTextColumn Header=" # "           Width="130" 
+                                        Binding="{Binding كودعميل}" CanUserResize="False" />
+
+
+
+                        </DataGrid.Columns>
+
+                    </DataGrid>
 
 
                 </Grid>
@@ -530,7 +608,35 @@
 
                     <Label Content=" التاريخ " HorizontalAlignment="Left" Margin="27,36,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
                     <Label  x:Name="halkDate" HorizontalAlignment="Left" Margin="87,36,0,0" VerticalAlignment="Top"  Width="120" MinWidth="120" MaxWidth="120" Loaded="halkDate_Loaded" Grid.ColumnSpan="2"/>
-                    <DataGrid x:Name="halkDatagrid" Margin="0,123,0,0" IsReadOnly="True" Loaded="halkDatagrid_Loaded" Grid.ColumnSpan="3"/>
+                    <DataGrid x:Name="halkDatagrid" Margin="0,123,0,0" IsReadOnly="True" Loaded="halkDatagrid_Loaded" Grid.ColumnSpan="3" ItemsSource="{Binding HalkDataGVM}"
+                      AutoGenerateColumns="False"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" CanUserResizeColumns="False" CanUserResizeRows="False" FlowDirection="LeftToRight" CanUserAddRows="False"   >
+
+                        <DataGrid.Columns>
+                            <DataGridCheckBoxColumn Header="متوازن"    Width="180" 
+                                        Binding="{Binding متوازن}" CanUserResize="False" />
+
+
+                            <DataGridTextColumn Header=" الغير مصنف من الهالك "    Width="150" 
+                                        Binding="{Binding  غيرمصنف}" CanUserResize="False" />
+
+                            <DataGridTextColumn Header="هالك سادة"           Width="150" 
+                                        Binding="{Binding سادة}" CanUserResize="False" />
+                            <DataGridTextColumn Header="هالك مطبوع"           Width="150" 
+                                        Binding="{Binding مطبوع}" CanUserResize="False" />
+                            <DataGridTextColumn Header="اجمالى هالك الشهر"           Width="150" 
+                                        Binding="{Binding اجمالى}" CanUserResize="False" />
+
+                            <DataGridTextColumn Header="السنة "           Width="100" 
+                                        Binding="{Binding سنة}" CanUserResize="False" />
+
+                            <DataGridTextColumn Header="الشهر"           Width="100" 
+                                        Binding="{Binding شهر}" CanUserResize="False" />
+
+
+
+                        </DataGrid.Columns>
+
+                    </DataGrid>
                 </Grid>
             </TabItem>
 
@@ -542,7 +648,7 @@
 
             <TabItem  Foreground="Red" FontWeight="Heavy" Padding="0,0,0,0" Background="{x:Null}">
                 <TabItem.Header>
-                    <Label Content="اليوميات"   VerticalAlignment="Center" Height="36" Padding="0,0,0,0" Width="75" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"  >
+                    <Label Content="اليوميات"  MouseLeftButtonDown="ywmyatHeader_Clicked" VerticalAlignment="Center" Height="36" Padding="0,0,0,0" Width="75" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"  >
                         <Label.Background>
                             <ImageBrush Stretch="Uniform" ImageSource="/pic/data-table1.png" AlignmentX="Right"/>
                         </Label.Background>
@@ -564,8 +670,34 @@
                     <Button x:Name="AddywmyaBTN" Content="اضافة يومية" HorizontalAlignment="Left" Margin="76,40,0,0" VerticalAlignment="Top" Click="AddywmyaBTN_Click" Background="Black" BorderBrush="#FFF6F6F6" Foreground="#FFED9C1F"
                             Style="{StaticResource  RoundButtonTemplate}" Width="120" Height="50"></Button>
                     <Image Height="100" Margin="165,10,98,0" VerticalAlignment="Top" Width="100" Source="/pic/microsoft-excel.png" Grid.Column="1"/>
-                    <DataGrid Margin="0,123,0,0" Grid.ColumnSpan="2"/>
-                    <Button x:Name="sglYwmyatBtn" Click="sglYwmyatBtn_Click" Content="اضافة حالة يومية" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Background="#FF030303" BorderBrush="#FFD0D0D0" Foreground="#FFED9C1F" Grid.Column="1"
+                    <DataGrid x:Name="ywmyatDataG" Margin="0,123,0,0" Grid.ColumnSpan="2"  ItemsSource="{Binding ywmyatDataGVM}"
+                      AutoGenerateColumns="False"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  FlowDirection="LeftToRight" CanUserAddRows="False" Loaded="ywmyatDataG_Loaded"   >
+
+                        <DataGrid.Columns>
+                            <DataGridCheckBoxColumn Header="تاريخ اليومية"    Width="180" 
+                                        Binding="{Binding تاريخ}"  />
+
+
+                            <DataGridTextColumn Header=" الملاحظات "    Width="200" 
+                                        Binding="{Binding  ملاحظات}"  />
+
+                            <DataGridTextColumn Header="مبلغ اليومية"           Width="200" 
+                                        Binding="{Binding مبلغ}"  />
+                            <DataGridTextColumn Header="الحالة"           Width="150" 
+                                        Binding="{Binding ألحالة}"  />
+                            <DataGridTextColumn Header="صاحب اليومية"           Width="200" 
+                                        Binding="{Binding صاحب}" />
+
+                            <DataGridTextColumn Header="#"           Width="100" 
+                                        Binding="{Binding كود}"  />
+
+                          
+
+
+                        </DataGrid.Columns>
+
+                    </DataGrid>
+                    <Button x:Name="sglYwmyatBtn" Click="sglYwmyatBtn_Click" Content="سجل اليوميات" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Background="#FF030303" BorderBrush="#FFD0D0D0" Foreground="#FFED9C1F" Grid.Column="1"
                             Style="{StaticResource  RoundButtonTemplate}" Width="120" Height="50"/>
 
 

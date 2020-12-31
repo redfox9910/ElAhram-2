@@ -185,7 +185,8 @@ namespace ElAhram.pages._5zna
 
         private void sgldeletedShekatBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            deleted4ekatPage page = new deleted4ekatPage();
+            page.ShowDialog();
         }
     }
 }

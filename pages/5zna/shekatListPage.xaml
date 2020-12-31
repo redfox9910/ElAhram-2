@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ElAhram.pages._5zna"
         mc:Ignorable="d"
-        Title="shekatListPage" Height="450" Width="600" ResizeMode="NoResize" Loaded="Window_Loaded" Icon="/pic/deposit1.png">
+        Title="shekatListPage" Height="450" Width="850" ResizeMode="NoResize" Loaded="Window_Loaded" Icon="/pic/deposit1.png" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="13*"/>
@@ -16,34 +16,34 @@
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                 <GradientStop Color="White"/>
                 <GradientStop Color="#FFAA9C87" Offset="1"/>
-                <GradientStop Color="#ed9c1f" Offset="0.5"/>
+                <GradientStop Color="#ed9c1f" Offset="0.3"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <Label Content="الشيكات" HorizontalAlignment="Left" Margin="225,28,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" Foreground="#FFF58322" Grid.Column="1"/>
-        <DataGrid x:Name="shekatDataGrid" Margin="0,81,0,0" Grid.ColumnSpan="2" ItemsSource="{Binding shekatDataGVM}"
-                        HorizontalContentAlignment="Center" VerticalContentAlignment="Center" CanUserResizeColumns="False" CanUserResizeRows="False"  CanUserAddRows="False">
+        <Label Content="الشيكات" HorizontalAlignment="Left" Margin="334,10,0,0" VerticalAlignment="Top" FontWeight="ExtraBold" FontSize="20" Foreground="#FFF58322" Grid.Column="1"/>
+        <DataGrid x:Name="shekatDataGrid" Margin="0,81,0,0" Grid.ColumnSpan="2" IsReadOnly="True" ItemsSource="{Binding shekatDataGVM}"
+                      AutoGenerateColumns="False"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  FlowDirection="RightToLeft">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="رقم الشيك"          Width="120" 
-                                        Binding="{Binding رقم}" CanUserResize="False" />
 
-                <DataGridTextColumn Header="اسم صاحب الشيك"          Width="150" 
-                                        Binding="{Binding عميل}" CanUserResize="False" />
+                <DataGridTextColumn Header="رقم الشيك "           Width="150" 
+                                        Binding="{Binding رقم}"  />
 
-
-
-                <DataGridTextColumn Header=" قيمة الشيك "           Width="80" 
-                                        Binding="{Binding قيمة}" CanUserResize="False" />
-
-                <DataGridCheckBoxColumn Header="البنك"    Width="100" 
-                                        Binding="{Binding بنك }" CanUserResize="False" />
+                <DataGridTextColumn Header="صاحب الشيك "           Width="200" 
+                                        Binding="{Binding عميل }" />
 
 
-                <DataGridCheckBoxColumn Header=" التاريخ"    Width="70" 
-                                        Binding="{Binding  تاريخ}" CanUserResize="False" />
+                <DataGridTextColumn Header="قيمة الشيك "           Width="150" 
+                                        Binding="{Binding قيمة}"  />
 
-                <DataGridTextColumn Header="ملاحظات"          Width="200" 
-                                        Binding="{Binding ملاحظات}" CanUserResize="False" />
 
+                <DataGridTextColumn Header="البنك"          Width="150" 
+                                        Binding="{Binding بنك}"  />
+
+                <DataGridTextColumn Header=" تاريخ  "           Width="90" 
+                                        Binding="{Binding تاريخ}"  />
+
+
+                <DataGridTextColumn Header="ملاحظات"    Width="180" 
+                                        Binding="{Binding ملاحظات}"  />
 
 
 
@@ -63,11 +63,15 @@
 
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="add4ekBtn" Content="Add" HorizontalAlignment="Left" Margin="437,33,0,0" VerticalAlignment="Top" Click="add4ekBtn_Click"  FontWeight="Bold" Grid.Column="1" Style="{StaticResource  RoundButtonTemplate}" Width="100" Height="40"/>
+
         <Label Content=": الاجمالى" HorizontalAlignment="Left" Margin="131,47,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.Column="1"/>
         <Label x:Name="total4ekatLb" Content="" HorizontalAlignment="Left" Margin="52,47,0,0" VerticalAlignment="Top" Width="71" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Column="1"/>
-        <Button x:Name="sglShekatBTN" Content="سجل الشيكات" HorizontalAlignment="Left" Margin="548,47,0,0" VerticalAlignment="Top" Click="sglShekatBTN_Click"/>
-        <Button x:Name="sgldeletedShekatBtn" Content="سجل الشيكات المحذوفة" HorizontalAlignment="Left" Margin="672,47,0,0" VerticalAlignment="Top" Click="sgldeletedShekatBtn_Click"/>
+
+        <Button x:Name="add4ekBtn" Content="Add" HorizontalAlignment="Left" Margin="681,33,0,0" VerticalAlignment="Top" Click="add4ekBtn_Click"  FontWeight="Bold" Grid.Column="1" Style="{StaticResource  RoundButtonTemplate}" Width="100" Height="40"/>
+
+        <Button x:Name="sglShekatBTN" Content="سجل الشيكات" Grid.Column="1" HorizontalAlignment="Left" Margin="418,33,0,0" VerticalAlignment="Top" Click="sglShekatBTN_Click" FontWeight="Bold" Style="{StaticResource  RoundButtonTemplate}" Width="100" Height="40"/>
+        <Button x:Name="sgldeletedShekatBtn" Grid.Column="1" Content="سجل الشيكات المحذوفة" HorizontalAlignment="Left" Margin="524,33,0,0" VerticalAlignment="Top" Click="sgldeletedShekatBtn_Click" FontWeight="Bold" Style="{StaticResource  RoundButtonTemplate}" Width="150" Height="40"/>
+
 
     </Grid>
 </Window>

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ElAhram.pages._5zna"
         mc:Ignorable="d"
-        Title="ShekatEditPage" Height="400" Width="300" ResizeMode="NoResize" Loaded="Window_Loaded" Icon="/pic/deposit1.png">
+        Title="ShekatEditPage" Height="400" Width="300" ResizeMode="NoResize" Loaded="Window_Loaded" Icon="/pic/deposit1.png" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.Background>
 

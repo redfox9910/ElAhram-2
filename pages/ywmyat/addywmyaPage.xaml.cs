@@ -47,7 +47,16 @@ namespace ElAhram.pages.ywmyat
                 }
                 catch (Exception)
                 {
-                     datesf = new DateTime(DateTime.Now.Year, DateTime.Now.Month+1, 1);
+                    try
+                    {
+                        datesf = new DateTime(DateTime.Now.Year, DateTime.Now.Month + 1, 1);
+                    }
+                    catch (Exception)
+                    {
+
+                        datesf = new DateTime(DateTime.Now.Year + 1, DateTime.Now.Month , 1);
+                    }
+                    
                     
                 }
                 

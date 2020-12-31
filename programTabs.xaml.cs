@@ -22,6 +22,7 @@ using ElAhram.ViewmModels.fwter;
 using ElAhram.ViewmModels.halkTab;
 using ElAhram.ViewmModels.M5ZNTAB;
 using ElAhram.ViewmModels.mwrden;
+using ElAhram.ViewmModels.ywmyat;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
 using System;
@@ -1255,6 +1256,7 @@ namespace ElAhram
               //  page.Show();
                 this.Close();
             }
+            refywmyat();
         }
 
         private void sglYwmyatBtn_Click(object sender, RoutedEventArgs e)
@@ -1303,7 +1305,44 @@ namespace ElAhram
             fwater48elListPage.ShowDialog();
         }
 
-       
+        private void ywmyatDataG_Loaded(object sender, RoutedEventArgs e)
+        {
+
+           
+                refywmyat();
+            
+
+        }
+        private void refywmyat()
+        {
+
+        using (var db = new Models.DataContext())
+        {
+            var elements = db.يوميات.ToList();
+            List<ywmyatDataGVM> k4f7sabData = new List<ywmyatDataGVM>();
+            foreach (var item in elements)
+            {
+                if (item.flag == 'ظ')
+                {
+                    k4f7sabData.Add(new ywmyatDataGVM { كود = item.كود, صاحب = db.موظف.Where(x => x.كودموظف == item.كودصاحب).Select(x => x.اسم).FirstOrDefault(), تاريخ = item.تاريخ, ألحالة = db.حالات_يوميات.Where(z => z.كودحالة == item.كودحالة).Select(z => z.حالة).FirstOrDefault(), مبلغ = item.مبلغ, ملاحظات = item.ملاحظات });
+                }
+                else
+                {
+                    k4f7sabData.Add(new ywmyatDataGVM { كود = item.كود, صاحب = db.عملاء.Where(x => x.كودعميل == item.كودصاحب && x.نوع == item.flag).Select(x => x.اسم).FirstOrDefault(), تاريخ = item.تاريخ, ألحالة = db.حالات_يوميات.Where(z => z.كودحالة == item.كودحالة).Select(z => z.حالة).FirstOrDefault(), مبلغ = item.مبلغ, ملاحظات = item.ملاحظات });
+                }
+
+            }
+            ywmyatDataG.ItemsSource = k4f7sabData.Where(x => x.تاريخ >= DateTime.Today && x.تاريخ <= DateTime.Today.AddDays(1)).ToList().OrderBy(x => x.تاريخ);
+        }
+            ywmyatDataG.Items.Refresh();
+        }
+
+        private void ywmyatHeader_Clicked(object sender, MouseButtonEventArgs e)
+        {
+            
+            refywmyat();
+        }
+
 
 
 
