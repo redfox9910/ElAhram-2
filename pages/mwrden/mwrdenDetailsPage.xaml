@@ -26,7 +26,7 @@
         <Label Content=": العنوان" HorizontalAlignment="Left" Margin="729,117,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" FontWeight="Bold"/>
         <Label x:Name="mwrdenAddressLabel" Content="" HorizontalAlignment="Left" Margin="489,117,0,0" VerticalAlignment="Top" Width="222" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
         <Label Content=": الحساب" HorizontalAlignment="Left" Margin="205,68,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Label x:Name="TotalmoneyLabel" Content="" HorizontalAlignment="Left" Margin="62,86,0,0" VerticalAlignment="Top" Width="129" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+        <Label x:Name="TotalmoneyLabel" Content="" HorizontalAlignment="Left" Margin="62,68,0,0" VerticalAlignment="Top" Width="129" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
         <DataGrid x:Name="mwrdenfwterDataGrid" Margin="0,148,0,0" IsReadOnly="True" MouseDoubleClick="mwrdenfwterDataGrid_MouseDoubleClick" />
         <Button x:Name="sgl7sabMwrdenBtn" Click="sgl7sabMwrdenBtn_Click" Content="اليوميات" HorizontalAlignment="Left" Margin="187,112,0,0" VerticalAlignment="Top" Background="#FF706B6B" Foreground="#FFF58322" FontWeight="Bold" Style="{StaticResource  RoundButtonTemplate}" Width="90" Height="30"/>
         <Button x:Name="editMwrdenBtn" Content="تعديل" HorizontalAlignment="Left" Margin="143,123,0,0" VerticalAlignment="Top" Click="editMwrdenBtn_Click"/>

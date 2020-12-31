@@ -28,7 +28,7 @@ namespace ElAhram.pages.Emp
         private void EmpAddMntag_Click(object sender, RoutedEventArgs e)
         {
             
-            dataContext.موظف.Add(new موظف {  اسم= this.emp2smText.Text, رقم = this.empMobText.Text, عنوان= this.emp3nwanText.Text,بطاقة= this.empBtakaText.Text,رقم_قومى= this.empRkmkwmyText.Text});
+            dataContext.موظف.Add(new موظف {  اسم= this.emp2smText.Text, رقم = this.empMobText.Text, عنوان= this.emp3nwanText.Text,بطاقة= this.empBtakaText.Text,رقم_قومى= this.empRkmkwmyText.Text,حالةالعمل = 'ي'});
             dataContext.SaveChanges();
             DialogResult = true;
             this.Close();

@@ -9,7 +9,31 @@
     <Grid>
 
         <Label Content=" : سجل يوميات" HorizontalAlignment="Left" Margin="376,15,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
-        <DataGrid x:Name="k4f7sabDataG" Margin="0,117,0,0" IsReadOnly="True"  />
+        <DataGrid x:Name="k4f7sabDataG" Margin="0,117,0,0" IsReadOnly="True"  ItemsSource="{Binding k4f7sab3melDataGVM}"
+                      AutoGenerateColumns="False"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  FlowDirection="LeftToRight" CanUserAddRows="False" >
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ملاحظات"    Width="200" 
+                                        Binding="{Binding ملاحظات}" />
+
+
+                <DataGridTextColumn Header="التاريخ"    Width="110" 
+                                        Binding="{Binding  تاريخ}"  />
+
+                <DataGridTextColumn Header="المبلغ"           Width="80" 
+                                        Binding="{Binding مبلغ}" />
+                <DataGridTextColumn Header="كود اليومية "           Width="150" 
+                                        Binding="{Binding كوداليومية}"  />
+               
+
+                <DataGridTextColumn Header=" # "           Width="50" 
+                                        Binding="{Binding رقم}"  />
+
+
+
+            </DataGrid.Columns>
+
+        </DataGrid>
         <Label x:Name="empLabel" Content="" HorizontalAlignment="Left" Margin="302,17,0,0" VerticalAlignment="Top"   FontWeight="Bold" FontSize="20" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
         <Label Content=" : من" HorizontalAlignment="Left" Margin="506,86,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
         <DatePicker x:Name="datefromDateP" HorizontalAlignment="Left" Margin="376,91,0,0" VerticalAlignment="Top" SelectedDateChanged="datefromDateP_SelectedDateChanged"/>

@@ -591,7 +591,7 @@ namespace ElAhram
             {
 
 
-                foreach (var item in db.موظف)
+                foreach (var item in db.موظف.Where(x=>x.حالةالعمل == 'ع'))
                 {
                     empdata.Add(new EmpDataGVM { كودموظف = item.كودموظف, اسم = item.اسم, رقم = item.رقم, عنوان = item.عنوان, بطاقة = item.بطاقة, قومى = item.رقم_قومى });
 
@@ -1341,6 +1341,11 @@ namespace ElAhram
         {
             
             refywmyat();
+        }
+
+        private void mwzfenmwkfenBtn_Click(object sender, RoutedEventArgs e)
+        {
+
         }
 
 

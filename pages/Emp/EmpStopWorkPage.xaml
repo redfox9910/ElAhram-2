@@ -1,0 +1,52 @@
+﻿<Window x:Class="ElAhram.pages.Emp.EmpStopWorkPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ElAhram.pages.Emp"
+        mc:Ignorable="d"
+        Title="EmpStopWorkPage" Height="350" Width="900" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Loaded="Window_Loaded">
+    <Grid>
+
+        <Label Content="الموظفين الموقفين" HorizontalAlignment="Center" Margin="0,22,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
+        <DataGrid x:Name="empstopWDataG" Margin="0,78,0,0" IsReadOnly="True"  ItemsSource="{Binding EmpDataGVM}"
+                      AutoGenerateColumns="False"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  FlowDirection="LeftToRight" CanUserAddRows="False" >
+
+            <DataGrid.Columns>
+
+                <DataGridTextColumn Header="الرقم القومى "    Width="180" 
+                                        Binding="{Binding قومى}" CanUserResize="False" />
+
+
+                <DataGridTextColumn Header=" العنوان "    Width="150" 
+                                        Binding="{Binding  عنوان}" CanUserResize="False" />
+
+                <DataGridTextColumn Header=" رقم البطاقة "           Width="110" 
+                                        Binding="{Binding بطاقة}" CanUserResize="False" />
+                <DataGridTextColumn Header=" رقم الهاتف "           Width="110" 
+                                        Binding="{Binding رقم}" CanUserResize="False" />
+                <DataGridTextColumn Header=" اسم الموظف "           Width="150" 
+                                        Binding="{Binding اسم}" CanUserResize="False" />
+
+                <DataGridTextColumn Header=" # "           Width="90" 
+                                        Binding="{Binding كودموظف}" CanUserResize="False" />
+
+
+
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button  x:Name="Add" Click="Add_Click" > اعادة عمل </Button>
+                                <Button  x:Name="delete" Click="delete_Click"> مسح العميل </Button>
+                            </StackPanel>
+                        </DataTemplate>
+
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+            </DataGrid.Columns>
+
+        </DataGrid>
+    </Grid>
+</Window>

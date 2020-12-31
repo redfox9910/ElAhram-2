@@ -16,5 +16,6 @@ namespace ElAhram.Models
         public decimal حساب { get; set; }
        
         public char نوع{ get; set; }
+
     }
 }

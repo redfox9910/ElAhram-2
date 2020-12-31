@@ -62,10 +62,10 @@ namespace ElAhram.pages.Emp
             }
         }
 
-        private void Emp8yabDataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+       /* private void Emp8yabDataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
 
-        }
+        }  */
 
         private void sglYwmyatBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -79,6 +79,20 @@ namespace ElAhram.pages.Emp
             data.randomVal = int.Parse(kodEMPLabel.Content.ToString());
             mwzfenkf48yabPage page = new mwzfenkf48yabPage();
             page.ShowDialog();
+        }
+
+        private void stopWorkBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = Xceed.Wpf.Toolkit.MessageBox.Show("هل تريد ايقاف عمل الموظف ؟", "عمل الموظف", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No);
+            if (result == MessageBoxResult.Yes)
+            {
+                using (var db = new Models.DataContext())
+                {
+                    var emp = db.موظف.Where(x => x.كودموظف == int.Parse(kodEMPLabel.Content.ToString())).FirstOrDefault();
+                    emp.حالةالعمل = 'م';
+
+                        }
+            }
         }
     }
 }
