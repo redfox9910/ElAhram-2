@@ -7,10 +7,21 @@
         mc:Ignorable="d"
         Title="m5zn2nw35amatHomePage" Height="450" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
     <Grid>
+        <Grid.Background>
+
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFFFDD8C"/>
+                <GradientStop Color="#FFC4C4C4" Offset="1"/>
+                <GradientStop Color="#FFAA9C87" Offset="0.5"/>
+            </LinearGradientBrush>
+        </Grid.Background>
         <Label Content="انواع الخامات" HorizontalAlignment="Center" Margin="0,34,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="22" Foreground="#FFF58322"/>
-        <Button x:Name="AddNo3Btn" Content="اضافة" HorizontalAlignment="Left" Margin="638,110,0,0" VerticalAlignment="Top" Click="AddNo3Btn_Click"/>
-        <Button x:Name="EditNo3Btn" Content="تعديل" HorizontalAlignment="Center" Margin="0,110,0,0" VerticalAlignment="Top" Click="EditNo3Btn_Click"/>
-        <Button x:Name="DeleteNo3Btn" Content="حذف" HorizontalAlignment="Left" Margin="102,110,0,0" VerticalAlignment="Top" Click="DeleteNo3Btn_Click"/>
+        <Button x:Name="AddNo3Btn" Content="اضافة" HorizontalAlignment="Left" Margin="518,110,0,0" VerticalAlignment="Top" Click="AddNo3Btn_Click" Style="{StaticResource  RoundButtonTemplate}" Width="160" Height="40"
+/>
+        <Button x:Name="EditNo3Btn" Content="تعديل" HorizontalAlignment="Center" Margin="0,110,0,0" VerticalAlignment="Top" Click="EditNo3Btn_Click" Style="{StaticResource  RoundButtonTemplate}" Width="160" Height="40" Foreground="#FF36DC48"
+/>
+        <Button x:Name="DeleteNo3Btn" Content="حذف" HorizontalAlignment="Left" Margin="121,110,0,0" VerticalAlignment="Top" Click="DeleteNo3Btn_Click" Style="{StaticResource  RoundButtonTemplate}" Width="160" Height="40" Background="#FF706C6B" Foreground="#FFF64741"
+/>
         <DataGrid x:Name="tpye5matDataG" Margin="0,165,0,0"/>
 
     </Grid>

@@ -51,13 +51,13 @@
 
 
             </DataGrid.Columns>
-            
+
         </DataGrid>
-        <Button x:Name="sglYwmyatBtn" Click="sglYwmyatBtn_Click" Content="سجل اليوميات" HorizontalAlignment="Left" Margin="205,116,0,0" VerticalAlignment="Top" Background="#FF706B6B" Foreground="#FFF58322" FontWeight="Bold" Style="{StaticResource  RoundButtonTemplate}" Width="100" Height="30"/>
+        <Button x:Name="sglYwmyatBtn" Click="sglYwmyatBtn_Click" Content="سجل اليوميات" HorizontalAlignment="Left" Margin="126,117,0,0" VerticalAlignment="Top"  FontWeight="Bold" Style="{StaticResource  RoundButtonTemplate}" Width="100" Height="30"/>
         <Label Content=": رقم قومى " HorizontalAlignment="Left" Margin="220,46,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" FontWeight="Bold"/>
         <Label x:Name="EmpRkmkwmyLabel" Content="" HorizontalAlignment="Left" Margin="166,46,0,0" VerticalAlignment="Top" Width="116" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="14"/>
-        <Button x:Name="stopWorkBtn" Content="ايقاف العمل" HorizontalAlignment="Left" Margin="87,123,0,0" VerticalAlignment="Top" Height="20" Click="stopWorkBtn_Click"/>
-        <Button x:Name="sgel7dorBtn" Content="سجل الحضور و الانصراف" HorizontalAlignment="Left" Margin="320,123,0,0" VerticalAlignment="Top" Click="sgel7dorBtn_Click"/>
+        <Button x:Name="stopWorkBtn" Content="ايقاف العمل" HorizontalAlignment="Left" Margin="14,117,0,0" VerticalAlignment="Top"  Click="stopWorkBtn_Click" Style="{StaticResource  RoundButtonTemplate}" Width="107" Height="29"/>
+        <Button x:Name="sgel7dorBtn" Content="سجل الحضور و الانصراف" HorizontalAlignment="Left" Margin="231,117,0,0" VerticalAlignment="Top" Click="sgel7dorBtn_Click" Style="{StaticResource  RoundButtonTemplate}" Width="139" Height="31"/>
 
     </Grid>
 </Window>

@@ -12,7 +12,7 @@
             <Rectangle.Fill>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FFAA9C87"/>
-                    <GradientStop Color="#FFAA9C87" Offset="1"/>
+                    <GradientStop Color="#FFFFFCFC" Offset="1"/>
                     <GradientStop Color="#ed9c1f" Offset="0.1"/>
                 </LinearGradientBrush>
             </Rectangle.Fill>
@@ -22,8 +22,8 @@
             <Rectangle.Fill>
                 <LinearGradientBrush EndPoint="0.5,0" StartPoint="1,1">
                     <GradientStop Color="#FFC4C4C4"/>
-                    <GradientStop Color="#FFAA9C87" Offset="1"/>
-                    <GradientStop Color="#FFAA9C87" Offset="0.5"/>
+                    <GradientStop Color="#FFF7DFBA" Offset="1"/>
+                    <GradientStop Color="#FFFFD497" Offset="0.5"/>
                     <GradientStop Color="#ed9c1f" Offset="0.5"/>
                 </LinearGradientBrush>
             </Rectangle.Fill>

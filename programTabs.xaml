@@ -26,9 +26,9 @@
             <TabItem Foreground="Red" FontWeight="Heavy" Padding="0,0,0,0" Background="{x:Null}">
 
                 <TabItem.Header>
-                    <Label Content="الخزنة"   MouseLeftButtonDown="m5znHeader_Clicked" VerticalAlignment="Center" HorizontalAlignment="Center" Height="36"  Width="75" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" RenderTransformOrigin="0.24,0.547" FlowDirection="LeftToRight" >
+                    <Label Content="الخزنة"   MouseLeftButtonDown="m5znHeader_Clicked" VerticalAlignment="Center" HorizontalAlignment="Center" Height="36"  Width="75" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" RenderTransformOrigin="0.24,0.547" FlowDirection="RightToLeft" >
                         <Label.Background>
-                            <ImageBrush Stretch="Uniform" ImageSource="/pic/deposit1.png" TileMode="None" AlignmentX="Left" />
+                            <ImageBrush Stretch="Uniform" ImageSource="/pic/deposit1.png" TileMode="None" AlignmentX="Right" />
                         </Label.Background>
 
                     </Label>
@@ -173,26 +173,27 @@
                         <ColumnDefinition Width="104*"/>
                         <ColumnDefinition Width="20*"/>
                         <ColumnDefinition Width="56*"/>
-                        <ColumnDefinition Width="224*"/>
+                        <ColumnDefinition Width="45*"/>
+                        <ColumnDefinition Width="179*"/>
                         <ColumnDefinition Width="595*"/>
                     </Grid.ColumnDefinitions>
 
-                    <Image Height="100" Margin="397,17,98,0" VerticalAlignment="Top" Width="100" Source="/pic/order.png" Grid.Column="5"/>
+                    <Image Height="100" Margin="397,17,98,0" VerticalAlignment="Top" Width="100" Source="/pic/order.png" Grid.Column="6"/>
                     <Label Content="التاريخ" HorizontalAlignment="Left" Margin="14,17,0,0" VerticalAlignment="Top" Grid.Column="1" FontWeight="Bold"/>
                     <Label x:Name="amrt48elDate"  HorizontalAlignment="Left" Margin="60,25,0,0" VerticalAlignment="Top" Loaded="amrt48elDate_Loaded" Width="120" MinWidth="120" MaxWidth="120" Grid.Column="1" Grid.ColumnSpan="3"/>
-                    <Label Content="كود :" HorizontalAlignment="Left" Margin="171,17,0,0" VerticalAlignment="Top" Grid.Column="4" FontWeight="Bold"/>
-                    <Label x:Name="amrt48elkodTextBox" HorizontalAlignment="Left" Margin="205,19,0,0" Content=""  VerticalAlignment="Top" Width="85" HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch" Grid.Column="4" Grid.ColumnSpan="2"/>
+                    <Label Content="كود :" HorizontalAlignment="Left" Margin="126,17,0,0" VerticalAlignment="Top" Grid.Column="5" FontWeight="Bold"/>
+                    <Label x:Name="amrt48elkodTextBox" HorizontalAlignment="Left" Margin="160,19,0,0" Content=""  VerticalAlignment="Top" Width="85" HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch" Grid.Column="5" Grid.ColumnSpan="2"/>
                     <Label Content="عميل :" HorizontalAlignment="Left" Margin="14,78,0,0" VerticalAlignment="Top" Grid.Column="1" FontWeight="Bold"/>
 
 
 
 
-                    <ComboBox Margin="62,67,142,580" Width="200"  x:Name="AmrT48elaml2combobox" PreviewTextInput="aml2combobox_OnPreviewTextInput"   Grid.ColumnSpan="4" Grid.Column="1" MinHeight="25" MaxHeight="25" FlowDirection="RightToLeft" />
+                    <ComboBox Margin="62,67,142,580" Width="200"  x:Name="AmrT48elaml2combobox" PreviewTextInput="aml2combobox_OnPreviewTextInput"   Grid.ColumnSpan="5" Grid.Column="1" MinHeight="25" MaxHeight="25" FlowDirection="RightToLeft" />
 
 
 
 
-                    <DataGrid x:Name="amrt48elDataGrid" Margin="0,146,0,0" Grid.ColumnSpan="6"  IsReadOnly="False"   Loaded="amrt48elDataGrid_Loaded" ItemsSource="{Binding amrt48elDataGVM}"
+                    <DataGrid x:Name="amrt48elDataGrid" Margin="0,146,0,0" Grid.ColumnSpan="7"  IsReadOnly="False"   Loaded="amrt48elDataGrid_Loaded" ItemsSource="{Binding amrt48elDataGVM}"
                         HorizontalContentAlignment="Center" VerticalContentAlignment="Center" CanUserResizeColumns="False" CanUserResizeRows="False" FlowDirection="LeftToRight" CanUserAddRows="False">
 
 
@@ -230,9 +231,9 @@
 
 
                     </DataGrid>
-                    <Button x:Name="amrt48el2dafaBtn" Content="اضافه" Grid.Column="5" HorizontalAlignment="Left" Margin="26,61,0,0" VerticalAlignment="Top" Click="amrt48el2dafa_Click" Background="#FF373434" Foreground="#FFD9880A"
+                    <Button x:Name="amrt48el2dafaBtn" Content="اضافه" Grid.Column="6" HorizontalAlignment="Left" Margin="26,61,0,0" VerticalAlignment="Top" Click="amrt48el2dafa_Click" Background="#FF373434" Foreground="#FFD9880A"
                              Style="{StaticResource  RoundButtonTemplate}" Width="120" Height="50"/>
-                    <Button x:Name="amrT48elListBtn" Content="اوامر التشغيل" Grid.Column="5" HorizontalAlignment="Center" Margin="0,61,0,0" VerticalAlignment="Top" Click="amrT48elListBtn_Click" Background="#FF4B4646" Foreground="#FFCF8514"
+                    <Button x:Name="amrT48elListBtn" Content="اوامر التشغيل" Grid.Column="6" HorizontalAlignment="Center" Margin="0,61,0,0" VerticalAlignment="Top" Click="amrT48elListBtn_Click" Background="#FF4B4646" Foreground="#FFCF8514"
                              Style="{StaticResource  RoundButtonTemplate}" Width="120" Height="50"/>
                     <Button x:Name="addmntgatBtn" Content="+" HorizontalAlignment="Left" Margin="6,117,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Background="Black" BorderBrush="#FFEB7D16" Foreground="#FFEB7D16" Height="27" VerticalContentAlignment="Top" Cursor="" Click="addmntgatBtn_Click" Grid.ColumnSpan="2" Panel.ZIndex="2"  />
 

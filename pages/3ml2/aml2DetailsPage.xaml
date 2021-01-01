@@ -30,11 +30,11 @@
         <Label Content=": الحساب" HorizontalAlignment="Left" Margin="205,86,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <Label x:Name="TotalmoneyLabel" Content="" HorizontalAlignment="Left" Margin="62,86,0,0" VerticalAlignment="Top" Width="129" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
         <DataGrid x:Name="EmpfwterDataGrid" Margin="0,148,0,0" IsReadOnly="True" MouseDoubleClick="EmpfwterDataGrid_MouseDoubleClick" />
-        <Button x:Name="k4f7sab" Click="k4f7sab_Click" Content="اليوميات" HorizontalAlignment="Left" Margin="190,115,0,0" VerticalAlignment="Top" Background="#FF706B6B" Foreground="#FFF58322" FontWeight="Bold"
+        <Button x:Name="k4f7sab" Click="k4f7sab_Click" Content="اليوميات" HorizontalAlignment="Left" Margin="200,115,0,0" VerticalAlignment="Top" Background="#FF706B6B" Foreground="#FFF58322" FontWeight="Bold"
                 Style="{StaticResource  RoundButtonTemplate}" Width="84" Height="30"/>
-        
-        <Button x:Name="edit3ml2Btn" Content="تعديل" HorizontalAlignment="Left" Margin="143,123,0,0" VerticalAlignment="Top" Click="edit3ml2Btn_Click"/>
-        <Button x:Name="Delete3ml2Btn" Content="مسح العميل " HorizontalAlignment="Left" Margin="38,123,0,0" VerticalAlignment="Top" Click="Delete3ml2Btn_Click"/>
+
+        <Button x:Name="edit3ml2Btn" Content="تعديل" HorizontalAlignment="Left" Margin="115,114,0,0" VerticalAlignment="Top" Click="edit3ml2Btn_Click" Style="{StaticResource  RoundButtonTemplate}" Width="85" Height="32" Foreground="#FF27A72D"/>
+        <Button x:Name="Delete3ml2Btn" Content="مسح العميل " HorizontalAlignment="Left" Margin="27,113,0,0" VerticalAlignment="Top" Click="Delete3ml2Btn_Click" Style="{StaticResource  RoundButtonTemplate}" Width="88" Height="32" Foreground="Red"/>
 
     </Grid>
 </Window>

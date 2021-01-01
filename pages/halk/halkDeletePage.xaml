@@ -6,7 +6,15 @@
         xmlns:local="clr-namespace:ElAhram.pages.halk"
         mc:Ignorable="d"
         Title="halkDeletePage" Width="300" MinWidth="300" MaxWidth="300" Height="350" MinHeight="350" MaxHeight="350" Loaded="halkaddPage1_Loaded" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
-    <Grid Background="White" Margin="0,0,0,-6">
+    <Grid>
+        <Grid.Background>
+
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFFFDD8C"/>
+                <GradientStop Color="#FFC4C4C4" Offset="1"/>
+                <GradientStop Color="#FFAA9C87" Offset="0.5"/>
+            </LinearGradientBrush>
+        </Grid.Background>
         <Label Content="حذف هالك" HorizontalAlignment="Center" Margin="0,22,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="22" Foreground="#FFF58322"/>
         <StackPanel MinWidth="200" MaxWidth="200" MinHeight="250" MaxHeight="250" Margin="43,91,43,41">
 
@@ -54,7 +62,8 @@
                 <TextBox x:Name="halk5smText" Text="" TextWrapping="Wrap" Width="120" VerticalContentAlignment="Top" Margin="0,-20,80,0" BorderBrush="#FFF58322" />
             </StackPanel>
 
-            <Button x:Name="halkAddBtn" Content="خصم" Margin="0,0,0,0" Click="halkAddBtn_Click" />
+            <Button x:Name="halkAddBtn" Content="خصم" Margin="0,0,0,0" Click="halkAddBtn_Click" Style="{StaticResource  RoundButtonTemplate}" Width="160" Height="40"
+/>
 
 
         </StackPanel>

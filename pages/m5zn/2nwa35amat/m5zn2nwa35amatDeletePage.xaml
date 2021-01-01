@@ -6,12 +6,20 @@
         xmlns:local="clr-namespace:ElAhram.pages.m5zn._2nwa35amat"
         mc:Ignorable="d"
         Title="m5zn2nwa35amatDeletePage" Height="250" Width="300" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" >
-    <Grid Background="White" Margin="0,0,0,33">
+    <Grid >
+        <Grid.Background>
+
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFFFDD8C"/>
+                <GradientStop Color="#FFC4C4C4" Offset="1"/>
+                <GradientStop Color="#FFAA9C87" Offset="0.5"/>
+            </LinearGradientBrush>
+        </Grid.Background>
         <Label Content="مسح نوع خامة" HorizontalAlignment="Center" Margin="0,22,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="22" Foreground="#FFF58322"/>
 
         <StackPanel MinWidth="200" MaxWidth="200" MinHeight="50" MaxHeight="50" Margin="50,126,36,0">
 
-            <Button x:Name="No3DeleteBtn" Content="مسح" Click="No3DeleteBtn_Click"/>
+            <Button x:Name="No3DeleteBtn" Content="مسح" Click="No3DeleteBtn_Click" Style="{StaticResource  RoundButtonTemplate}" Width="160" Height="40"/>
 
 
         </StackPanel>
