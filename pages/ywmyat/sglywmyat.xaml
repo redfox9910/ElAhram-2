@@ -7,6 +7,14 @@
         mc:Ignorable="d"
         Title="sglywmyat" Height="450" Width="850" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
     <Grid>
+        <ComboBox x:Name="ywmyacombo"  Text=""  Width="120"   BorderBrush="#FFF58322" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"  Margin="701,61,29,340">
+            <ComboBoxItem Name="cbi1">وارد</ComboBoxItem>
+            <ComboBoxItem Name="cbi2">مصاريف</ComboBoxItem>
+            <ComboBoxItem Name="cbi3">سلف</ComboBoxItem>
+            <ComboBoxItem Name="cbi5">مرتبات</ComboBoxItem>
+            <ComboBoxItem Name="cbi4">تحويلات</ComboBoxItem>
+
+        </ComboBox>
         <Label Content=": من التاريخ" HorizontalAlignment="Left" Margin="610,65,0,0" VerticalAlignment="Top"/>
         <DatePicker x:Name="datefromDateP" HorizontalAlignment="Left" Margin="484,70,0,0" VerticalAlignment="Top" SelectedDateChanged="datefromDateP_SelectedDateChanged"/>
         <Label Content=": الى التاريخ" HorizontalAlignment="Left" Margin="322,69,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>

@@ -19,7 +19,7 @@
         <Label Content="اضافة عميل" HorizontalAlignment="Center" Margin="0,22,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="22" Foreground="#FFF58322"/>
 
 
-        <StackPanel  Margin="0,86,5,53">
+        <StackPanel  Margin="0,86,5,34">
             <StackPanel Height="30">
                 <Label Content="الاسم " HorizontalAlignment="Right" FontWeight="Bold" FontSize="14"/>
                 <TextBox x:Name="amel2smText" Text="" TextWrapping="Wrap" Width="120" VerticalContentAlignment="Top" Margin="0,-20,25,0" BorderBrush="#FFF58322"/>

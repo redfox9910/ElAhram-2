@@ -36,7 +36,33 @@ namespace ElAhram.pages.m5zn
             if (mntg.type == 'خ')
             {
                 m5znNo3elmntgEdit.SelectedIndex = 0;
+                   }
+            else
+            {
+                m5znNo3elmntgEdit.SelectedIndex = 1;
             }
+
+            m5zn3ddmntgedit.Text = mntg.الكمية.ToString();
+
+            this.M5znEditCombobox.IsEditable = true;
+            this.M5znEditCombobox.IsTextSearchEnabled = true;
+        }
+        
+
+        private void M5znEditCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+
+           
+
+
+            المنتجات mntg = dataContext.منتجات.Where(x => x.الخامة == M5znEditCombobox.SelectedItem.ToString()).FirstOrDefault();
+            m5zn2smmntgEdit.Text = mntg.الخامة;
+            if (mntg.type == 'خ')
+            {
+                m5znNo3elmntgEdit.SelectedIndex = 0;
+                      }
             else
             {
                 m5znNo3elmntgEdit.SelectedIndex = 1;
@@ -44,34 +70,28 @@ namespace ElAhram.pages.m5zn
 
             m5zn3ddmntgedit.Text = mntg.الكمية.ToString();
         }
-
-        private void M5znEditCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            المنتجات mntg = dataContext.منتجات.Where(x => x.الخامة== M5znEditCombobox.SelectedItem.ToString()).FirstOrDefault();
-            m5zn2smmntgEdit.Text = mntg.الخامة;
-            if (mntg.type == 'خ')
+        catch (Exception)
             {
-                m5znNo3elmntgEdit.SelectedIndex = 0;
-            }
-            else
-            {
-                m5znNo3elmntgEdit.SelectedIndex = 1;
-            }
 
-            m5zn3ddmntgedit.Text = mntg.الكمية.ToString();
+                
+            }
         }
 
         private void m5znEDITMntagBtn_Click(object sender, RoutedEventArgs e)
         {
             المنتجات mntg = dataContext.منتجات.Where(x => x.الخامة == M5znEditCombobox.SelectedItem.ToString()).FirstOrDefault();
             mntg.الخامة= m5zn2smmntgEdit.Text ;
-            if (m5znNo3elmntgEdit.SelectedItem.ToString() == "خامة")
+
+            ComboBoxItem typeItem = (ComboBoxItem)m5znNo3elmntgEdit.SelectedItem;
+            string value = typeItem.Content.ToString();
+            if (value == "خامة")
             {
                 mntg.type = 'خ';
-            }
+                }
             else
             {
                 mntg.type = 'م';
+                mntg.كودالنوع = 1;
             }
 
             mntg.الكمية= Convert.ToDouble(m5zn3ddmntgedit.Text) ;
@@ -85,5 +105,12 @@ namespace ElAhram.pages.m5zn
 
 
         }
+
+        private void M5znEditCombobox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            M5znEditCombobox.IsDropDownOpen = true;
+        }
+
+      
     }
 }

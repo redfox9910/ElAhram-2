@@ -15,6 +15,7 @@ using ElAhram.pages.password;
 using ElAhram.pages.ywmyat;
 using ElAhram.ViewmModels;
 using ElAhram.ViewmModels._3ml2Tab;
+using ElAhram.ViewmModels.Aml2Tab;
 using ElAhram.ViewmModels.Amr4r2;
 using ElAhram.ViewmModels.amrT48el;
 using ElAhram.ViewmModels.EmpTab;
@@ -77,7 +78,7 @@ namespace ElAhram
 
         private void btnSelectedTab_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Selected tab: " + (ptabs.SelectedItem as TabItem).Header + "\n index " + (ptabs.SelectedItem as TabItem).TabIndex);
+            Xceed.Wpf.Toolkit.MessageBox.Show("Selected tab: " + (ptabs.SelectedItem as TabItem).Header + "\n index " + (ptabs.SelectedItem as TabItem).TabIndex);
         }
 
         private void btnSelectedTab_home(object sender, RoutedEventArgs e)
@@ -293,7 +294,44 @@ namespace ElAhram
             ref3ml2dataG();
 
         }
+        // class for k4f 7sab 3mla2
 
+        public class k4f7sab3ml2
+        {
+
+            public int number;
+            public string name { get; set; }
+            public decimal cash{ get; set; }
+
+        }
+
+        private void k4f7sab3ml2Btn_Click(object sender, RoutedEventArgs e)
+        {
+            List<k4f7sam3ml2> k4fdata = new List<k4f7sam3ml2>();
+            fwterDataGVM aznData;
+         //   DataGrid k4f7sab3ml2datagrid = new DataGrid();
+            using (var db = new Models.DataContext())
+            {
+                Int16 count = 1;
+
+                foreach (var item in db.عملاء.Where(x=>x.نوع == 'ع'))
+                {
+                    k4fdata.Add( new k4f7sam3ml2 { رقم = count , اسم = item.اسم , حساب= item.حساب } );
+                }
+               
+                k4f7sab3ml2datagrid.ItemsSource = k4fdata;
+                k4f7sab3ml2datagrid.Items.Refresh();
+
+
+                 aznData  = new fwterDataGVM { تاريخ_تشغيل = DateTime.Now, اجمالى_نقدى = db.عملاء.Where(x => x.نوع == 'ع').Sum(x=>x.حساب) };
+            }
+            this.DataContext = new CustomDocumentPaginator.MainWindowViewModel( "كشف حساب عملاء", aznData, "كشف حساب عملاء");
+            
+        }
+
+
+
+      
 
         private void aml2AddBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -426,7 +464,8 @@ namespace ElAhram
             //{
             //    var x = item;
             //}
-            var s = amrt48elDataGrid.Items[1];
+            // var s = amrt48elDataGrid.Items[1];
+            /*
             foreach (var item in amrt48elDataGrid.Items)
             {
                 var z = item;
@@ -436,7 +475,7 @@ namespace ElAhram
             {
                 var z = item;
 
-            }
+            }   */
             using (var db = new Models.DataContext())
             {
                 فواتير element = new فواتير();
@@ -478,7 +517,7 @@ namespace ElAhram
                     }
 
                     db.SaveChanges();
-                    this.amrt48elkodTextBox.Content = db.فواتير.Max(y=>y.رقم) + 1;
+                    this.amrt48elkodTextBox.Content = int.Parse(db.فواتير.Where(x => x.نوع_فاتورة == 'ب').Max(x => x.رقم).ToString()) + 1;
                     AmrT48elaml2combobox.Text = null;
                     this.amrt48elDataGrid.ItemsSource = null;
                     this.amrt48elDataGrid.Items.Clear();
@@ -842,19 +881,34 @@ namespace ElAhram
                 }
                 catch (Exception)
                 {
+                    try
+                    {
+                        datesf = new DateTime(DateTime.Now.Year, DateTime.Now.Month + 1, 1);
+                    }
+                    catch (Exception)
+                    {
 
-                     datesf = new DateTime(DateTime.Now.Year, DateTime.Now.Month+1, 1);
+                        datesf = new DateTime(DateTime.Now.Year +1, DateTime.Now.Month , 1);
+                    }
+                     
                 }
                 
                 if (db.يوميات.Where(x => x.تاريخ >= dates && x.تاريخ < datesf).Any())
                 {
 
-                    db.يوميات.Add(new يوميات { كود = (db.يوميات.Where(x => x.تاريخ >= dates && x.تاريخ < datesf).Max(x => x.كود) + 1), تاريخ = DateTime.Today, مبلغ = 0, ملاحظات = "  فاتورة رقم  : " +element.رقم  + "  /  " + "اجمالى الفاتورة  : " + element.اجمالى_نقدى + "  /  " + "اجمالى الحساب : " + element.اجمالى_حساب, كودصاحب = element.كودعميل, كودحالة = db.حالات_يوميات.Where(y => y.حالة == "وارد").Select(y => y.كودحالة).FirstOrDefault(), flag = 'ع' });
+                    db.يوميات.Add(new يوميات { كود = (db.يوميات.Where(x => x.تاريخ >= dates && x.تاريخ < datesf).Max(x => x.كود) + 1), تاريخ = DateTime.Today, مبلغ =0, ملاحظات = "فاتورة رقم : " +element.رقم  + " /  " + "اجمالى وزن: " + element.اجمالى_وزن , كودصاحب = element.كودعميل, كودحالة = db.حالات_يوميات.Where(y => y.حالة == "وارد").Select(y => y.كودحالة).FirstOrDefault(), flag = 'ع' , حساب = element.اجمالى_حساب ,خزنة = db.خزنة.FirstOrDefault().نقدى ,فاتورة = element.اجمالى_نقدى });
+                   /* string sd = "فاتورة رقم : ";
+                    string asc = "";
+                    for (int i = 0; i < 12; i++)
+                    {
+                        asc += sd[i];
+                    }
+                        */
                     
                 }
                 else
                 {
-                    db.يوميات.Add(new يوميات { كود = 1, تاريخ = DateTime.Today, مبلغ = 0, ملاحظات = "  فاتورة رقم  : " + element.رقم + "  /  " + "اجمالى الفاتورة  : " + element.اجمالى_نقدى + "  /  " + "اجمالى الحساب : " + element.اجمالى_حساب, كودصاحب = element.كودعميل, كودحالة = db.حالات_يوميات.Where(y => y.حالة == "وارد").Select(y => y.كودحالة).FirstOrDefault(), flag = 'ع' });
+                    db.يوميات.Add(new يوميات { كود = 1, تاريخ = DateTime.Today, مبلغ = 0, ملاحظات = "فاتورة رقم : " + element.رقم + " /  " + "اجمالى وزن: " + element.اجمالى_وزن, كودصاحب = element.كودعميل, كودحالة = db.حالات_يوميات.Where(y => y.حالة == "وارد").Select(y => y.كودحالة).FirstOrDefault(), flag = 'ع', حساب = element.اجمالى_حساب, خزنة = db.خزنة.FirstOrDefault().نقدى, فاتورة = element.اجمالى_نقدى });
                    
                 }
 
@@ -923,7 +977,7 @@ namespace ElAhram
                 catch (Exception)
                 {
 
-                    MessageBox.Show("الرجاء ادخال اسم العميل", "خطاء فى اسم العميل ", MessageBoxButton.OK, MessageBoxImage.Error);
+                    Xceed.Wpf.Toolkit.MessageBox.Show("الرجاء ادخال اسم العميل", "خطاء فى اسم العميل ", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
 
@@ -1012,7 +1066,7 @@ namespace ElAhram
                         catch (Exception)
                 {
 
-                            MessageBox.Show("املاء الفراغات","خطاء فى عمليه الادخال ",MessageBoxButton.OK,MessageBoxImage.Error);
+                    Xceed.Wpf.Toolkit.MessageBox.Show("املاء الفراغات","خطاء فى عمليه الادخال ",MessageBoxButton.OK,MessageBoxImage.Error);
                 }
 
 
@@ -1030,12 +1084,12 @@ namespace ElAhram
                 if (db.يوميات.Where(x => x.تاريخ >= dates && x.تاريخ < datesf).Any())
                 {
 
-                    db.يوميات.Add(new يوميات { كود = (db.يوميات.Where(x => x.تاريخ >= dates && x.تاريخ < datesf).Max(x => x.كود) + 1), تاريخ = DateTime.Today, مبلغ = 0, ملاحظات = "  امر شراء رقم  : " + element.رقم + "  /  " + "اجمالى الفاتورة  : " + element.اجمالى_نقدى + "  /  " + "اجمالى الحساب : " + element.اجمالى_حساب, كودصاحب = element.كودعميل, كودحالة = db.حالات_يوميات.Where(y => y.حالة == "مصاريف").Select(y => y.كودحالة).FirstOrDefault(), flag = 'م' });
+                    db.يوميات.Add(new يوميات { كود = (db.يوميات.Where(x => x.تاريخ >= dates && x.تاريخ < datesf).Max(x => x.كود) + 1), تاريخ = DateTime.Today, مبلغ = 0, ملاحظات = "فاتورة رقم : " + element.رقم + " /  " + "اجمالى وزن: " + element.اجمالى_وزن, كودصاحب = element.كودعميل, كودحالة = db.حالات_يوميات.Where(y => y.حالة == "مصاريف").Select(y => y.كودحالة).FirstOrDefault(), flag = 'م', حساب = element.اجمالى_حساب, خزنة = db.خزنة.FirstOrDefault().نقدى, فاتورة = element.اجمالى_نقدى });
 
                 }
                 else
                 {
-                    db.يوميات.Add(new يوميات { كود = 1, تاريخ = DateTime.Today, مبلغ = 0, ملاحظات = " امر شراء رقم  : " + element.رقم + "  /  " + "اجمالى الفاتورة  : " + element.اجمالى_نقدى + "  /  " + "اجمالى الحساب : " + element.اجمالى_حساب, كودصاحب = element.كودعميل, كودحالة = db.حالات_يوميات.Where(y => y.حالة == "مصاريف").Select(y => y.كودحالة).FirstOrDefault(), flag = 'م' });
+                    db.يوميات.Add(new يوميات { كود = 1, تاريخ = DateTime.Today, مبلغ = 0, ملاحظات = "فاتورة رقم : " + element.رقم + " /  " + "اجمالى وزن: " + element.اجمالى_وزن, كودصاحب = element.كودعميل, كودحالة = db.حالات_يوميات.Where(y => y.حالة == "مصاريف").Select(y => y.كودحالة).FirstOrDefault(), flag = 'م', حساب = element.اجمالى_حساب, خزنة = db.خزنة.FirstOrDefault().نقدى, فاتورة = element.اجمالى_نقدى });
 
                 }
 
@@ -1191,11 +1245,14 @@ namespace ElAhram
 
 
                 cash.Content = data.نقدى;
-                mden.Content = data.مدين;
-                d2n.Content = data.دائن;
+                mden.Content = db.فواتير.Where(x => x.نوع_فاتورة == 'ب').Sum(x => x.اجمالى_نقدى);
+                d2n.Content = db.فواتير.Where(x=>x.نوع_فاتورة == 'ش' ).Sum(x=>x.اجمالى_نقدى);
                 total.Content = data.اجمالى;
                 cash4ekat.Content = data.شيكات;
                 cash7sab.Content = data.حساب;
+                data.دائن = decimal.Parse(d2n.Content.ToString());
+                data.مدين = decimal.Parse(mden.Content.ToString());
+                db.SaveChanges();
             }
         }
 
@@ -1347,6 +1404,9 @@ namespace ElAhram
         {
 
         }
+
+       
+
 
 
 

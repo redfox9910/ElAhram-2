@@ -55,24 +55,24 @@
 
 
                     <Image  Height="100" Margin="254,31,477,0" VerticalAlignment="Top" Width="100" Source="/pic/deposit.png" Grid.Column="3"/>
-                    <Label Content="دائن :" HorizontalAlignment="Left" Margin="596,0,0,0" VerticalAlignment="Center" HorizontalContentAlignment="Right" Grid.Column="3" Foreground="Black" FontWeight="Bold" FontSize="16"/>
+                    <Label Content="دائن :" HorizontalAlignment="Left" Margin="418,0,0,0" VerticalAlignment="Center" HorizontalContentAlignment="Right" Grid.Column="3" Foreground="Black" FontWeight="Bold" FontSize="16"/>
                     <Label Content="مدين : " HorizontalAlignment="Left" Margin="11,0,0,0" VerticalAlignment="Center" Width="48" HorizontalContentAlignment="Right" Grid.Column="2" Foreground="Black" FontWeight="Bold" FontSize="16"/>
-                    <Label Content="" HorizontalAlignment="Left" Margin="51,0,0,0" VerticalAlignment="Center" Name="mden" Grid.Column="2"/>
-                    <Label Content="" HorizontalAlignment="Left" Margin="636,0,0,0" VerticalAlignment="Center" Name="d2n" Grid.Column="3"/>
+                    <Label Content="" HorizontalAlignment="Left" Margin="51,0,0,0" VerticalAlignment="Center" Name="mden" Grid.Column="2" Grid.ColumnSpan="2" Width="258" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <Label Content="" HorizontalAlignment="Left" Margin="464,0,0,0" VerticalAlignment="Center" Name="d2n" Grid.Column="3" Width="239" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                     <Label Content="كاش: " HorizontalAlignment="Left" Margin="71,68,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" FontWeight="Bold" Grid.ColumnSpan="3" FontSize="16" Foreground="Black"/>
-                    <Label Content="" HorizontalAlignment="Left" Margin="7,68,0,0" VerticalAlignment="Top" Name="cash" Grid.ColumnSpan="2" Grid.Column="1"/>
-                    <Label Content="صافى :" HorizontalAlignment="Left" Margin="257,526,0,0" VerticalAlignment="Top" Grid.Column="3" Foreground="Black" FontWeight="Bold" FontSize="16"/>
-                    <Label Content="" HorizontalAlignment="Left" Margin="317,526,0,0" VerticalAlignment="Top" Name="total" Grid.Column="3"/>
-                    <Label Content="كاش شيكات :" HorizontalAlignment="Left" Margin="409,68,0,0" VerticalAlignment="Top" Grid.Column="3" FontSize="16" FontWeight="Bold" Foreground="Black"/>
-                    <Label x:Name="cash4ekat" Content="" HorizontalAlignment="Left" Margin="506,70,0,0" VerticalAlignment="Top" Grid.Column="3"/>
+                    <Label Content="" HorizontalAlignment="Left" Margin="7,68,0,0" VerticalAlignment="Top" Name="cash" Grid.ColumnSpan="3" Grid.Column="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="220"/>
+                    <Label Content="صافى :" HorizontalAlignment="Left" Margin="198,530,0,0" VerticalAlignment="Top" Grid.Column="3" Foreground="Black" FontWeight="Bold" FontSize="16"/>
+                    <Label Content="" HorizontalAlignment="Left" Margin="257,535,0,0" VerticalAlignment="Top" Name="total" Grid.Column="3" Width="245" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <Label Content="كاش شيكات :" HorizontalAlignment="Left" Margin="362,68,0,0" VerticalAlignment="Top" Grid.Column="3" FontSize="16" FontWeight="Bold" Foreground="Black"/>
+                    <Label x:Name="cash4ekat" Content="" HorizontalAlignment="Left" Margin="462,70,0,0" VerticalAlignment="Top" Grid.Column="3" Width="148" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                     <Button x:Name="shekatTabListBtn" Content="سجل الشيكات" HorizontalAlignment="Left" Margin="643,71,0,0" VerticalAlignment="Top" Click="shekatTabListBtn_Click" Grid.Column="3" FontWeight="Bold"
                              Style="{StaticResource  RoundButtonTemplate}" Width="120" Height="50"/>
-                    <Label Content="حساب بنك  :" HorizontalAlignment="Left" Margin="409,113,0,0" VerticalAlignment="Top" Grid.Column="3" FontSize="16" FontWeight="Bold" Foreground="Black" />
-                    <Label x:Name="cash7sab" Content="" HorizontalAlignment="Left" Margin="506,115,0,0" VerticalAlignment="Top" Grid.Column="3"/>
+                    <Label Content="حساب بنك  :" HorizontalAlignment="Left" Margin="363,113,0,0" VerticalAlignment="Top" Grid.Column="3" FontSize="16" FontWeight="Bold" Foreground="Black" />
+                    <Label x:Name="cash7sab" Content="" HorizontalAlignment="Left" Margin="460,115,0,0" VerticalAlignment="Top" Grid.Column="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="150"/>
 
 
 
-                    <Button x:Name="t7welatDa5lya" Click="t7welatDa5lya_Click" Content="تحويلات داخلية " Grid.Column="3"  HorizontalAlignment="Left" Margin="643,161,0,0" VerticalAlignment="Top" FontWeight="Bold" Style="{StaticResource  RoundButtonTemplate}" Width="120" Height="50"/>
+                    <Button x:Name="t7welatDa5lya" Click="t7welatDa5lya_Click" Content="تحويلات داخلية " Grid.Column="3"  HorizontalAlignment="Left" Margin="643,155,0,0" VerticalAlignment="Top" FontWeight="Bold" Style="{StaticResource  RoundButtonTemplate}" Width="120" Height="50"/>
                     <Button x:Name="t7welatDa5lyaSglBtn" Content="سجل التحويلات " Click="t7welatDa5lyaSglBtn_Click"  Grid.Column="3"   Margin="643,243,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Style="{StaticResource RoundButtonTemplate}" Width="120" Height="50"/>
 
 
@@ -234,7 +234,7 @@
                              Style="{StaticResource  RoundButtonTemplate}" Width="120" Height="50"/>
                     <Button x:Name="amrT48elListBtn" Content="اوامر التشغيل" Grid.Column="5" HorizontalAlignment="Center" Margin="0,61,0,0" VerticalAlignment="Top" Click="amrT48elListBtn_Click" Background="#FF4B4646" Foreground="#FFCF8514"
                              Style="{StaticResource  RoundButtonTemplate}" Width="120" Height="50"/>
-                    <Button x:Name="addmntgatBtn" Content="+" HorizontalAlignment="Left" Margin="6,117,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Background="Black" BorderBrush="#FFEB7D16" Foreground="#FFEB7D16" Height="27" VerticalContentAlignment="Top" Cursor="" Click="addmntgatBtn_Click" Grid.ColumnSpan="2" Panel.ZIndex="2"  />
+                    <Button x:Name="addmntgatBtn" Content="+" HorizontalAlignment="Left" Margin="6,117,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Background="Black" BorderBrush="#FFEB7D16" Foreground="#FFEB7D16" Height="27" VerticalContentAlignment="Center" Cursor="" Click="addmntgatBtn_Click" Grid.ColumnSpan="2" Panel.ZIndex="2" Padding="0,-5,0,0"  />
 
 
 
@@ -278,14 +278,13 @@
                     </Button>
                     <Label Content="عميل :" HorizontalAlignment="Left" Margin="33,97,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
 
-                    <ComboBox Margin="42,91,726,567"  x:Name="fwteraml2combobox"  MinHeight="25" MaxHeight="25" Padding="6,3,5,3"  PreviewTextInput="fwteraml2combobox_OnPreviewTextInput" Grid.ColumnSpan="3" Grid.Column="1" />
+                    <ComboBox Margin="92,91,676,567"  x:Name="fwteraml2combobox"  MinHeight="25" MaxHeight="25" Padding="6,3,5,3"  PreviewTextInput="fwteraml2combobox_OnPreviewTextInput" />
 
 
 
 
 
-                    <DataGrid x:Name="fwterDataGrid" Margin="0,146,0,123"  IsSynchronizedWithCurrentItem="True"   RowEditEnding="fwterDataGrid_RowEditEnding"   CellEditEnding="fwterDataGrid_CellEditEnding" Grid.ColumnSpan="4" ItemsSource="{Binding bnodFatora}"
-                      AutoGenerateColumns="False"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" CanUserResizeColumns="False" CanUserResizeRows="False" FlowDirection="LeftToRight" >
+                    <DataGrid x:Name="fwterDataGrid" Margin="0,146,0,123"  IsSynchronizedWithCurrentItem="True"   RowEditEnding="fwterDataGrid_RowEditEnding"   CellEditEnding="fwterDataGrid_CellEditEnding" Grid.ColumnSpan="4" ItemsSource="{Binding bnodFatora}"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" CanUserResizeColumns="False" CanUserResizeRows="False" FlowDirection="LeftToRight" AutoGenerateColumns="False" CanUserAddRows="False" >
 
                         <DataGrid.Columns>
 
@@ -364,7 +363,7 @@
                     </ComboBox>
 
 
-                    <Button x:Name="add5amaBtn" Content="+" HorizontalAlignment="Left" Margin="4,118,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Height="27" VerticalContentAlignment="Top" Cursor="" Click="add5amaBtn_Click" Panel.ZIndex="2"  Background="Black" BorderBrush="#FFEB7D16" Foreground="#FFEB7D16" />
+                    <Button x:Name="add5amaBtn" Content="+" HorizontalAlignment="Left" Margin="4,118,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Height="27" VerticalContentAlignment="Top" Cursor="" Click="add5amaBtn_Click" Panel.ZIndex="2"  Background="Black" BorderBrush="#FFEB7D16" Foreground="#FFEB7D16" Padding="0,-5,0,0" />
 
 
                     <DataGrid  x:Name="amr4r2DataGrid"  Margin="0,146,379,10"   Loaded="amr4r2DataGrid_Loaded" IsSynchronizedWithCurrentItem="True"  RowEditEnding="amr4r2DataGrid_RowEditEnding"   CellEditEnding="amr4r2DataGrid_CellEditEnding" Grid.ColumnSpan="2" ItemsSource="{Binding amr4r2DataGVM}"
@@ -489,7 +488,7 @@
                             Style="{StaticResource  RoundButtonTemplate}" Width="120" Height="50"></Button>
                     <Image Height="100" Margin="245,10,98,0" VerticalAlignment="Top" Width="100" Source="/pic/people1.png" Grid.Column="2"/>
                     <DataGrid x:Name="_3ml2Datagrid" Margin="0,123,0,0" MouseDoubleClick="_3ml2Datagrid_MouseDoubleClick"  Loaded="_3ml2Datagrid_Loaded"  IsReadOnly="True" Grid.ColumnSpan="3"   ItemsSource="{Binding aml2DataGVM}"
-                      AutoGenerateColumns="False"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" CanUserResizeColumns="False" CanUserResizeRows="False" FlowDirection="LeftToRight" CanUserAddRows="False"   >
+                      AutoGenerateColumns="False"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" CanUserResizeColumns="False" CanUserResizeRows="False" FlowDirection="LeftToRight" CanUserAddRows="False" Visibility="Visible"   >
 
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="حساب العميل  "    Width="180" 
@@ -514,6 +513,33 @@
                         </DataGrid.Columns>
 
                     </DataGrid>
+
+                    <DataGrid x:Name="k4f7sab3ml2datagrid" Margin="0,123,0,0" Grid.ColumnSpan="2" ItemsSource="{Binding k4f7sam3ml2}"
+                      AutoGenerateColumns="False"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" CanUserResizeColumns="False" CanUserResizeRows="False" FlowDirection="LeftToRight" CanUserAddRows="False" Visibility="Hidden">
+                        <DataGrid.Columns>
+
+
+                            <DataGridTextColumn Header="اجمالى الحساب"    Width="140" 
+                                        Binding="{Binding حساب}" CanUserResize="False" />
+                            <DataGridTextColumn Header="اسم العميل"    Width="140" 
+                                        Binding="{Binding اسم}" CanUserResize="False" />
+                            <DataGridTextColumn Header="#"    Width="140" 
+                                        Binding="{Binding رقم}" CanUserResize="False" />
+
+
+                        </DataGrid.Columns>
+
+                       
+
+
+                    </DataGrid>
+                    
+
+
+                    <Button x:Name="k4f7sab3ml2Btn" Content="كشف حساب العملاء" Grid.Column="2" HorizontalAlignment="Left" Margin="0,40,0,0" VerticalAlignment="Top"  Background="Black" Foreground="#FFED9C1F"
+                            Style="{StaticResource  RoundButtonTemplate}" Width="120" Height="50"   Command="{Binding PrintCommand}"
+                    CommandParameter="{Binding ElementName= k4f7sab3ml2datagrid}"
+                      Cursor="Hand"   Visibility="Visible" InputScope="PhraseList" Click="k4f7sab3ml2Btn_Click"/>
 
 
                 </Grid>

@@ -50,8 +50,8 @@ namespace ElAhram.pages.fwater
                     fwterData.Add(new fwaterListDataGVM { رقم = item.رقم, تاريخ_تشغيل = item.تاريخ_تشغيل, تاريخ_تسليم = item.تاريخ_تسليم, اجمالى_حساب = (item.اجمالى_حساب - item.اجمالى_نقدى), اجمالى_نقدى = item.اجمالى_نقدى, اجمالى_وزن = item.اجمالى_وزن, اجمالى_حساب_جديد = item.اجمالى_حساب });
 
                 }
-                this.fwterListDataG.Items.Clear();
-                this.fwterListDataG.ItemsSource = null;
+               // this.fwterListDataG.Items.Clear();
+              //  this.fwterListDataG.ItemsSource = null;
                 this.fwterListDataG.ItemsSource = fwterData;
                 this.fwterListDataG.Items.Refresh();
             }

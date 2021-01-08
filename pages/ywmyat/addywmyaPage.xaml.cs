@@ -133,17 +133,21 @@ namespace ElAhram.pages.ywmyat
 
                     case "وارد":
                        emp = db.عملاء.Where(x => x.اسم == s7bywmyacombox.Text && x.نوع == 'ع').FirstOrDefault();
+                        
+                        x.نقدى += decimal.Parse(nkdyelywmyaText.Text);
+                        emp.حساب -= decimal.Parse(nkdyelywmyaText.Text);
+
+
                         if (noteywmyaText.Text == "")
                         {
-                            _7sab = emp.حساب.ToString();
-                         db.يوميات.Add(new Models.يوميات { كود = int.Parse(rkmywmyaText.Text), تاريخ = DateTime.Now, مبلغ = decimal.Parse(nkdyelywmyaText.Text), كودحالة = db.حالات_يوميات.Where(y => y.حالة == "وارد").Select(y => y.كودحالة).FirstOrDefault(), ملاحظات = "دفعة"+"\t اجمالى الحساب :- "+ _7sab, كودصاحب = emp.كودعميل, flag = 'ع' });
+                            _7sab = (emp.حساب - decimal.Parse(nkdyelywmyaText.Text)).ToString();
+                            db.يوميات.Add(new Models.يوميات { كود = int.Parse(rkmywmyaText.Text), تاريخ = DateTime.Now, مبلغ = decimal.Parse(nkdyelywmyaText.Text), كودحالة = db.حالات_يوميات.Where(y => y.حالة == "وارد").Select(y => y.كودحالة).FirstOrDefault(), ملاحظات = "دفعة", كودصاحب = emp.كودعميل, flag = 'ع', حساب = emp.حساب,خزنة = x.نقدى});
                         }
                         else
                         {
-                            db.يوميات.Add(new Models.يوميات { كود = int.Parse(rkmywmyaText.Text), تاريخ = DateTime.Now, مبلغ = decimal.Parse(nkdyelywmyaText.Text), كودحالة = db.حالات_يوميات.Where(y => y.حالة == "وارد").Select(y => y.كودحالة).FirstOrDefault(), ملاحظات = noteywmyaText.Text+ " / دفعة\tاجمالى الحساب :- " + _7sab, كودصاحب = db.عملاء.Where(x => x.اسم == s7bywmyacombox.Text && x.نوع == 'ع').Select(x => x.كودعميل).FirstOrDefault(), flag = 'ع' });
-                         }
-                        x.نقدى += decimal.Parse(nkdyelywmyaText.Text);
-                        emp.حساب -= decimal.Parse(nkdyelywmyaText.Text);
+                            db.يوميات.Add(new Models.يوميات { كود = int.Parse(rkmywmyaText.Text), تاريخ = DateTime.Now, مبلغ = decimal.Parse(nkdyelywmyaText.Text), كودحالة = db.حالات_يوميات.Where(y => y.حالة == "وارد").Select(y => y.كودحالة).FirstOrDefault(), ملاحظات = noteywmyaText.Text , كودصاحب = db.عملاء.Where(x => x.اسم == s7bywmyacombox.Text && x.نوع == 'ع').Select(x => x.كودعميل).FirstOrDefault(), flag = 'ع', حساب = emp.حساب, خزنة = x.نقدى });
+                        }
+
                         db.SaveChanges();
                         Xceed.Wpf.Toolkit.MessageBox.Show("تمت  عملية اضافة الوارد  بنجاح", "اضافة وارد", MessageBoxButton.OK, MessageBoxImage.Information);
                         break;
@@ -151,17 +155,21 @@ namespace ElAhram.pages.ywmyat
                         emp = db.عملاء.Where(x => x.اسم == s7bywmyacombox.Text && x.نوع == 'م').FirstOrDefault();
                         if (x.نقدى > decimal.Parse(nkdyelywmyaText.Text))
                         {
-                            _7sab = emp.حساب.ToString();
+                            _7sab = (emp.حساب - decimal.Parse(nkdyelywmyaText.Text)).ToString();
+                           
+                            x.نقدى -= decimal.Parse(nkdyelywmyaText.Text);
+                            emp.حساب -= decimal.Parse(nkdyelywmyaText.Text);
+
                             if (noteywmyaText.Text == "")
                             {
-                                db.يوميات.Add(new Models.يوميات { كود = int.Parse(rkmywmyaText.Text), تاريخ = DateTime.Now, مبلغ = decimal.Parse(nkdyelywmyaText.Text), كودحالة = db.حالات_يوميات.Where(y => y.حالة == "مصاريف").Select(y => y.كودحالة).FirstOrDefault(), ملاحظات = "   / دفعة\t اجمالى الحساب :- " + _7sab, كودصاحب = emp.كودعميل, flag = 'م' });
+                                db.يوميات.Add(new Models.يوميات { كود = int.Parse(rkmywmyaText.Text), تاريخ = DateTime.Now, مبلغ = decimal.Parse(nkdyelywmyaText.Text), كودحالة = db.حالات_يوميات.Where(y => y.حالة == "مصاريف").Select(y => y.كودحالة).FirstOrDefault(), ملاحظات = "   / دفعة", كودصاحب = emp.كودعميل, flag = 'م',حساب = emp.حساب, خزنة = x.نقدى });
                             }
                             else
                             {
-                                db.يوميات.Add(new Models.يوميات { كود = int.Parse(rkmywmyaText.Text), تاريخ = DateTime.Now, مبلغ = decimal.Parse(nkdyelywmyaText.Text), كودحالة = db.حالات_يوميات.Where(y => y.حالة == "مصاريف").Select(y => y.كودحالة).FirstOrDefault(), ملاحظات = noteywmyaText.Text+ " / دفعة \t اجمالى الحساب  :- " + _7sab, كودصاحب = emp.كودعميل, flag = 'م' });
+                                db.يوميات.Add(new Models.يوميات { كود = int.Parse(rkmywmyaText.Text), تاريخ = DateTime.Now, مبلغ = decimal.Parse(nkdyelywmyaText.Text), كودحالة = db.حالات_يوميات.Where(y => y.حالة == "مصاريف").Select(y => y.كودحالة).FirstOrDefault(), ملاحظات = noteywmyaText.Text , كودصاحب = emp.كودعميل, flag = 'م' , حساب = emp.حساب, خزنة = x.نقدى });
                             }
-                            x.نقدى -= decimal.Parse(nkdyelywmyaText.Text);
-                            emp.حساب -= decimal.Parse(nkdyelywmyaText.Text);
+
+
                             db.SaveChanges();
                             Xceed.Wpf.Toolkit.MessageBox.Show("تمت عملية خصم المصاريف بنجاح", "خصم مصاريف", MessageBoxButton.OK, MessageBoxImage.Information);
                              
@@ -172,17 +180,24 @@ namespace ElAhram.pages.ywmyat
                             if (boxResult == MessageBoxResult.OK)
                             {
 
-                                _7sab = emp.حساب.ToString();
+                                _7sab = (emp.حساب - decimal.Parse(nkdyelywmyaText.Text)).ToString();
+                               
+                                x.نقدى -= decimal.Parse(nkdyelywmyaText.Text);
+                                emp.حساب -= decimal.Parse(nkdyelywmyaText.Text);
+
+
+
                                 if (noteywmyaText.Text == "")
                                 {
-                                    db.يوميات.Add(new Models.يوميات { كود = int.Parse(rkmywmyaText.Text), تاريخ = DateTime.Now, مبلغ = decimal.Parse(nkdyelywmyaText.Text), كودحالة = db.حالات_يوميات.Where(y => y.حالة == "مصاريف").Select(y => y.كودحالة).FirstOrDefault(), ملاحظات = "  / دفعة\t اجمالى الحساب :- " + _7sab, كودصاحب = emp.كودعميل, flag = 'م' });
+                                    db.يوميات.Add(new Models.يوميات { كود = int.Parse(rkmywmyaText.Text), تاريخ = DateTime.Now, مبلغ = decimal.Parse(nkdyelywmyaText.Text), كودحالة = db.حالات_يوميات.Where(y => y.حالة == "مصاريف").Select(y => y.كودحالة).FirstOrDefault(), ملاحظات = "  / دفعة" , كودصاحب = emp.كودعميل, flag = 'م', حساب = emp.حساب, خزنة = x.نقدى });
                                 }
                                 else
                                 {
-                                    db.يوميات.Add(new Models.يوميات { كود = int.Parse(rkmywmyaText.Text), تاريخ = DateTime.Now, مبلغ = decimal.Parse(nkdyelywmyaText.Text), كودحالة = db.حالات_يوميات.Where(y => y.حالة == "مصاريف").Select(y => y.كودحالة).FirstOrDefault(), ملاحظات = noteywmyaText.Text + "  / دفعة\t اجمالى الحساب :- " + _7sab, كودصاحب = emp.كودعميل, flag = 'م' });
+                                    db.يوميات.Add(new Models.يوميات { كود = int.Parse(rkmywmyaText.Text), تاريخ = DateTime.Now, مبلغ = decimal.Parse(nkdyelywmyaText.Text), كودحالة = db.حالات_يوميات.Where(y => y.حالة == "مصاريف").Select(y => y.كودحالة).FirstOrDefault(), ملاحظات = noteywmyaText.Text , كودصاحب = emp.كودعميل, flag = 'م', حساب = emp.حساب, خزنة = x.نقدى });
                                 }
-                                x.نقدى -= decimal.Parse(nkdyelywmyaText.Text);
-                                emp.حساب -= decimal.Parse(nkdyelywmyaText.Text);
+
+
+
                                 db.SaveChanges();
                                 Xceed.Wpf.Toolkit.MessageBox.Show("تمت عملية خصم المصاريف بنجاح", "خصم مصاريف", MessageBoxButton.OK, MessageBoxImage.Information);
 
@@ -192,17 +207,20 @@ namespace ElAhram.pages.ywmyat
                     case "سلف":
                         if (x.نقدى > decimal.Parse(nkdyelywmyaText.Text))
                         {
-                            db.يوميات.Add(new Models.يوميات { كود = int.Parse(rkmywmyaText.Text), تاريخ = DateTime.Now, مبلغ = decimal.Parse(nkdyelywmyaText.Text), كودحالة = db.حالات_يوميات.Where(y => y.حالة == "سلف").Select(y => y.كودحالة).FirstOrDefault(), ملاحظات = noteywmyaText.Text, كودصاحب = db.موظف.Where(x => x.اسم == s7bywmyacombox.Text).Select(x => x.كودموظف).FirstOrDefault(), flag = 'ظ' });
+                            decimal solf = 0;
                             x.نقدى -= decimal.Parse(nkdyelywmyaText.Text);
                             if (db.حسابات_الموظف.Where(y => y.كودموظف == db.موظف.Where(x => x.اسم == s7bywmyacombox.Text).Select(x => x.كودموظف).FirstOrDefault() && y.تاريخ >= DateTime.Now.Date && y.تاريخ <= DateTime.Now.AddDays(1).Date).Any())
                             {
                                 var empx = db.حسابات_الموظف.Where(y => y.كودموظف == db.موظف.Where(x => x.اسم == s7bywmyacombox.Text).Select(x => x.كودموظف).FirstOrDefault() && y.تاريخ >= DateTime.Now.Date && y.تاريخ <= DateTime.Now.AddDays(1).Date).FirstOrDefault();
                                 empx.سلف += decimal.Parse(nkdyelywmyaText.Text);
+                                solf = empx.سلف;
                             }
                             else
                             {
                                 db.حسابات_الموظف.Add(new Models.حسابات_موظف { كودموظف = db.موظف.Where(y => y.اسم == s7bywmyacombox.Text).Select(y => y.كودموظف).FirstOrDefault(), تاريخ = DateTime.Now.Date, دقيقةانصراف = 0, ساعةانصراف = 0, دقيقةحضور = 0, ساعةحضور = 0, سلف = decimal.Parse(nkdyelywmyaText.Text), غياب = false, ملاحظات = "" });
                             }
+
+                            db.يوميات.Add(new Models.يوميات { كود = int.Parse(rkmywmyaText.Text), تاريخ = DateTime.Now, مبلغ = decimal.Parse(nkdyelywmyaText.Text), كودحالة = db.حالات_يوميات.Where(y => y.حالة == "سلف").Select(y => y.كودحالة).FirstOrDefault(), ملاحظات = noteywmyaText.Text, كودصاحب = db.موظف.Where(x => x.اسم == s7bywmyacombox.Text).Select(x => x.كودموظف).FirstOrDefault(), flag = 'ظ', خزنة = x.نقدى , حساب = solf});
                             db.SaveChanges();
                             Xceed.Wpf.Toolkit.MessageBox.Show("تمت  عملية صرف السلفة  بنجاح", "صرف سلف", MessageBoxButton.OK, MessageBoxImage.Information);
                         }
@@ -215,8 +233,9 @@ namespace ElAhram.pages.ywmyat
                     case "مرتبات":
                         if (x.نقدى > decimal.Parse(nkdyelywmyaText.Text))
                         {
-                            db.يوميات.Add(new Models.يوميات { كود = int.Parse(rkmywmyaText.Text), تاريخ = DateTime.Now, مبلغ = decimal.Parse(nkdyelywmyaText.Text), كودحالة = db.حالات_يوميات.Where(y => y.حالة == "مرتبات").Select(y => y.كودحالة).FirstOrDefault(), ملاحظات = noteywmyaText.Text, كودصاحب = db.موظف.Where(x => x.اسم == s7bywmyacombox.Text).Select(x => x.كودموظف).FirstOrDefault(), flag = 'ظ' });
+                            
                             x.نقدى -= decimal.Parse(nkdyelywmyaText.Text);
+                            db.يوميات.Add(new Models.يوميات { كود = int.Parse(rkmywmyaText.Text), تاريخ = DateTime.Now, مبلغ = decimal.Parse(nkdyelywmyaText.Text), كودحالة = db.حالات_يوميات.Where(y => y.حالة == "مرتبات").Select(y => y.كودحالة).FirstOrDefault(), ملاحظات = noteywmyaText.Text, كودصاحب = db.موظف.Where(x => x.اسم == s7bywmyacombox.Text).Select(x => x.كودموظف).FirstOrDefault(), flag = 'ظ',خزنة= x.نقدى ,حساب = db.حسابات_الموظف.Where(x => x.كودموظف== db.حالات_يوميات.Where(y => y.حالة == "مرتبات").Select(y => y.كودحالة).FirstOrDefault()).Sum(x=>x.سلف)});
                             db.SaveChanges();
                             Xceed.Wpf.Toolkit.MessageBox.Show("تمت  عملية صرف المرتب  بنجاح", "صرف مرتبات", MessageBoxButton.OK, MessageBoxImage.Information);
                         }
@@ -227,11 +246,13 @@ namespace ElAhram.pages.ywmyat
                         }
                         break;
                     case "تحويلات":
-                        db.يوميات.Add(new Models.يوميات{ كود = int.Parse(rkmywmyaText.Text) , تاريخ =  DateTime.Now , مبلغ = decimal.Parse(nkdyelywmyaText .Text),كودحالة = db.حالات_يوميات .Where(y=>y.حالة == "تحويلات").Select(y=>y.كودحالة).FirstOrDefault(),ملاحظات = noteywmyaText .Text,كودصاحب = db.عملاء.Where(x=>x.اسم == s7bywmyacombox.Text && x.نوع =='ع').Select(x=>x.كودعميل).FirstOrDefault(),flag='ع' });                      
+                                             
                         x.حساب += decimal.Parse(nkdyelywmyaText.Text);
-
+                       
                         var aml2 = db.عملاء.Where(x => x.اسم == s7bywmyacombox.Text && x.نوع == 'ع').FirstOrDefault();
                         aml2.حساب -= decimal.Parse(nkdyelywmyaText.Text);
+
+                        db.يوميات.Add(new Models.يوميات { كود = int.Parse(rkmywmyaText.Text), تاريخ = DateTime.Now, مبلغ = decimal.Parse(nkdyelywmyaText.Text), كودحالة = db.حالات_يوميات.Where(y => y.حالة == "تحويلات").Select(y => y.كودحالة).FirstOrDefault(), ملاحظات = noteywmyaText.Text, كودصاحب = db.عملاء.Where(x => x.اسم == s7bywmyacombox.Text && x.نوع == 'ع').Select(x => x.كودعميل).FirstOrDefault(), flag = 'ع' , خزنة= x.نقدى , حساب = aml2.حساب});
                         db.SaveChanges();
                         Xceed.Wpf.Toolkit.MessageBox.Show("تمت  عملية التحويل  بنجاح", "تحويل بنكى", MessageBoxButton.OK, MessageBoxImage.Information);
                         break;

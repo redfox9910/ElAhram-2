@@ -27,7 +27,7 @@ namespace ElAhram
         
         private readonly ISampleService sampleService;
         private readonly AppSettings settings;
-        private readonly DataContext dataContext;
+        private readonly DataContext dataContext = new Models.DataContext();
 
         public MainWindow(ISampleService sampleService,
             IOptions<AppSettings> settings,DataContext dataContext)
@@ -37,22 +37,45 @@ namespace ElAhram
             this.settings = settings.Value;
             this.dataContext = dataContext;
             InitializeComponent();
-           
+
+          
+
         }
         public MainWindow()
         {
-        
+          
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (userbox.Text == "fox" && passbox.Password == "99")
+
+            using (var db = new Models.DataContext())
             {
-                Home h = new Home();
-                h.Show();
-                this.Hide();
+
+                try
+            {
+
+                    var user = db.user.FirstOrDefault();
+                    if (userbox.Text == user.name && passbox.Password == user.password)
+                    {
+                        Home h = new Home();
+                        h.Show();
+                        this.Hide();
+                    }
+                    else
+                    {
+                        Xceed.Wpf.Toolkit.MessageBox.Show("اسم المستخدم او كلمة المرور خطاء", "تسجيل الدخول", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+               
             }
-            
+            catch (Exception)
+            {
+
+               db.user.Add(new User { name = "fox", password = "99" });
+                    db.SaveChanges();
+            }
+            }
+
         }
     }
 }

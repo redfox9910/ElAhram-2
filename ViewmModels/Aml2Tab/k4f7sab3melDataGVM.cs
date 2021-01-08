@@ -12,7 +12,10 @@ namespace ElAhram.ViewmModels.Aml2Tab
 
         //public string ألحالة { get; set; }
         public DateTime تاريخ { get; set; }
-        public decimal مبلغ { get; set; }
+        public decimal مدين { get; set; }
+        public decimal دائن { get; set; }
+
+        public decimal الحساب { get; set; }
 
         public string ملاحظات { get; set; }
        

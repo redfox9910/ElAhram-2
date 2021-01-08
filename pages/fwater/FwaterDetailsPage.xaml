@@ -15,21 +15,21 @@
         <Label Content=": التاريخ التشغيل" HorizontalAlignment="Right" Margin="0,17,16,0" VerticalAlignment="Top" Grid.Column="1"/>
         <Label x:Name="amrt48elDate"  HorizontalAlignment="Right" Margin="0,17,104,0" VerticalAlignment="Top"  Width="120" MinWidth="120" MaxWidth="120" Height="26" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FlowDirection="RightToLeft" Grid.ColumnSpan="2"/>
         <Label Content=": كود" HorizontalAlignment="Right" Margin="0,17,59,0" VerticalAlignment="Top"/>
-        <Label x:Name="fatorakodlabel" HorizontalAlignment="Left" Margin="351,25,0,0" Content=""  VerticalAlignment="Top" Width="86" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Height="18" Padding="0,0,0,0" FlowDirection="RightToLeft"/>
+        <Label x:Name="fatorakodlabel" HorizontalAlignment="Left" Margin="382,25,0,0" Content=""  VerticalAlignment="Top" Width="86" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Height="18" Padding="0,0,0,0" FlowDirection="RightToLeft"/>
         <Label Content=": عميل " HorizontalAlignment="Left" Margin="475,68,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center"/>
-        <Label x:Name="fatora2sm3melLabel" Content="" HorizontalAlignment="Left" Margin="290,67,0,0" VerticalAlignment="Top" Width="148" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="26" FlowDirection="RightToLeft"/>
-        <DataGrid x:Name="fatoraDetailsDG" Margin="151,122,0,0"  HorizontalContentAlignment="Right" IsReadOnly="True" Grid.ColumnSpan="2"/>
+        <Label x:Name="fatora2sm3melLabel" Content="" HorizontalAlignment="Left" Margin="320,67,0,0" VerticalAlignment="Top" Width="148" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="26" FlowDirection="RightToLeft"/>
+        <DataGrid x:Name="fatoraDetailsDG" Margin="151,122,0,0"  HorizontalContentAlignment="Right" IsReadOnly="True" Grid.ColumnSpan="2" Visibility="Visible"/>
         <Label x:Name="TslemFatoraDate"  HorizontalAlignment="Right" Margin="0,67,104,0" VerticalAlignment="Top"  Width="120" MinWidth="120" MaxWidth="120" Height="26" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FlowDirection="RightToLeft" Grid.ColumnSpan="2"/>
         <Label Content=": التاريخ التسليم" HorizontalAlignment="Right" Margin="0,68,19,0" VerticalAlignment="Top" Grid.Column="1"/>
 
-        <Label Content=": الوزن الكلى" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="71,122,0,0"/>
-        <Label x:Name="TotalWzn" Content="" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="57,122,0,0" FlowDirection="RightToLeft" VerticalContentAlignment="Center"/>
-        <Label Content=": إجمالى الفاتورة" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="54,161,0,0"/>
-        <Label x:Name="totalFatoraLabel" Content="" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="11,165,0,0" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FlowDirection="RightToLeft" Padding="1,1,1,1"/>
-        <Label Content=": اجمالى الحساب السابق" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="15,0,0,0"/>
-        <Label x:Name="Total7sab" Content="" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="Auto" Margin="67,252,0,0"/>
-        <Label Content=": اجمالى الحساب الجديد" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="15,288,0,0"/>
-        <Label x:Name="TotalNew7sab" Content="" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="72,329,0,0"/>
+        <Label Content=": الوزن الكلى" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="71,170,0,0"/>
+        <Label x:Name="TotalWzn" Content="" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="57,170,0,0" FlowDirection="RightToLeft" VerticalContentAlignment="Center"/>
+        <Label Content=": إجمالى الفاتورة" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="54,208,0,0"/>
+        <Label x:Name="totalFatoraLabel" Content="" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="53,212,0,0" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FlowDirection="RightToLeft" Padding="1,1,1,1"/>
+        <Label Content=": اجمالى الحساب السابق" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,252,0,0"/>
+        <Label x:Name="Total7sab" Content="" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="Auto" Margin="67,300,0,0"/>
+        <Label Content=": اجمالى الحساب الجديد" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="15,336,0,0"/>
+        <Label x:Name="TotalNew7sab" Content="" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="72,377,0,0"/>
         <Button
                     Command="{Binding PrintCommand}"
                     CommandParameter="{Binding ElementName=fatoraDetailsDG}"
@@ -39,6 +39,19 @@
                 <ImageBrush Stretch="Uniform" ImageSource="/pic/printer.png"/>
             </Button.Background>
         </Button>
+        <Button Content="اذن تسليم مخازن" HorizontalAlignment="Left" Margin="33,117,0,0" VerticalAlignment="Top" Click="Button_Click"
+                 Command="{Binding PrintCommand}"
+                    CommandParameter="{Binding ElementName=azntslemm5znDatag}"
+                      Cursor="Hand"   Visibility="Visible" InputScope="PhraseList" />
+
+
+
+
+
+
+
+        <DataGrid x:Name="azntslemm5znDatag" Margin="186,143,35,31" Grid.ColumnSpan="2" ItemsSource="{Binding amrt48elDataGVM}"
+                        HorizontalContentAlignment="Center" VerticalContentAlignment="Center" CanUserResizeColumns="False" CanUserResizeRows="False" FlowDirection="LeftToRight" CanUserAddRows="False" Visibility="Hidden"/>
 
     </Grid>
 </Window>

@@ -31,7 +31,7 @@
         <Label x:Name="nkdyFatoraLabel" Content="" HorizontalAlignment="Left" Margin="20,177,0,0" VerticalAlignment="Top" Width="84" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
         <Label Content=": اجمالى وزن" HorizontalAlignment="Left" Margin="110,214,0,0" VerticalAlignment="Top" Width="86" HorizontalContentAlignment="Right" FontWeight="Bold"/>
         <Label x:Name="TotalWznLabel" Content="" HorizontalAlignment="Left" Margin="20,214,0,0" VerticalAlignment="Top" Width="84" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-        <Button Content="طباعة" HorizontalAlignment="Left" Margin="167,57,0,0" VerticalAlignment="Top" Background="#FF706B6B" Foreground="#FFF58322" FontWeight="Bold" Style="{StaticResource  RoundButtonTemplate}" Width="140" Height="40"/>
+        <Button Content="طباعة" HorizontalAlignment="Left" Margin="155,0,0,0" VerticalAlignment="Top" Background="#FF706B6B" Foreground="#FFF58322" FontWeight="Bold" Style="{StaticResource  RoundButtonTemplate}" Width="140" Height="40"/>
 
     </Grid>
 </Window>

@@ -32,12 +32,13 @@ namespace CustomDocumentPaginator
 
         private int _pageCount;
         private fwterDataGVM fwterData { get; set; } = new fwterDataGVM();
+        private string printType{ get; set; }
 
         #endregion
 
         #region Constructor
 
-        public CustomDataGridDocumentPaginator(DataGrid documentSource, string documentTitle, Size pageSize, Thickness pageMargin,fwterDataGVM fwterD)
+        public CustomDataGridDocumentPaginator(DataGrid documentSource, string documentTitle, Size pageSize, Thickness pageMargin,fwterDataGVM fwterD , string type)
         {
             _tableColumnDefinitions = new Collection<ColumnDefinition>();
             _documentSource = documentSource;
@@ -49,6 +50,7 @@ namespace CustomDocumentPaginator
             this.PageSize = pageSize;
             this.PageMargin = pageMargin;
             this.fwterData = fwterD;
+            printType = type;
             if (_documentSource != null)
                 MeasureElements();
         }
@@ -309,20 +311,29 @@ namespace CustomDocumentPaginator
             TextBlock titleText = new TextBlock();
             titleText.Style = this.DocumentHeaderTextStyle;
             titleText.TextTrimming = TextTrimming.CharacterEllipsis;
-            if (this.DocumentTitle[4]=='ح')
+            if (printType=="كشف حساب")
             {
                 titleText.Text = fwterData.اجمالى_حساب + "  : اجمالى الحساب الحالى" ;
             }
-            else if (this.DocumentTitle[0] == 'ف')
+            else if (printType   == "فاتورة")
            
             {
                 titleText.Text =  " ك "+ fwterData.اجمالى_وزن + "-: " +"اجمالى وزن الفاتورة"  +"\t\t" +fwterData.اجمالى_نقدى+" -: اجمالى الفاتورة"+"\t\t"+(fwterData.اجمالى_حساب-fwterData.اجمالى_نقدى )+" -: حساب سابق" + "\t\t" +fwterData.اجمالى_حساب+" -: حساب جديد";
             }
-            else
+            else if(printType   == "يوميات")
             {
                 titleText.Text = fwterData.اجمالى_حساب + " : "+" اجمالى الداخل "+ "\t\t"  + " اجمالى الخارج  : " + fwterData.اجمالى_نقدى + "\t\t"  + " صافى الربح  : " + (fwterData.اجمالى_حساب - fwterData.اجمالى_نقدى);
             }
-           
+            else  if(printType == "اذن تسليم")
+            {
+                titleText.Text = " ك " + fwterData.اجمالى_وزن + "-: " + "اجمالى وزن الفاتورة" + "\t\t" ;
+            }
+
+            else if (printType == "كشف حساب عملاء")
+            {
+                titleText.Text = "اجمالى الرصيد : " + fwterData.اجمالى_نقدى;
+            }
+
             titleText.HorizontalAlignment = HorizontalAlignment.Center;
 
             pagedeatials.SetValue(Grid.RowProperty, 2);
@@ -452,12 +463,26 @@ namespace CustomDocumentPaginator
             dataText.TextAlignment = TextAlignment.Center;
             footerGrid.Children.Add(dataText);
 
+            if (this.printType == "اذن تسليم")
+            {
+
+          
+            TextBlock twke3 = new TextBlock();
+            twke3.Style = this.DocumentFooterTextStyle;
+            twke3.Text = "توقيع المستلم";
+            twke3.HorizontalAlignment = HorizontalAlignment.Center;
+            twke3.VerticalAlignment = VerticalAlignment.Top;
+            twke3.TextAlignment = TextAlignment.Center;
+            footerGrid.Children.Add(twke3);
+            }
+
+
             TextBlock pageNumberText = new TextBlock();
             pageNumberText.Style = this.DocumentFooterTextStyle;
             pageNumberText.Text = "Page " + pageNumber.ToString() + " of " + this.PageCount.ToString();
             pageNumberText.SetValue(Grid.ColumnProperty, 1);
             pageNumberText.HorizontalAlignment = HorizontalAlignment.Left;
-
+            pageNumberText.VerticalAlignment = VerticalAlignment.Bottom;
             footerGrid.Children.Add(pageNumberText);
            // footerGrid.VerticalAlignment = VerticalAlignment.Bottom;
             return footerGrid;

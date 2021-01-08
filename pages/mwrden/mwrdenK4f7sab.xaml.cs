@@ -37,7 +37,7 @@ namespace ElAhram.pages.mwrden
                 List<k4f7sab3melDataGVM> k4f7sabData = new List<k4f7sab3melDataGVM>();
                 foreach (var item in elements)
                 {
-                    k4f7sabData.Add(new k4f7sab3melDataGVM { رقم = count, كوداليومية = item.كود, تاريخ = item.تاريخ, مبلغ = item.مبلغ, ملاحظات = item.ملاحظات });
+                    k4f7sabData.Add(new k4f7sab3melDataGVM { رقم = count, كوداليومية = item.كود, تاريخ = item.تاريخ, مدين= item.مبلغ, دائن = item.فاتورة, الحساب = item.حساب, ملاحظات = item.ملاحظات });
                     count++;
                 }
                 k4f7sabDataG.ItemsSource = k4f7sabData;
@@ -45,7 +45,7 @@ namespace ElAhram.pages.mwrden
                 _2sm3melLabel.Content = db.عملاء.Where(z => z.كودعميل == data.k4f7sabId && z.نوع == 'م').Select(z => z.اسم).FirstOrDefault();
                 fwterData = new fwterDataGVM { اسم_عميل = _2sm3melLabel.Content.ToString(), اجمالى_حساب = db.عملاء.Where(z => z.كودعميل == data.k4f7sabId && z.نوع == 'م').Select(z => z.حساب).FirstOrDefault() };
             }
-            this.DataContext = new CustomDocumentPaginator.MainWindowViewModel("كشف حساب موردين", fwterData);
+            this.DataContext = new CustomDocumentPaginator.MainWindowViewModel("كشف حساب مورد", fwterData, "كشف حساب");
         }
 
         private void datefromDateP_SelectedDateChanged(object sender, SelectionChangedEventArgs e)

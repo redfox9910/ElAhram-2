@@ -34,7 +34,7 @@ namespace ElAhram.pages.Emp
                 List<k4f7sab3melDataGVM> k4f7sabData = new List<k4f7sab3melDataGVM>();
                 foreach (var item in elements)
                 {
-                    k4f7sabData.Add( new k4f7sab3melDataGVM {رقم = count , كوداليومية = item.كود, تاريخ = item.تاريخ,  مبلغ = item.مبلغ, ملاحظات = item.ملاحظات });
+                    k4f7sabData.Add( new k4f7sab3melDataGVM {رقم = count , كوداليومية = item.كود, تاريخ = item.تاريخ,  مدين= item.مبلغ, ملاحظات = item.ملاحظات });
                     count++;
                 }
                 k4f7sabDataG.ItemsSource = k4f7sabData;

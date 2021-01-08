@@ -23,7 +23,7 @@
 
 
         </StackPanel>
-        <ComboBox Name="M5zndeleteCombobox" HorizontalAlignment="Left" Margin="97,76,0,0" VerticalAlignment="Top" Width="120" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" />
+        <ComboBox Name="M5zndeleteCombobox" HorizontalAlignment="Left" Margin="97,76,0,0" VerticalAlignment="Top" Width="120" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" PreviewTextInput="M5zndeleteCombobox_PreviewTextInput" />
 
 
     </Grid>

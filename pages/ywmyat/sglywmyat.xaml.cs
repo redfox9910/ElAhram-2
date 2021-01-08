@@ -63,7 +63,7 @@ namespace ElAhram.pages.ywmyat
                 fwterData = new ViewmModels.fwter.fwterDataGVM {  اجمالى_حساب = income , اجمالى_نقدى = outm };
 
             }
-            this.DataContext = new CustomDocumentPaginator.MainWindowViewModel("كشف يوميات", fwterData);
+            this.DataContext = new CustomDocumentPaginator.MainWindowViewModel("كشف يوميات", fwterData, "يوميات");
         }
 
        /* private void dateOfYwmya_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
@@ -150,7 +150,7 @@ namespace ElAhram.pages.ywmyat
             // _2sm3melLabel.Content = db.عملاء.Where(z => z.كودعميل == data.k4f7sabId && z.نوع == 'ع').Select(z => z.اسم).FirstOrDefault();
             fwterData = new ViewmModels.fwter.fwterDataGVM { اجمالى_حساب = income, اجمالى_نقدى = outm };
 
-            this.DataContext = new CustomDocumentPaginator.MainWindowViewModel("كشف يوميات", fwterData);
+            this.DataContext = new CustomDocumentPaginator.MainWindowViewModel("كشف يوميات", fwterData, "يوميات");
 
 
         }

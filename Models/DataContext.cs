@@ -67,7 +67,7 @@ namespace ElAhram.Models
            // modelBuilder.Entity<مخازن>().HasKey(c => new { c.كودالمخزن });
             modelBuilder.Entity<اذن_صرف>().HasKey(c => new { c.كود });
             modelBuilder.Entity<التحويلات_الداخلية>().HasKey(c => new { c.id });
-
+            modelBuilder.Entity<User>().HasKey(c=>new { c.name});
             //modelBuilder.Entity<مخازن>()   .HasMany(i => i.منتجات).WithOne(c=>c.مخزن).HasForeignKey(f=>f.كودالمخزن).IsRequired(true).OnDelete(DeleteBehavior.Cascade);
             //modelBuilder.Entity<المنتجات>().HasNoKey();
             //modelBuilder.Entity<امرتشغيل>().HasNoKey();
@@ -112,7 +112,8 @@ namespace ElAhram.Models
         public DbSet<هالك> هالك{ get; set; }
         public DbSet<يوميات> يوميات{ get; set; }
         public DbSet<شيكات> شيكات{ get; set; }
-      
+        public DbSet<User> user{ get; set; }
+
     }
 
 }

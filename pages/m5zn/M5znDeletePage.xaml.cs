@@ -32,16 +32,50 @@ namespace ElAhram.pages.m5zn
             var data = dataContext.منتجات.Select(x => x.الخامة).ToList();
             M5zndeleteCombobox.ItemsSource = data;
             M5zndeleteCombobox.SelectedIndex = 0;
+
+            this.M5zndeleteCombobox.IsEditable = true;
+            this.M5zndeleteCombobox.IsTextSearchEnabled = true;
         }
 
         private void m5znDeleteMntagBtn_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                if (M5zndeleteCombobox.SelectedItem != null)
+                {
+
+              
+                if (M5zndeleteCombobox.SelectedItem.ToString() == M5zndeleteCombobox.Text)
+                {
+
+               
             المنتجات mntg = dataContext.منتجات.Where(x => x.الخامة == M5zndeleteCombobox.SelectedItem.ToString()).FirstOrDefault();
                   dataContext.Entry(mntg).State = EntityState.Deleted;
             dataContext.SaveChanges();
             DialogResult = true;
             this.Close();
-            
+                }
+                else
+                {
+                    Xceed.Wpf.Toolkit.MessageBox.Show("الرجاء اختيار اسم صحيح من القائمة", "حذف منتج", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                }
+                else
+                {
+                    Xceed.Wpf.Toolkit.MessageBox.Show("الرجاء اختيار اسم من القائمة", "حذف منتج", MessageBoxButton.OK, MessageBoxImage.Error);
+
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+
+        }
+
+        private void M5zndeleteCombobox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            M5zndeleteCombobox.IsDropDownOpen = true;
         }
     }
 }

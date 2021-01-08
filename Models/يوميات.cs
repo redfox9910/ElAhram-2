@@ -15,7 +15,11 @@ namespace ElAhram.Models
        
         public string ملاحظات{ get; set; }
         public int كودصاحب { get; set; }
-        public int كودحالة { get; set; }
+        public int كودحالة { get; set; } 
+        public decimal حساب { get; set; }
+        public decimal خزنة { get; set; }
+        public decimal فاتورة { get; set; }
+
         [Key]
         [Column(Order = 1)]
         public DateTime تاريخ { get; set; }

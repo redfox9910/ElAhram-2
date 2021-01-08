@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ElAhram.pages._3ml2"
         mc:Ignorable="d"
-        Title="aml2k4f7sab" Height="350" Width="600" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Loaded="Window_Loaded">
+        Title="aml2k4f7sab" Height="350" Width="850" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Loaded="Window_Loaded">
     <Grid>
 
         <Label Content=" : كشف حساب" HorizontalAlignment="Left" Margin="376,15,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
@@ -23,9 +23,12 @@
                                         Binding="{Binding ملاحظات}" CanUserResize="False" />
 
 
-                <DataGridTextColumn Header=" المبلغ المدفوع "    Width="140" 
-                                        Binding="{Binding  مبلغ}" CanUserResize="False" />
-                
+                <DataGridTextColumn Header=" مدين "    Width="140" 
+                                        Binding="{Binding  مدين}" CanUserResize="False" />
+                <DataGridTextColumn Header=" دائن "    Width="140" 
+                                        Binding="{Binding  دائن}" CanUserResize="False" />
+                <DataGridTextColumn Header=" الحساب الحالى "    Width="140" 
+                                        Binding="{Binding  الحساب}" CanUserResize="False" />
                 <DataGridTextColumn Header=" التاريخ "           Width="100" 
                                         Binding="{Binding تاريخ}" CanUserResize="False" />
                 

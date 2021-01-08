@@ -21,7 +21,7 @@
         <StackPanel  Margin="0,86,7,0">
             <StackPanel Height="30">
                 <Label Content="رقم الشيك" HorizontalAlignment="Right" FontWeight="Bold" FontSize="14"/>
-                <TextBox x:Name="rkm4ekText" Text="" TextWrapping="Wrap" Width="120" VerticalContentAlignment="Top" Margin="0,-20,0,0" BorderBrush="#FFF58322"/>
+                <TextBox x:Name="rkm4ekText" Text="" TextWrapping="Wrap" Width="120" VerticalContentAlignment="Center" Margin="0,-20,0,0" BorderBrush="#FFF58322" HorizontalContentAlignment="Center"/>
             </StackPanel>
             <StackPanel>
                 <Label Content="صاحب الشيك" HorizontalAlignment="Right" FontSize="14" FontWeight="Bold"/>
@@ -30,22 +30,22 @@
             </StackPanel>
             <StackPanel>
                 <Label Content="قيمة الشيك" HorizontalAlignment="Right" FontSize="14" FontWeight="Bold"/>
-                <TextBox x:Name="nkdyel4ekText"  Text="" TextWrapping="Wrap" Width="120" VerticalContentAlignment="Top" Margin="0,-25,0,0" BorderBrush="#FFF58322" PreviewTextInput="nkdyel4ekText_PreviewTextInput"/>
+                <TextBox x:Name="nkdyel4ekText"  Text="" TextWrapping="Wrap" Width="120" VerticalContentAlignment="Center" Margin="0,-25,0,0" BorderBrush="#FFF58322" PreviewTextInput="nkdyel4ekText_PreviewTextInput" HorizontalContentAlignment="Center"/>
 
             </StackPanel>
             <StackPanel>
                 <Label Content="البنك" HorizontalAlignment="Right" FontSize="14" FontWeight="Bold"/>
-                <TextBox x:Name="bankText"  Text="" TextWrapping="Wrap" Width="120" VerticalContentAlignment="Top" Margin="0,-25,0,0" BorderBrush="#FFF58322" />
+                <TextBox x:Name="bankText"  Text="" TextWrapping="Wrap" Width="120" VerticalContentAlignment="Center" Margin="0,-25,0,0" BorderBrush="#FFF58322" HorizontalContentAlignment="Center" />
 
             </StackPanel>
             <StackPanel>
                 <Label Content="تاريخ الصرف" HorizontalAlignment="Right" FontSize="14" FontWeight="Bold"/>
-                <DatePicker x:Name="srfDateText"    Width="120" VerticalContentAlignment="Top" Margin="0,-25,0,0" BorderBrush="#FFF58322"/>
+                <DatePicker x:Name="srfDateText"    Width="120" VerticalContentAlignment="Center" Margin="0,-25,0,0" BorderBrush="#FFF58322" HorizontalContentAlignment="Right"/>
 
             </StackPanel>
             <StackPanel>
                 <Label Content="ملاحظات" HorizontalAlignment="Right" FontSize="14" FontWeight="Bold"/>
-                <TextBox x:Name="note4ekText"    Width="217" VerticalContentAlignment="Top" Margin="0,-25,50,0" BorderBrush="#FFF58322" Height="42"/>
+                <TextBox x:Name="note4ekText"    Width="217" VerticalContentAlignment="Center" Margin="0,-25,50,0" BorderBrush="#FFF58322" Height="42" HorizontalContentAlignment="Right"/>
 
             </StackPanel>
 

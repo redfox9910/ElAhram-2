@@ -7,7 +7,7 @@
         mc:Ignorable="d"
          d:DesignHeight="300" d:DesignWidth="300"
       Title="M5znaddPage" Width="300" MinWidth="300" MaxWidth="300" Height="300" MinHeight="300" MaxHeight="300" Icon="/pic/logo.png" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
-    <Grid >
+    <Grid Margin="0,0,0,-35" >
         <Grid.Background>
 
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -17,14 +17,14 @@
             </LinearGradientBrush>
         </Grid.Background>
         <Label Content="اضافه منتج" HorizontalAlignment="Center" Margin="0,22,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="22" Foreground="#FFF58322"/>
-        <StackPanel MinWidth="200" MaxWidth="200" MinHeight="200" MaxHeight="200" Margin="50,106,36,68">
+        <StackPanel MinWidth="200" MaxWidth="200" MinHeight="200" MaxHeight="200" Margin="57,60,29,46">
             <StackPanel Height="30">
                 <Label Content="الاسم " HorizontalAlignment="Right" FontWeight="Bold" FontSize="14"/>
-                <TextBox x:Name="m5zn2smmntg" Text="" TextWrapping="Wrap" Width="120" VerticalContentAlignment="Top" Margin="0,-20,60,50" BorderBrush="#FFF58322"/>
+                <TextBox x:Name="m5zn2smmntg" Text="" TextWrapping="Wrap" Width="120" VerticalContentAlignment="Center" Margin="0,-20,60,50" BorderBrush="#FFF58322" HorizontalContentAlignment="Center"/>
             </StackPanel>
             <StackPanel Height="30">
                 <Label Content="النوع " HorizontalAlignment="Right" FontSize="14" FontWeight="Bold"/>
-                <ComboBox x:Name="m5znNo3elmntg" Width="120" Margin="0,-24,60,0" BorderBrush="#FFF58322" Background="#FFF58322" SelectionChanged="m5znNo3elmntg_SelectionChanged">
+                <ComboBox x:Name="m5znNo3elmntg" Width="120" Margin="0,-24,60,0" BorderBrush="#FFF58322" Background="#FFF58322" SelectionChanged="m5znNo3elmntg_SelectionChanged" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
                     <ComboBoxItem Content="خامة"/>
                     <ComboBoxItem Content="منتج"/>
                 </ComboBox>
@@ -32,7 +32,7 @@
             </StackPanel>
             <StackPanel Height="30">
                 <Label x:Name="w7daLabel" Content="الوحدة" HorizontalAlignment="Right" FontSize="14" FontWeight="Bold"/>
-                <ComboBox x:Name="m5znw7dCombo" Width="120" Margin="0,-24,60,0" BorderBrush="#FFF58322" Background="#FFF58322">
+                <ComboBox x:Name="m5znw7dCombo" Width="120" Margin="0,-24,60,0" BorderBrush="#FFF58322" Background="#FFF58322" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
 
                     <ComboBoxItem Content="كيلو"/>
                     <ComboBoxItem Content="عبوة"/>
@@ -41,14 +41,15 @@
             </StackPanel>
             <StackPanel Height="30">
                 <Label x:Name="snfLabel" Content="الصنف" HorizontalAlignment="Right" FontSize="14" FontWeight="Bold"/>
-                <ComboBox x:Name="m5znsnfCombo" Width="120" Margin="0,-24,60,0" BorderBrush="#FFF58322" Background="#FFF58322">
+                <ComboBox x:Name="m5znsnfCombo" Width="120" Margin="0,-24,60,0" BorderBrush="#FFF58322" Background="#FFF58322" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
 
                 </ComboBox>
 
             </StackPanel>
-           
-            
-            <Button x:Name="m5znAddMntag" Content="اضافة" Margin="0,25,0,0" Click="m5znAddMntag_Click"/>
+
+
+            <Button x:Name="m5znAddMntag" Content="اضافة" Margin="0,25,0,0" Click="m5znAddMntag_Click" Grid.Column="2" Background="#FF040000" Foreground="#FFEB7D16"
+                             Style="{StaticResource RoundButtonTemplate}" Width="98" Height="34"/>
 
 
         </StackPanel>
