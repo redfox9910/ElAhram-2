@@ -10,11 +10,12 @@
         <Grid.Background>
 
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                <GradientStop Color="White"/>
-                <GradientStop Color="#FFAA9C87" Offset="1"/>
-                <GradientStop Color="#ed9c1f" Offset="0.5"/>
+                <GradientStop Color="#FFFFDD8C"/>
+                <GradientStop Color="#FFC4C4C4" Offset="1"/>
+                <GradientStop Color="#FFAA9C87" Offset="0.5"/>
             </LinearGradientBrush>
         </Grid.Background>
+
         <Label Content=": كود العميل " HorizontalAlignment="Left" Margin="711,46,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <Label x:Name="kod3melLabel" Content="" HorizontalAlignment="Left" Margin="625,46,0,0" VerticalAlignment="Top" Width="86" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
         <Label Content=": اسم العميل " HorizontalAlignment="Left" Margin="522,46,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" FontWeight="Bold"/>
@@ -28,9 +29,9 @@
         <Label Content=": الحساب" HorizontalAlignment="Left" Margin="205,68,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <Label x:Name="TotalmoneyLabel" Content="" HorizontalAlignment="Left" Margin="62,68,0,0" VerticalAlignment="Top" Width="129" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
         <DataGrid x:Name="mwrdenfwterDataGrid" Margin="0,148,0,0" IsReadOnly="True" MouseDoubleClick="mwrdenfwterDataGrid_MouseDoubleClick" />
-        <Button x:Name="sgl7sabMwrdenBtn" Click="sgl7sabMwrdenBtn_Click" Content="اليوميات" HorizontalAlignment="Left" Margin="187,112,0,0" VerticalAlignment="Top" Background="#FF706B6B" Foreground="#FFF58322" FontWeight="Bold" Style="{StaticResource  RoundButtonTemplate}" Width="90" Height="30"/>
-        <Button x:Name="editMwrdenBtn" Content="تعديل" HorizontalAlignment="Left" Margin="143,123,0,0" VerticalAlignment="Top" Click="editMwrdenBtn_Click"/>
-        <Button x:Name="DeleteMwrdenBtn" Content="مسح العميل " HorizontalAlignment="Left" Margin="38,123,0,0" VerticalAlignment="Top" Click="DeleteMwrdenBtn_Click"/>
+        <Button x:Name="sgl7sabMwrdenBtn" Click="sgl7sabMwrdenBtn_Click" Content="اليوميات" HorizontalAlignment="Left" Margin="253,108,0,0" VerticalAlignment="Top"  FontWeight="Bold" Style="{StaticResource  RoundButtonTemplate}" Width="117" Height="40"/>
+        <Button x:Name="editMwrdenBtn" Content="تعديل" HorizontalAlignment="Left" Margin="131,108,0,0" VerticalAlignment="Top" Click="editMwrdenBtn_Click" Style="{StaticResource  RoundButtonTemplate}" Width="117" Height="40" Foreground="#FF66E261"/>
+        <Button x:Name="DeleteMwrdenBtn" Content="مسح العميل " HorizontalAlignment="Left" Margin="22,108,0,0" VerticalAlignment="Top" Click="DeleteMwrdenBtn_Click" Style="{StaticResource  RoundButtonTemplate}" Width="104" Height="40" Foreground="#FFEB4E2B"/>
 
     </Grid>
 </Window>

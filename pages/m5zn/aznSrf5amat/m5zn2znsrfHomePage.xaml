@@ -7,8 +7,17 @@
         mc:Ignorable="d"
         Title="m5zn2znsrfHomePage" Height="450" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
     <Grid>
+        <Grid.Background>
+
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFFFDD8C"/>
+                <GradientStop Color="#FFC4C4C4" Offset="1"/>
+                <GradientStop Color="#FFAA9C87" Offset="0.5"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
         <Label Content="أذونات الصرف" HorizontalAlignment="Center" Margin="0,34,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="22" Foreground="#FFF58322"/>
-        <Button x:Name="Add2znBtn" Content="اضافة" HorizontalAlignment="Left" Margin="638,110,0,0" VerticalAlignment="Top" Click="Add2znBtn_Click"/>
+        <Button x:Name="Add2znBtn" Content="اضافة" HorizontalAlignment="Left" Margin="638,110,0,0" VerticalAlignment="Top" Click="Add2znBtn_Click" Style="{StaticResource  RoundButtonTemplate}" Width="160" Height="40"/>
         <DataGrid x:Name="m5zn2zonDataG" Margin="0,165,0,0">
 
             <DataGrid.Columns>

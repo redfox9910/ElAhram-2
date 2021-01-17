@@ -26,12 +26,19 @@
                 <TextBox x:Name="nkdyElt7welText"  Text="" TextWrapping="Wrap" Width="120" VerticalContentAlignment="Top" Margin="0,-25,10,0" BorderBrush="#FFF58322" PreviewTextInput="nkdyel4ekText_PreviewTextInput"/>
 
             </StackPanel>
-           
 
-            <Button x:Name="t7welAddBtn" Content=" تحويل " Margin="0,25,0,0"  Width="200" Click="t7welAddBtn_Click" />
+
+            <Button x:Name="t7welAddBtn" Content=" تحويل " Margin="0,25,0,0"   Click="t7welAddBtn_Click" Style="{StaticResource  RoundButtonTemplate}" Width="160" Height="40"/>
 
 
         </StackPanel>
+        <Grid.Background>
 
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFFFDD8C"/>
+                <GradientStop Color="#FFC4C4C4" Offset="1"/>
+                <GradientStop Color="#FFAA9C87" Offset="0.5"/>
+            </LinearGradientBrush>
+        </Grid.Background>
     </Grid>
 </Window>

@@ -6,7 +6,16 @@
         xmlns:local="clr-namespace:ElAhram.pages.m5zn.aznSrf5amat"
         mc:Ignorable="d"
         Title="m5zn2znsrfAddPage" Width="300" MinWidth="300" MaxWidth="300" Height="464" MinHeight="380" MaxHeight="380" Loaded="Window_Loaded" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
-    <Grid Background="White" Margin="0,0,0,-83">
+    <Grid>
+        <Grid.Background>
+
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFFFDD8C"/>
+                <GradientStop Color="#FFC4C4C4" Offset="1"/>
+                <GradientStop Color="#FFAA9C87" Offset="0.5"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
         <Label Content="اضافه اذن صرف" HorizontalAlignment="Center" Margin="0,22,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="22" Foreground="#FFF58322"/>
         <StackPanel MinWidth="200" MaxWidth="200" MinHeight="200" MaxHeight="200" Margin="50,78,36,68">
 
@@ -34,7 +43,7 @@
 
             </StackPanel>
 
-            <Button x:Name="Add2znSrfBtn" Content="اضافة" Margin="0,25,0,0" Click="Add2znSrfBtn_Click"/>
+            <Button x:Name="Add2znSrfBtn" Content="اضافة" Margin="0,25,0,0" Click="Add2znSrfBtn_Click" Style="{StaticResource  RoundButtonTemplate}" Width="160" Height="40"/>
 
 
         </StackPanel>

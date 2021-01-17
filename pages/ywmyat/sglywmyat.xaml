@@ -7,6 +7,15 @@
         mc:Ignorable="d"
         Title="sglywmyat" Height="450" Width="850" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
     <Grid>
+        <Grid.Background>
+
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFFFDD8C"/>
+                <GradientStop Color="#FFC4C4C4" Offset="1"/>
+                <GradientStop Color="#FFAA9C87" Offset="0.5"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
         <ComboBox x:Name="ywmyacombo"  Text=""  Width="120"   BorderBrush="#FFF58322" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"  Margin="701,61,29,340">
             <ComboBoxItem Name="cbi1">وارد</ComboBoxItem>
             <ComboBoxItem Name="cbi2">مصاريف</ComboBoxItem>

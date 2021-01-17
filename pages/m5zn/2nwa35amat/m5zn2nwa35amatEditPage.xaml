@@ -6,7 +6,15 @@
         xmlns:local="clr-namespace:ElAhram.pages.m5zn._2nwa35amat"
         mc:Ignorable="d"
         Title="m5zn2nwa35amatEditPage" Height="250" Width="300" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
-    <Grid Background="White">
+    <Grid>
+        <Grid.Background>
+
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFFFDD8C"/>
+                <GradientStop Color="#FFC4C4C4" Offset="1"/>
+                <GradientStop Color="#FFAA9C87" Offset="0.5"/>
+            </LinearGradientBrush>
+        </Grid.Background>
         <Label Content="تعديل نوع خامة" HorizontalAlignment="Center" Margin="0,22,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="22" Foreground="#FFF58322"/>
 
         <StackPanel MinWidth="200" MaxWidth="200" MinHeight="125" MaxHeight="125" Margin="50,90,36,30">
@@ -15,7 +23,7 @@
                 <Label Content="الاسم " HorizontalAlignment="Right" FontWeight="Bold" FontSize="14"/>
                 <TextBox x:Name="m5zn2smmno3" Text="" TextWrapping="Wrap" Width="120" VerticalContentAlignment="Top" Margin="0,-20,60,0" BorderBrush="#FFF58322"/>
             </StackPanel>
-            <Button x:Name="m5znAddno3Btn" Content="تعديل" Click="m5znAddno3Btn_Click" />
+            <Button x:Name="m5znAddno3Btn" Content="تعديل" Click="m5znAddno3Btn_Click" Style="{StaticResource  RoundButtonTemplate}" Width="160" Height="40"/>
 
 
         </StackPanel>
